@@ -1,0 +1,751 @@
+/usr/local/lib/python3.10/dist-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+
+======================================================================
+RUN DIRECTORY OLUŞTURULDU
+======================================================================
+Run ID: 251229-2323
+Directory: outputs/runs/251229-2323
+======================================================================
+
+✓ Dizinler oluşturuldu: outputs/
+
+======================================================================
+SLEEP STAGE CLASSIFICATION - CONFIGURATION
+======================================================================
+
+📊 DATA:
+  Channels: ['C3', 'E1', 'CHIN1']
+  Sample rate: 256 Hz
+  Samples per epoch: 7680
+  Classes: ['W', 'N1', 'N2', 'N3', 'REM']
+
+🔀 SPLIT:
+  Train: 14 patients
+  Val: 3 patients
+  Test: 3 patients
+
+🏗️  MODEL:
+  Type: cnn1d
+  Architecture: 1D-CNN
+
+⚙️  TRAINING:
+  Batch size: 32
+  Learning rate: 0.001
+  Epochs: 50
+  Optimizer: Adam
+  Early stopping: True
+
+🔧 PREPROCESSING:
+  Normalization: z-score
+  Filtering: False
+  Augmentation: False
+
+💻 DEVICE:
+  CUDA available: True
+  Device: cuda
+
+📁 OUTPUT:
+  Directory: outputs
+
+======================================================================
+
+MongoDB'den hasta listesi alınıyor...
+✓ Toplam 20 hasta bulundu
+
+Stage verileri cache'e yükleniyor...
+
+======================================================================
+TÜM STAGE VERİLERİ CACHE'E YÜKLENİYOR
+======================================================================
+Toplam 20 hasta bulundu
+----------------------------------------------------------------------
+[1/20] 22cd54f1-5d96-4b12-a392-d5ddada9d8d3: 866 epoch, 0.09 MB ✓
+[2/20] 28ba35f0-a068-4eeb-a51a-f4c45b4c0843: 728 epoch, 0.08 MB ✓
+[3/20] 2d42885b-ba49-4c21-9e8f-4963349f252c: 740 epoch, 0.08 MB ✓
+[4/20] 3da2681a-5991-449c-80a4-52cf3257db02: 731 epoch, 0.08 MB ✓
+[5/20] 3f2d1717-e701-40bc-8c48-22318f36de16: 833 epoch, 0.09 MB ✓
+[6/20] 441425cd-4ee5-45b6-a33a-fd7de892d61f: 764 epoch, 0.08 MB ✓
+[7/20] 4f680835-27cb-422f-b254-1d2994ff548a: 707 epoch, 0.07 MB ✓
+[8/20] 6b914a0f-e9f9-4b3c-8e24-b292a05a053c: 851 epoch, 0.09 MB ✓
+[9/20] 98839ae3-bc28-42f6-9258-c81854ac4b4a: 657 epoch, 0.07 MB ✓
+[10/20] 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7: 803 epoch, 0.08 MB ✓
+[11/20] a82f0ab0-d849-42b7-b3d9-6051343f5ce0: 436 epoch, 0.05 MB ✓
+[12/20] b551f3fe-85d3-40be-a5fa-a22ce04b4dea: 789 epoch, 0.08 MB ✓
+[13/20] dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a: 618 epoch, 0.06 MB ✓
+[14/20] e1ae919e-d2fc-41ad-af23-50c7d97b196b: 930 epoch, 0.10 MB ✓
+[15/20] e4650f45-63c1-4af1-99f0-fa4a99db0601: 735 epoch, 0.08 MB ✓
+[16/20] e5e364df-e09e-4230-abc3-e92dd338e426: 812 epoch, 0.09 MB ✓
+[17/20] edee3d0a-16d7-4413-9aa0-72f6a09f6d0a: 731 epoch, 0.08 MB ✓
+[18/20] f0cfab4a-fd30-43a5-8633-814b69c6bdca: 707 epoch, 0.07 MB ✓
+[19/20] fb43377e-9f64-4863-9ab0-993c26836f39: 721 epoch, 0.08 MB ✓
+[20/20] ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7: 768 epoch, 0.08 MB ✓
+
+======================================================================
+CACHE YÜKLEME TAMAMLANDI
+======================================================================
+Yüklenen hasta: 20/20
+Toplam epoch: 14,927
+Toplam boyut: 1.57 MB
+Cache boyutu: 20 hasta
+======================================================================
+
+✓ 20 hasta cache'de
+
+
+======================================================================
+PATIENT SPLIT (RANDOM)
+======================================================================
+Toplam hasta: 20
+Train: 14 hasta
+Val:   3 hasta
+Test:  3 hasta
+Seed:  Random (timestamp-based)
+======================================================================
+
+✓ Split kaydedildi: outputs/runs/251229-2323/patient_split.json
+
+
+======================================================================
+DATALOADER'LAR OLUŞTURULUYOR
+======================================================================
+RAM Cache: Aktif ✓
+
+train_dataset başlıyor
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  28ba35f0-a068-4eeb-a51a-f4c45b4c0843: 728 epoch eklendi
+  fb43377e-9f64-4863-9ab0-993c26836f39: 721 epoch eklendi
+  9e3eb090-4f91-4ec7-a1da-fc3d23e563c7: 803 epoch eklendi
+  3f2d1717-e701-40bc-8c48-22318f36de16: 833 epoch eklendi
+  4f680835-27cb-422f-b254-1d2994ff548a: 707 epoch eklendi
+  6b914a0f-e9f9-4b3c-8e24-b292a05a053c: 851 epoch eklendi
+  b551f3fe-85d3-40be-a5fa-a22ce04b4dea: 789 epoch eklendi
+  2d42885b-ba49-4c21-9e8f-4963349f252c: 740 epoch eklendi
+  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a: 731 epoch eklendi
+  441425cd-4ee5-45b6-a33a-fd7de892d61f: 764 epoch eklendi
+  ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7: 768 epoch eklendi
+  e4650f45-63c1-4af1-99f0-fa4a99db0601: 735 epoch eklendi
+  22cd54f1-5d96-4b12-a392-d5ddada9d8d3: 866 epoch eklendi
+  e1ae919e-d2fc-41ad-af23-50c7d97b196b: 930 epoch eklendi
+
+======================================================================
+TOPLAM: 10966 epoch
+
+Sınıf dağılımı:
+  W: 758 epoch (6.9%)
+  N1: 976 epoch (8.9%)
+  N2: 4541 epoch (41.4%)
+  N3: 2365 epoch (21.6%)
+  REM: 2326 epoch (21.2%)
+======================================================================
+
+
+======================================================================
+BALANCED SAMPLING UYGULANLIYOR
+======================================================================
+
+Mevcut dağılım:
+  W: 758 epoch
+  N1: 976 epoch
+  N2: 4541 epoch
+  N3: 2365 epoch
+  REM: 2326 epoch
+
+Minimum sınıf sayısı: 758 epoch
+Her sınıftan 758 epoch seçilecek...
+
+✓ Balanced sampling tamamlandı!
+  Önceki toplam: 10966 epoch
+  Yeni toplam: 3790 epoch
+  Her sınıf: 758 epoch
+
+Sınıf dağılımı:
+  W: 758 epoch (20.0%)
+  N1: 758 epoch (20.0%)
+  N2: 758 epoch (20.0%)
+  N3: 758 epoch (20.0%)
+  REM: 758 epoch (20.0%)
+======================================================================
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - TÜM VERİLER YÜKLENİYOR
+======================================================================
+Toplam epoch: 3790
+Kanal sayısı: 3
+Tahmini boyut: ~0.33 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/11370 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   0%|          | 28/11370 [00:00<00:41, 274.51epoch-kanal/s]Veri yükleniyor:   1%|          | 58/11370 [00:00<00:39, 285.56epoch-kanal/s]Veri yükleniyor:   1%|          | 88/11370 [00:00<00:39, 288.86epoch-kanal/s]Veri yükleniyor:   1%|          | 117/11370 [00:00<00:44, 252.78epoch-kanal/s]Veri yükleniyor:   1%|▏         | 146/11370 [00:00<00:42, 264.49epoch-kanal/s]Veri yükleniyor:   2%|▏         | 175/11370 [00:00<00:41, 271.16epoch-kanal/s]Veri yükleniyor:   2%|▏         | 204/11370 [00:00<00:40, 276.22epoch-kanal/s]Veri yükleniyor:   2%|▏         | 233/11370 [00:00<00:40, 277.70epoch-kanal/s]Veri yükleniyor:   2%|▏         | 262/11370 [00:00<00:39, 280.56epoch-kanal/s]Veri yükleniyor:   3%|▎         | 291/11370 [00:01<00:39, 282.38epoch-kanal/s]Veri yükleniyor:   3%|▎         | 320/11370 [00:01<00:39, 282.56epoch-kanal/s]Veri yükleniyor:   3%|▎         | 349/11370 [00:01<00:38, 283.12epoch-kanal/s]Veri yükleniyor:   3%|▎         | 378/11370 [00:01<00:38, 284.13epoch-kanal/s]Veri yükleniyor:   4%|▎         | 407/11370 [00:01<00:38, 284.13epoch-kanal/s]Veri yükleniyor:   4%|▍         | 436/11370 [00:01<00:38, 282.91epoch-kanal/s]Veri yükleniyor:   4%|▍         | 465/11370 [00:01<00:38, 283.37epoch-kanal/s]Veri yükleniyor:   4%|▍         | 494/11370 [00:01<00:38, 284.45epoch-kanal/s]Veri yükleniyor:   5%|▍         | 524/11370 [00:01<00:37, 287.66epoch-kanal/s]Veri yükleniyor:   5%|▍         | 554/11370 [00:01<00:37, 289.16epoch-kanal/s]Veri yükleniyor:   5%|▌         | 583/11370 [00:02<00:37, 286.77epoch-kanal/s]Veri yükleniyor:   5%|▌         | 613/11370 [00:02<00:37, 290.06epoch-kanal/s]Veri yükleniyor:   6%|▌         | 643/11370 [00:02<00:36, 290.03epoch-kanal/s]Veri yükleniyor:   6%|▌         | 673/11370 [00:02<00:36, 292.37epoch-kanal/s]Veri yükleniyor:   6%|▌         | 703/11370 [00:02<00:36, 292.50epoch-kanal/s]Veri yükleniyor:   6%|▋         | 733/11370 [00:02<00:36, 292.70epoch-kanal/s]Veri yükleniyor:   7%|▋         | 763/11370 [00:02<00:36, 293.86epoch-kanal/s]Veri yükleniyor:   7%|▋         | 793/11370 [00:02<00:36, 292.31epoch-kanal/s]Veri yükleniyor:   7%|▋         | 823/11370 [00:02<00:36, 292.84epoch-kanal/s]Veri yükleniyor:   8%|▊         | 853/11370 [00:02<00:35, 292.86epoch-kanal/s]Veri yükleniyor:   8%|▊         | 883/11370 [00:03<00:35, 292.15epoch-kanal/s]Veri yükleniyor:   8%|▊         | 913/11370 [00:03<00:35, 292.55epoch-kanal/s]Veri yükleniyor:   8%|▊         | 943/11370 [00:03<00:35, 293.63epoch-kanal/s]Veri yükleniyor:   9%|▊         | 973/11370 [00:03<00:35, 291.48epoch-kanal/s]Veri yükleniyor:   9%|▉         | 1003/11370 [00:03<00:36, 286.20epoch-kanal/s]Veri yükleniyor:   9%|▉         | 1033/11370 [00:03<00:35, 287.67epoch-kanal/s]Veri yükleniyor:   9%|▉         | 1063/11370 [00:03<00:35, 288.86epoch-kanal/s]Veri yükleniyor:  10%|▉         | 1092/11370 [00:03<00:35, 288.76epoch-kanal/s]Veri yükleniyor:  10%|▉         | 1121/11370 [00:03<00:36, 283.68epoch-kanal/s]Veri yükleniyor:  10%|█         | 1150/11370 [00:04<00:35, 284.78epoch-kanal/s]Veri yükleniyor:  10%|█         | 1179/11370 [00:04<00:35, 286.15epoch-kanal/s]Veri yükleniyor:  11%|█         | 1208/11370 [00:04<00:35, 286.18epoch-kanal/s]Veri yükleniyor:  11%|█         | 1237/11370 [00:04<00:35, 287.00epoch-kanal/s]Veri yükleniyor:  11%|█         | 1266/11370 [00:04<00:35, 287.15epoch-kanal/s]Veri yükleniyor:  11%|█▏        | 1296/11370 [00:04<00:34, 288.39epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 1325/11370 [00:04<00:34, 287.29epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 1355/11370 [00:04<00:34, 289.34epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 1384/11370 [00:04<00:34, 288.47epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 1413/11370 [00:04<00:34, 287.78epoch-kanal/s]Veri yükleniyor:  13%|█▎        | 1443/11370 [00:05<00:34, 289.04epoch-kanal/s]Veri yükleniyor:  13%|█▎        | 1472/11370 [00:05<00:34, 288.65epoch-kanal/s]Veri yükleniyor:  13%|█▎        | 1502/11370 [00:05<00:33, 290.26epoch-kanal/s]Veri yükleniyor:  13%|█▎        | 1532/11370 [00:05<00:33, 291.55epoch-kanal/s]Veri yükleniyor:  14%|█▎        | 1562/11370 [00:05<00:33, 289.06epoch-kanal/s]Veri yükleniyor:  14%|█▍        | 1591/11370 [00:05<00:33, 288.67epoch-kanal/s]Veri yükleniyor:  14%|█▍        | 1621/11370 [00:05<00:33, 289.93epoch-kanal/s]Veri yükleniyor:  15%|█▍        | 1650/11370 [00:05<00:33, 288.83epoch-kanal/s]Veri yükleniyor:  15%|█▍        | 1679/11370 [00:05<00:33, 287.29epoch-kanal/s]Veri yükleniyor:  15%|█▌        | 1708/11370 [00:05<00:33, 286.09epoch-kanal/s]Veri yükleniyor:  15%|█▌        | 1738/11370 [00:06<00:33, 287.89epoch-kanal/s]Veri yükleniyor:  16%|█▌        | 1768/11370 [00:06<00:33, 290.00epoch-kanal/s]Veri yükleniyor:  16%|█▌        | 1798/11370 [00:06<00:32, 290.19epoch-kanal/s]Veri yükleniyor:  16%|█▌        | 1828/11370 [00:06<00:33, 287.42epoch-kanal/s]Veri yükleniyor:  16%|█▋        | 1857/11370 [00:06<00:33, 286.44epoch-kanal/s]Veri yükleniyor:  17%|█▋        | 1887/11370 [00:06<00:32, 288.79epoch-kanal/s]Veri yükleniyor:  17%|█▋        | 1916/11370 [00:06<00:32, 289.08epoch-kanal/s]Veri yükleniyor:  17%|█▋        | 1946/11370 [00:06<00:32, 289.70epoch-kanal/s]Veri yükleniyor:  17%|█▋        | 1976/11370 [00:06<00:32, 291.06epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 2006/11370 [00:06<00:32, 290.04epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 2036/11370 [00:07<00:32, 289.27epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 2065/11370 [00:07<00:32, 284.81epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 2094/11370 [00:07<00:32, 283.26epoch-kanal/s]Veri yükleniyor:  19%|█▊        | 2123/11370 [00:07<00:34, 268.82epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 2151/11370 [00:07<00:33, 271.88epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 2181/11370 [00:07<00:33, 278.32epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 2209/11370 [00:07<00:32, 278.20epoch-kanal/s]Veri yükleniyor:  20%|█▉        | 2238/11370 [00:07<00:32, 278.85epoch-kanal/s]Veri yükleniyor:  20%|█▉        | 2267/11370 [00:07<00:32, 280.74epoch-kanal/s]Veri yükleniyor:  20%|██        | 2296/11370 [00:08<00:32, 282.65epoch-kanal/s]Veri yükleniyor:  20%|██        | 2325/11370 [00:08<00:31, 284.43epoch-kanal/s]Veri yükleniyor:  21%|██        | 2354/11370 [00:08<00:31, 283.20epoch-kanal/s]Veri yükleniyor:  21%|██        | 2383/11370 [00:08<00:31, 283.58epoch-kanal/s]Veri yükleniyor:  21%|██        | 2412/11370 [00:08<00:31, 284.07epoch-kanal/s]Veri yükleniyor:  21%|██▏       | 2441/11370 [00:08<00:31, 284.46epoch-kanal/s]Veri yükleniyor:  22%|██▏       | 2471/11370 [00:08<00:30, 287.95epoch-kanal/s]Veri yükleniyor:  22%|██▏       | 2500/11370 [00:08<00:31, 280.09epoch-kanal/s]Veri yükleniyor:  22%|██▏       | 2529/11370 [00:08<00:32, 274.65epoch-kanal/s]Veri yükleniyor:  22%|██▏       | 2557/11370 [00:08<00:32, 275.12epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 2586/11370 [00:09<00:31, 277.05epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 2614/11370 [00:09<00:31, 275.67epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 2642/11370 [00:09<00:31, 274.43epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 2670/11370 [00:09<00:32, 270.85epoch-kanal/s]Veri yükleniyor:  24%|██▎       | 2698/11370 [00:09<00:31, 272.85epoch-kanal/s]Veri yükleniyor:  24%|██▍       | 2726/11370 [00:09<00:31, 274.58epoch-kanal/s]Veri yükleniyor:  24%|██▍       | 2754/11370 [00:09<00:31, 275.86epoch-kanal/s]Veri yükleniyor:  24%|██▍       | 2783/11370 [00:09<00:30, 279.45epoch-kanal/s]Veri yükleniyor:  25%|██▍       | 2811/11370 [00:09<00:31, 275.60epoch-kanal/s]Veri yükleniyor:  25%|██▍       | 2839/11370 [00:09<00:31, 272.04epoch-kanal/s]Veri yükleniyor:  25%|██▌       | 2867/11370 [00:10<00:31, 274.05epoch-kanal/s]Veri yükleniyor:  25%|██▌       | 2896/11370 [00:10<00:30, 277.46epoch-kanal/s]Veri yükleniyor:  26%|██▌       | 2925/11370 [00:10<00:30, 279.50epoch-kanal/s]Veri yükleniyor:  26%|██▌       | 2954/11370 [00:10<00:30, 279.46epoch-kanal/s]Veri yükleniyor:  26%|██▌       | 2983/11370 [00:10<00:29, 280.82epoch-kanal/s]Veri yükleniyor:  26%|██▋       | 3013/11370 [00:10<00:29, 284.05epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 3042/11370 [00:10<00:29, 283.97epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 3071/11370 [00:10<00:29, 285.66epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 3100/11370 [00:10<00:28, 285.71epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 3130/11370 [00:11<00:28, 288.03epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 3159/11370 [00:11<00:28, 288.23epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 3188/11370 [00:11<00:28, 285.62epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 3217/11370 [00:11<00:28, 281.48epoch-kanal/s]Veri yükleniyor:  29%|██▊       | 3246/11370 [00:11<00:28, 280.15epoch-kanal/s]Veri yükleniyor:  29%|██▉       | 3275/11370 [00:11<00:31, 260.41epoch-kanal/s]Veri yükleniyor:  29%|██▉       | 3302/11370 [00:11<00:31, 259.51epoch-kanal/s]Veri yükleniyor:  29%|██▉       | 3330/11370 [00:11<00:30, 265.04epoch-kanal/s]Veri yükleniyor:  30%|██▉       | 3359/11370 [00:11<00:29, 269.66epoch-kanal/s]Veri yükleniyor:  30%|██▉       | 3387/11370 [00:11<00:29, 268.55epoch-kanal/s]Veri yükleniyor:  30%|███       | 3417/11370 [00:12<00:28, 275.36epoch-kanal/s]Veri yükleniyor:  30%|███       | 3445/11370 [00:12<00:28, 274.34epoch-kanal/s]Veri yükleniyor:  31%|███       | 3474/11370 [00:12<00:28, 276.68epoch-kanal/s]Veri yükleniyor:  31%|███       | 3502/11370 [00:12<00:28, 273.85epoch-kanal/s]Veri yükleniyor:  31%|███       | 3530/11370 [00:12<00:28, 273.09epoch-kanal/s]Veri yükleniyor:  31%|███▏      | 3560/11370 [00:12<00:28, 278.38epoch-kanal/s]Veri yükleniyor:  32%|███▏      | 3588/11370 [00:12<00:27, 278.39epoch-kanal/s]Veri yükleniyor:  32%|███▏      | 3617/11370 [00:12<00:27, 281.68epoch-kanal/s]Veri yükleniyor:  32%|███▏      | 3646/11370 [00:12<00:27, 281.99epoch-kanal/s]Veri yükleniyor:  32%|███▏      | 3676/11370 [00:12<00:26, 284.98epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 3705/11370 [00:13<00:27, 274.33epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 3733/11370 [00:13<00:28, 265.32epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 3763/11370 [00:13<00:27, 272.79epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 3791/11370 [00:13<00:27, 273.29epoch-kanal/s]Veri yükleniyor:  34%|███▎      | 3820/11370 [00:13<00:27, 277.27epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 3848/11370 [00:13<00:27, 275.72epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 3876/11370 [00:13<00:27, 272.17epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 3904/11370 [00:13<00:27, 273.43epoch-kanal/s]Veri yükleniyor:  35%|███▍      | 3933/11370 [00:13<00:26, 275.99epoch-kanal/s]Veri yükleniyor:  35%|███▍      | 3962/11370 [00:14<00:26, 279.68epoch-kanal/s]Veri yükleniyor:  35%|███▌      | 3991/11370 [00:14<00:26, 279.68epoch-kanal/s]Veri yükleniyor:  35%|███▌      | 4021/11370 [00:14<00:25, 283.85epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 4050/11370 [00:14<00:25, 283.99epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 4079/11370 [00:14<00:25, 284.89epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 4108/11370 [00:14<00:25, 282.51epoch-kanal/s]Veri yükleniyor:  36%|███▋      | 4137/11370 [00:14<00:25, 281.69epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 4166/11370 [00:14<00:25, 281.85epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 4195/11370 [00:14<00:25, 280.06epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 4224/11370 [00:15<00:27, 257.35epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 4252/11370 [00:15<00:27, 262.62epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 4281/11370 [00:15<00:26, 268.46epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 4309/11370 [00:15<00:26, 271.01epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 4337/11370 [00:15<00:25, 272.40epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 4365/11370 [00:15<00:25, 273.11epoch-kanal/s]Veri yükleniyor:  39%|███▊      | 4394/11370 [00:15<00:25, 275.89epoch-kanal/s]Veri yükleniyor:  39%|███▉      | 4422/11370 [00:15<00:25, 274.76epoch-kanal/s]Veri yükleniyor:  39%|███▉      | 4450/11370 [00:15<00:25, 273.21epoch-kanal/s]Veri yükleniyor:  39%|███▉      | 4478/11370 [00:15<00:25, 271.63epoch-kanal/s]Veri yükleniyor:  40%|███▉      | 4506/11370 [00:16<00:25, 273.23epoch-kanal/s]Veri yükleniyor:  40%|███▉      | 4534/11370 [00:16<00:24, 274.14epoch-kanal/s]Veri yükleniyor:  40%|████      | 4562/11370 [00:16<00:24, 272.78epoch-kanal/s]Veri yükleniyor:  40%|████      | 4591/11370 [00:16<00:24, 275.58epoch-kanal/s]Veri yükleniyor:  41%|████      | 4619/11370 [00:16<00:24, 274.25epoch-kanal/s]Veri yükleniyor:  41%|████      | 4648/11370 [00:16<00:24, 277.59epoch-kanal/s]Veri yükleniyor:  41%|████      | 4676/11370 [00:16<00:24, 277.31epoch-kanal/s]Veri yükleniyor:  41%|████▏     | 4704/11370 [00:16<00:24, 268.16epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4731/11370 [00:16<00:31, 209.10epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4754/11370 [00:17<00:34, 189.74epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4775/11370 [00:17<00:36, 180.90epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4795/11370 [00:17<00:37, 174.44epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4814/11370 [00:17<00:38, 172.38epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 4832/11370 [00:17<00:38, 170.70epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4850/11370 [00:17<00:39, 164.30epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4867/11370 [00:17<00:43, 149.48epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4883/11370 [00:17<00:45, 143.34epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4898/11370 [00:18<00:45, 142.36epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4913/11370 [00:18<00:45, 143.00epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4928/11370 [00:18<00:44, 144.45epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 4944/11370 [00:18<00:43, 148.73epoch-kanal/s]Veri yükleniyor:  44%|████▎     | 4959/11370 [00:18<00:44, 143.49epoch-kanal/s]Veri yükleniyor:  44%|████▎     | 4974/11370 [00:18<00:45, 139.28epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 4988/11370 [00:18<00:49, 127.84epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 5004/11370 [00:18<00:46, 135.51epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 5021/11370 [00:18<00:44, 143.91epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 5037/11370 [00:19<00:42, 148.28epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 5053/11370 [00:19<00:41, 151.13epoch-kanal/s]Veri yükleniyor:  45%|████▍     | 5069/11370 [00:19<00:41, 152.83epoch-kanal/s]Veri yükleniyor:  45%|████▍     | 5086/11370 [00:19<00:40, 155.80epoch-kanal/s]Veri yükleniyor:  45%|████▍     | 5102/11370 [00:19<00:41, 151.01epoch-kanal/s]Veri yükleniyor:  45%|████▌     | 5118/11370 [00:19<00:43, 144.36epoch-kanal/s]Veri yükleniyor:  45%|████▌     | 5133/11370 [00:19<00:43, 144.03epoch-kanal/s]Veri yükleniyor:  45%|████▌     | 5148/11370 [00:19<00:43, 142.78epoch-kanal/s]Veri yükleniyor:  45%|████▌     | 5163/11370 [00:19<00:43, 142.76epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5178/11370 [00:20<00:43, 142.90epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5194/11370 [00:20<00:41, 147.49epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5209/11370 [00:20<00:41, 148.04epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5225/11370 [00:20<00:41, 148.73epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5241/11370 [00:20<00:40, 150.26epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 5257/11370 [00:20<00:40, 152.11epoch-kanal/s]Veri yükleniyor:  46%|████▋     | 5273/11370 [00:20<00:39, 153.20epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5290/11370 [00:20<00:38, 156.42epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5307/11370 [00:20<00:38, 157.62epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5323/11370 [00:20<00:38, 156.95epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5340/11370 [00:21<00:38, 158.34epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5356/11370 [00:21<00:37, 158.48epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5373/11370 [00:21<00:37, 159.47epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 5389/11370 [00:21<00:37, 159.17epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5405/11370 [00:21<00:37, 158.71epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5421/11370 [00:21<00:37, 157.99epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5437/11370 [00:21<00:37, 158.45epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5454/11370 [00:21<00:36, 159.94epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5470/11370 [00:21<00:37, 158.50epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5487/11370 [00:21<00:36, 159.83epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 5503/11370 [00:22<00:36, 158.57epoch-kanal/s]Veri yükleniyor:  49%|████▊     | 5519/11370 [00:22<00:37, 156.99epoch-kanal/s]Veri yükleniyor:  49%|████▊     | 5535/11370 [00:22<00:37, 156.65epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 5551/11370 [00:22<00:37, 154.92epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 5567/11370 [00:22<00:37, 155.54epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 5584/11370 [00:22<00:36, 158.07epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 5600/11370 [00:22<00:36, 158.13epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 5617/11370 [00:22<00:36, 159.71epoch-kanal/s]Veri yükleniyor:  50%|████▉     | 5634/11370 [00:22<00:35, 161.69epoch-kanal/s]Veri yükleniyor:  50%|████▉     | 5651/11370 [00:23<00:36, 158.11epoch-kanal/s]Veri yükleniyor:  50%|████▉     | 5667/11370 [00:23<00:36, 158.37epoch-kanal/s]Veri yükleniyor:  50%|████▉     | 5683/11370 [00:23<00:36, 157.59epoch-kanal/s]Veri yükleniyor:  50%|█████     | 5700/11370 [00:23<00:35, 159.06epoch-kanal/s]Veri yükleniyor:  50%|█████     | 5716/11370 [00:23<00:35, 157.56epoch-kanal/s]Veri yükleniyor:  50%|█████     | 5732/11370 [00:23<00:36, 156.31epoch-kanal/s]Veri yükleniyor:  51%|█████     | 5748/11370 [00:23<00:35, 156.88epoch-kanal/s]Veri yükleniyor:  51%|█████     | 5764/11370 [00:23<00:35, 157.76epoch-kanal/s]Veri yükleniyor:  51%|█████     | 5781/11370 [00:23<00:34, 159.69epoch-kanal/s]Veri yükleniyor:  51%|█████     | 5797/11370 [00:23<00:35, 158.61epoch-kanal/s]Veri yükleniyor:  51%|█████     | 5813/11370 [00:24<00:35, 156.68epoch-kanal/s]Veri yükleniyor:  51%|█████▏    | 5829/11370 [00:24<00:35, 155.24epoch-kanal/s]Veri yükleniyor:  51%|█████▏    | 5845/11370 [00:24<00:35, 155.67epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5861/11370 [00:24<00:35, 156.66epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5878/11370 [00:24<00:34, 159.08epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5894/11370 [00:24<00:34, 157.68epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5911/11370 [00:24<00:34, 159.14epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5928/11370 [00:24<00:33, 160.33epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5945/11370 [00:24<00:38, 142.10epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 5961/11370 [00:25<00:37, 145.37epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 5978/11370 [00:25<00:35, 150.57epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 5994/11370 [00:25<00:36, 147.40epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 6010/11370 [00:25<00:35, 149.64epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 6026/11370 [00:25<00:35, 151.81epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 6043/11370 [00:25<00:34, 154.91epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 6059/11370 [00:25<00:34, 155.54epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 6076/11370 [00:25<00:33, 157.38epoch-kanal/s]Veri yükleniyor:  54%|█████▎    | 6092/11370 [00:25<00:33, 157.73epoch-kanal/s]Veri yükleniyor:  54%|█████▎    | 6108/11370 [00:25<00:33, 155.32epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 6125/11370 [00:26<00:33, 156.98epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 6142/11370 [00:26<00:33, 157.74epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 6158/11370 [00:26<00:33, 156.73epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 6175/11370 [00:26<00:32, 157.98epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 6191/11370 [00:26<00:32, 158.33epoch-kanal/s]Veri yükleniyor:  55%|█████▍    | 6207/11370 [00:26<00:32, 158.81epoch-kanal/s]Veri yükleniyor:  55%|█████▍    | 6223/11370 [00:26<00:32, 157.99epoch-kanal/s]Veri yükleniyor:  55%|█████▍    | 6240/11370 [00:26<00:32, 159.48epoch-kanal/s]Veri yükleniyor:  55%|█████▌    | 6256/11370 [00:26<00:32, 158.32epoch-kanal/s]Veri yükleniyor:  55%|█████▌    | 6272/11370 [00:27<00:32, 157.47epoch-kanal/s]Veri yükleniyor:  55%|█████▌    | 6289/11370 [00:27<00:31, 159.10epoch-kanal/s]Veri yükleniyor:  55%|█████▌    | 6305/11370 [00:27<00:32, 158.09epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 6321/11370 [00:27<00:32, 155.55epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 6337/11370 [00:27<00:32, 155.29epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 6353/11370 [00:27<00:32, 156.48epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 6369/11370 [00:27<00:31, 157.45epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 6385/11370 [00:27<00:31, 157.84epoch-kanal/s]Veri yükleniyor:  56%|█████▋    | 6401/11370 [00:27<00:31, 157.56epoch-kanal/s]Veri yükleniyor:  56%|█████▋    | 6417/11370 [00:27<00:31, 155.40epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6433/11370 [00:28<00:32, 151.78epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6449/11370 [00:28<00:32, 153.57epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6465/11370 [00:28<00:32, 153.01epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6481/11370 [00:28<00:31, 154.64epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6497/11370 [00:28<00:31, 155.51epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6513/11370 [00:28<00:31, 154.29epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 6529/11370 [00:28<00:31, 153.57epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6545/11370 [00:28<00:31, 155.14epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6561/11370 [00:28<00:30, 155.97epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6577/11370 [00:28<00:30, 156.81epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6594/11370 [00:29<00:30, 157.86epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6610/11370 [00:29<00:30, 157.83epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6626/11370 [00:29<00:30, 157.33epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 6643/11370 [00:29<00:29, 158.62epoch-kanal/s]Veri yükleniyor:  59%|█████▊    | 6659/11370 [00:29<00:29, 157.59epoch-kanal/s]Veri yükleniyor:  59%|█████▊    | 6675/11370 [00:29<00:29, 157.18epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 6691/11370 [00:29<00:29, 157.26epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 6708/11370 [00:29<00:29, 159.15epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 6724/11370 [00:29<00:29, 157.28epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 6740/11370 [00:30<00:30, 153.82epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 6757/11370 [00:30<00:29, 155.84epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 6773/11370 [00:30<00:29, 153.40epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 6790/11370 [00:30<00:29, 156.23epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 6806/11370 [00:30<00:29, 155.86epoch-kanal/s]Veri yükleniyor:  60%|██████    | 6822/11370 [00:30<00:29, 155.49epoch-kanal/s]Veri yükleniyor:  60%|██████    | 6839/11370 [00:30<00:28, 157.81epoch-kanal/s]Veri yükleniyor:  60%|██████    | 6855/11370 [00:30<00:28, 158.30epoch-kanal/s]Veri yükleniyor:  60%|██████    | 6872/11370 [00:30<00:28, 160.62epoch-kanal/s]Veri yükleniyor:  61%|██████    | 6889/11370 [00:30<00:27, 160.45epoch-kanal/s]Veri yükleniyor:  61%|██████    | 6906/11370 [00:31<00:28, 158.52epoch-kanal/s]Veri yükleniyor:  61%|██████    | 6922/11370 [00:31<00:28, 158.22epoch-kanal/s]Veri yükleniyor:  61%|██████    | 6938/11370 [00:31<00:28, 155.99epoch-kanal/s]Veri yükleniyor:  61%|██████    | 6955/11370 [00:31<00:27, 157.72epoch-kanal/s]Veri yükleniyor:  61%|██████▏   | 6971/11370 [00:31<00:27, 157.84epoch-kanal/s]Veri yükleniyor:  61%|██████▏   | 6988/11370 [00:31<00:27, 159.16epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7004/11370 [00:31<00:27, 158.12epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7020/11370 [00:31<00:27, 156.59epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7036/11370 [00:31<00:27, 157.41epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7053/11370 [00:31<00:27, 158.48epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7069/11370 [00:32<00:27, 154.76epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7085/11370 [00:32<00:28, 152.66epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 7101/11370 [00:32<00:27, 152.80epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7117/11370 [00:32<00:27, 153.18epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7133/11370 [00:32<00:27, 154.09epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7150/11370 [00:32<00:26, 156.56epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7167/11370 [00:32<00:26, 158.26epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7184/11370 [00:32<00:26, 159.17epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7201/11370 [00:32<00:26, 159.98epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 7217/11370 [00:33<00:26, 157.77epoch-kanal/s]Veri yükleniyor:  64%|██████▎   | 7233/11370 [00:33<00:26, 158.25epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7249/11370 [00:33<00:26, 156.78epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7265/11370 [00:33<00:26, 157.54epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7281/11370 [00:33<00:26, 157.08epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7297/11370 [00:33<00:25, 156.69epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7313/11370 [00:33<00:25, 157.19epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 7329/11370 [00:33<00:25, 156.48epoch-kanal/s]Veri yükleniyor:  65%|██████▍   | 7346/11370 [00:33<00:25, 158.39epoch-kanal/s]Veri yükleniyor:  65%|██████▍   | 7362/11370 [00:33<00:28, 142.00epoch-kanal/s]Veri yükleniyor:  65%|██████▍   | 7377/11370 [00:34<00:27, 144.17epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 7392/11370 [00:34<00:27, 143.51epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 7409/11370 [00:34<00:26, 148.57epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 7425/11370 [00:34<00:26, 150.27epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 7441/11370 [00:34<00:25, 151.53epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 7457/11370 [00:34<00:25, 152.76epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 7473/11370 [00:34<00:25, 154.39epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 7489/11370 [00:34<00:25, 154.29epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 7505/11370 [00:34<00:25, 153.96epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 7521/11370 [00:35<00:24, 154.10epoch-kanal/s]Veri yükleniyor:  66%|██████▋   | 7538/11370 [00:35<00:24, 155.18epoch-kanal/s]Veri yükleniyor:  66%|██████▋   | 7554/11370 [00:35<00:24, 154.69epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7571/11370 [00:35<00:24, 156.22epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7587/11370 [00:35<00:24, 156.69epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7603/11370 [00:35<00:24, 156.60epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7620/11370 [00:35<00:23, 158.31epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7636/11370 [00:35<00:23, 157.65epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7653/11370 [00:35<00:23, 160.03epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 7670/11370 [00:35<00:23, 157.18epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7686/11370 [00:36<00:23, 156.29epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7702/11370 [00:36<00:23, 155.04epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7719/11370 [00:36<00:23, 156.86epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7735/11370 [00:36<00:23, 157.13epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7752/11370 [00:36<00:23, 157.28epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7769/11370 [00:36<00:22, 159.87epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 7786/11370 [00:36<00:22, 160.30epoch-kanal/s]Veri yükleniyor:  69%|██████▊   | 7803/11370 [00:36<00:22, 159.80epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7819/11370 [00:36<00:22, 159.85epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7836/11370 [00:37<00:21, 160.92epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7853/11370 [00:37<00:22, 159.39epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7869/11370 [00:37<00:22, 156.49epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7885/11370 [00:37<00:22, 156.64epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 7901/11370 [00:37<00:22, 156.46epoch-kanal/s]Veri yükleniyor:  70%|██████▉   | 7918/11370 [00:37<00:21, 158.71epoch-kanal/s]Veri yükleniyor:  70%|██████▉   | 7934/11370 [00:37<00:24, 140.46epoch-kanal/s]Veri yükleniyor:  70%|██████▉   | 7951/11370 [00:37<00:23, 146.54epoch-kanal/s]Veri yükleniyor:  70%|███████   | 7968/11370 [00:37<00:22, 150.90epoch-kanal/s]Veri yükleniyor:  70%|███████   | 7984/11370 [00:38<00:22, 150.72epoch-kanal/s]Veri yükleniyor:  70%|███████   | 8000/11370 [00:38<00:22, 151.76epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8016/11370 [00:38<00:22, 149.90epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8032/11370 [00:38<00:21, 152.25epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8048/11370 [00:38<00:21, 153.41epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8064/11370 [00:38<00:21, 155.24epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8080/11370 [00:38<00:21, 156.58epoch-kanal/s]Veri yükleniyor:  71%|███████   | 8097/11370 [00:38<00:20, 159.07epoch-kanal/s]Veri yükleniyor:  71%|███████▏  | 8114/11370 [00:38<00:20, 160.31epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8131/11370 [00:38<00:20, 160.49epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8148/11370 [00:39<00:20, 159.88epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8164/11370 [00:39<00:20, 157.66epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8180/11370 [00:39<00:20, 157.23epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8197/11370 [00:39<00:19, 158.85epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8213/11370 [00:39<00:19, 158.62epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 8229/11370 [00:39<00:19, 157.31epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8245/11370 [00:39<00:19, 156.78epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8261/11370 [00:39<00:19, 155.65epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8277/11370 [00:39<00:19, 156.92epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8293/11370 [00:39<00:19, 155.04epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8309/11370 [00:40<00:19, 154.63epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8325/11370 [00:40<00:20, 146.47epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 8342/11370 [00:40<00:20, 151.06epoch-kanal/s]Veri yükleniyor:  74%|███████▎  | 8358/11370 [00:40<00:19, 152.64epoch-kanal/s]Veri yükleniyor:  74%|███████▎  | 8374/11370 [00:40<00:19, 154.30epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 8390/11370 [00:40<00:19, 155.62epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 8407/11370 [00:40<00:18, 157.32epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 8424/11370 [00:40<00:18, 159.32epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 8441/11370 [00:40<00:18, 159.90epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 8458/11370 [00:41<00:18, 158.62epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 8474/11370 [00:41<00:18, 158.05epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 8490/11370 [00:41<00:18, 156.69epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 8506/11370 [00:41<00:18, 155.95epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 8522/11370 [00:41<00:18, 155.84epoch-kanal/s]Veri yükleniyor:  75%|███████▌  | 8539/11370 [00:41<00:17, 158.65epoch-kanal/s]Veri yükleniyor:  75%|███████▌  | 8555/11370 [00:41<00:17, 157.36epoch-kanal/s]Veri yükleniyor:  75%|███████▌  | 8571/11370 [00:41<00:17, 156.64epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8587/11370 [00:41<00:17, 156.36epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8603/11370 [00:41<00:17, 155.57epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8619/11370 [00:42<00:17, 152.93epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8635/11370 [00:42<00:17, 154.01epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8651/11370 [00:42<00:17, 153.33epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 8667/11370 [00:42<00:17, 153.68epoch-kanal/s]Veri yükleniyor:  76%|███████▋  | 8683/11370 [00:42<00:17, 154.73epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8700/11370 [00:42<00:17, 157.06epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8716/11370 [00:42<00:16, 157.31epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8732/11370 [00:42<00:16, 157.95epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8749/11370 [00:42<00:16, 158.94epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8765/11370 [00:42<00:16, 159.08epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8781/11370 [00:43<00:16, 157.61epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 8797/11370 [00:43<00:17, 148.69epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8812/11370 [00:43<00:18, 141.90epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8829/11370 [00:43<00:17, 147.48epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8845/11370 [00:43<00:16, 149.40epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8861/11370 [00:43<00:16, 151.94epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8877/11370 [00:43<00:16, 153.79epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8893/11370 [00:43<00:16, 152.78epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 8910/11370 [00:43<00:15, 155.59epoch-kanal/s]Veri yükleniyor:  79%|███████▊  | 8926/11370 [00:44<00:15, 156.29epoch-kanal/s]Veri yükleniyor:  79%|███████▊  | 8942/11370 [00:44<00:15, 155.67epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 8958/11370 [00:44<00:15, 152.37epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 8974/11370 [00:44<00:15, 153.20epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 8990/11370 [00:44<00:15, 153.94epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 9006/11370 [00:44<00:15, 154.75epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 9022/11370 [00:44<00:15, 153.62epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 9038/11370 [00:44<00:15, 154.90epoch-kanal/s]Veri yükleniyor:  80%|███████▉  | 9054/11370 [00:44<00:15, 151.63epoch-kanal/s]Veri yükleniyor:  80%|███████▉  | 9070/11370 [00:45<00:15, 151.95epoch-kanal/s]Veri yükleniyor:  80%|███████▉  | 9087/11370 [00:45<00:14, 155.59epoch-kanal/s]Veri yükleniyor:  80%|████████  | 9103/11370 [00:45<00:14, 153.57epoch-kanal/s]Veri yükleniyor:  80%|████████  | 9120/11370 [00:45<00:14, 155.17epoch-kanal/s]Veri yükleniyor:  80%|████████  | 9136/11370 [00:45<00:14, 153.96epoch-kanal/s]Veri yükleniyor:  80%|████████  | 9152/11370 [00:45<00:14, 155.66epoch-kanal/s]Veri yükleniyor:  81%|████████  | 9168/11370 [00:45<00:14, 155.68epoch-kanal/s]Veri yükleniyor:  81%|████████  | 9184/11370 [00:45<00:13, 156.18epoch-kanal/s]Veri yükleniyor:  81%|████████  | 9200/11370 [00:45<00:14, 154.74epoch-kanal/s]Veri yükleniyor:  81%|████████  | 9216/11370 [00:45<00:13, 154.95epoch-kanal/s]Veri yükleniyor:  81%|████████  | 9232/11370 [00:46<00:13, 154.46epoch-kanal/s]Veri yükleniyor:  81%|████████▏ | 9248/11370 [00:46<00:14, 150.11epoch-kanal/s]Veri yükleniyor:  81%|████████▏ | 9264/11370 [00:46<00:14, 150.22epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9280/11370 [00:46<00:13, 149.35epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9296/11370 [00:46<00:13, 151.62epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9312/11370 [00:46<00:13, 153.59epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9328/11370 [00:46<00:13, 154.70epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9345/11370 [00:46<00:12, 157.65epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9362/11370 [00:46<00:12, 159.76epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 9378/11370 [00:46<00:12, 159.57epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 9394/11370 [00:47<00:12, 159.60epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 9403/11370 [01:00<00:12, 159.60epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 9404/11370 [01:03<11:29,  2.85epoch-kanal/s] Veri yükleniyor:  83%|████████▎ | 9433/11370 [01:03<06:07,  5.27epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 9462/11370 [01:03<03:40,  8.65epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 9492/11370 [01:03<02:18, 13.52epoch-kanal/s]Veri yükleniyor:  84%|████████▎ | 9521/11370 [01:04<01:32, 19.95epoch-kanal/s]Veri yükleniyor:  84%|████████▍ | 9550/11370 [01:04<01:03, 28.65epoch-kanal/s]Veri yükleniyor:  84%|████████▍ | 9579/11370 [01:04<00:44, 40.09epoch-kanal/s]Veri yükleniyor:  85%|████████▍ | 9608/11370 [01:04<00:32, 54.81epoch-kanal/s]Veri yükleniyor:  85%|████████▍ | 9638/11370 [01:04<00:23, 73.68epoch-kanal/s]Veri yükleniyor:  85%|████████▌ | 9668/11370 [01:04<00:17, 96.01epoch-kanal/s]Veri yükleniyor:  85%|████████▌ | 9697/11370 [01:04<00:13, 119.85epoch-kanal/s]Veri yükleniyor:  86%|████████▌ | 9726/11370 [01:04<00:11, 145.47epoch-kanal/s]Veri yükleniyor:  86%|████████▌ | 9756/11370 [01:04<00:09, 172.14epoch-kanal/s]Veri yükleniyor:  86%|████████▌ | 9785/11370 [01:04<00:08, 195.81epoch-kanal/s]Veri yükleniyor:  86%|████████▋ | 9815/11370 [01:05<00:07, 217.43epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 9844/11370 [01:05<00:06, 234.12epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 9873/11370 [01:05<00:06, 246.96epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 9902/11370 [01:05<00:05, 255.65epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 9931/11370 [01:05<00:05, 263.86epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 9961/11370 [01:05<00:05, 271.50epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 9991/11370 [01:05<00:04, 278.14epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 10020/11370 [01:05<00:05, 264.37epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 10049/11370 [01:05<00:04, 270.49epoch-kanal/s]Veri yükleniyor:  89%|████████▊ | 10078/11370 [01:06<00:04, 275.58epoch-kanal/s]Veri yükleniyor:  89%|████████▉ | 10107/11370 [01:06<00:04, 279.72epoch-kanal/s]Veri yükleniyor:  89%|████████▉ | 10136/11370 [01:06<00:04, 280.65epoch-kanal/s]Veri yükleniyor:  89%|████████▉ | 10165/11370 [01:06<00:04, 281.30epoch-kanal/s]Veri yükleniyor:  90%|████████▉ | 10194/11370 [01:06<00:04, 283.07epoch-kanal/s]Veri yükleniyor:  90%|████████▉ | 10223/11370 [01:06<00:04, 285.01epoch-kanal/s]Veri yükleniyor:  90%|█████████ | 10253/11370 [01:06<00:03, 286.74epoch-kanal/s]Veri yükleniyor:  90%|█████████ | 10282/11370 [01:06<00:03, 284.45epoch-kanal/s]Veri yükleniyor:  91%|█████████ | 10311/11370 [01:06<00:03, 284.51epoch-kanal/s]Veri yükleniyor:  91%|█████████ | 10340/11370 [01:07<00:14, 71.05epoch-kanal/s] Veri yükleniyor:  91%|█████████ | 10367/11370 [01:08<00:11, 89.86epoch-kanal/s]Veri yükleniyor:  91%|█████████▏| 10396/11370 [01:08<00:08, 113.44epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 10425/11370 [01:08<00:06, 138.71epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 10456/11370 [01:08<00:05, 155.72epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 10485/11370 [01:08<00:04, 180.00epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 10515/11370 [01:08<00:04, 203.80epoch-kanal/s]Veri yükleniyor:  93%|█████████▎| 10545/11370 [01:08<00:03, 224.28epoch-kanal/s]Veri yükleniyor:  93%|█████████▎| 10575/11370 [01:08<00:03, 241.00epoch-kanal/s]Veri yükleniyor:  93%|█████████▎| 10604/11370 [01:08<00:03, 253.24epoch-kanal/s]Veri yükleniyor:  94%|█████████▎| 10634/11370 [01:09<00:02, 265.32epoch-kanal/s]Veri yükleniyor:  94%|█████████▍| 10663/11370 [01:09<00:02, 271.04epoch-kanal/s]Veri yükleniyor:  94%|█████████▍| 10692/11370 [01:09<00:02, 275.30epoch-kanal/s]Veri yükleniyor:  94%|█████████▍| 10722/11370 [01:09<00:02, 279.54epoch-kanal/s]Veri yükleniyor:  95%|█████████▍| 10751/11370 [01:09<00:02, 281.01epoch-kanal/s]Veri yükleniyor:  95%|█████████▍| 10781/11370 [01:09<00:02, 286.00epoch-kanal/s]Veri yükleniyor:  95%|█████████▌| 10810/11370 [01:09<00:01, 286.99epoch-kanal/s]Veri yükleniyor:  95%|█████████▌| 10839/11370 [01:09<00:01, 286.92epoch-kanal/s]Veri yükleniyor:  96%|█████████▌| 10869/11370 [01:09<00:01, 289.39epoch-kanal/s]Veri yükleniyor:  96%|█████████▌| 10899/11370 [01:09<00:01, 288.61epoch-kanal/s]Veri yükleniyor:  96%|█████████▌| 10929/11370 [01:10<00:01, 291.28epoch-kanal/s]Veri yükleniyor:  96%|█████████▋| 10959/11370 [01:10<00:01, 291.57epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 10989/11370 [01:10<00:01, 286.20epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 11019/11370 [01:10<00:01, 288.21epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 11048/11370 [01:10<00:01, 283.14epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 11077/11370 [01:10<00:01, 281.47epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 11106/11370 [01:10<00:00, 277.56epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 11134/11370 [01:10<00:00, 276.32epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 11162/11370 [01:10<00:00, 273.49epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 11190/11370 [01:10<00:00, 275.28epoch-kanal/s]Veri yükleniyor:  99%|█████████▊| 11220/11370 [01:11<00:00, 280.16epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 11250/11370 [01:11<00:00, 283.82epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 11279/11370 [01:11<00:00, 284.09epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 11308/11370 [01:11<00:00, 282.84epoch-kanal/s]Veri yükleniyor: 100%|█████████▉| 11338/11370 [01:11<00:00, 286.63epoch-kanal/s]Veri yükleniyor: 100%|█████████▉| 11367/11370 [01:11<00:00, 287.44epoch-kanal/s]Veri yükleniyor: 100%|██████████| 11370/11370 [01:11<00:00, 158.77epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 11,370
+Toplam bellek kullanımı: 0.33 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 3790 epoch, 14 hasta
+train_dataset bitti
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  e5e364df-e09e-4230-abc3-e92dd338e426: 812 epoch eklendi
+  3da2681a-5991-449c-80a4-52cf3257db02: 731 epoch eklendi
+  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a: 618 epoch eklendi
+
+======================================================================
+TOPLAM: 2161 epoch
+
+Sınıf dağılımı:
+  W: 143 epoch (6.6%)
+  N1: 191 epoch (8.8%)
+  N2: 1222 epoch (56.5%)
+  N3: 270 epoch (12.5%)
+  REM: 335 epoch (15.5%)
+======================================================================
+
+
+======================================================================
+BALANCED SAMPLING UYGULANLIYOR
+======================================================================
+
+Mevcut dağılım:
+  W: 143 epoch
+  N1: 191 epoch
+  N2: 1222 epoch
+  N3: 270 epoch
+  REM: 335 epoch
+
+Minimum sınıf sayısı: 143 epoch
+Her sınıftan 143 epoch seçilecek...
+
+✓ Balanced sampling tamamlandı!
+  Önceki toplam: 2161 epoch
+  Yeni toplam: 715 epoch
+  Her sınıf: 143 epoch
+
+Sınıf dağılımı:
+  W: 143 epoch (20.0%)
+  N1: 143 epoch (20.0%)
+  N2: 143 epoch (20.0%)
+  N3: 143 epoch (20.0%)
+  REM: 143 epoch (20.0%)
+======================================================================
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - TÜM VERİLER YÜKLENİYOR
+======================================================================
+Toplam epoch: 715
+Kanal sayısı: 3
+Tahmini boyut: ~0.06 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/2145 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   1%|▏         | 30/2145 [00:00<00:07, 292.51epoch-kanal/s]Veri yükleniyor:   3%|▎         | 60/2145 [00:00<00:07, 293.71epoch-kanal/s]Veri yükleniyor:   4%|▍         | 90/2145 [00:00<00:07, 286.61epoch-kanal/s]Veri yükleniyor:   6%|▌         | 120/2145 [00:00<00:07, 289.22epoch-kanal/s]Veri yükleniyor:   7%|▋         | 149/2145 [00:00<00:06, 287.03epoch-kanal/s]Veri yükleniyor:   8%|▊         | 178/2145 [00:00<00:06, 283.03epoch-kanal/s]Veri yükleniyor:  10%|▉         | 207/2145 [00:00<00:06, 283.00epoch-kanal/s]Veri yükleniyor:  11%|█         | 237/2145 [00:00<00:06, 285.33epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 266/2145 [00:00<00:06, 286.19epoch-kanal/s]Veri yükleniyor:  14%|█▍        | 295/2145 [00:01<00:06, 285.19epoch-kanal/s]Veri yükleniyor:  15%|█▌        | 324/2145 [00:01<00:06, 285.68epoch-kanal/s]Veri yükleniyor:  16%|█▋        | 353/2145 [00:01<00:06, 286.25epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 382/2145 [00:01<00:06, 285.58epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 412/2145 [00:01<00:06, 287.82epoch-kanal/s]Veri yükleniyor:  21%|██        | 441/2145 [00:01<00:06, 283.53epoch-kanal/s]Veri yükleniyor:  22%|██▏       | 470/2145 [00:01<00:05, 284.53epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 499/2145 [00:01<00:05, 284.23epoch-kanal/s]Veri yükleniyor:  25%|██▍       | 528/2145 [00:01<00:05, 284.41epoch-kanal/s]Veri yükleniyor:  26%|██▌       | 558/2145 [00:01<00:05, 287.54epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 587/2145 [00:02<00:05, 285.47epoch-kanal/s]Veri yükleniyor:  29%|██▊       | 616/2145 [00:02<00:05, 284.08epoch-kanal/s]Veri yükleniyor:  30%|███       | 646/2145 [00:02<00:05, 286.07epoch-kanal/s]Veri yükleniyor:  31%|███▏      | 675/2145 [00:02<00:05, 283.66epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 704/2145 [00:02<00:05, 284.82epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 733/2145 [00:02<00:04, 285.73epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 762/2145 [00:02<00:04, 283.11epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 791/2145 [00:02<00:04, 284.75epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 820/2145 [00:02<00:04, 284.18epoch-kanal/s]Veri yükleniyor:  40%|███▉      | 849/2145 [00:02<00:04, 284.75epoch-kanal/s]Veri yükleniyor:  41%|████      | 878/2145 [00:03<00:04, 284.67epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 907/2145 [00:03<00:04, 282.51epoch-kanal/s]Veri yükleniyor:  44%|████▎     | 936/2145 [00:03<00:04, 283.46epoch-kanal/s]Veri yükleniyor:  45%|████▍     | 965/2145 [00:03<00:04, 283.38epoch-kanal/s]Veri yükleniyor:  46%|████▋     | 994/2145 [00:03<00:04, 285.06epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 1023/2145 [00:03<00:04, 260.99epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 1053/2145 [00:03<00:04, 269.59epoch-kanal/s]Veri yükleniyor:  50%|█████     | 1083/2145 [00:03<00:03, 275.77epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 1111/2145 [00:03<00:03, 276.52epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 1140/2145 [00:04<00:03, 278.17epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 1169/2145 [00:04<00:03, 280.27epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 1198/2145 [00:04<00:03, 282.23epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 1227/2145 [00:04<00:03, 282.27epoch-kanal/s]Veri yükleniyor:  59%|█████▊    | 1256/2145 [00:04<00:03, 281.43epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 1285/2145 [00:04<00:03, 282.78epoch-kanal/s]Veri yükleniyor:  61%|██████▏   | 1314/2145 [00:04<00:02, 280.72epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 1343/2145 [00:04<00:02, 283.29epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 1372/2145 [00:04<00:02, 281.94epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 1401/2145 [00:04<00:02, 282.12epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 1430/2145 [00:05<00:02, 284.22epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 1459/2145 [00:05<00:02, 284.42epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 1489/2145 [00:05<00:02, 288.10epoch-kanal/s]Veri yükleniyor:  71%|███████   | 1518/2145 [00:05<00:02, 286.87epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 1547/2145 [00:05<00:02, 286.26epoch-kanal/s]Veri yükleniyor:  74%|███████▎  | 1577/2145 [00:05<00:01, 287.92epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 1606/2145 [00:05<00:01, 286.58epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 1635/2145 [00:05<00:01, 287.59epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 1664/2145 [00:05<00:01, 285.24epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 1694/2145 [00:05<00:01, 286.96epoch-kanal/s]Veri yükleniyor:  80%|████████  | 1723/2145 [00:06<00:01, 287.29epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 1752/2145 [00:06<00:01, 284.29epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 1781/2145 [00:06<00:01, 284.67epoch-kanal/s]Veri yükleniyor:  84%|████████▍ | 1810/2145 [00:06<00:01, 284.71epoch-kanal/s]Veri yükleniyor:  86%|████████▌ | 1839/2145 [00:06<00:01, 284.22epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 1869/2145 [00:06<00:00, 286.48epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 1898/2145 [00:06<00:00, 283.44epoch-kanal/s]Veri yükleniyor:  90%|████████▉ | 1927/2145 [00:06<00:00, 284.31epoch-kanal/s]Veri yükleniyor:  91%|█████████ | 1956/2145 [00:06<00:00, 285.46epoch-kanal/s]Veri yükleniyor:  93%|█████████▎| 1986/2145 [00:06<00:00, 287.99epoch-kanal/s]Veri yükleniyor:  94%|█████████▍| 2015/2145 [00:07<00:00, 288.44epoch-kanal/s]Veri yükleniyor:  95%|█████████▌| 2044/2145 [00:07<00:00, 287.94epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 2073/2145 [00:07<00:00, 287.55epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 2102/2145 [00:07<00:00, 286.46epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 2131/2145 [00:07<00:00, 286.66epoch-kanal/s]Veri yükleniyor: 100%|██████████| 2145/2145 [00:07<00:00, 284.13epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 2,145
+Toplam bellek kullanımı: 0.06 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 715 epoch, 3 hasta
+val_dataset bitti
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  f0cfab4a-fd30-43a5-8633-814b69c6bdca: 707 epoch eklendi
+  98839ae3-bc28-42f6-9258-c81854ac4b4a: 657 epoch eklendi
+  a82f0ab0-d849-42b7-b3d9-6051343f5ce0: 436 epoch eklendi
+
+======================================================================
+TOPLAM: 1800 epoch
+
+Sınıf dağılımı:
+  W: 187 epoch (10.4%)
+  N1: 313 epoch (17.4%)
+  N2: 739 epoch (41.1%)
+  N3: 416 epoch (23.1%)
+  REM: 145 epoch (8.1%)
+======================================================================
+
+
+======================================================================
+BALANCED SAMPLING UYGULANLIYOR
+======================================================================
+
+Mevcut dağılım:
+  W: 187 epoch
+  N1: 313 epoch
+  N2: 739 epoch
+  N3: 416 epoch
+  REM: 145 epoch
+
+Minimum sınıf sayısı: 145 epoch
+Her sınıftan 145 epoch seçilecek...
+
+✓ Balanced sampling tamamlandı!
+  Önceki toplam: 1800 epoch
+  Yeni toplam: 725 epoch
+  Her sınıf: 145 epoch
+
+Sınıf dağılımı:
+  W: 145 epoch (20.0%)
+  N1: 145 epoch (20.0%)
+  N2: 145 epoch (20.0%)
+  N3: 145 epoch (20.0%)
+  REM: 145 epoch (20.0%)
+======================================================================
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - TÜM VERİLER YÜKLENİYOR
+======================================================================
+Toplam epoch: 725
+Kanal sayısı: 3
+Tahmini boyut: ~0.06 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/2175 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   1%|          | 27/2175 [00:00<00:08, 265.82epoch-kanal/s]Veri yükleniyor:   3%|▎         | 57/2175 [00:00<00:07, 283.58epoch-kanal/s]Veri yükleniyor:   4%|▍         | 86/2175 [00:00<00:07, 282.79epoch-kanal/s]Veri yükleniyor:   5%|▌         | 115/2175 [00:00<00:07, 283.89epoch-kanal/s]Veri yükleniyor:   7%|▋         | 144/2175 [00:00<00:07, 284.69epoch-kanal/s]Veri yükleniyor:   8%|▊         | 173/2175 [00:00<00:06, 286.15epoch-kanal/s]Veri yükleniyor:   9%|▉         | 202/2175 [00:00<00:06, 286.23epoch-kanal/s]Veri yükleniyor:  11%|█         | 232/2175 [00:00<00:06, 289.27epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 261/2175 [00:00<00:06, 287.14epoch-kanal/s]Veri yükleniyor:  13%|█▎        | 290/2175 [00:01<00:06, 287.90epoch-kanal/s]Veri yükleniyor:  15%|█▍        | 319/2175 [00:01<00:06, 288.02epoch-kanal/s]Veri yükleniyor:  16%|█▌        | 349/2175 [00:01<00:06, 288.91epoch-kanal/s]Veri yükleniyor:  17%|█▋        | 379/2175 [00:01<00:06, 289.29epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 408/2175 [00:01<00:06, 287.95epoch-kanal/s]Veri yükleniyor:  20%|██        | 437/2175 [00:01<00:06, 288.44epoch-kanal/s]Veri yükleniyor:  21%|██▏       | 466/2175 [00:01<00:05, 288.21epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 495/2175 [00:01<00:05, 285.03epoch-kanal/s]Veri yükleniyor:  24%|██▍       | 524/2175 [00:01<00:05, 284.01epoch-kanal/s]Veri yükleniyor:  25%|██▌       | 553/2175 [00:01<00:05, 279.70epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 582/2175 [00:02<00:05, 282.33epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 611/2175 [00:02<00:06, 241.15epoch-kanal/s]Veri yükleniyor:  29%|██▉       | 637/2175 [00:02<00:07, 210.84epoch-kanal/s]Veri yükleniyor:  30%|███       | 660/2175 [00:02<00:07, 194.63epoch-kanal/s]Veri yükleniyor:  31%|███▏      | 681/2175 [00:02<00:08, 186.32epoch-kanal/s]Veri yükleniyor:  32%|███▏      | 701/2175 [00:02<00:08, 179.22epoch-kanal/s]Veri yükleniyor:  33%|███▎      | 720/2175 [00:02<00:08, 173.46epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 738/2175 [00:02<00:08, 169.32epoch-kanal/s]Veri yükleniyor:  35%|███▍      | 756/2175 [00:03<00:08, 163.99epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 773/2175 [00:03<00:08, 162.97epoch-kanal/s]Veri yükleniyor:  36%|███▋      | 790/2175 [00:03<00:08, 159.64epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 807/2175 [00:03<00:08, 160.53epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 824/2175 [00:03<00:08, 158.41epoch-kanal/s]Veri yükleniyor:  39%|███▊      | 841/2175 [00:03<00:08, 159.26epoch-kanal/s]Veri yükleniyor:  39%|███▉      | 858/2175 [00:03<00:08, 160.22epoch-kanal/s]Veri yükleniyor:  40%|████      | 875/2175 [00:03<00:08, 157.19epoch-kanal/s]Veri yükleniyor:  41%|████      | 891/2175 [00:03<00:08, 153.37epoch-kanal/s]Veri yükleniyor:  42%|████▏     | 908/2175 [00:04<00:08, 155.85epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 925/2175 [00:04<00:07, 158.20epoch-kanal/s]Veri yükleniyor:  43%|████▎     | 941/2175 [00:04<00:07, 158.00epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 957/2175 [00:04<00:07, 155.39epoch-kanal/s]Veri yükleniyor:  45%|████▍     | 973/2175 [00:04<00:07, 154.34epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 990/2175 [00:04<00:07, 157.50epoch-kanal/s]Veri yükleniyor:  46%|████▋     | 1006/2175 [00:04<00:07, 157.76epoch-kanal/s]Veri yükleniyor:  47%|████▋     | 1023/2175 [00:04<00:07, 158.97epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 1039/2175 [00:04<00:07, 158.92epoch-kanal/s]Veri yükleniyor:  49%|████▊     | 1055/2175 [00:05<00:07, 158.28epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 1071/2175 [00:05<00:06, 158.21epoch-kanal/s]Veri yükleniyor:  50%|█████     | 1088/2175 [00:05<00:06, 159.19epoch-kanal/s]Veri yükleniyor:  51%|█████     | 1104/2175 [00:05<00:07, 140.62epoch-kanal/s]Veri yükleniyor:  51%|█████▏    | 1120/2175 [00:05<00:07, 144.39epoch-kanal/s]Veri yükleniyor:  52%|█████▏    | 1137/2175 [00:05<00:06, 149.41epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 1154/2175 [00:05<00:06, 152.48epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 1170/2175 [00:05<00:06, 153.82epoch-kanal/s]Veri yükleniyor:  55%|█████▍    | 1186/2175 [00:05<00:06, 155.54epoch-kanal/s]Veri yükleniyor:  55%|█████▌    | 1202/2175 [00:06<00:06, 148.88epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 1218/2175 [00:06<00:06, 150.82epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 1234/2175 [00:06<00:06, 152.21epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 1250/2175 [00:06<00:06, 152.62epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 1266/2175 [00:06<00:05, 153.83epoch-kanal/s]Veri yükleniyor:  59%|█████▉    | 1282/2175 [00:06<00:05, 154.09epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 1299/2175 [00:06<00:05, 156.68epoch-kanal/s]Veri yükleniyor:  61%|██████    | 1316/2175 [00:06<00:05, 159.65epoch-kanal/s]Veri yükleniyor:  61%|██████▏   | 1333/2175 [00:06<00:05, 159.45epoch-kanal/s]Veri yükleniyor:  62%|██████▏   | 1349/2175 [00:06<00:05, 155.89epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 1365/2175 [00:07<00:05, 153.88epoch-kanal/s]Veri yükleniyor:  63%|██████▎   | 1381/2175 [00:07<00:05, 153.76epoch-kanal/s]Veri yükleniyor:  64%|██████▍   | 1397/2175 [00:07<00:05, 154.95epoch-kanal/s]Veri yükleniyor:  65%|██████▌   | 1414/2175 [00:07<00:04, 155.74epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 1430/2175 [00:07<00:04, 155.66epoch-kanal/s]Veri yükleniyor:  66%|██████▋   | 1446/2175 [00:07<00:04, 155.04epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 1463/2175 [00:07<00:04, 156.05epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 1479/2175 [00:07<00:04, 155.88epoch-kanal/s]Veri yükleniyor:  69%|██████▊   | 1495/2175 [00:07<00:04, 154.89epoch-kanal/s]Veri yükleniyor:  69%|██████▉   | 1511/2175 [00:07<00:04, 154.25epoch-kanal/s]Veri yükleniyor:  70%|███████   | 1527/2175 [00:08<00:04, 151.98epoch-kanal/s]Veri yükleniyor:  71%|███████   | 1543/2175 [00:08<00:04, 153.89epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 1559/2175 [00:08<00:03, 155.45epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 1575/2175 [00:08<00:03, 154.93epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 1591/2175 [00:08<00:03, 154.32epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 1607/2175 [00:08<00:03, 153.13epoch-kanal/s]Veri yükleniyor:  75%|███████▍  | 1623/2175 [00:08<00:03, 154.42epoch-kanal/s]Veri yükleniyor:  75%|███████▌  | 1640/2175 [00:08<00:03, 156.30epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 1656/2175 [00:08<00:03, 156.05epoch-kanal/s]Veri yükleniyor:  77%|███████▋  | 1672/2175 [00:09<00:03, 153.85epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 1688/2175 [00:09<00:03, 154.63epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 1704/2175 [00:09<00:03, 154.97epoch-kanal/s]Veri yükleniyor:  79%|███████▉  | 1720/2175 [00:09<00:02, 155.32epoch-kanal/s]Veri yükleniyor:  80%|███████▉  | 1736/2175 [00:09<00:02, 155.45epoch-kanal/s]Veri yükleniyor:  81%|████████  | 1752/2175 [00:09<00:02, 156.02epoch-kanal/s]Veri yükleniyor:  81%|████████▏ | 1768/2175 [00:09<00:02, 157.11epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 1784/2175 [00:09<00:02, 156.57epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 1800/2175 [00:09<00:02, 155.19epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 1816/2175 [00:09<00:02, 155.25epoch-kanal/s]Veri yükleniyor:  84%|████████▍ | 1832/2175 [00:10<00:02, 152.08epoch-kanal/s]Veri yükleniyor:  85%|████████▍ | 1848/2175 [00:10<00:02, 153.94epoch-kanal/s]Veri yükleniyor:  86%|████████▌ | 1864/2175 [00:10<00:02, 154.14epoch-kanal/s]Veri yükleniyor:  86%|████████▋ | 1880/2175 [00:10<00:01, 153.48epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 1896/2175 [00:10<00:01, 154.72epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 1913/2175 [00:10<00:01, 156.44epoch-kanal/s]Veri yükleniyor:  89%|████████▊ | 1929/2175 [00:10<00:01, 156.66epoch-kanal/s]Veri yükleniyor:  89%|████████▉ | 1945/2175 [00:10<00:01, 157.51epoch-kanal/s]Veri yükleniyor:  90%|█████████ | 1961/2175 [00:10<00:01, 155.98epoch-kanal/s]Veri yükleniyor:  91%|█████████ | 1977/2175 [00:10<00:01, 153.07epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 1993/2175 [00:11<00:01, 155.02epoch-kanal/s]Veri yükleniyor:  92%|█████████▏| 2009/2175 [00:11<00:01, 156.09epoch-kanal/s]Veri yükleniyor:  93%|█████████▎| 2025/2175 [00:11<00:00, 155.88epoch-kanal/s]Veri yükleniyor:  94%|█████████▍| 2041/2175 [00:11<00:00, 156.30epoch-kanal/s]Veri yükleniyor:  95%|█████████▍| 2057/2175 [00:11<00:00, 156.05epoch-kanal/s]Veri yükleniyor:  95%|█████████▌| 2074/2175 [00:11<00:00, 157.67epoch-kanal/s]Veri yükleniyor:  96%|█████████▌| 2090/2175 [00:11<00:00, 157.55epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 2107/2175 [00:11<00:00, 159.21epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 2123/2175 [00:11<00:00, 156.39epoch-kanal/s]Veri yükleniyor:  98%|█████████▊| 2139/2175 [00:12<00:00, 151.45epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 2155/2175 [00:12<00:00, 151.23epoch-kanal/s]Veri yükleniyor: 100%|█████████▉| 2171/2175 [00:12<00:00, 151.38epoch-kanal/s]Veri yükleniyor: 100%|██████████| 2175/2175 [00:12<00:00, 177.19epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 2,175
+Toplam bellek kullanımı: 0.06 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 725 epoch, 3 hasta
+test_dataset bitti
+train_loader bitti
+val_loader bitti
+test_loader bitti
+✓ DataLoader'lar hazır!
+  Train: 119 batch
+  Val:   23 batch
+  Test:  23 batch
+======================================================================
+
+
+======================================================================
+1D-CNN MODEL
+======================================================================
+Architecture:
+  Input: [3, 7680]
+  Conv1: 32 filters, kernel=50
+  Conv2: 64 filters, kernel=25
+  Conv3: 128 filters, kernel=10
+  Flatten: 15360 features
+  FC1: 256 units
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 4,071,845
+  Trainable: 4,071,845
+======================================================================
+
+
+======================================================================
+MODEL NETRON İÇİN EXPORT EDİLİYOR
+======================================================================
+Input shape: (1, 3, 7680)
+Export path: outputs/runs/251229-2323/model_architecture.onnx
+✓ Model export edildi!
+
+Netron ile görselleştirmek için:
+  1. https://netron.app/ adresine git
+  2. 'outputs/runs/251229-2323/model_architecture.onnx' dosyasını yükle
+  VEYA
+  1. pip install netron
+  2. netron outputs/runs/251229-2323/model_architecture.onnx
+======================================================================
+
+
+======================================================================
+BALANCED DATASET KULLANILIYOR - CLASS WEIGHTS YOK
+======================================================================
+
+
+======================================================================
+TRAINING BAŞLIYOR
+======================================================================
+Epochs: 50
+Batch size: 32
+Learning rate: 0.001
+Device: cuda
+======================================================================
+
+
+Epoch [1/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.6588 | Acc: 19.38%
+  Batch [20/119] Loss: 1.6358 | Acc: 20.62%
+  Batch [30/119] Loss: 1.6234 | Acc: 21.98%
+  Batch [40/119] Loss: 1.6178 | Acc: 22.34%
+  Batch [50/119] Loss: 1.6164 | Acc: 21.50%
+  Batch [60/119] Loss: 1.6136 | Acc: 21.56%
+  Batch [70/119] Loss: 1.6097 | Acc: 22.63%
+  Batch [80/119] Loss: 1.6088 | Acc: 22.66%
+  Batch [90/119] Loss: 1.6103 | Acc: 22.47%
+  Batch [100/119] Loss: 1.6095 | Acc: 22.59%
+  Batch [110/119] Loss: 1.6092 | Acc: 22.73%
+
+======================================================================
+Epoch 1 Summary:
+  Train Loss: 1.6063 | Train Acc: 23.06%
+  Val Loss:   1.5245 | Val Acc:   25.87%
+  Learning Rate: 0.001000
+  Time: 3.2s
+  ✓ Best model! (Val Loss: 1.5245, Val Acc: 25.87%)
+======================================================================
+
+Epoch [2/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.5568 | Acc: 32.19%
+  Batch [20/119] Loss: 1.5419 | Acc: 30.31%
+  Batch [30/119] Loss: 1.5425 | Acc: 30.00%
+  Batch [40/119] Loss: 1.5365 | Acc: 30.55%
+  Batch [50/119] Loss: 1.5073 | Acc: 32.00%
+  Batch [60/119] Loss: 1.4947 | Acc: 32.34%
+  Batch [70/119] Loss: 1.4916 | Acc: 32.14%
+  Batch [80/119] Loss: 1.4839 | Acc: 32.97%
+  Batch [90/119] Loss: 1.4804 | Acc: 32.60%
+  Batch [100/119] Loss: 1.4587 | Acc: 33.62%
+  Batch [110/119] Loss: 1.4581 | Acc: 33.69%
+
+======================================================================
+Epoch 2 Summary:
+  Train Loss: 1.4557 | Train Acc: 34.06%
+  Val Loss:   1.5325 | Val Acc:   25.03%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [3/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.3737 | Acc: 38.44%
+  Batch [20/119] Loss: 1.3927 | Acc: 36.41%
+  Batch [30/119] Loss: 1.3740 | Acc: 37.40%
+  Batch [40/119] Loss: 1.3773 | Acc: 37.34%
+  Batch [50/119] Loss: 1.3821 | Acc: 37.38%
+  Batch [60/119] Loss: 1.3771 | Acc: 37.50%
+  Batch [70/119] Loss: 1.3814 | Acc: 37.46%
+  Batch [80/119] Loss: 1.3773 | Acc: 38.12%
+  Batch [90/119] Loss: 1.3752 | Acc: 38.47%
+  Batch [100/119] Loss: 1.3713 | Acc: 38.62%
+  Batch [110/119] Loss: 1.3690 | Acc: 38.44%
+
+======================================================================
+Epoch 3 Summary:
+  Train Loss: 1.3615 | Train Acc: 38.55%
+  Val Loss:   1.4953 | Val Acc:   30.77%
+  Learning Rate: 0.001000
+  Time: 3.0s
+  ✓ Best model! (Val Loss: 1.4953, Val Acc: 30.77%)
+======================================================================
+
+Epoch [4/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.2980 | Acc: 40.94%
+  Batch [20/119] Loss: 1.3211 | Acc: 40.94%
+  Batch [30/119] Loss: 1.3064 | Acc: 41.56%
+  Batch [40/119] Loss: 1.3071 | Acc: 41.88%
+  Batch [50/119] Loss: 1.2972 | Acc: 42.12%
+  Batch [60/119] Loss: 1.2863 | Acc: 42.76%
+  Batch [70/119] Loss: 1.2860 | Acc: 42.68%
+  Batch [80/119] Loss: 1.2840 | Acc: 42.85%
+  Batch [90/119] Loss: 1.2840 | Acc: 42.57%
+  Batch [100/119] Loss: 1.2822 | Acc: 42.69%
+  Batch [110/119] Loss: 1.2825 | Acc: 42.81%
+
+======================================================================
+Epoch 4 Summary:
+  Train Loss: 1.2889 | Train Acc: 42.51%
+  Val Loss:   1.5189 | Val Acc:   29.65%
+  Learning Rate: 0.001000
+  Time: 3.0s
+======================================================================
+
+Epoch [5/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.1526 | Acc: 49.38%
+  Batch [20/119] Loss: 1.1893 | Acc: 46.56%
+  Batch [30/119] Loss: 1.1996 | Acc: 46.88%
+  Batch [40/119] Loss: 1.1844 | Acc: 48.52%
+  Batch [50/119] Loss: 1.2107 | Acc: 47.56%
+  Batch [60/119] Loss: 1.2152 | Acc: 47.29%
+  Batch [70/119] Loss: 1.2106 | Acc: 47.01%
+  Batch [80/119] Loss: 1.2300 | Acc: 46.25%
+  Batch [90/119] Loss: 1.2265 | Acc: 46.63%
+  Batch [100/119] Loss: 1.2230 | Acc: 46.59%
+  Batch [110/119] Loss: 1.2228 | Acc: 46.79%
+
+======================================================================
+Epoch 5 Summary:
+  Train Loss: 1.2245 | Train Acc: 46.73%
+  Val Loss:   1.4840 | Val Acc:   30.91%
+  Learning Rate: 0.001000
+  Time: 3.1s
+  ✓ Best model! (Val Loss: 1.4840, Val Acc: 30.91%)
+======================================================================
+
+Epoch [6/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.1675 | Acc: 53.75%
+  Batch [20/119] Loss: 1.1384 | Acc: 52.97%
+  Batch [30/119] Loss: 1.1555 | Acc: 50.62%
+  Batch [40/119] Loss: 1.1720 | Acc: 49.30%
+  Batch [50/119] Loss: 1.1688 | Acc: 49.62%
+  Batch [60/119] Loss: 1.1812 | Acc: 49.32%
+  Batch [70/119] Loss: 1.1694 | Acc: 50.22%
+  Batch [80/119] Loss: 1.1720 | Acc: 49.84%
+  Batch [90/119] Loss: 1.1742 | Acc: 49.55%
+  Batch [100/119] Loss: 1.1746 | Acc: 49.75%
+  Batch [110/119] Loss: 1.1785 | Acc: 49.46%
+
+======================================================================
+Epoch 6 Summary:
+  Train Loss: 1.1842 | Train Acc: 48.97%
+  Val Loss:   1.5476 | Val Acc:   32.31%
+  Learning Rate: 0.001000
+  Time: 3.0s
+======================================================================
+
+Epoch [7/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.0341 | Acc: 55.94%
+  Batch [20/119] Loss: 1.0860 | Acc: 53.12%
+  Batch [30/119] Loss: 1.0841 | Acc: 53.65%
+  Batch [40/119] Loss: 1.0876 | Acc: 53.44%
+  Batch [50/119] Loss: 1.0895 | Acc: 54.00%
+  Batch [60/119] Loss: 1.0957 | Acc: 53.96%
+  Batch [70/119] Loss: 1.1060 | Acc: 53.53%
+  Batch [80/119] Loss: 1.1153 | Acc: 53.24%
+  Batch [90/119] Loss: 1.1111 | Acc: 53.47%
+  Batch [100/119] Loss: 1.1124 | Acc: 53.03%
+  Batch [110/119] Loss: 1.1179 | Acc: 53.12%
+
+======================================================================
+Epoch 7 Summary:
+  Train Loss: 1.1276 | Train Acc: 52.82%
+  Val Loss:   1.5906 | Val Acc:   30.07%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [8/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 1.0321 | Acc: 55.62%
+  Batch [20/119] Loss: 0.9956 | Acc: 59.69%
+  Batch [30/119] Loss: 1.0042 | Acc: 58.33%
+  Batch [40/119] Loss: 1.0382 | Acc: 57.66%
+  Batch [50/119] Loss: 1.0245 | Acc: 58.25%
+  Batch [60/119] Loss: 1.0329 | Acc: 57.34%
+  Batch [70/119] Loss: 1.0455 | Acc: 56.74%
+  Batch [80/119] Loss: 1.0571 | Acc: 56.64%
+  Batch [90/119] Loss: 1.0635 | Acc: 56.32%
+  Batch [100/119] Loss: 1.0639 | Acc: 55.94%
+  Batch [110/119] Loss: 1.0626 | Acc: 56.16%
+
+======================================================================
+Epoch 8 Summary:
+  Train Loss: 1.0619 | Train Acc: 56.36%
+  Val Loss:   1.6587 | Val Acc:   33.01%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [9/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.9997 | Acc: 58.12%
+  Batch [20/119] Loss: 0.9718 | Acc: 59.38%
+  Batch [30/119] Loss: 0.9855 | Acc: 59.69%
+  Batch [40/119] Loss: 0.9739 | Acc: 60.78%
+  Batch [50/119] Loss: 0.9825 | Acc: 60.00%
+  Batch [60/119] Loss: 0.9816 | Acc: 59.95%
+  Batch [70/119] Loss: 0.9836 | Acc: 59.73%
+  Batch [80/119] Loss: 0.9787 | Acc: 59.88%
+  Batch [90/119] Loss: 0.9863 | Acc: 59.51%
+  Batch [100/119] Loss: 0.9835 | Acc: 59.50%
+  Batch [110/119] Loss: 0.9860 | Acc: 59.52%
+
+======================================================================
+Epoch 9 Summary:
+  Train Loss: 0.9847 | Train Acc: 59.42%
+  Val Loss:   1.6746 | Val Acc:   29.37%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [10/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.8732 | Acc: 65.62%
+  Batch [20/119] Loss: 0.9303 | Acc: 62.19%
+  Batch [30/119] Loss: 0.9222 | Acc: 61.88%
+  Batch [40/119] Loss: 0.9337 | Acc: 62.03%
+  Batch [50/119] Loss: 0.9324 | Acc: 61.44%
+  Batch [60/119] Loss: 0.9312 | Acc: 61.88%
+  Batch [70/119] Loss: 0.9260 | Acc: 62.14%
+  Batch [80/119] Loss: 0.9240 | Acc: 62.19%
+  Batch [90/119] Loss: 0.9390 | Acc: 61.98%
+  Batch [100/119] Loss: 0.9427 | Acc: 61.88%
+  Batch [110/119] Loss: 0.9525 | Acc: 61.48%
+
+======================================================================
+Epoch 10 Summary:
+  Train Loss: 0.9538 | Train Acc: 61.29%
+  Val Loss:   1.8559 | Val Acc:   35.24%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [11/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.7931 | Acc: 70.62%
+  Batch [20/119] Loss: 0.7791 | Acc: 69.53%
+  Batch [30/119] Loss: 0.8068 | Acc: 68.12%
+  Batch [40/119] Loss: 0.8211 | Acc: 67.58%
+  Batch [50/119] Loss: 0.8348 | Acc: 66.00%
+  Batch [60/119] Loss: 0.8382 | Acc: 66.04%
+  Batch [70/119] Loss: 0.8497 | Acc: 65.54%
+  Batch [80/119] Loss: 0.8543 | Acc: 65.47%
+  Batch [90/119] Loss: 0.8519 | Acc: 65.42%
+  Batch [100/119] Loss: 0.8555 | Acc: 65.59%
+  Batch [110/119] Loss: 0.8627 | Acc: 65.28%
+
+======================================================================
+Epoch 11 Summary:
+  Train Loss: 0.8733 | Train Acc: 64.78%
+  Val Loss:   2.0134 | Val Acc:   32.73%
+  Learning Rate: 0.001000
+  Time: 3.1s
+======================================================================
+
+Epoch [12/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.8115 | Acc: 70.31%
+  Batch [20/119] Loss: 0.8022 | Acc: 68.59%
+  Batch [30/119] Loss: 0.7943 | Acc: 68.96%
+  Batch [40/119] Loss: 0.7947 | Acc: 68.44%
+  Batch [50/119] Loss: 0.7803 | Acc: 68.44%
+  Batch [60/119] Loss: 0.7595 | Acc: 69.69%
+  Batch [70/119] Loss: 0.7398 | Acc: 70.40%
+  Batch [80/119] Loss: 0.7363 | Acc: 70.70%
+  Batch [90/119] Loss: 0.7358 | Acc: 70.80%
+  Batch [100/119] Loss: 0.7261 | Acc: 71.16%
+  Batch [110/119] Loss: 0.7335 | Acc: 71.08%
+
+======================================================================
+Epoch 12 Summary:
+  Train Loss: 0.7235 | Train Acc: 71.61%
+  Val Loss:   2.0448 | Val Acc:   34.55%
+  Learning Rate: 0.000500
+  Time: 3.1s
+======================================================================
+
+Epoch [13/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.6398 | Acc: 75.62%
+  Batch [20/119] Loss: 0.6534 | Acc: 75.62%
+  Batch [30/119] Loss: 0.6476 | Acc: 76.67%
+  Batch [40/119] Loss: 0.6459 | Acc: 76.80%
+  Batch [50/119] Loss: 0.6406 | Acc: 76.31%
+  Batch [60/119] Loss: 0.6283 | Acc: 77.03%
+  Batch [70/119] Loss: 0.6284 | Acc: 76.88%
+  Batch [80/119] Loss: 0.6329 | Acc: 76.68%
+  Batch [90/119] Loss: 0.6415 | Acc: 76.04%
+  Batch [100/119] Loss: 0.6413 | Acc: 75.91%
+  Batch [110/119] Loss: 0.6407 | Acc: 75.88%
+
+======================================================================
+Epoch 13 Summary:
+  Train Loss: 0.6441 | Train Acc: 75.62%
+  Val Loss:   2.2471 | Val Acc:   34.41%
+  Learning Rate: 0.000500
+  Time: 3.1s
+======================================================================
+
+Epoch [14/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.6202 | Acc: 74.38%
+  Batch [20/119] Loss: 0.5470 | Acc: 78.44%
+  Batch [30/119] Loss: 0.5506 | Acc: 78.75%
+  Batch [40/119] Loss: 0.5732 | Acc: 78.05%
+  Batch [50/119] Loss: 0.5711 | Acc: 78.56%
+  Batch [60/119] Loss: 0.5914 | Acc: 77.66%
+  Batch [70/119] Loss: 0.5869 | Acc: 77.68%
+  Batch [80/119] Loss: 0.5770 | Acc: 78.05%
+  Batch [90/119] Loss: 0.5825 | Acc: 77.85%
+  Batch [100/119] Loss: 0.5773 | Acc: 78.09%
+  Batch [110/119] Loss: 0.5784 | Acc: 78.18%
+
+======================================================================
+Epoch 14 Summary:
+  Train Loss: 0.5824 | Train Acc: 77.99%
+  Val Loss:   2.3591 | Val Acc:   33.15%
+  Learning Rate: 0.000500
+  Time: 3.1s
+======================================================================
+
+Epoch [15/50]
+----------------------------------------------------------------------
+  Batch [10/119] Loss: 0.4850 | Acc: 80.94%
+  Batch [20/119] Loss: 0.5054 | Acc: 81.41%
+  Batch [30/119] Loss: 0.5209 | Acc: 81.25%
+  Batch [40/119] Loss: 0.5166 | Acc: 81.25%
+  Batch [50/119] Loss: 0.5113 | Acc: 81.00%
+  Batch [60/119] Loss: 0.5129 | Acc: 80.62%
+  Batch [70/119] Loss: 0.5185 | Acc: 80.13%
+  Batch [80/119] Loss: 0.5274 | Acc: 79.53%
+  Batch [90/119] Loss: 0.5246 | Acc: 79.79%
+  Batch [100/119] Loss: 0.5315 | Acc: 79.69%
+  Batch [110/119] Loss: 0.5284 | Acc: 79.83%
+
+======================================================================
+Epoch 15 Summary:
+  Train Loss: 0.5335 | Train Acc: 79.37%
+  Val Loss:   2.4637 | Val Acc:   34.55%
+  Learning Rate: 0.000500
+  Time: 3.1s
+======================================================================
+
+⚠ Early stopping! 10 epoch boyunca iyileşme yok.
+
+======================================================================
+TRAINING TAMAMLANDI!
+======================================================================
+Toplam süre: 0.8 dakika
+Best val loss: 1.4840
+Best val acc: 35.24%
+======================================================================
+
+
+======================================================================
+TRAINING HISTORY GRAFİĞİ KAYDEDİLDİ
+======================================================================
+Dosya: outputs/runs/251229-2323/training_history.png
+======================================================================
+
+📊 OVERFITTING ANALİZİ:
+  Final Train Accuracy: 79.37%
+  Final Val Accuracy: 34.55%
+  Best Val Accuracy: 35.24%
+  Train-Val Gap: 44.82%
+
+  ⚠️  OVERFITTING TESPİT EDİLDİ!
+  Öneriler:
+    - Daha fazla veri ekleyin
+    - Dropout oranını artırın (şu an: 0.5)
+    - Weight decay artırın (şu an: 0.0005)
+    - Data augmentation kullanın
+    - Early stopping patience azaltın
+======================================================================
+
+✓ Training history kaydedildi: outputs/runs/251229-2323/training_history.json

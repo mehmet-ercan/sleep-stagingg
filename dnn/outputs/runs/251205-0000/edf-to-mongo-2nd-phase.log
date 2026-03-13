@@ -1,0 +1,5463 @@
+
+================================================================================
+TOPLU HASTA VERİSİ AKTARIMI
+================================================================================
+Ana klasör: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase
+Veritabanı: psg_data
+Mevcut hastaları atla: True
+================================================================================
+
+Toplam 9 hasta klasörü bulundu.
+
+
+================================================================================
+[1/9] Hasta: 1319073d-138e-44da-8536-1c3c35752347
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: 131-labels.xml
+======================================================================
+Hasta ID: 1319073d-138e-44da-8536-1c3c35752347
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/1319073d-138e-44da-8536-1c3c35752347/131-labels.xml
+✓ 872 epoch parse edildi
+  Toplam süre: 26160.00 saniye (7.27 saat)
+  Uyku evresi dağılımı:
+    N1: 62 epoch (7.1%)
+    N2: 251 epoch (28.8%)
+    N3: 68 epoch (7.8%)
+    REM: 67 epoch (7.7%)
+    W: 424 epoch (48.6%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 872
+  N1: 62 epoch (7.1%)
+  N2: 251 epoch (28.8%)
+  N3: 68 epoch (7.8%)
+  REM: 67 epoch (7.7%)
+  W: 424 epoch (48.6%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 693626dd965fd840275c6665)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 46
+----------------------------------------------------------------------
+
+Kanal 1/46: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e0965fd840275c6667)
+
+Kanal 2/46: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e1965fd840275c6736)
+
+Kanal 3/46: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e2965fd840275c6805)
+
+Kanal 4/46: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e3965fd840275c68d4)
+
+Kanal 5/46: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e4965fd840275c69a3)
+
+Kanal 6/46: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e6965fd840275c6a72)
+
+Kanal 7/46: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e7965fd840275c6b41)
+
+Kanal 8/46: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e8965fd840275c6c10)
+
+Kanal 9/46: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626e9965fd840275c6cdf)
+
+Kanal 10/46: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626ea965fd840275c6dae)
+
+Kanal 11/46: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626eb965fd840275c6e7d)
+
+Kanal 12/46: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626ec965fd840275c6f4c)
+
+Kanal 13/46: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626ed965fd840275c701b)
+
+Kanal 14/46: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626ee965fd840275c70ea)
+
+Kanal 15/46: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626ef965fd840275c71b9)
+
+Kanal 16/46: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f0965fd840275c7288)
+
+Kanal 17/46: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f1965fd840275c7357)
+
+Kanal 18/46: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f1965fd840275c7426)
+
+Kanal 19/46: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 836,864
+  Süre: 7.26 saat
+  Boyut: 6.38 MB
+  ✓ Kaydedildi (ID: 693626f2965fd840275c74f5)
+
+Kanal 20/46: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f2965fd840275c7510)
+
+Kanal 21/46: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f3965fd840275c75df)
+
+Kanal 22/46: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 693626f4965fd840275c76ae)
+
+Kanal 23/46: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 693626f5965fd840275c777d)
+
+Kanal 24/46: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 693626f5965fd840275c77b2)
+
+Kanal 25/46: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 693626f5965fd840275c77e7)
+
+Kanal 26/46: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 693626f5965fd840275c781c)
+
+Kanal 27/46: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 69362700965fd840275c7851)
+
+Kanal 28/46: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 69362700965fd840275c7886)
+
+Kanal 29/46: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 69362700965fd840275c78bb)
+
+Kanal 30/46: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,673,728
+  Süre: 7.26 saat
+  Boyut: 12.77 MB
+  ✓ Kaydedildi (ID: 69362700965fd840275c78f0)
+
+Kanal 31/46: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 104,608
+  Süre: 7.26 saat
+  Boyut: 0.80 MB
+  ✓ Kaydedildi (ID: 69362700965fd840275c7925)
+
+Kanal 32/46: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 104,608
+  Süre: 7.26 saat
+  Boyut: 0.80 MB
+  ✓ Kaydedildi (ID: 69362701965fd840275c792a)
+
+Kanal 33/46: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 104,608
+  Süre: 7.26 saat
+  Boyut: 0.80 MB
+  ✓ Kaydedildi (ID: 69362701965fd840275c792f)
+
+Kanal 34/46: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362701965fd840275c7934)
+
+Kanal 35/46: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,347,456
+  Süre: 7.26 saat
+  Boyut: 25.54 MB
+  ✓ Kaydedildi (ID: 69362702965fd840275c7a03)
+
+Kanal 36/46: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362702965fd840275c7a6b)
+
+Kanal 37/46: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362703965fd840275c7b3a)
+
+Kanal 38/46: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362704965fd840275c7c09)
+
+Kanal 39/46: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362705965fd840275c7cd8)
+
+Kanal 40/46: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,347,456
+  Süre: 7.26 saat
+  Boyut: 25.54 MB
+  ✓ Kaydedildi (ID: 69362706965fd840275c7da7)
+
+Kanal 41/46: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,347,456
+  Süre: 7.26 saat
+  Boyut: 25.54 MB
+  ✓ Kaydedildi (ID: 69362706965fd840275c7e0f)
+
+Kanal 42/46: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,347,456
+  Süre: 7.26 saat
+  Boyut: 25.54 MB
+  ✓ Kaydedildi (ID: 69362707965fd840275c7e77)
+
+Kanal 43/46: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 418,432
+  Süre: 7.26 saat
+  Boyut: 3.19 MB
+  ✓ Kaydedildi (ID: 69362707965fd840275c7edf)
+
+Kanal 44/46: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 418,432
+  Süre: 7.26 saat
+  Boyut: 3.19 MB
+  ✓ Kaydedildi (ID: 69362707965fd840275c7eed)
+
+Kanal 45/46: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 418,432
+  Süre: 7.26 saat
+  Boyut: 3.19 MB
+  ✓ Kaydedildi (ID: 69362707965fd840275c7efb)
+
+Kanal 46/46: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,694,912
+  Süre: 7.26 saat
+  Boyut: 51.08 MB
+  ✓ Kaydedildi (ID: 69362707965fd840275c7f09)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: 1319073d-138e-44da-8536-1c3c35752347
+Uyku evreleri ID: 693626dd965fd840275c6665
+Toplam kanal sayısı: 46
+Toplam veri boyutu: 1601.78 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - 1319073d-138e-44da-8536-1c3c35752347 aktarıldı
+
+================================================================================
+[2/9] Hasta: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: 255fc.xml
+======================================================================
+Hasta ID: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/255fc64b-7e43-4525-b6f7-109e6c7a0f0b/255fc.xml
+✓ 848 epoch parse edildi
+  Toplam süre: 25440.00 saniye (7.07 saat)
+  Uyku evresi dağılımı:
+    N1: 19 epoch (2.2%)
+    N2: 357 epoch (42.1%)
+    N3: 129 epoch (15.2%)
+    REM: 89 epoch (10.5%)
+    W: 254 epoch (30.0%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 848
+  N1: 19 epoch (2.2%)
+  N2: 357 epoch (42.1%)
+  N3: 129 epoch (15.2%)
+  REM: 89 epoch (10.5%)
+  W: 254 epoch (30.0%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 69362708965fd840275c7fda)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936275f965fd840275c7fdc)
+
+Kanal 2/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362790965fd840275c80a5)
+
+Kanal 3/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 693627c0965fd840275c816e)
+
+Kanal 4/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 693627f2965fd840275c8237)
+
+Kanal 5/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 693627f7965fd840275c8300)
+
+Kanal 6/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 693627fd965fd840275c83c9)
+
+Kanal 7/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362802965fd840275c8492)
+
+Kanal 8/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362807965fd840275c855b)
+
+Kanal 9/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362809965fd840275c8624)
+
+Kanal 10/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936280c965fd840275c86ed)
+
+Kanal 11/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936280f965fd840275c87b6)
+
+Kanal 12/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362811965fd840275c887f)
+
+Kanal 13/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362813965fd840275c8948)
+
+Kanal 14/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362814965fd840275c8a11)
+
+Kanal 15/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362815965fd840275c8ada)
+
+Kanal 16/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362816965fd840275c8ba3)
+
+Kanal 17/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362817965fd840275c8c6c)
+
+Kanal 18/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362818965fd840275c8d35)
+
+Kanal 19/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 813,312
+  Süre: 7.06 saat
+  Boyut: 6.21 MB
+  ✓ Kaydedildi (ID: 69362818965fd840275c8dfe)
+
+Kanal 20/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362819965fd840275c8e18)
+
+Kanal 21/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936281a965fd840275c8ee1)
+
+Kanal 22/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936281b965fd840275c8faa)
+
+Kanal 23/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281b965fd840275c9073)
+
+Kanal 24/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281b965fd840275c90a6)
+
+Kanal 25/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281b965fd840275c90d9)
+
+Kanal 26/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281c965fd840275c910c)
+
+Kanal 27/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281c965fd840275c913f)
+
+Kanal 28/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281c965fd840275c9172)
+
+Kanal 29/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281c965fd840275c91a5)
+
+Kanal 30/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,626,624
+  Süre: 7.06 saat
+  Boyut: 12.41 MB
+  ✓ Kaydedildi (ID: 6936281d965fd840275c91d8)
+
+Kanal 31/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 101,664
+  Süre: 7.06 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 6936281d965fd840275c920b)
+
+Kanal 32/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 101,664
+  Süre: 7.06 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 6936281d965fd840275c9210)
+
+Kanal 33/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 101,664
+  Süre: 7.06 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 6936281d965fd840275c9215)
+
+Kanal 34/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936281d965fd840275c921a)
+
+Kanal 35/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,253,248
+  Süre: 7.06 saat
+  Boyut: 24.82 MB
+  ✓ Kaydedildi (ID: 6936281e965fd840275c92e3)
+
+Kanal 36/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936281f965fd840275c9348)
+
+Kanal 37/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936281f965fd840275c9411)
+
+Kanal 38/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362820965fd840275c94da)
+
+Kanal 39/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362821965fd840275c95a3)
+
+Kanal 40/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,253,248
+  Süre: 7.06 saat
+  Boyut: 24.82 MB
+  ✓ Kaydedildi (ID: 69362822965fd840275c966c)
+
+Kanal 41/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,253,248
+  Süre: 7.06 saat
+  Boyut: 24.82 MB
+  ✓ Kaydedildi (ID: 69362822965fd840275c96d1)
+
+Kanal 42/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,253,248
+  Süre: 7.06 saat
+  Boyut: 24.82 MB
+  ✓ Kaydedildi (ID: 69362822965fd840275c9736)
+
+Kanal 43/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 406,656
+  Süre: 7.06 saat
+  Boyut: 3.10 MB
+  ✓ Kaydedildi (ID: 69362823965fd840275c979b)
+
+Kanal 44/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 406,656
+  Süre: 7.06 saat
+  Boyut: 3.10 MB
+  ✓ Kaydedildi (ID: 69362823965fd840275c97a9)
+
+Kanal 45/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 406,656
+  Süre: 7.06 saat
+  Boyut: 3.10 MB
+  ✓ Kaydedildi (ID: 69362823965fd840275c97b7)
+
+Kanal 46/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362823965fd840275c97c5)
+
+Kanal 47/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362824965fd840275c988e)
+
+Kanal 48/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362825965fd840275c9957)
+
+Kanal 49/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362826965fd840275c9a20)
+
+Kanal 50/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362827965fd840275c9ae9)
+
+Kanal 51/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362828965fd840275c9bb2)
+
+Kanal 52/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 69362829965fd840275c9c7b)
+
+Kanal 53/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936282a965fd840275c9d44)
+
+Kanal 54/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936282b965fd840275c9e0d)
+
+Kanal 55/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,506,496
+  Süre: 7.06 saat
+  Boyut: 49.64 MB
+  ✓ Kaydedildi (ID: 6936282c965fd840275c9ed6)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+Uyku evreleri ID: 69362708965fd840275c7fda
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 2003.46 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - 255fc64b-7e43-4525-b6f7-109e6c7a0f0b aktarıldı
+
+================================================================================
+[3/9] Hasta: 3f2d1717-e701-40bc-8c48-22318f36de16
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: 3f2-labels.xml
+======================================================================
+Hasta ID: 3f2d1717-e701-40bc-8c48-22318f36de16
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/3f2d1717-e701-40bc-8c48-22318f36de16/3f2-labels.xml
+✓ 833 epoch parse edildi
+  Toplam süre: 24990.00 saniye (6.94 saat)
+  Uyku evresi dağılımı:
+    N1: 46 epoch (5.5%)
+    N2: 399 epoch (47.9%)
+    N3: 163 epoch (19.6%)
+    REM: 143 epoch (17.2%)
+    W: 82 epoch (9.8%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 833
+  N1: 46 epoch (5.5%)
+  N2: 399 epoch (47.9%)
+  N3: 163 epoch (19.6%)
+  REM: 143 epoch (17.2%)
+  W: 82 epoch (9.8%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 6936283f965fd840275c9fa1)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 46
+----------------------------------------------------------------------
+
+Kanal 1/46: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936283f965fd840275c9fa3)
+
+Kanal 2/46: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362840965fd840275ca069)
+
+Kanal 3/46: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362841965fd840275ca12f)
+
+Kanal 4/46: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362842965fd840275ca1f5)
+
+Kanal 5/46: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362843965fd840275ca2bb)
+
+Kanal 6/46: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362844965fd840275ca381)
+
+Kanal 7/46: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362845965fd840275ca447)
+
+Kanal 8/46: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362846965fd840275ca50d)
+
+Kanal 9/46: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362847965fd840275ca5d3)
+
+Kanal 10/46: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362848965fd840275ca699)
+
+Kanal 11/46: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362849965fd840275ca75f)
+
+Kanal 12/46: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284a965fd840275ca825)
+
+Kanal 13/46: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284b965fd840275ca8eb)
+
+Kanal 14/46: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284d965fd840275ca9b1)
+
+Kanal 15/46: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284d965fd840275caa77)
+
+Kanal 16/46: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284f965fd840275cab3d)
+
+Kanal 17/46: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936284f965fd840275cac03)
+
+Kanal 18/46: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362850965fd840275cacc9)
+
+Kanal 19/46: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 799,936
+  Süre: 6.94 saat
+  Boyut: 6.10 MB
+  ✓ Kaydedildi (ID: 69362851965fd840275cad8f)
+
+Kanal 20/46: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362851965fd840275cada9)
+
+Kanal 21/46: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362852965fd840275cae6f)
+
+Kanal 22/46: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362853965fd840275caf35)
+
+Kanal 23/46: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362854965fd840275caffb)
+
+Kanal 24/46: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362854965fd840275cb02e)
+
+Kanal 25/46: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362854965fd840275cb061)
+
+Kanal 26/46: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362855965fd840275cb094)
+
+Kanal 27/46: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362855965fd840275cb0c7)
+
+Kanal 28/46: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362855965fd840275cb0fa)
+
+Kanal 29/46: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362855965fd840275cb12d)
+
+Kanal 30/46: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,599,872
+  Süre: 6.94 saat
+  Boyut: 12.21 MB
+  ✓ Kaydedildi (ID: 69362856965fd840275cb160)
+
+Kanal 31/46: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 99,992
+  Süre: 6.94 saat
+  Boyut: 0.76 MB
+  ✓ Kaydedildi (ID: 69362856965fd840275cb193)
+
+Kanal 32/46: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 99,992
+  Süre: 6.94 saat
+  Boyut: 0.76 MB
+  ✓ Kaydedildi (ID: 69362856965fd840275cb198)
+
+Kanal 33/46: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 99,992
+  Süre: 6.94 saat
+  Boyut: 0.76 MB
+  ✓ Kaydedildi (ID: 69362856965fd840275cb19d)
+
+Kanal 34/46: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362856965fd840275cb1a2)
+
+Kanal 35/46: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,199,744
+  Süre: 6.94 saat
+  Boyut: 24.41 MB
+  ✓ Kaydedildi (ID: 69362857965fd840275cb268)
+
+Kanal 36/46: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362858965fd840275cb2cc)
+
+Kanal 37/46: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362858965fd840275cb392)
+
+Kanal 38/46: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 69362859965fd840275cb458)
+
+Kanal 39/46: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936285a965fd840275cb51e)
+
+Kanal 40/46: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,199,744
+  Süre: 6.94 saat
+  Boyut: 24.41 MB
+  ✓ Kaydedildi (ID: 6936285b965fd840275cb5e4)
+
+Kanal 41/46: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,199,744
+  Süre: 6.94 saat
+  Boyut: 24.41 MB
+  ✓ Kaydedildi (ID: 6936285b965fd840275cb648)
+
+Kanal 42/46: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,199,744
+  Süre: 6.94 saat
+  Boyut: 24.41 MB
+  ✓ Kaydedildi (ID: 6936285b965fd840275cb6ac)
+
+Kanal 43/46: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 399,968
+  Süre: 6.94 saat
+  Boyut: 3.05 MB
+  ✓ Kaydedildi (ID: 6936285b965fd840275cb710)
+
+Kanal 44/46: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 399,968
+  Süre: 6.94 saat
+  Boyut: 3.05 MB
+  ✓ Kaydedildi (ID: 6936285c965fd840275cb71e)
+
+Kanal 45/46: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 399,968
+  Süre: 6.94 saat
+  Boyut: 3.05 MB
+  ✓ Kaydedildi (ID: 6936285c965fd840275cb72c)
+
+Kanal 46/46: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,399,488
+  Süre: 6.94 saat
+  Boyut: 48.82 MB
+  ✓ Kaydedildi (ID: 6936285c965fd840275cb73a)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: 3f2d1717-e701-40bc-8c48-22318f36de16
+Uyku evreleri ID: 6936283f965fd840275c9fa1
+Toplam kanal sayısı: 46
+Toplam veri boyutu: 1531.10 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - 3f2d1717-e701-40bc-8c48-22318f36de16 aktarıldı
+
+================================================================================
+[4/9] Hasta: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: 6b914a-labels.xml
+======================================================================
+Hasta ID: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/6b914a0f-e9f9-4b3c-8e24-b292a05a053c/6b914a-labels.xml
+✓ 851 epoch parse edildi
+  Toplam süre: 25530.00 saniye (7.09 saat)
+  Uyku evresi dağılımı:
+    N1: 24 epoch (2.8%)
+    N2: 380 epoch (44.7%)
+    N3: 233 epoch (27.4%)
+    REM: 177 epoch (20.8%)
+    W: 37 epoch (4.3%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 851
+  N1: 24 epoch (2.8%)
+  N2: 380 epoch (44.7%)
+  N3: 233 epoch (27.4%)
+  REM: 177 epoch (20.8%)
+  W: 37 epoch (4.3%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 6936285e965fd840275cb802)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 46
+----------------------------------------------------------------------
+
+Kanal 1/46: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936285f965fd840275cb804)
+
+Kanal 2/46: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362860965fd840275cb8ce)
+
+Kanal 3/46: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362860965fd840275cb998)
+
+Kanal 4/46: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362861965fd840275cba62)
+
+Kanal 5/46: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362862965fd840275cbb2c)
+
+Kanal 6/46: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362872965fd840275cbbf6)
+
+Kanal 7/46: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362873965fd840275cbcc0)
+
+Kanal 8/46: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362874965fd840275cbd8a)
+
+Kanal 9/46: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362875965fd840275cbe54)
+
+Kanal 10/46: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362876965fd840275cbf1e)
+
+Kanal 11/46: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362877965fd840275cbfe8)
+
+Kanal 12/46: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362878965fd840275cc0b2)
+
+Kanal 13/46: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362889965fd840275cc17c)
+
+Kanal 14/46: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936288a965fd840275cc246)
+
+Kanal 15/46: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936288b965fd840275cc310)
+
+Kanal 16/46: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936288c965fd840275cc3da)
+
+Kanal 17/46: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936288d965fd840275cc4a4)
+
+Kanal 18/46: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936288e965fd840275cc56e)
+
+Kanal 19/46: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 817,984
+  Süre: 7.10 saat
+  Boyut: 6.24 MB
+  ✓ Kaydedildi (ID: 6936288f965fd840275cc638)
+
+Kanal 20/46: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362890965fd840275cc653)
+
+Kanal 21/46: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362890965fd840275cc71d)
+
+Kanal 22/46: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362891965fd840275cc7e7)
+
+Kanal 23/46: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362892965fd840275cc8b1)
+
+Kanal 24/46: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362892965fd840275cc8e5)
+
+Kanal 25/46: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362892965fd840275cc919)
+
+Kanal 26/46: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362892965fd840275cc94d)
+
+Kanal 27/46: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362893965fd840275cc981)
+
+Kanal 28/46: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362893965fd840275cc9b5)
+
+Kanal 29/46: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362893965fd840275cc9e9)
+
+Kanal 30/46: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,635,968
+  Süre: 7.10 saat
+  Boyut: 12.48 MB
+  ✓ Kaydedildi (ID: 69362893965fd840275cca1d)
+
+Kanal 31/46: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 102,248
+  Süre: 7.10 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 69362894965fd840275cca51)
+
+Kanal 32/46: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 102,248
+  Süre: 7.10 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 69362894965fd840275cca56)
+
+Kanal 33/46: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 102,248
+  Süre: 7.10 saat
+  Boyut: 0.78 MB
+  ✓ Kaydedildi (ID: 69362894965fd840275cca5b)
+
+Kanal 34/46: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362894965fd840275cca60)
+
+Kanal 35/46: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,271,936
+  Süre: 7.10 saat
+  Boyut: 24.96 MB
+  ✓ Kaydedildi (ID: 69362895965fd840275ccb2a)
+
+Kanal 36/46: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362895965fd840275ccb90)
+
+Kanal 37/46: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362896965fd840275ccc5a)
+
+Kanal 38/46: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362897965fd840275ccd24)
+
+Kanal 39/46: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 69362898965fd840275ccdee)
+
+Kanal 40/46: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,271,936
+  Süre: 7.10 saat
+  Boyut: 24.96 MB
+  ✓ Kaydedildi (ID: 69362899965fd840275cceb8)
+
+Kanal 41/46: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,271,936
+  Süre: 7.10 saat
+  Boyut: 24.96 MB
+  ✓ Kaydedildi (ID: 69362899965fd840275ccf1e)
+
+Kanal 42/46: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,271,936
+  Süre: 7.10 saat
+  Boyut: 24.96 MB
+  ✓ Kaydedildi (ID: 6936289a965fd840275ccf84)
+
+Kanal 43/46: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 408,992
+  Süre: 7.10 saat
+  Boyut: 3.12 MB
+  ✓ Kaydedildi (ID: 6936289a965fd840275ccfea)
+
+Kanal 44/46: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 408,992
+  Süre: 7.10 saat
+  Boyut: 3.12 MB
+  ✓ Kaydedildi (ID: 6936289a965fd840275ccff8)
+
+Kanal 45/46: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 408,992
+  Süre: 7.10 saat
+  Boyut: 3.12 MB
+  ✓ Kaydedildi (ID: 6936289a965fd840275cd006)
+
+Kanal 46/46: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,543,872
+  Süre: 7.10 saat
+  Boyut: 49.93 MB
+  ✓ Kaydedildi (ID: 6936289a965fd840275cd014)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+Uyku evreleri ID: 6936285e965fd840275cb802
+Toplam kanal sayısı: 46
+Toplam veri boyutu: 1565.64 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - 6b914a0f-e9f9-4b3c-8e24-b292a05a053c aktarıldı
+
+================================================================================
+[5/9] Hasta: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7-Events.xml
+======================================================================
+Hasta ID: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/9e3eb090-4f91-4ec7-a1da-fc3d23e563c7/9e3eb090-4f91-4ec7-a1da-fc3d23e563c7-Events.xml
+✓ 803 epoch parse edildi
+  Toplam süre: 24090.00 saniye (6.69 saat)
+  Uyku evresi dağılımı:
+    N1: 27 epoch (3.4%)
+    N2: 471 epoch (58.7%)
+    N3: 68 epoch (8.5%)
+    REM: 177 epoch (22.0%)
+    W: 60 epoch (7.5%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 803
+  N1: 27 epoch (3.4%)
+  N2: 471 epoch (58.7%)
+  N3: 68 epoch (8.5%)
+  REM: 177 epoch (22.0%)
+  W: 60 epoch (7.5%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 6936289b965fd840275cd0e0)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 693628db965fd840275cd0e2)
+
+Kanal 2/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362907965fd840275cd1a1)
+
+Kanal 3/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936292f965fd840275cd260)
+
+Kanal 4/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362957965fd840275cd31f)
+
+Kanal 5/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936295c965fd840275cd3de)
+
+Kanal 6/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362960965fd840275cd49d)
+
+Kanal 7/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362964965fd840275cd55c)
+
+Kanal 8/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362968965fd840275cd61b)
+
+Kanal 9/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936296a965fd840275cd6da)
+
+Kanal 10/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936296d965fd840275cd799)
+
+Kanal 11/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936296f965fd840275cd858)
+
+Kanal 12/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362972965fd840275cd917)
+
+Kanal 13/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362973965fd840275cd9d6)
+
+Kanal 14/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362974965fd840275cda95)
+
+Kanal 15/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362975965fd840275cdb54)
+
+Kanal 16/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362977965fd840275cdc13)
+
+Kanal 17/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362978965fd840275cdcd2)
+
+Kanal 18/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362979965fd840275cdd91)
+
+Kanal 19/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362979965fd840275cde50)
+
+Kanal 20/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298a965fd840275cdf0f)
+
+Kanal 21/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298b965fd840275cdfce)
+
+Kanal 22/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298c965fd840275ce08d)
+
+Kanal 23/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298d965fd840275ce14c)
+
+Kanal 24/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298e965fd840275ce20b)
+
+Kanal 25/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936298f965fd840275ce2ca)
+
+Kanal 26/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362990965fd840275ce389)
+
+Kanal 27/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362991965fd840275ce448)
+
+Kanal 28/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 772,736
+  Süre: 6.71 saat
+  Boyut: 5.90 MB
+  ✓ Kaydedildi (ID: 69362991965fd840275ce507)
+
+Kanal 29/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362992965fd840275ce520)
+
+Kanal 30/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362993965fd840275ce5df)
+
+Kanal 31/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362993965fd840275ce69e)
+
+Kanal 32/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362994965fd840275ce75d)
+
+Kanal 33/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362994965fd840275ce78e)
+
+Kanal 34/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362994965fd840275ce7bf)
+
+Kanal 35/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362994965fd840275ce7f0)
+
+Kanal 36/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362995965fd840275ce821)
+
+Kanal 37/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362995965fd840275ce852)
+
+Kanal 38/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362995965fd840275ce883)
+
+Kanal 39/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,545,472
+  Süre: 6.71 saat
+  Boyut: 11.79 MB
+  ✓ Kaydedildi (ID: 69362995965fd840275ce8b4)
+
+Kanal 40/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 96,592
+  Süre: 6.71 saat
+  Boyut: 0.74 MB
+  ✓ Kaydedildi (ID: 69362995965fd840275ce8e5)
+
+Kanal 41/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 96,592
+  Süre: 6.71 saat
+  Boyut: 0.74 MB
+  ✓ Kaydedildi (ID: 69362996965fd840275ce8e9)
+
+Kanal 42/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 96,592
+  Süre: 6.71 saat
+  Boyut: 0.74 MB
+  ✓ Kaydedildi (ID: 69362996965fd840275ce8ed)
+
+Kanal 43/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362996965fd840275ce8f1)
+
+Kanal 44/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,090,944
+  Süre: 6.71 saat
+  Boyut: 23.58 MB
+  ✓ Kaydedildi (ID: 69362997965fd840275ce9b0)
+
+Kanal 45/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362997965fd840275cea10)
+
+Kanal 46/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362998965fd840275ceacf)
+
+Kanal 47/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 69362999965fd840275ceb8e)
+
+Kanal 48/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936299a965fd840275cec4d)
+
+Kanal 49/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,090,944
+  Süre: 6.71 saat
+  Boyut: 23.58 MB
+  ✓ Kaydedildi (ID: 6936299a965fd840275ced0c)
+
+Kanal 50/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,090,944
+  Süre: 6.71 saat
+  Boyut: 23.58 MB
+  ✓ Kaydedildi (ID: 6936299b965fd840275ced6c)
+
+Kanal 51/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,090,944
+  Süre: 6.71 saat
+  Boyut: 23.58 MB
+  ✓ Kaydedildi (ID: 6936299b965fd840275cedcc)
+
+Kanal 52/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 386,368
+  Süre: 6.71 saat
+  Boyut: 2.95 MB
+  ✓ Kaydedildi (ID: 6936299b965fd840275cee2c)
+
+Kanal 53/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 386,368
+  Süre: 6.71 saat
+  Boyut: 2.95 MB
+  ✓ Kaydedildi (ID: 6936299b965fd840275cee39)
+
+Kanal 54/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 386,368
+  Süre: 6.71 saat
+  Boyut: 2.95 MB
+  ✓ Kaydedildi (ID: 6936299b965fd840275cee46)
+
+Kanal 55/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,181,888
+  Süre: 6.71 saat
+  Boyut: 47.16 MB
+  ✓ Kaydedildi (ID: 6936299c965fd840275cee53)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+Uyku evreleri ID: 6936289b965fd840275cd0e0
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 1903.51 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7 aktarıldı
+
+================================================================================
+[6/9] Hasta: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: a82-labels.xml
+======================================================================
+Hasta ID: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/a82f0ab0-d849-42b7-b3d9-6051343f5ce0/a82-labels.xml
+✓ 436 epoch parse edildi
+  Toplam süre: 13080.00 saniye (3.63 saat)
+  Uyku evresi dağılımı:
+    N1: 89 epoch (20.4%)
+    N2: 195 epoch (44.7%)
+    N3: 59 epoch (13.5%)
+    REM: 25 epoch (5.7%)
+    W: 68 epoch (15.6%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 436
+  N1: 89 epoch (20.4%)
+  N2: 195 epoch (44.7%)
+  N3: 59 epoch (13.5%)
+  REM: 25 epoch (5.7%)
+  W: 68 epoch (15.6%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 6936299d965fd840275cef14)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 6936299f965fd840275cef16)
+
+Kanal 2/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a1965fd840275cefd4)
+
+Kanal 3/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a4965fd840275cf092)
+
+Kanal 4/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a5965fd840275cf150)
+
+Kanal 5/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a6965fd840275cf20e)
+
+Kanal 6/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a7965fd840275cf2cc)
+
+Kanal 7/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629a8965fd840275cf38a)
+
+Kanal 8/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629aa965fd840275cf448)
+
+Kanal 9/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629b0965fd840275cf506)
+
+Kanal 10/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629b9965fd840275cf5c4)
+
+Kanal 11/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629bc965fd840275cf682)
+
+Kanal 12/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629be965fd840275cf740)
+
+Kanal 13/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c0965fd840275cf7fe)
+
+Kanal 14/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c1965fd840275cf8bc)
+
+Kanal 15/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c3965fd840275cf97a)
+
+Kanal 16/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c5965fd840275cfa38)
+
+Kanal 17/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c6965fd840275cfaf6)
+
+Kanal 18/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629c8965fd840275cfbb4)
+
+Kanal 19/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629d1965fd840275cfc72)
+
+Kanal 20/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629d4965fd840275cfd30)
+
+Kanal 21/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629d7965fd840275cfdee)
+
+Kanal 22/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629d9965fd840275cfeac)
+
+Kanal 23/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629da965fd840275cff6a)
+
+Kanal 24/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629db965fd840275d0028)
+
+Kanal 25/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629dc965fd840275d00e6)
+
+Kanal 26/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629de965fd840275d01a4)
+
+Kanal 27/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629df965fd840275d0262)
+
+Kanal 28/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 767,872
+  Süre: 6.67 saat
+  Boyut: 5.86 MB
+  ✓ Kaydedildi (ID: 693629df965fd840275d0320)
+
+Kanal 29/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e0965fd840275d0339)
+
+Kanal 30/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e0965fd840275d03f7)
+
+Kanal 31/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e1965fd840275d04b5)
+
+Kanal 32/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e2965fd840275d0573)
+
+Kanal 33/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e2965fd840275d05a4)
+
+Kanal 34/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e2965fd840275d05d5)
+
+Kanal 35/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e2965fd840275d0606)
+
+Kanal 36/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e2965fd840275d0637)
+
+Kanal 37/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d0668)
+
+Kanal 38/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d0699)
+
+Kanal 39/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,535,744
+  Süre: 6.67 saat
+  Boyut: 11.72 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d06ca)
+
+Kanal 40/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 95,984
+  Süre: 6.67 saat
+  Boyut: 0.73 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d06fb)
+
+Kanal 41/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 95,984
+  Süre: 6.67 saat
+  Boyut: 0.73 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d06ff)
+
+Kanal 42/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 95,984
+  Süre: 6.67 saat
+  Boyut: 0.73 MB
+  ✓ Kaydedildi (ID: 693629e3965fd840275d0703)
+
+Kanal 43/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e4965fd840275d0707)
+
+Kanal 44/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,071,488
+  Süre: 6.67 saat
+  Boyut: 23.43 MB
+  ✓ Kaydedildi (ID: 693629e4965fd840275d07c5)
+
+Kanal 45/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e5965fd840275d0825)
+
+Kanal 46/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e6965fd840275d08e3)
+
+Kanal 47/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e7965fd840275d09a1)
+
+Kanal 48/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629e8965fd840275d0a5f)
+
+Kanal 49/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,071,488
+  Süre: 6.67 saat
+  Boyut: 23.43 MB
+  ✓ Kaydedildi (ID: 693629e9965fd840275d0b1d)
+
+Kanal 50/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,071,488
+  Süre: 6.67 saat
+  Boyut: 23.43 MB
+  ✓ Kaydedildi (ID: 693629e9965fd840275d0b7d)
+
+Kanal 51/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,071,488
+  Süre: 6.67 saat
+  Boyut: 23.43 MB
+  ✓ Kaydedildi (ID: 693629e9965fd840275d0bdd)
+
+Kanal 52/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 383,936
+  Süre: 6.67 saat
+  Boyut: 2.93 MB
+  ✓ Kaydedildi (ID: 693629e9965fd840275d0c3d)
+
+Kanal 53/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 383,936
+  Süre: 6.67 saat
+  Boyut: 2.93 MB
+  ✓ Kaydedildi (ID: 693629e9965fd840275d0c4a)
+
+Kanal 54/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 383,936
+  Süre: 6.67 saat
+  Boyut: 2.93 MB
+  ✓ Kaydedildi (ID: 693629ea965fd840275d0c57)
+
+Kanal 55/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,142,976
+  Süre: 6.67 saat
+  Boyut: 46.87 MB
+  ✓ Kaydedildi (ID: 693629ea965fd840275d0c64)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+Uyku evreleri ID: 6936299d965fd840275cef14
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 1891.53 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - a82f0ab0-d849-42b7-b3d9-6051343f5ce0 aktarıldı
+
+================================================================================
+[7/9] Hasta: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: e1ae-labels.xml
+======================================================================
+Hasta ID: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/e1ae919e-d2fc-41ad-af23-50c7d97b196b/e1ae-labels.xml
+✓ 930 epoch parse edildi
+  Toplam süre: 27900.00 saniye (7.75 saat)
+  Uyku evresi dağılımı:
+    N1: 23 epoch (2.5%)
+    N2: 440 epoch (47.3%)
+    N3: 211 epoch (22.7%)
+    REM: 230 epoch (24.7%)
+    W: 26 epoch (2.8%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 930
+  N1: 23 epoch (2.5%)
+  N2: 440 epoch (47.3%)
+  N3: 211 epoch (22.7%)
+  REM: 230 epoch (24.7%)
+  W: 26 epoch (2.8%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 693629ec965fd840275d0d24)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 693629ed965fd840275d0d26)
+
+Kanal 2/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 693629ee965fd840275d0e03)
+
+Kanal 3/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 693629ef965fd840275d0ee0)
+
+Kanal 4/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 693629f0965fd840275d0fbd)
+
+Kanal 5/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 693629f4965fd840275d109a)
+
+Kanal 6/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a02965fd840275d1177)
+
+Kanal 7/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a03965fd840275d1254)
+
+Kanal 8/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a04965fd840275d1331)
+
+Kanal 9/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a05965fd840275d140e)
+
+Kanal 10/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a06965fd840275d14eb)
+
+Kanal 11/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a07965fd840275d15c8)
+
+Kanal 12/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a08965fd840275d16a5)
+
+Kanal 13/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a09965fd840275d1782)
+
+Kanal 14/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a25965fd840275d185f)
+
+Kanal 15/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a26965fd840275d193c)
+
+Kanal 16/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a27965fd840275d1a19)
+
+Kanal 17/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a29965fd840275d1af6)
+
+Kanal 18/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2a965fd840275d1bd3)
+
+Kanal 19/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2b965fd840275d1cb0)
+
+Kanal 20/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2c965fd840275d1d8d)
+
+Kanal 21/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2d965fd840275d1e6a)
+
+Kanal 22/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2e965fd840275d1f47)
+
+Kanal 23/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a2f965fd840275d2024)
+
+Kanal 24/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a30965fd840275d2101)
+
+Kanal 25/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a34965fd840275d21de)
+
+Kanal 26/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a35965fd840275d22bb)
+
+Kanal 27/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a36965fd840275d2398)
+
+Kanal 28/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 894,528
+  Süre: 7.76 saat
+  Boyut: 6.82 MB
+  ✓ Kaydedildi (ID: 69362a37965fd840275d2475)
+
+Kanal 29/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a37965fd840275d2492)
+
+Kanal 30/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a38965fd840275d256f)
+
+Kanal 31/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a39965fd840275d264c)
+
+Kanal 32/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3a965fd840275d2729)
+
+Kanal 33/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3a965fd840275d2761)
+
+Kanal 34/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3a965fd840275d2799)
+
+Kanal 35/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3b965fd840275d27d1)
+
+Kanal 36/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3b965fd840275d2809)
+
+Kanal 37/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3b965fd840275d2841)
+
+Kanal 38/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3b965fd840275d2879)
+
+Kanal 39/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,789,056
+  Süre: 7.76 saat
+  Boyut: 13.65 MB
+  ✓ Kaydedildi (ID: 69362a3c965fd840275d28b1)
+
+Kanal 40/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 111,816
+  Süre: 7.76 saat
+  Boyut: 0.85 MB
+  ✓ Kaydedildi (ID: 69362a3c965fd840275d28e9)
+
+Kanal 41/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 111,816
+  Süre: 7.76 saat
+  Boyut: 0.85 MB
+  ✓ Kaydedildi (ID: 69362a3c965fd840275d28ee)
+
+Kanal 42/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 111,816
+  Süre: 7.76 saat
+  Boyut: 0.85 MB
+  ✓ Kaydedildi (ID: 69362a3c965fd840275d28f3)
+
+Kanal 43/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a3d965fd840275d28f8)
+
+Kanal 44/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,578,112
+  Süre: 7.76 saat
+  Boyut: 27.30 MB
+  ✓ Kaydedildi (ID: 69362a3f965fd840275d29d5)
+
+Kanal 45/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a41965fd840275d2a44)
+
+Kanal 46/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a41965fd840275d2b21)
+
+Kanal 47/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a43965fd840275d2bfe)
+
+Kanal 48/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a44965fd840275d2cdb)
+
+Kanal 49/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,578,112
+  Süre: 7.76 saat
+  Boyut: 27.30 MB
+  ✓ Kaydedildi (ID: 69362a44965fd840275d2db8)
+
+Kanal 50/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,578,112
+  Süre: 7.76 saat
+  Boyut: 27.30 MB
+  ✓ Kaydedildi (ID: 69362a45965fd840275d2e27)
+
+Kanal 51/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,578,112
+  Süre: 7.76 saat
+  Boyut: 27.30 MB
+  ✓ Kaydedildi (ID: 69362a45965fd840275d2e96)
+
+Kanal 52/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 447,264
+  Süre: 7.76 saat
+  Boyut: 3.41 MB
+  ✓ Kaydedildi (ID: 69362a45965fd840275d2f05)
+
+Kanal 53/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 447,264
+  Süre: 7.76 saat
+  Boyut: 3.41 MB
+  ✓ Kaydedildi (ID: 69362a45965fd840275d2f14)
+
+Kanal 54/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 447,264
+  Süre: 7.76 saat
+  Boyut: 3.41 MB
+  ✓ Kaydedildi (ID: 69362a45965fd840275d2f23)
+
+Kanal 55/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 7,156,224
+  Süre: 7.76 saat
+  Boyut: 54.60 MB
+  ✓ Kaydedildi (ID: 69362a46965fd840275d2f32)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+Uyku evreleri ID: 693629ec965fd840275d0d24
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 2203.53 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - e1ae919e-d2fc-41ad-af23-50c7d97b196b aktarıldı
+
+================================================================================
+[8/9] Hasta: e5e364df-e09e-4230-abc3-e92dd338e426
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: e5e364df-e09e-4230-abc3-e92dd338e426-Events.xml
+======================================================================
+Hasta ID: e5e364df-e09e-4230-abc3-e92dd338e426
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/e5e364df-e09e-4230-abc3-e92dd338e426/e5e364df-e09e-4230-abc3-e92dd338e426-Events.xml
+✓ 812 epoch parse edildi
+  Toplam süre: 24360.00 saniye (6.77 saat)
+  Uyku evresi dağılımı:
+    N1: 41 epoch (5.0%)
+    N2: 556 epoch (68.5%)
+    N3: 78 epoch (9.6%)
+    REM: 106 epoch (13.1%)
+    W: 31 epoch (3.8%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 812
+  N1: 41 epoch (5.0%)
+  N2: 556 epoch (68.5%)
+  N3: 78 epoch (9.6%)
+  REM: 106 epoch (13.1%)
+  W: 31 epoch (3.8%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 69362a50965fd840275d3011)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362a7f965fd840275d3013)
+
+Kanal 2/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362a96965fd840275d30d5)
+
+Kanal 3/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ab1965fd840275d3197)
+
+Kanal 4/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ac8965fd840275d3259)
+
+Kanal 5/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362acf965fd840275d331b)
+
+Kanal 6/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ad5965fd840275d33dd)
+
+Kanal 7/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ad9965fd840275d349f)
+
+Kanal 8/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ade965fd840275d3561)
+
+Kanal 9/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ae1965fd840275d3623)
+
+Kanal 10/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ae3965fd840275d36e5)
+
+Kanal 11/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362ae7965fd840275d37a7)
+
+Kanal 12/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362aea965fd840275d3869)
+
+Kanal 13/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362aeb965fd840275d392b)
+
+Kanal 14/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362aed965fd840275d39ed)
+
+Kanal 15/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362aee965fd840275d3aaf)
+
+Kanal 16/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af0965fd840275d3b71)
+
+Kanal 17/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af3965fd840275d3c33)
+
+Kanal 18/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af5965fd840275d3cf5)
+
+Kanal 19/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af6965fd840275d3db7)
+
+Kanal 20/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af7965fd840275d3e79)
+
+Kanal 21/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af8965fd840275d3f3b)
+
+Kanal 22/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362af9965fd840275d3ffd)
+
+Kanal 23/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362afa965fd840275d40bf)
+
+Kanal 24/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362afb965fd840275d4181)
+
+Kanal 25/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b03965fd840275d4243)
+
+Kanal 26/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b04965fd840275d4305)
+
+Kanal 27/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b05965fd840275d43c7)
+
+Kanal 28/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 785,344
+  Süre: 6.82 saat
+  Boyut: 5.99 MB
+  ✓ Kaydedildi (ID: 69362b05965fd840275d4489)
+
+Kanal 29/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b06965fd840275d44a3)
+
+Kanal 30/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b06965fd840275d4565)
+
+Kanal 31/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b07965fd840275d4627)
+
+Kanal 32/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b08965fd840275d46e9)
+
+Kanal 33/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b08965fd840275d471b)
+
+Kanal 34/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b08965fd840275d474d)
+
+Kanal 35/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b08965fd840275d477f)
+
+Kanal 36/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b08965fd840275d47b1)
+
+Kanal 37/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d47e3)
+
+Kanal 38/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d4815)
+
+Kanal 39/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,570,688
+  Süre: 6.82 saat
+  Boyut: 11.98 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d4847)
+
+Kanal 40/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 98,168
+  Süre: 6.82 saat
+  Boyut: 0.75 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d4879)
+
+Kanal 41/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 98,168
+  Süre: 6.82 saat
+  Boyut: 0.75 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d487e)
+
+Kanal 42/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 98,168
+  Süre: 6.82 saat
+  Boyut: 0.75 MB
+  ✓ Kaydedildi (ID: 69362b09965fd840275d4883)
+
+Kanal 43/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b0a965fd840275d4888)
+
+Kanal 44/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,141,376
+  Süre: 6.82 saat
+  Boyut: 23.97 MB
+  ✓ Kaydedildi (ID: 69362b0e965fd840275d494a)
+
+Kanal 45/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b12965fd840275d49ac)
+
+Kanal 46/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b14965fd840275d4a6e)
+
+Kanal 47/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b15965fd840275d4b30)
+
+Kanal 48/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b16965fd840275d4bf2)
+
+Kanal 49/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,141,376
+  Süre: 6.82 saat
+  Boyut: 23.97 MB
+  ✓ Kaydedildi (ID: 69362b17965fd840275d4cb4)
+
+Kanal 50/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,141,376
+  Süre: 6.82 saat
+  Boyut: 23.97 MB
+  ✓ Kaydedildi (ID: 69362b18965fd840275d4d16)
+
+Kanal 51/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 3,141,376
+  Süre: 6.82 saat
+  Boyut: 23.97 MB
+  ✓ Kaydedildi (ID: 69362b18965fd840275d4d78)
+
+Kanal 52/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 392,672
+  Süre: 6.82 saat
+  Boyut: 3.00 MB
+  ✓ Kaydedildi (ID: 69362b18965fd840275d4dda)
+
+Kanal 53/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 392,672
+  Süre: 6.82 saat
+  Boyut: 3.00 MB
+  ✓ Kaydedildi (ID: 69362b18965fd840275d4de8)
+
+Kanal 54/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 392,672
+  Süre: 6.82 saat
+  Boyut: 3.00 MB
+  ✓ Kaydedildi (ID: 69362b19965fd840275d4df6)
+
+Kanal 55/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 6,282,752
+  Süre: 6.82 saat
+  Boyut: 47.93 MB
+  ✓ Kaydedildi (ID: 69362b19965fd840275d4e04)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: e5e364df-e09e-4230-abc3-e92dd338e426
+Uyku evreleri ID: 69362a50965fd840275d3011
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 1934.57 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - e5e364df-e09e-4230-abc3-e92dd338e426 aktarıldı
+
+================================================================================
+[9/9] Hasta: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+================================================================================
+EDF dosyası: Traces.edf
+XML dosyası: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7-Events.xml
+======================================================================
+Hasta ID: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+======================================================================
+
+[1/3] Uyku evreleri parse ediliyor...
+XML dosyası parse ediliyor: /mnt/data1/data/owndata/2.uncompressed_data/2.second_phase/ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7/ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7-Events.xml
+✓ 768 epoch parse edildi
+  Toplam süre: 23040.00 saniye (6.40 saat)
+  Uyku evresi dağılımı:
+    N1: 23 epoch (3.0%)
+    N2: 305 epoch (39.7%)
+    N3: 209 epoch (27.2%)
+    REM: 157 epoch (20.4%)
+    W: 74 epoch (9.6%)
+
+Uyku evresi istatistikleri:
+  Toplam epoch sayısı: 768
+  N1: 23 epoch (3.0%)
+  N2: 305 epoch (39.7%)
+  N3: 209 epoch (27.2%)
+  REM: 157 epoch (20.4%)
+  W: 74 epoch (9.6%)
+
+[2/3] MongoDB'ye bağlanılıyor...
+✓ Uyku evreleri kaydedildi (ID: 69362b1a965fd840275d4ec8)
+
+[3/3] EDF kanalları okunuyor ve kaydediliyor...
+
+Toplam kanal sayısı: 55
+----------------------------------------------------------------------
+
+Kanal 1/55: C3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362b61965fd840275d4eca)
+
+Kanal 2/55: C3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362b8c965fd840275d4f80)
+
+Kanal 3/55: C4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bb8965fd840275d5036)
+
+Kanal 4/55: C4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362be2965fd840275d50ec)
+
+Kanal 5/55: F3
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362be6965fd840275d51a2)
+
+Kanal 6/55: F3-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bea965fd840275d5258)
+
+Kanal 7/55: F4
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bef965fd840275d530e)
+
+Kanal 8/55: F4-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bf3965fd840275d53c4)
+
+Kanal 9/55: O1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bf6965fd840275d547a)
+
+Kanal 10/55: O1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bf8965fd840275d5530)
+
+Kanal 11/55: O2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bfb965fd840275d55e6)
+
+Kanal 12/55: O2-M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bfd965fd840275d569c)
+
+Kanal 13/55: M1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bfe965fd840275d5752)
+
+Kanal 14/55: M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362bff965fd840275d5808)
+
+Kanal 15/55: E1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c01965fd840275d58be)
+
+Kanal 16/55: E1-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c02965fd840275d5974)
+
+Kanal 17/55: E2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c04965fd840275d5a2a)
+
+Kanal 18/55: E2-M2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c06965fd840275d5ae0)
+
+Kanal 19/55: CHIN1
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c07965fd840275d5b96)
+
+Kanal 20/55: Lower.Left-Lower
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c08965fd840275d5c4c)
+
+Kanal 21/55: CHIN2
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c09965fd840275d5d02)
+
+Kanal 22/55: CHINz
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c09965fd840275d5db8)
+
+Kanal 23/55: EKG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0b965fd840275d5e6e)
+
+Kanal 24/55: EKG-
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0c965fd840275d5f24)
+
+Kanal 25/55: RLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0c965fd840275d5fda)
+
+Kanal 26/55: LLEG+
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0d965fd840275d6090)
+
+Kanal 27/55: Snore
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0e965fd840275d6146)
+
+Kanal 28/55: Thermistor
+  Frekans: 32.0 Hz
+  Örnek sayısı: 736,960
+  Süre: 6.40 saat
+  Boyut: 5.62 MB
+  ✓ Kaydedildi (ID: 69362c0e965fd840275d61fc)
+
+Kanal 29/55: Nasal Pressure
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c0f965fd840275d6214)
+
+Kanal 30/55: Flow_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c10965fd840275d62ca)
+
+Kanal 31/55: Snore_DR
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c10965fd840275d6380)
+
+Kanal 32/55: Abdomen
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c11965fd840275d6436)
+
+Kanal 33/55: Chest
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c11965fd840275d6465)
+
+Kanal 34/55: Phase
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c11965fd840275d6494)
+
+Kanal 35/55: RMI
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c11965fd840275d64c3)
+
+Kanal 36/55: RR
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d64f2)
+
+Kanal 37/55: XSum
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d6521)
+
+Kanal 38/55: XFlow
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d6550)
+
+Kanal 39/55: XVolume
+  Frekans: 64.0 Hz
+  Örnek sayısı: 1,473,920
+  Süre: 6.40 saat
+  Boyut: 11.25 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d657f)
+
+Kanal 40/55: Position
+  Frekans: 4.0 Hz
+  Örnek sayısı: 92,120
+  Süre: 6.40 saat
+  Boyut: 0.70 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d65ae)
+
+Kanal 41/55: Elevation
+  Frekans: 4.0 Hz
+  Örnek sayısı: 92,120
+  Süre: 6.40 saat
+  Boyut: 0.70 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d65b2)
+
+Kanal 42/55: Activity
+  Frekans: 4.0 Hz
+  Örnek sayısı: 92,120
+  Süre: 6.40 saat
+  Boyut: 0.70 MB
+  ✓ Kaydedildi (ID: 69362c12965fd840275d65b6)
+
+Kanal 43/55: PPG
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c13965fd840275d65ba)
+
+Kanal 44/55: Plethysmogram
+  Frekans: 128.0 Hz
+  Örnek sayısı: 2,947,840
+  Süre: 6.40 saat
+  Boyut: 22.49 MB
+  ✓ Kaydedildi (ID: 69362c13965fd840275d6670)
+
+Kanal 45/55: DC13
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c14965fd840275d66cc)
+
+Kanal 46/55: Flow
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c15965fd840275d6782)
+
+Kanal 47/55: EPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c16965fd840275d6838)
+
+Kanal 48/55: IPAP
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c16965fd840275d68ee)
+
+Kanal 49/55: SpO2
+  Frekans: 128.0 Hz
+  Örnek sayısı: 2,947,840
+  Süre: 6.40 saat
+  Boyut: 22.49 MB
+  ✓ Kaydedildi (ID: 69362c17965fd840275d69a4)
+
+Kanal 50/55: Pulse
+  Frekans: 128.0 Hz
+  Örnek sayısı: 2,947,840
+  Süre: 6.40 saat
+  Boyut: 22.49 MB
+  ✓ Kaydedildi (ID: 69362c17965fd840275d6a00)
+
+Kanal 51/55: RD-Quality
+  Frekans: 128.0 Hz
+  Örnek sayısı: 2,947,840
+  Süre: 6.40 saat
+  Boyut: 22.49 MB
+  ✓ Kaydedildi (ID: 69362c18965fd840275d6a5c)
+
+Kanal 52/55: Gravity X
+  Frekans: 16.0 Hz
+  Örnek sayısı: 368,480
+  Süre: 6.40 saat
+  Boyut: 2.81 MB
+  ✓ Kaydedildi (ID: 69362c18965fd840275d6ab8)
+
+Kanal 53/55: Gravity Y
+  Frekans: 16.0 Hz
+  Örnek sayısı: 368,480
+  Süre: 6.40 saat
+  Boyut: 2.81 MB
+  ✓ Kaydedildi (ID: 69362c18965fd840275d6ac5)
+
+Kanal 54/55: Gravity Z
+  Frekans: 16.0 Hz
+  Örnek sayısı: 368,480
+  Süre: 6.40 saat
+  Boyut: 2.81 MB
+  ✓ Kaydedildi (ID: 69362c18965fd840275d6ad2)
+
+Kanal 55/55: Flattening
+  Frekans: 256.0 Hz
+  Örnek sayısı: 5,895,680
+  Süre: 6.40 saat
+  Boyut: 44.98 MB
+  ✓ Kaydedildi (ID: 69362c18965fd840275d6adf)
+
+======================================================================
+✓ TÜM VERİLER BAŞARIYLA KAYDEDİLDİ!
+======================================================================
+Hasta ID: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+Uyku evreleri ID: 69362b1a965fd840275d4ec8
+Toplam kanal sayısı: 55
+Toplam veri boyutu: 1815.38 MB
+Veritabanı: psg_data
+
+✓ BAŞARILI - ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7 aktarıldı
+
+
+================================================================================
+AKTARIM ÖZETI
+================================================================================
+Toplam klasör: 9
+Başarılı: 9 ✓
+Atlanan: 0 ⊘
+Başarısız: 0 ✗
+================================================================================
+
+
+======================================================================
+TÜM STAGE VERİLERİ CACHE'E YÜKLENİYOR
+======================================================================
+Toplam 26 hasta bulundu
+----------------------------------------------------------------------
+[1/26] 1319073d-138e-44da-8536-1c3c35752347: 872 epoch, 0.09 MB ✓
+[2/26] 22cd54f1-5d96-4b12-a392-d5ddada9d8d3: 866 epoch, 0.09 MB ✓
+[3/26] 255fc64b-7e43-4525-b6f7-109e6c7a0f0b: 848 epoch, 0.09 MB ✓
+[4/26] 28ba35f0-a068-4eeb-a51a-f4c45b4c0843: 728 epoch, 0.08 MB ✓
+[5/26] 2d42885b-ba49-4c21-9e8f-4963349f252c: 740 epoch, 0.08 MB ✓
+[6/26] 3da2681a-5991-449c-80a4-52cf3257db02: 731 epoch, 0.08 MB ✓
+[7/26] 3f2d1717-e701-40bc-8c48-22318f36de16: 833 epoch, 0.09 MB ✓
+[8/26] 441425cd-4ee5-45b6-a33a-fd7de892d61f: 764 epoch, 0.08 MB ✓
+[9/26] 4f680835-27cb-422f-b254-1d2994ff548a: 707 epoch, 0.07 MB ✓
+[10/26] 596ce269-a11b-4dce-859e-9b4f25428033: 744 epoch, 0.08 MB ✓
+[11/26] 66d496f0-3092-48db-801e-ae81fb623131: 744 epoch, 0.08 MB ✓
+[12/26] 6b19b899-e4b2-4465-93d7-ab2c329b092d: 773 epoch, 0.08 MB ✓
+[13/26] 6b914a0f-e9f9-4b3c-8e24-b292a05a053c: 851 epoch, 0.09 MB ✓
+[14/26] 98839ae3-bc28-42f6-9258-c81854ac4b4a: 657 epoch, 0.07 MB ✓
+[15/26] 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7: 803 epoch, 0.08 MB ✓
+[16/26] a82f0ab0-d849-42b7-b3d9-6051343f5ce0: 436 epoch, 0.05 MB ✓
+[17/26] b551f3fe-85d3-40be-a5fa-a22ce04b4dea: 789 epoch, 0.08 MB ✓
+[18/26] dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a: 618 epoch, 0.06 MB ✓
+[19/26] e1ae919e-d2fc-41ad-af23-50c7d97b196b: 930 epoch, 0.10 MB ✓
+[20/26] e4650f45-63c1-4af1-99f0-fa4a99db0601: 735 epoch, 0.08 MB ✓
+[21/26] e5e364df-e09e-4230-abc3-e92dd338e426: 812 epoch, 0.09 MB ✓
+[22/26] edee3d0a-16d7-4413-9aa0-72f6a09f6d0a: 731 epoch, 0.08 MB ✓
+[23/26] f0cfab4a-fd30-43a5-8633-814b69c6bdca: 707 epoch, 0.07 MB ✓
+[24/26] f94c4f40-d9e5-4624-b4f9-b02d35285646: 665 epoch, 0.07 MB ✓
+[25/26] fb43377e-9f64-4863-9ab0-993c26836f39: 721 epoch, 0.08 MB ✓
+[26/26] ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7: 768 epoch, 0.08 MB ✓
+
+======================================================================
+CACHE YÜKLEME TAMAMLANDI
+======================================================================
+Yüklenen hasta: 26/26
+Toplam epoch: 19,573
+Toplam boyut: 2.06 MB
+Cache boyutu: 26 hasta
+======================================================================
+
+
+======================================================================
+TOPLU HİPNOGRAM OLUŞTURMA
+======================================================================
+Çıktı klasörü: hypnograms
+Veritabanı: psg_data
+Cache kullanımı: Aktif ✓
+======================================================================
+
+Hasta listesi cache'den alındı: 26 hasta
+
+[1/26] İşleniyor: 1319073d-138e-44da-8536-1c3c35752347
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 1319073d-138e-44da-8536-1c3c35752347
+======================================================================
+✓ 872 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/1319073d-138e-44da-8536-1c3c35752347_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[2/26] İşleniyor: 22cd54f1-5d96-4b12-a392-d5ddada9d8d3
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 22cd54f1-5d96-4b12-a392-d5ddada9d8d3
+======================================================================
+✓ 866 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/22cd54f1-5d96-4b12-a392-d5ddada9d8d3_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[3/26] İşleniyor: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+======================================================================
+✓ 848 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/255fc64b-7e43-4525-b6f7-109e6c7a0f0b_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[4/26] İşleniyor: 28ba35f0-a068-4eeb-a51a-f4c45b4c0843
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 28ba35f0-a068-4eeb-a51a-f4c45b4c0843
+======================================================================
+✓ 728 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/28ba35f0-a068-4eeb-a51a-f4c45b4c0843_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[5/26] İşleniyor: 2d42885b-ba49-4c21-9e8f-4963349f252c
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 2d42885b-ba49-4c21-9e8f-4963349f252c
+======================================================================
+✓ 740 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/2d42885b-ba49-4c21-9e8f-4963349f252c_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[6/26] İşleniyor: 3da2681a-5991-449c-80a4-52cf3257db02
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 3da2681a-5991-449c-80a4-52cf3257db02
+======================================================================
+✓ 731 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/3da2681a-5991-449c-80a4-52cf3257db02_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[7/26] İşleniyor: 3f2d1717-e701-40bc-8c48-22318f36de16
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 3f2d1717-e701-40bc-8c48-22318f36de16
+======================================================================
+✓ 833 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/3f2d1717-e701-40bc-8c48-22318f36de16_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[8/26] İşleniyor: 441425cd-4ee5-45b6-a33a-fd7de892d61f
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 441425cd-4ee5-45b6-a33a-fd7de892d61f
+======================================================================
+✓ 764 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/441425cd-4ee5-45b6-a33a-fd7de892d61f_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[9/26] İşleniyor: 4f680835-27cb-422f-b254-1d2994ff548a
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 4f680835-27cb-422f-b254-1d2994ff548a
+======================================================================
+✓ 707 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/4f680835-27cb-422f-b254-1d2994ff548a_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[10/26] İşleniyor: 596ce269-a11b-4dce-859e-9b4f25428033
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 596ce269-a11b-4dce-859e-9b4f25428033
+======================================================================
+✓ 744 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/596ce269-a11b-4dce-859e-9b4f25428033_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[11/26] İşleniyor: 66d496f0-3092-48db-801e-ae81fb623131
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 66d496f0-3092-48db-801e-ae81fb623131
+======================================================================
+✓ 744 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/66d496f0-3092-48db-801e-ae81fb623131_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[12/26] İşleniyor: 6b19b899-e4b2-4465-93d7-ab2c329b092d
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 6b19b899-e4b2-4465-93d7-ab2c329b092d
+======================================================================
+✓ 773 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/6b19b899-e4b2-4465-93d7-ab2c329b092d_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[13/26] İşleniyor: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+======================================================================
+✓ 851 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/6b914a0f-e9f9-4b3c-8e24-b292a05a053c_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[14/26] İşleniyor: 98839ae3-bc28-42f6-9258-c81854ac4b4a
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 98839ae3-bc28-42f6-9258-c81854ac4b4a
+======================================================================
+✓ 657 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/98839ae3-bc28-42f6-9258-c81854ac4b4a_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[15/26] İşleniyor: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+======================================================================
+✓ 803 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/9e3eb090-4f91-4ec7-a1da-fc3d23e563c7_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[16/26] İşleniyor: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+======================================================================
+✓ 436 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/a82f0ab0-d849-42b7-b3d9-6051343f5ce0_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[17/26] İşleniyor: b551f3fe-85d3-40be-a5fa-a22ce04b4dea
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: b551f3fe-85d3-40be-a5fa-a22ce04b4dea
+======================================================================
+✓ 789 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/b551f3fe-85d3-40be-a5fa-a22ce04b4dea_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[18/26] İşleniyor: dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a
+======================================================================
+✓ 618 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[19/26] İşleniyor: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+======================================================================
+✓ 930 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/e1ae919e-d2fc-41ad-af23-50c7d97b196b_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[20/26] İşleniyor: e4650f45-63c1-4af1-99f0-fa4a99db0601
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: e4650f45-63c1-4af1-99f0-fa4a99db0601
+======================================================================
+✓ 735 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/e4650f45-63c1-4af1-99f0-fa4a99db0601_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[21/26] İşleniyor: e5e364df-e09e-4230-abc3-e92dd338e426
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: e5e364df-e09e-4230-abc3-e92dd338e426
+======================================================================
+✓ 812 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/e5e364df-e09e-4230-abc3-e92dd338e426_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[22/26] İşleniyor: edee3d0a-16d7-4413-9aa0-72f6a09f6d0a
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: edee3d0a-16d7-4413-9aa0-72f6a09f6d0a
+======================================================================
+✓ 731 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/edee3d0a-16d7-4413-9aa0-72f6a09f6d0a_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[23/26] İşleniyor: f0cfab4a-fd30-43a5-8633-814b69c6bdca
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: f0cfab4a-fd30-43a5-8633-814b69c6bdca
+======================================================================
+✓ 707 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/f0cfab4a-fd30-43a5-8633-814b69c6bdca_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[24/26] İşleniyor: f94c4f40-d9e5-4624-b4f9-b02d35285646
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: f94c4f40-d9e5-4624-b4f9-b02d35285646
+======================================================================
+✓ 665 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/f94c4f40-d9e5-4624-b4f9-b02d35285646_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[25/26] İşleniyor: fb43377e-9f64-4863-9ab0-993c26836f39
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: fb43377e-9f64-4863-9ab0-993c26836f39
+======================================================================
+✓ 721 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/fb43377e-9f64-4863-9ab0-993c26836f39_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+[26/26] İşleniyor: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+
+======================================================================
+HİPNOGRAM OLUŞTURULUYOR: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+======================================================================
+✓ 768 epoch yüklendi (cache'den - MongoDB'ye gidilmedi)
+✓ Hipnogram kaydedildi: hypnograms/ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7_hypnogram.png
+  Boyut: 16x6 inch, 150 DPI
+======================================================================
+
+
+======================================================================
+İŞLEM ÖZETİ
+======================================================================
+Toplam hasta: 26
+Başarılı: 26 ✓
+Başarısız: 0 ✗
+Çıktı klasörü: /home/user/sleep-stage/2.preprocessing_with_ml/dnn/hypnograms
+Cache kullanımı: 26 hasta bellekte tutuldu
+======================================================================
+
+Just Now Any Info did not write
+
+Veritabanında 26 hasta bulundu:
+======================================================================
+
+Kanallar:
+  - C3 (256.0 Hz, 51.08 MB)
+  - C4 (256.0 Hz, 51.08 MB)
+  - F3 (256.0 Hz, 51.08 MB)
+  - F4 (256.0 Hz, 51.08 MB)
+  - O1 (256.0 Hz, 51.08 MB)
+  - O2 (256.0 Hz, 51.08 MB)
+  - M1 (256.0 Hz, 51.08 MB)
+  - M2 (256.0 Hz, 51.08 MB)
+  - E1 (256.0 Hz, 51.08 MB)
+  - E2 (256.0 Hz, 51.08 MB)
+  - CHIN1 (256.0 Hz, 51.08 MB)
+  - CHIN2 (256.0 Hz, 51.08 MB)
+  - CHINz (256.0 Hz, 51.08 MB)
+  - EKG+ (256.0 Hz, 51.08 MB)
+  - EKG- (256.0 Hz, 51.08 MB)
+  - RLEG+ (256.0 Hz, 51.08 MB)
+  - LLEG+ (256.0 Hz, 51.08 MB)
+  - Snore (256.0 Hz, 51.08 MB)
+  - Thermistor (32.0 Hz, 6.38 MB)
+  - Nasal Pressure (256.0 Hz, 51.08 MB)
+  - Flow_DR (256.0 Hz, 51.08 MB)
+  - Snore_DR (256.0 Hz, 51.08 MB)
+  - Abdomen (64.0 Hz, 12.77 MB)
+  - Chest (64.0 Hz, 12.77 MB)
+  - Phase (64.0 Hz, 12.77 MB)
+  - RMI (64.0 Hz, 12.77 MB)
+  - RR (64.0 Hz, 12.77 MB)
+  - XSum (64.0 Hz, 12.77 MB)
+  - XFlow (64.0 Hz, 12.77 MB)
+  - XVolume (64.0 Hz, 12.77 MB)
+  - Position (4.0 Hz, 0.80 MB)
+  - Elevation (4.0 Hz, 0.80 MB)
+  - Activity (4.0 Hz, 0.80 MB)
+  - PPG (256.0 Hz, 51.08 MB)
+  - Plethysmogram (128.0 Hz, 25.54 MB)
+  - DC13 (256.0 Hz, 51.08 MB)
+  - Flow (256.0 Hz, 51.08 MB)
+  - EPAP (256.0 Hz, 51.08 MB)
+  - IPAP (256.0 Hz, 51.08 MB)
+  - SpO2 (128.0 Hz, 25.54 MB)
+  - Pulse (128.0 Hz, 25.54 MB)
+  - RD-Quality (128.0 Hz, 25.54 MB)
+  - Gravity X (16.0 Hz, 3.19 MB)
+  - Gravity Y (16.0 Hz, 3.19 MB)
+  - Gravity Z (16.0 Hz, 3.19 MB)
+  - Flattening (256.0 Hz, 51.08 MB)
+
+Hasta ID: 1319073d-138e-44da-8536-1c3c35752347
+  Kanal sayısı: 46
+  Epoch sayısı: 872
+  Uyku evreleri: W=424, N1=62, N2=251, N3=68, REM=67
+
+Kanallar:
+  - C3 (256.0 Hz, 50.74 MB)
+  - C4 (256.0 Hz, 50.74 MB)
+  - F3 (256.0 Hz, 50.74 MB)
+  - F4 (256.0 Hz, 50.74 MB)
+  - O1 (256.0 Hz, 50.74 MB)
+  - O2 (256.0 Hz, 50.74 MB)
+  - M1 (256.0 Hz, 50.74 MB)
+  - M2 (256.0 Hz, 50.74 MB)
+  - E1 (256.0 Hz, 50.74 MB)
+  - E2 (256.0 Hz, 50.74 MB)
+  - CHIN1 (256.0 Hz, 50.74 MB)
+  - CHIN2 (256.0 Hz, 50.74 MB)
+  - CHINz (256.0 Hz, 50.74 MB)
+  - EKG+ (256.0 Hz, 50.74 MB)
+  - EKG- (256.0 Hz, 50.74 MB)
+  - RLEG+ (256.0 Hz, 50.74 MB)
+  - LLEG+ (256.0 Hz, 50.74 MB)
+  - Snore (256.0 Hz, 50.74 MB)
+  - Thermistor (32.0 Hz, 6.34 MB)
+  - Nasal Pressure (256.0 Hz, 50.74 MB)
+  - Flow_DR (256.0 Hz, 50.74 MB)
+  - Snore_DR (256.0 Hz, 50.74 MB)
+  - Abdomen (64.0 Hz, 12.69 MB)
+  - Chest (64.0 Hz, 12.69 MB)
+  - Phase (64.0 Hz, 12.69 MB)
+  - RMI (64.0 Hz, 12.69 MB)
+  - RR (64.0 Hz, 12.69 MB)
+  - XSum (64.0 Hz, 12.69 MB)
+  - XFlow (64.0 Hz, 12.69 MB)
+  - XVolume (64.0 Hz, 12.69 MB)
+  - Position (4.0 Hz, 0.79 MB)
+  - Elevation (4.0 Hz, 0.79 MB)
+  - Activity (4.0 Hz, 0.79 MB)
+  - PPG (256.0 Hz, 50.74 MB)
+  - Plethysmogram (128.0 Hz, 25.37 MB)
+  - Flow (256.0 Hz, 50.74 MB)
+  - EPAP (256.0 Hz, 50.74 MB)
+  - IPAP (256.0 Hz, 50.74 MB)
+  - SpO2 (128.0 Hz, 25.37 MB)
+  - Pulse (128.0 Hz, 25.37 MB)
+  - RD-Quality (128.0 Hz, 25.37 MB)
+  - Gravity X (16.0 Hz, 3.17 MB)
+  - Gravity Y (16.0 Hz, 3.17 MB)
+  - Gravity Z (16.0 Hz, 3.17 MB)
+  - Flattening (256.0 Hz, 50.74 MB)
+
+Hasta ID: 22cd54f1-5d96-4b12-a392-d5ddada9d8d3
+  Kanal sayısı: 45
+  Epoch sayısı: 866
+  Uyku evreleri: W=11, N1=26, N2=286, REM=241, N3=302
+
+Kanallar:
+  - C3 (256.0 Hz, 49.64 MB)
+  - C4 (256.0 Hz, 49.64 MB)
+  - F3 (256.0 Hz, 49.64 MB)
+  - F4 (256.0 Hz, 49.64 MB)
+  - O1 (256.0 Hz, 49.64 MB)
+  - O2 (256.0 Hz, 49.64 MB)
+  - M1 (256.0 Hz, 49.64 MB)
+  - M2 (256.0 Hz, 49.64 MB)
+  - E1 (256.0 Hz, 49.64 MB)
+  - E2 (256.0 Hz, 49.64 MB)
+  - CHIN1 (256.0 Hz, 49.64 MB)
+  - CHIN2 (256.0 Hz, 49.64 MB)
+  - CHINz (256.0 Hz, 49.64 MB)
+  - EKG+ (256.0 Hz, 49.64 MB)
+  - EKG- (256.0 Hz, 49.64 MB)
+  - RLEG+ (256.0 Hz, 49.64 MB)
+  - LLEG+ (256.0 Hz, 49.64 MB)
+  - Snore (256.0 Hz, 49.64 MB)
+  - Thermistor (32.0 Hz, 6.21 MB)
+  - Nasal Pressure (256.0 Hz, 49.64 MB)
+  - Flow_DR (256.0 Hz, 49.64 MB)
+  - Snore_DR (256.0 Hz, 49.64 MB)
+  - Abdomen (64.0 Hz, 12.41 MB)
+  - Chest (64.0 Hz, 12.41 MB)
+  - Phase (64.0 Hz, 12.41 MB)
+  - RMI (64.0 Hz, 12.41 MB)
+  - RR (64.0 Hz, 12.41 MB)
+  - XSum (64.0 Hz, 12.41 MB)
+  - XFlow (64.0 Hz, 12.41 MB)
+  - XVolume (64.0 Hz, 12.41 MB)
+  - Position (4.0 Hz, 0.78 MB)
+  - Elevation (4.0 Hz, 0.78 MB)
+  - Activity (4.0 Hz, 0.78 MB)
+  - PPG (256.0 Hz, 49.64 MB)
+  - Plethysmogram (128.0 Hz, 24.82 MB)
+  - DC13 (256.0 Hz, 49.64 MB)
+  - Flow (256.0 Hz, 49.64 MB)
+  - EPAP (256.0 Hz, 49.64 MB)
+  - IPAP (256.0 Hz, 49.64 MB)
+  - SpO2 (128.0 Hz, 24.82 MB)
+  - Pulse (128.0 Hz, 24.82 MB)
+  - RD-Quality (128.0 Hz, 24.82 MB)
+  - Gravity X (16.0 Hz, 3.10 MB)
+  - Gravity Y (16.0 Hz, 3.10 MB)
+  - Gravity Z (16.0 Hz, 3.10 MB)
+  - Flattening (256.0 Hz, 49.64 MB)
+  - C3-M2 (256.0 Hz, 49.64 MB)
+  - C4-M1 (256.0 Hz, 49.64 MB)
+  - F3-M2 (256.0 Hz, 49.64 MB)
+  - F4-M1 (256.0 Hz, 49.64 MB)
+  - O1-M2 (256.0 Hz, 49.64 MB)
+  - O2-M1 (256.0 Hz, 49.64 MB)
+  - E1-M2 (256.0 Hz, 49.64 MB)
+  - E2-M2 (256.0 Hz, 49.64 MB)
+  - Lower.Left-Lower (256.0 Hz, 49.64 MB)
+
+Hasta ID: 255fc64b-7e43-4525-b6f7-109e6c7a0f0b
+  Kanal sayısı: 55
+  Epoch sayısı: 848
+  Uyku evreleri: W=254, N1=19, N2=357, REM=89, N3=129
+
+Kanallar:
+  - C3 (256.0 Hz, 42.72 MB)
+  - C4 (256.0 Hz, 42.72 MB)
+  - F3 (256.0 Hz, 42.72 MB)
+  - F4 (256.0 Hz, 42.72 MB)
+  - O1 (256.0 Hz, 42.72 MB)
+  - O2 (256.0 Hz, 42.72 MB)
+  - M1 (256.0 Hz, 42.72 MB)
+  - M2 (256.0 Hz, 42.72 MB)
+  - E1 (256.0 Hz, 42.72 MB)
+  - E2 (256.0 Hz, 42.72 MB)
+  - CHIN1 (256.0 Hz, 42.72 MB)
+  - CHIN2 (256.0 Hz, 42.72 MB)
+  - CHINz (256.0 Hz, 42.72 MB)
+  - EKG+ (256.0 Hz, 42.72 MB)
+  - EKG- (256.0 Hz, 42.72 MB)
+  - RLEG+ (256.0 Hz, 42.72 MB)
+  - LLEG+ (256.0 Hz, 42.72 MB)
+  - Snore (256.0 Hz, 42.72 MB)
+  - Thermistor (32.0 Hz, 5.34 MB)
+  - Nasal Pressure (256.0 Hz, 42.72 MB)
+  - Flow_DR (256.0 Hz, 42.72 MB)
+  - Snore_DR (256.0 Hz, 42.72 MB)
+  - Abdomen (64.0 Hz, 10.68 MB)
+  - Chest (64.0 Hz, 10.68 MB)
+  - Phase (64.0 Hz, 10.68 MB)
+  - RMI (64.0 Hz, 10.68 MB)
+  - RR (64.0 Hz, 10.68 MB)
+  - XSum (64.0 Hz, 10.68 MB)
+  - XFlow (64.0 Hz, 10.68 MB)
+  - XVolume (64.0 Hz, 10.68 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 42.72 MB)
+  - Plethysmogram (128.0 Hz, 21.36 MB)
+  - Flow (256.0 Hz, 42.72 MB)
+  - EPAP (256.0 Hz, 42.72 MB)
+  - IPAP (256.0 Hz, 42.72 MB)
+  - SpO2 (128.0 Hz, 21.36 MB)
+  - Pulse (128.0 Hz, 21.36 MB)
+  - RD-Quality (128.0 Hz, 21.36 MB)
+  - Gravity X (16.0 Hz, 2.67 MB)
+  - Gravity Y (16.0 Hz, 2.67 MB)
+  - Gravity Z (16.0 Hz, 2.67 MB)
+  - Flattening (256.0 Hz, 42.72 MB)
+
+Hasta ID: 28ba35f0-a068-4eeb-a51a-f4c45b4c0843
+  Kanal sayısı: 45
+  Epoch sayısı: 728
+  Uyku evreleri: W=63, N1=31, N2=302, N3=143, REM=189
+
+Kanallar:
+  - C3 (256.0 Hz, 43.33 MB)
+  - C4 (256.0 Hz, 43.33 MB)
+  - F3 (256.0 Hz, 43.33 MB)
+  - F4 (256.0 Hz, 43.33 MB)
+  - O1 (256.0 Hz, 43.33 MB)
+  - O2 (256.0 Hz, 43.33 MB)
+  - M1 (256.0 Hz, 43.33 MB)
+  - M2 (256.0 Hz, 43.33 MB)
+  - E1 (256.0 Hz, 43.33 MB)
+  - E2 (256.0 Hz, 43.33 MB)
+  - CHIN1 (256.0 Hz, 43.33 MB)
+  - CHIN2 (256.0 Hz, 43.33 MB)
+  - CHINz (256.0 Hz, 43.33 MB)
+  - EKG+ (256.0 Hz, 43.33 MB)
+  - EKG- (256.0 Hz, 43.33 MB)
+  - RLEG+ (256.0 Hz, 43.33 MB)
+  - LLEG+ (256.0 Hz, 43.33 MB)
+  - Snore (256.0 Hz, 43.33 MB)
+  - Thermistor (32.0 Hz, 5.42 MB)
+  - Nasal Pressure (256.0 Hz, 43.33 MB)
+  - Flow_DR (256.0 Hz, 43.33 MB)
+  - Snore_DR (256.0 Hz, 43.33 MB)
+  - Abdomen (64.0 Hz, 10.83 MB)
+  - Chest (64.0 Hz, 10.83 MB)
+  - Phase (64.0 Hz, 10.83 MB)
+  - RMI (64.0 Hz, 10.83 MB)
+  - RR (64.0 Hz, 10.83 MB)
+  - XSum (64.0 Hz, 10.83 MB)
+  - XFlow (64.0 Hz, 10.83 MB)
+  - XVolume (64.0 Hz, 10.83 MB)
+  - Position (4.0 Hz, 0.68 MB)
+  - Elevation (4.0 Hz, 0.68 MB)
+  - Activity (4.0 Hz, 0.68 MB)
+  - PPG (256.0 Hz, 43.33 MB)
+  - Plethysmogram (128.0 Hz, 21.66 MB)
+  - Flow (256.0 Hz, 43.33 MB)
+  - EPAP (256.0 Hz, 43.33 MB)
+  - IPAP (256.0 Hz, 43.33 MB)
+  - SpO2 (128.0 Hz, 21.66 MB)
+  - Pulse (128.0 Hz, 21.66 MB)
+  - RD-Quality (128.0 Hz, 21.66 MB)
+  - Gravity X (16.0 Hz, 2.71 MB)
+  - Gravity Y (16.0 Hz, 2.71 MB)
+  - Gravity Z (16.0 Hz, 2.71 MB)
+  - Flattening (256.0 Hz, 43.33 MB)
+
+Hasta ID: 2d42885b-ba49-4c21-9e8f-4963349f252c
+  Kanal sayısı: 45
+  Epoch sayısı: 740
+  Uyku evreleri: W=87, N1=66, N2=285, REM=130, N3=172
+
+Kanallar:
+  - C3 (256.0 Hz, 45.97 MB)
+  - C4 (256.0 Hz, 45.97 MB)
+  - F3 (256.0 Hz, 45.97 MB)
+  - F4 (256.0 Hz, 45.97 MB)
+  - O1 (256.0 Hz, 45.97 MB)
+  - O2 (256.0 Hz, 45.97 MB)
+  - M1 (256.0 Hz, 45.97 MB)
+  - M2 (256.0 Hz, 45.97 MB)
+  - E1 (256.0 Hz, 45.97 MB)
+  - E2 (256.0 Hz, 45.97 MB)
+  - CHIN1 (256.0 Hz, 45.97 MB)
+  - CHIN2 (256.0 Hz, 45.97 MB)
+  - CHINz (256.0 Hz, 45.97 MB)
+  - EKG+ (256.0 Hz, 45.97 MB)
+  - EKG- (256.0 Hz, 45.97 MB)
+  - RLEG+ (256.0 Hz, 45.97 MB)
+  - LLEG+ (256.0 Hz, 45.97 MB)
+  - Snore (256.0 Hz, 45.97 MB)
+  - Thermistor (32.0 Hz, 5.75 MB)
+  - Nasal Pressure (256.0 Hz, 45.97 MB)
+  - Flow_DR (256.0 Hz, 45.97 MB)
+  - Snore_DR (256.0 Hz, 45.97 MB)
+  - Abdomen (64.0 Hz, 11.49 MB)
+  - Chest (64.0 Hz, 11.49 MB)
+  - Phase (64.0 Hz, 11.49 MB)
+  - RMI (64.0 Hz, 11.49 MB)
+  - RR (64.0 Hz, 11.49 MB)
+  - XSum (64.0 Hz, 11.49 MB)
+  - XFlow (64.0 Hz, 11.49 MB)
+  - XVolume (64.0 Hz, 11.49 MB)
+  - Position (4.0 Hz, 0.72 MB)
+  - Elevation (4.0 Hz, 0.72 MB)
+  - Activity (4.0 Hz, 0.72 MB)
+  - PPG (256.0 Hz, 45.97 MB)
+  - Plethysmogram (128.0 Hz, 22.98 MB)
+  - Flow (256.0 Hz, 45.97 MB)
+  - EPAP (256.0 Hz, 45.97 MB)
+  - IPAP (256.0 Hz, 45.97 MB)
+  - SpO2 (128.0 Hz, 22.98 MB)
+  - Pulse (128.0 Hz, 22.98 MB)
+  - RD-Quality (128.0 Hz, 22.98 MB)
+  - Gravity X (16.0 Hz, 2.87 MB)
+  - Gravity Y (16.0 Hz, 2.87 MB)
+  - Gravity Z (16.0 Hz, 2.87 MB)
+  - Flattening (256.0 Hz, 45.97 MB)
+
+Hasta ID: 3da2681a-5991-449c-80a4-52cf3257db02
+  Kanal sayısı: 45
+  Epoch sayısı: 731
+  Uyku evreleri: W=50, N1=77, N2=380, N3=78, REM=146
+
+Kanallar:
+  - C3 (256.0 Hz, 48.82 MB)
+  - C4 (256.0 Hz, 48.82 MB)
+  - F3 (256.0 Hz, 48.82 MB)
+  - F4 (256.0 Hz, 48.82 MB)
+  - O1 (256.0 Hz, 48.82 MB)
+  - O2 (256.0 Hz, 48.82 MB)
+  - M1 (256.0 Hz, 48.82 MB)
+  - M2 (256.0 Hz, 48.82 MB)
+  - E1 (256.0 Hz, 48.82 MB)
+  - E2 (256.0 Hz, 48.82 MB)
+  - CHIN1 (256.0 Hz, 48.82 MB)
+  - CHIN2 (256.0 Hz, 48.82 MB)
+  - CHINz (256.0 Hz, 48.82 MB)
+  - EKG+ (256.0 Hz, 48.82 MB)
+  - EKG- (256.0 Hz, 48.82 MB)
+  - RLEG+ (256.0 Hz, 48.82 MB)
+  - LLEG+ (256.0 Hz, 48.82 MB)
+  - Snore (256.0 Hz, 48.82 MB)
+  - Thermistor (32.0 Hz, 6.10 MB)
+  - Nasal Pressure (256.0 Hz, 48.82 MB)
+  - Flow_DR (256.0 Hz, 48.82 MB)
+  - Snore_DR (256.0 Hz, 48.82 MB)
+  - Abdomen (64.0 Hz, 12.21 MB)
+  - Chest (64.0 Hz, 12.21 MB)
+  - Phase (64.0 Hz, 12.21 MB)
+  - RMI (64.0 Hz, 12.21 MB)
+  - RR (64.0 Hz, 12.21 MB)
+  - XSum (64.0 Hz, 12.21 MB)
+  - XFlow (64.0 Hz, 12.21 MB)
+  - XVolume (64.0 Hz, 12.21 MB)
+  - Position (4.0 Hz, 0.76 MB)
+  - Elevation (4.0 Hz, 0.76 MB)
+  - Activity (4.0 Hz, 0.76 MB)
+  - PPG (256.0 Hz, 48.82 MB)
+  - Plethysmogram (128.0 Hz, 24.41 MB)
+  - DC13 (256.0 Hz, 48.82 MB)
+  - Flow (256.0 Hz, 48.82 MB)
+  - EPAP (256.0 Hz, 48.82 MB)
+  - IPAP (256.0 Hz, 48.82 MB)
+  - SpO2 (128.0 Hz, 24.41 MB)
+  - Pulse (128.0 Hz, 24.41 MB)
+  - RD-Quality (128.0 Hz, 24.41 MB)
+  - Gravity X (16.0 Hz, 3.05 MB)
+  - Gravity Y (16.0 Hz, 3.05 MB)
+  - Gravity Z (16.0 Hz, 3.05 MB)
+  - Flattening (256.0 Hz, 48.82 MB)
+
+Hasta ID: 3f2d1717-e701-40bc-8c48-22318f36de16
+  Kanal sayısı: 46
+  Epoch sayısı: 833
+  Uyku evreleri: W=82, N1=46, N2=399, N3=163, REM=143
+
+Kanallar:
+  - C3 (256.0 Hz, 44.75 MB)
+  - C4 (256.0 Hz, 44.75 MB)
+  - F3 (256.0 Hz, 44.75 MB)
+  - F4 (256.0 Hz, 44.75 MB)
+  - O1 (256.0 Hz, 44.75 MB)
+  - O2 (256.0 Hz, 44.75 MB)
+  - M1 (256.0 Hz, 44.75 MB)
+  - M2 (256.0 Hz, 44.75 MB)
+  - E1 (256.0 Hz, 44.75 MB)
+  - E2 (256.0 Hz, 44.75 MB)
+  - CHIN1 (256.0 Hz, 44.75 MB)
+  - CHIN2 (256.0 Hz, 44.75 MB)
+  - CHINz (256.0 Hz, 44.75 MB)
+  - EKG+ (256.0 Hz, 44.75 MB)
+  - EKG- (256.0 Hz, 44.75 MB)
+  - RLEG+ (256.0 Hz, 44.75 MB)
+  - LLEG+ (256.0 Hz, 44.75 MB)
+  - Snore (256.0 Hz, 44.75 MB)
+  - Thermistor (32.0 Hz, 5.59 MB)
+  - Nasal Pressure (256.0 Hz, 44.75 MB)
+  - Flow_DR (256.0 Hz, 44.75 MB)
+  - Snore_DR (256.0 Hz, 44.75 MB)
+  - Abdomen (64.0 Hz, 11.19 MB)
+  - Chest (64.0 Hz, 11.19 MB)
+  - Phase (64.0 Hz, 11.19 MB)
+  - RMI (64.0 Hz, 11.19 MB)
+  - RR (64.0 Hz, 11.19 MB)
+  - XSum (64.0 Hz, 11.19 MB)
+  - XFlow (64.0 Hz, 11.19 MB)
+  - XVolume (64.0 Hz, 11.19 MB)
+  - Position (4.0 Hz, 0.70 MB)
+  - Elevation (4.0 Hz, 0.70 MB)
+  - Activity (4.0 Hz, 0.70 MB)
+  - PPG (256.0 Hz, 44.75 MB)
+  - Plethysmogram (128.0 Hz, 22.38 MB)
+  - Flow (256.0 Hz, 44.75 MB)
+  - EPAP (256.0 Hz, 44.75 MB)
+  - IPAP (256.0 Hz, 44.75 MB)
+  - SpO2 (128.0 Hz, 22.38 MB)
+  - Pulse (128.0 Hz, 22.38 MB)
+  - RD-Quality (128.0 Hz, 22.38 MB)
+  - Gravity X (16.0 Hz, 2.80 MB)
+  - Gravity Y (16.0 Hz, 2.80 MB)
+  - Gravity Z (16.0 Hz, 2.80 MB)
+  - Flattening (256.0 Hz, 44.75 MB)
+
+Hasta ID: 441425cd-4ee5-45b6-a33a-fd7de892d61f
+  Kanal sayısı: 45
+  Epoch sayısı: 764
+  Uyku evreleri: W=35, N2=286, N3=220, N1=108, REM=115
+
+Kanallar:
+  - C3 (256.0 Hz, 41.39 MB)
+  - C4 (256.0 Hz, 41.39 MB)
+  - F3 (256.0 Hz, 41.39 MB)
+  - F4 (256.0 Hz, 41.39 MB)
+  - O1 (256.0 Hz, 41.39 MB)
+  - O2 (256.0 Hz, 41.39 MB)
+  - M1 (256.0 Hz, 41.39 MB)
+  - M2 (256.0 Hz, 41.39 MB)
+  - E1 (256.0 Hz, 41.39 MB)
+  - E2 (256.0 Hz, 41.39 MB)
+  - CHIN1 (256.0 Hz, 41.39 MB)
+  - CHIN2 (256.0 Hz, 41.39 MB)
+  - CHINz (256.0 Hz, 41.39 MB)
+  - EKG+ (256.0 Hz, 41.39 MB)
+  - EKG- (256.0 Hz, 41.39 MB)
+  - RLEG+ (256.0 Hz, 41.39 MB)
+  - LLEG+ (256.0 Hz, 41.39 MB)
+  - Snore (256.0 Hz, 41.39 MB)
+  - Thermistor (32.0 Hz, 5.17 MB)
+  - Nasal Pressure (256.0 Hz, 41.39 MB)
+  - Flow_DR (256.0 Hz, 41.39 MB)
+  - Snore_DR (256.0 Hz, 41.39 MB)
+  - Abdomen (64.0 Hz, 10.35 MB)
+  - Chest (64.0 Hz, 10.35 MB)
+  - Phase (64.0 Hz, 10.35 MB)
+  - RMI (64.0 Hz, 10.35 MB)
+  - RR (64.0 Hz, 10.35 MB)
+  - XSum (64.0 Hz, 10.35 MB)
+  - XFlow (64.0 Hz, 10.35 MB)
+  - XVolume (64.0 Hz, 10.35 MB)
+  - Position (4.0 Hz, 0.65 MB)
+  - Elevation (4.0 Hz, 0.65 MB)
+  - Activity (4.0 Hz, 0.65 MB)
+  - PPG (256.0 Hz, 41.39 MB)
+  - Plethysmogram (128.0 Hz, 20.69 MB)
+  - Flow (256.0 Hz, 41.39 MB)
+  - EPAP (256.0 Hz, 41.39 MB)
+  - IPAP (256.0 Hz, 41.39 MB)
+  - SpO2 (128.0 Hz, 20.69 MB)
+  - Pulse (128.0 Hz, 20.69 MB)
+  - RD-Quality (128.0 Hz, 20.69 MB)
+  - Gravity X (16.0 Hz, 2.59 MB)
+  - Gravity Y (16.0 Hz, 2.59 MB)
+  - Gravity Z (16.0 Hz, 2.59 MB)
+  - Flattening (256.0 Hz, 41.39 MB)
+
+Hasta ID: 4f680835-27cb-422f-b254-1d2994ff548a
+  Kanal sayısı: 45
+  Epoch sayısı: 707
+  Uyku evreleri: W=101, N2=256, N1=119, N3=124, REM=107
+
+Kanallar:
+  - C3 (256.0 Hz, 43.55 MB)
+  - C4 (256.0 Hz, 43.55 MB)
+  - F3 (256.0 Hz, 43.55 MB)
+  - F4 (256.0 Hz, 43.55 MB)
+  - O1 (256.0 Hz, 43.55 MB)
+  - O2 (256.0 Hz, 43.55 MB)
+  - M1 (256.0 Hz, 43.55 MB)
+  - M2 (256.0 Hz, 43.55 MB)
+  - E1 (256.0 Hz, 43.55 MB)
+  - E2 (256.0 Hz, 43.55 MB)
+  - CHIN1 (256.0 Hz, 43.55 MB)
+  - CHIN2 (256.0 Hz, 43.55 MB)
+  - CHINz (256.0 Hz, 43.55 MB)
+  - EKG+ (256.0 Hz, 43.55 MB)
+  - EKG- (256.0 Hz, 43.55 MB)
+  - RLEG+ (256.0 Hz, 43.55 MB)
+  - LLEG+ (256.0 Hz, 43.55 MB)
+  - Snore (256.0 Hz, 43.55 MB)
+  - Thermistor (32.0 Hz, 5.44 MB)
+  - Nasal Pressure (256.0 Hz, 43.55 MB)
+  - Flow_DR (256.0 Hz, 43.55 MB)
+  - Snore_DR (256.0 Hz, 43.55 MB)
+  - Abdomen (64.0 Hz, 10.89 MB)
+  - Chest (64.0 Hz, 10.89 MB)
+  - Phase (64.0 Hz, 10.89 MB)
+  - RMI (64.0 Hz, 10.89 MB)
+  - RR (64.0 Hz, 10.89 MB)
+  - XSum (64.0 Hz, 10.89 MB)
+  - XFlow (64.0 Hz, 10.89 MB)
+  - XVolume (64.0 Hz, 10.89 MB)
+  - Position (4.0 Hz, 0.68 MB)
+  - Elevation (4.0 Hz, 0.68 MB)
+  - Activity (4.0 Hz, 0.68 MB)
+  - PPG (256.0 Hz, 43.55 MB)
+  - Plethysmogram (128.0 Hz, 21.77 MB)
+  - Flow (256.0 Hz, 43.55 MB)
+  - EPAP (256.0 Hz, 43.55 MB)
+  - IPAP (256.0 Hz, 43.55 MB)
+  - SpO2 (128.0 Hz, 21.77 MB)
+  - Pulse (128.0 Hz, 21.77 MB)
+  - RD-Quality (128.0 Hz, 21.77 MB)
+  - Gravity X (16.0 Hz, 2.72 MB)
+  - Gravity Y (16.0 Hz, 2.72 MB)
+  - Gravity Z (16.0 Hz, 2.72 MB)
+  - Flattening (256.0 Hz, 43.55 MB)
+
+Hasta ID: 596ce269-a11b-4dce-859e-9b4f25428033
+  Kanal sayısı: 45
+  Epoch sayısı: 744
+  Uyku evreleri: W=161, N1=36, REM=43, N3=135, N2=369
+
+Kanallar:
+  - C3 (256.0 Hz, 43.13 MB)
+  - C4 (256.0 Hz, 43.13 MB)
+  - F3 (256.0 Hz, 43.13 MB)
+  - F4 (256.0 Hz, 43.13 MB)
+  - O1 (256.0 Hz, 43.13 MB)
+  - O2 (256.0 Hz, 43.13 MB)
+  - M1 (256.0 Hz, 43.13 MB)
+  - M2 (256.0 Hz, 43.13 MB)
+  - E1 (256.0 Hz, 43.13 MB)
+  - E2 (256.0 Hz, 43.13 MB)
+  - CHIN1 (256.0 Hz, 43.13 MB)
+  - CHIN2 (256.0 Hz, 43.13 MB)
+  - CHINz (256.0 Hz, 43.13 MB)
+  - EKG+ (256.0 Hz, 43.13 MB)
+  - EKG- (256.0 Hz, 43.13 MB)
+  - RLEG+ (256.0 Hz, 43.13 MB)
+  - LLEG+ (256.0 Hz, 43.13 MB)
+  - Snore (256.0 Hz, 43.13 MB)
+  - Thermistor (32.0 Hz, 5.39 MB)
+  - Nasal Pressure (256.0 Hz, 43.13 MB)
+  - Flow_DR (256.0 Hz, 43.13 MB)
+  - Snore_DR (256.0 Hz, 43.13 MB)
+  - Abdomen (64.0 Hz, 10.78 MB)
+  - Chest (64.0 Hz, 10.78 MB)
+  - Phase (64.0 Hz, 10.78 MB)
+  - RMI (64.0 Hz, 10.78 MB)
+  - RR (64.0 Hz, 10.78 MB)
+  - XSum (64.0 Hz, 10.78 MB)
+  - XFlow (64.0 Hz, 10.78 MB)
+  - XVolume (64.0 Hz, 10.78 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 43.13 MB)
+  - Plethysmogram (128.0 Hz, 21.56 MB)
+  - Flow (256.0 Hz, 43.13 MB)
+  - EPAP (256.0 Hz, 43.13 MB)
+  - IPAP (256.0 Hz, 43.13 MB)
+  - SpO2 (128.0 Hz, 21.56 MB)
+  - Pulse (128.0 Hz, 21.56 MB)
+  - RD-Quality (128.0 Hz, 21.56 MB)
+  - Gravity X (16.0 Hz, 2.70 MB)
+  - Gravity Y (16.0 Hz, 2.70 MB)
+  - Gravity Z (16.0 Hz, 2.70 MB)
+  - Flattening (256.0 Hz, 43.13 MB)
+
+Hasta ID: 66d496f0-3092-48db-801e-ae81fb623131
+  Kanal sayısı: 45
+  Epoch sayısı: 744
+  Uyku evreleri: W=161, N1=36, REM=43, N3=135, N2=369
+
+Kanallar:
+  - C3 (256.0 Hz, 45.34 MB)
+  - C4 (256.0 Hz, 45.34 MB)
+  - F3 (256.0 Hz, 45.34 MB)
+  - F4 (256.0 Hz, 45.34 MB)
+  - O1 (256.0 Hz, 45.34 MB)
+  - O2 (256.0 Hz, 45.34 MB)
+  - M1 (256.0 Hz, 45.34 MB)
+  - M2 (256.0 Hz, 45.34 MB)
+  - E1 (256.0 Hz, 45.34 MB)
+  - E2 (256.0 Hz, 45.34 MB)
+  - CHIN1 (256.0 Hz, 45.34 MB)
+  - CHIN2 (256.0 Hz, 45.34 MB)
+  - CHINz (256.0 Hz, 45.34 MB)
+  - EKG+ (256.0 Hz, 45.34 MB)
+  - EKG- (256.0 Hz, 45.34 MB)
+  - RLEG+ (256.0 Hz, 45.34 MB)
+  - LLEG+ (256.0 Hz, 45.34 MB)
+  - Snore (256.0 Hz, 45.34 MB)
+  - Thermistor (32.0 Hz, 5.67 MB)
+  - Nasal Pressure (256.0 Hz, 45.34 MB)
+  - Flow_DR (256.0 Hz, 45.34 MB)
+  - Snore_DR (256.0 Hz, 45.34 MB)
+  - Abdomen (64.0 Hz, 11.33 MB)
+  - Chest (64.0 Hz, 11.33 MB)
+  - Phase (64.0 Hz, 11.33 MB)
+  - RMI (64.0 Hz, 11.33 MB)
+  - RR (64.0 Hz, 11.33 MB)
+  - XSum (64.0 Hz, 11.33 MB)
+  - XFlow (64.0 Hz, 11.33 MB)
+  - XVolume (64.0 Hz, 11.33 MB)
+  - Position (4.0 Hz, 0.71 MB)
+  - Elevation (4.0 Hz, 0.71 MB)
+  - Activity (4.0 Hz, 0.71 MB)
+  - PPG (256.0 Hz, 45.34 MB)
+  - Plethysmogram (128.0 Hz, 22.67 MB)
+  - Flow (256.0 Hz, 45.34 MB)
+  - EPAP (256.0 Hz, 45.34 MB)
+  - IPAP (256.0 Hz, 45.34 MB)
+  - SpO2 (128.0 Hz, 22.67 MB)
+  - Pulse (128.0 Hz, 22.67 MB)
+  - RD-Quality (128.0 Hz, 22.67 MB)
+  - Gravity X (16.0 Hz, 2.83 MB)
+  - Gravity Y (16.0 Hz, 2.83 MB)
+  - Gravity Z (16.0 Hz, 2.83 MB)
+  - Flattening (256.0 Hz, 45.34 MB)
+
+Hasta ID: 6b19b899-e4b2-4465-93d7-ab2c329b092d
+  Kanal sayısı: 45
+  Epoch sayısı: 773
+  Uyku evreleri: N3=193, W=126, N2=145, REM=192, N1=117
+
+Kanallar:
+  - C3 (256.0 Hz, 49.93 MB)
+  - C4 (256.0 Hz, 49.93 MB)
+  - F3 (256.0 Hz, 49.93 MB)
+  - F4 (256.0 Hz, 49.93 MB)
+  - O1 (256.0 Hz, 49.93 MB)
+  - O2 (256.0 Hz, 49.93 MB)
+  - M1 (256.0 Hz, 49.93 MB)
+  - M2 (256.0 Hz, 49.93 MB)
+  - E1 (256.0 Hz, 49.93 MB)
+  - E2 (256.0 Hz, 49.93 MB)
+  - CHIN1 (256.0 Hz, 49.93 MB)
+  - CHIN2 (256.0 Hz, 49.93 MB)
+  - CHINz (256.0 Hz, 49.93 MB)
+  - EKG+ (256.0 Hz, 49.93 MB)
+  - EKG- (256.0 Hz, 49.93 MB)
+  - RLEG+ (256.0 Hz, 49.93 MB)
+  - LLEG+ (256.0 Hz, 49.93 MB)
+  - Snore (256.0 Hz, 49.93 MB)
+  - Thermistor (32.0 Hz, 6.24 MB)
+  - Nasal Pressure (256.0 Hz, 49.93 MB)
+  - Flow_DR (256.0 Hz, 49.93 MB)
+  - Snore_DR (256.0 Hz, 49.93 MB)
+  - Abdomen (64.0 Hz, 12.48 MB)
+  - Chest (64.0 Hz, 12.48 MB)
+  - Phase (64.0 Hz, 12.48 MB)
+  - RMI (64.0 Hz, 12.48 MB)
+  - RR (64.0 Hz, 12.48 MB)
+  - XSum (64.0 Hz, 12.48 MB)
+  - XFlow (64.0 Hz, 12.48 MB)
+  - XVolume (64.0 Hz, 12.48 MB)
+  - Position (4.0 Hz, 0.78 MB)
+  - Elevation (4.0 Hz, 0.78 MB)
+  - Activity (4.0 Hz, 0.78 MB)
+  - PPG (256.0 Hz, 49.93 MB)
+  - Plethysmogram (128.0 Hz, 24.96 MB)
+  - DC13 (256.0 Hz, 49.93 MB)
+  - Flow (256.0 Hz, 49.93 MB)
+  - EPAP (256.0 Hz, 49.93 MB)
+  - IPAP (256.0 Hz, 49.93 MB)
+  - SpO2 (128.0 Hz, 24.96 MB)
+  - Pulse (128.0 Hz, 24.96 MB)
+  - RD-Quality (128.0 Hz, 24.96 MB)
+  - Gravity X (16.0 Hz, 3.12 MB)
+  - Gravity Y (16.0 Hz, 3.12 MB)
+  - Gravity Z (16.0 Hz, 3.12 MB)
+  - Flattening (256.0 Hz, 49.93 MB)
+
+Hasta ID: 6b914a0f-e9f9-4b3c-8e24-b292a05a053c
+  Kanal sayısı: 46
+  Epoch sayısı: 851
+  Uyku evreleri: W=37, N1=24, N2=380, N3=233, REM=177
+
+Kanallar:
+  - C3 (256.0 Hz, 38.54 MB)
+  - C4 (256.0 Hz, 38.54 MB)
+  - F3 (256.0 Hz, 38.54 MB)
+  - F4 (256.0 Hz, 38.54 MB)
+  - O1 (256.0 Hz, 38.54 MB)
+  - O2 (256.0 Hz, 38.54 MB)
+  - M1 (256.0 Hz, 38.54 MB)
+  - M2 (256.0 Hz, 38.54 MB)
+  - E1 (256.0 Hz, 38.54 MB)
+  - E2 (256.0 Hz, 38.54 MB)
+  - CHIN1 (256.0 Hz, 38.54 MB)
+  - CHIN2 (256.0 Hz, 38.54 MB)
+  - CHINz (256.0 Hz, 38.54 MB)
+  - EKG+ (256.0 Hz, 38.54 MB)
+  - EKG- (256.0 Hz, 38.54 MB)
+  - RLEG+ (256.0 Hz, 38.54 MB)
+  - LLEG+ (256.0 Hz, 38.54 MB)
+  - Snore (256.0 Hz, 38.54 MB)
+  - Thermistor (32.0 Hz, 4.82 MB)
+  - Nasal Pressure (256.0 Hz, 38.54 MB)
+  - Flow_DR (256.0 Hz, 38.54 MB)
+  - Snore_DR (256.0 Hz, 38.54 MB)
+  - Abdomen (64.0 Hz, 9.64 MB)
+  - Chest (64.0 Hz, 9.64 MB)
+  - Phase (64.0 Hz, 9.64 MB)
+  - RMI (64.0 Hz, 9.64 MB)
+  - RR (64.0 Hz, 9.64 MB)
+  - XSum (64.0 Hz, 9.64 MB)
+  - XFlow (64.0 Hz, 9.64 MB)
+  - XVolume (64.0 Hz, 9.64 MB)
+  - Position (4.0 Hz, 0.60 MB)
+  - Elevation (4.0 Hz, 0.60 MB)
+  - Activity (4.0 Hz, 0.60 MB)
+  - PPG (256.0 Hz, 38.54 MB)
+  - Plethysmogram (128.0 Hz, 19.27 MB)
+  - Flow (256.0 Hz, 38.54 MB)
+  - EPAP (256.0 Hz, 38.54 MB)
+  - IPAP (256.0 Hz, 38.54 MB)
+  - SpO2 (128.0 Hz, 19.27 MB)
+  - Pulse (128.0 Hz, 19.27 MB)
+  - RD-Quality (128.0 Hz, 19.27 MB)
+  - Gravity X (16.0 Hz, 2.41 MB)
+  - Gravity Y (16.0 Hz, 2.41 MB)
+  - Gravity Z (16.0 Hz, 2.41 MB)
+  - Flattening (256.0 Hz, 38.54 MB)
+
+Hasta ID: 98839ae3-bc28-42f6-9258-c81854ac4b4a
+  Kanal sayısı: 45
+  Epoch sayısı: 657
+  Uyku evreleri: W=26, N1=94, N2=296, N3=180, REM=61
+
+Kanallar:
+  - C3 (256.0 Hz, 47.16 MB)
+  - C3-M2 (256.0 Hz, 47.16 MB)
+  - C4 (256.0 Hz, 47.16 MB)
+  - C4-M1 (256.0 Hz, 47.16 MB)
+  - F3 (256.0 Hz, 47.16 MB)
+  - F3-M2 (256.0 Hz, 47.16 MB)
+  - F4 (256.0 Hz, 47.16 MB)
+  - F4-M1 (256.0 Hz, 47.16 MB)
+  - O1 (256.0 Hz, 47.16 MB)
+  - O1-M2 (256.0 Hz, 47.16 MB)
+  - O2 (256.0 Hz, 47.16 MB)
+  - O2-M1 (256.0 Hz, 47.16 MB)
+  - M1 (256.0 Hz, 47.16 MB)
+  - M2 (256.0 Hz, 47.16 MB)
+  - E1 (256.0 Hz, 47.16 MB)
+  - E1-M2 (256.0 Hz, 47.16 MB)
+  - E2 (256.0 Hz, 47.16 MB)
+  - E2-M2 (256.0 Hz, 47.16 MB)
+  - CHIN1 (256.0 Hz, 47.16 MB)
+  - Lower.Left-Lower (256.0 Hz, 47.16 MB)
+  - CHIN2 (256.0 Hz, 47.16 MB)
+  - CHINz (256.0 Hz, 47.16 MB)
+  - EKG+ (256.0 Hz, 47.16 MB)
+  - EKG- (256.0 Hz, 47.16 MB)
+  - RLEG+ (256.0 Hz, 47.16 MB)
+  - LLEG+ (256.0 Hz, 47.16 MB)
+  - Snore (256.0 Hz, 47.16 MB)
+  - Thermistor (32.0 Hz, 5.90 MB)
+  - Nasal Pressure (256.0 Hz, 47.16 MB)
+  - Flow_DR (256.0 Hz, 47.16 MB)
+  - Snore_DR (256.0 Hz, 47.16 MB)
+  - Abdomen (64.0 Hz, 11.79 MB)
+  - Chest (64.0 Hz, 11.79 MB)
+  - Phase (64.0 Hz, 11.79 MB)
+  - RMI (64.0 Hz, 11.79 MB)
+  - RR (64.0 Hz, 11.79 MB)
+  - XSum (64.0 Hz, 11.79 MB)
+  - XFlow (64.0 Hz, 11.79 MB)
+  - XVolume (64.0 Hz, 11.79 MB)
+  - Position (4.0 Hz, 0.74 MB)
+  - Elevation (4.0 Hz, 0.74 MB)
+  - Activity (4.0 Hz, 0.74 MB)
+  - PPG (256.0 Hz, 47.16 MB)
+  - Plethysmogram (128.0 Hz, 23.58 MB)
+  - DC13 (256.0 Hz, 47.16 MB)
+  - Flow (256.0 Hz, 47.16 MB)
+  - EPAP (256.0 Hz, 47.16 MB)
+  - IPAP (256.0 Hz, 47.16 MB)
+  - SpO2 (128.0 Hz, 23.58 MB)
+  - Pulse (128.0 Hz, 23.58 MB)
+  - RD-Quality (128.0 Hz, 23.58 MB)
+  - Gravity X (16.0 Hz, 2.95 MB)
+  - Gravity Y (16.0 Hz, 2.95 MB)
+  - Gravity Z (16.0 Hz, 2.95 MB)
+  - Flattening (256.0 Hz, 47.16 MB)
+
+Hasta ID: 9e3eb090-4f91-4ec7-a1da-fc3d23e563c7
+  Kanal sayısı: 55
+  Epoch sayısı: 803
+  Uyku evreleri: W=60, N1=27, N2=471, N3=68, REM=177
+
+Kanallar:
+  - C3 (256.0 Hz, 46.87 MB)
+  - C3-M2 (256.0 Hz, 46.87 MB)
+  - C4 (256.0 Hz, 46.87 MB)
+  - C4-M1 (256.0 Hz, 46.87 MB)
+  - F3 (256.0 Hz, 46.87 MB)
+  - F3-M2 (256.0 Hz, 46.87 MB)
+  - F4 (256.0 Hz, 46.87 MB)
+  - F4-M1 (256.0 Hz, 46.87 MB)
+  - O1 (256.0 Hz, 46.87 MB)
+  - O1-M2 (256.0 Hz, 46.87 MB)
+  - O2 (256.0 Hz, 46.87 MB)
+  - O2-M1 (256.0 Hz, 46.87 MB)
+  - M1 (256.0 Hz, 46.87 MB)
+  - M2 (256.0 Hz, 46.87 MB)
+  - E1 (256.0 Hz, 46.87 MB)
+  - E1-M2 (256.0 Hz, 46.87 MB)
+  - E2 (256.0 Hz, 46.87 MB)
+  - E2-M2 (256.0 Hz, 46.87 MB)
+  - CHIN1 (256.0 Hz, 46.87 MB)
+  - Lower.Left-Lower (256.0 Hz, 46.87 MB)
+  - CHIN2 (256.0 Hz, 46.87 MB)
+  - CHINz (256.0 Hz, 46.87 MB)
+  - EKG+ (256.0 Hz, 46.87 MB)
+  - EKG- (256.0 Hz, 46.87 MB)
+  - RLEG+ (256.0 Hz, 46.87 MB)
+  - LLEG+ (256.0 Hz, 46.87 MB)
+  - Snore (256.0 Hz, 46.87 MB)
+  - Thermistor (32.0 Hz, 5.86 MB)
+  - Nasal Pressure (256.0 Hz, 46.87 MB)
+  - Flow_DR (256.0 Hz, 46.87 MB)
+  - Snore_DR (256.0 Hz, 46.87 MB)
+  - Abdomen (64.0 Hz, 11.72 MB)
+  - Chest (64.0 Hz, 11.72 MB)
+  - Phase (64.0 Hz, 11.72 MB)
+  - RMI (64.0 Hz, 11.72 MB)
+  - RR (64.0 Hz, 11.72 MB)
+  - XSum (64.0 Hz, 11.72 MB)
+  - XFlow (64.0 Hz, 11.72 MB)
+  - XVolume (64.0 Hz, 11.72 MB)
+  - Position (4.0 Hz, 0.73 MB)
+  - Elevation (4.0 Hz, 0.73 MB)
+  - Activity (4.0 Hz, 0.73 MB)
+  - PPG (256.0 Hz, 46.87 MB)
+  - Plethysmogram (128.0 Hz, 23.43 MB)
+  - DC13 (256.0 Hz, 46.87 MB)
+  - Flow (256.0 Hz, 46.87 MB)
+  - EPAP (256.0 Hz, 46.87 MB)
+  - IPAP (256.0 Hz, 46.87 MB)
+  - SpO2 (128.0 Hz, 23.43 MB)
+  - Pulse (128.0 Hz, 23.43 MB)
+  - RD-Quality (128.0 Hz, 23.43 MB)
+  - Gravity X (16.0 Hz, 2.93 MB)
+  - Gravity Y (16.0 Hz, 2.93 MB)
+  - Gravity Z (16.0 Hz, 2.93 MB)
+  - Flattening (256.0 Hz, 46.87 MB)
+
+Hasta ID: a82f0ab0-d849-42b7-b3d9-6051343f5ce0
+  Kanal sayısı: 55
+  Epoch sayısı: 436
+  Uyku evreleri: W=68, N1=89, N2=195, N3=59, REM=25
+
+Kanallar:
+  - C3 (256.0 Hz, 46.25 MB)
+  - C4 (256.0 Hz, 46.25 MB)
+  - F3 (256.0 Hz, 46.25 MB)
+  - F4 (256.0 Hz, 46.25 MB)
+  - O1 (256.0 Hz, 46.25 MB)
+  - O2 (256.0 Hz, 46.25 MB)
+  - M1 (256.0 Hz, 46.25 MB)
+  - M2 (256.0 Hz, 46.25 MB)
+  - E1 (256.0 Hz, 46.25 MB)
+  - E2 (256.0 Hz, 46.25 MB)
+  - CHIN1 (256.0 Hz, 46.25 MB)
+  - CHIN2 (256.0 Hz, 46.25 MB)
+  - CHINz (256.0 Hz, 46.25 MB)
+  - EKG+ (256.0 Hz, 46.25 MB)
+  - EKG- (256.0 Hz, 46.25 MB)
+  - RLEG+ (256.0 Hz, 46.25 MB)
+  - LLEG+ (256.0 Hz, 46.25 MB)
+  - Snore (256.0 Hz, 46.25 MB)
+  - Thermistor (32.0 Hz, 5.78 MB)
+  - Nasal Pressure (256.0 Hz, 46.25 MB)
+  - Flow_DR (256.0 Hz, 46.25 MB)
+  - Snore_DR (256.0 Hz, 46.25 MB)
+  - Abdomen (64.0 Hz, 11.56 MB)
+  - Chest (64.0 Hz, 11.56 MB)
+  - Phase (64.0 Hz, 11.56 MB)
+  - RMI (64.0 Hz, 11.56 MB)
+  - RR (64.0 Hz, 11.56 MB)
+  - XSum (64.0 Hz, 11.56 MB)
+  - XFlow (64.0 Hz, 11.56 MB)
+  - XVolume (64.0 Hz, 11.56 MB)
+  - Position (4.0 Hz, 0.72 MB)
+  - Elevation (4.0 Hz, 0.72 MB)
+  - Activity (4.0 Hz, 0.72 MB)
+  - PPG (256.0 Hz, 46.25 MB)
+  - Plethysmogram (128.0 Hz, 23.12 MB)
+  - Flow (256.0 Hz, 46.25 MB)
+  - EPAP (256.0 Hz, 46.25 MB)
+  - IPAP (256.0 Hz, 46.25 MB)
+  - SpO2 (128.0 Hz, 23.12 MB)
+  - Pulse (128.0 Hz, 23.12 MB)
+  - RD-Quality (128.0 Hz, 23.12 MB)
+  - Gravity X (16.0 Hz, 2.89 MB)
+  - Gravity Y (16.0 Hz, 2.89 MB)
+  - Gravity Z (16.0 Hz, 2.89 MB)
+  - Flattening (256.0 Hz, 46.25 MB)
+
+Hasta ID: b551f3fe-85d3-40be-a5fa-a22ce04b4dea
+  Kanal sayısı: 45
+  Epoch sayısı: 789
+  Uyku evreleri: W=59, N1=187, N2=315, N3=150, REM=78
+
+Kanallar:
+  - C3 (256.0 Hz, 36.19 MB)
+  - C4 (256.0 Hz, 36.19 MB)
+  - F3 (256.0 Hz, 36.19 MB)
+  - F4 (256.0 Hz, 36.19 MB)
+  - O1 (256.0 Hz, 36.19 MB)
+  - O2 (256.0 Hz, 36.19 MB)
+  - M1 (256.0 Hz, 36.19 MB)
+  - M2 (256.0 Hz, 36.19 MB)
+  - E1 (256.0 Hz, 36.19 MB)
+  - E2 (256.0 Hz, 36.19 MB)
+  - CHIN1 (256.0 Hz, 36.19 MB)
+  - CHIN2 (256.0 Hz, 36.19 MB)
+  - CHINz (256.0 Hz, 36.19 MB)
+  - EKG+ (256.0 Hz, 36.19 MB)
+  - EKG- (256.0 Hz, 36.19 MB)
+  - RLEG+ (256.0 Hz, 36.19 MB)
+  - LLEG+ (256.0 Hz, 36.19 MB)
+  - Snore (256.0 Hz, 36.19 MB)
+  - Thermistor (32.0 Hz, 4.52 MB)
+  - Nasal Pressure (256.0 Hz, 36.19 MB)
+  - Flow_DR (256.0 Hz, 36.19 MB)
+  - Snore_DR (256.0 Hz, 36.19 MB)
+  - Abdomen (64.0 Hz, 9.05 MB)
+  - Chest (64.0 Hz, 9.05 MB)
+  - Phase (64.0 Hz, 9.05 MB)
+  - RMI (64.0 Hz, 9.05 MB)
+  - RR (64.0 Hz, 9.05 MB)
+  - XSum (64.0 Hz, 9.05 MB)
+  - XFlow (64.0 Hz, 9.05 MB)
+  - XVolume (64.0 Hz, 9.05 MB)
+  - Position (4.0 Hz, 0.57 MB)
+  - Elevation (4.0 Hz, 0.57 MB)
+  - Activity (4.0 Hz, 0.57 MB)
+  - PPG (256.0 Hz, 36.19 MB)
+  - Plethysmogram (128.0 Hz, 18.09 MB)
+  - Flow (256.0 Hz, 36.19 MB)
+  - EPAP (256.0 Hz, 36.19 MB)
+  - IPAP (256.0 Hz, 36.19 MB)
+  - SpO2 (128.0 Hz, 18.09 MB)
+  - Pulse (128.0 Hz, 18.09 MB)
+  - RD-Quality (128.0 Hz, 18.09 MB)
+  - Gravity X (16.0 Hz, 2.26 MB)
+  - Gravity Y (16.0 Hz, 2.26 MB)
+  - Gravity Z (16.0 Hz, 2.26 MB)
+  - Flattening (256.0 Hz, 36.19 MB)
+
+Hasta ID: dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a
+  Kanal sayısı: 45
+  Epoch sayısı: 618
+  Uyku evreleri: W=62, N1=73, N2=286, N3=114, REM=83
+
+Kanallar:
+  - C3 (256.0 Hz, 54.60 MB)
+  - C3-M2 (256.0 Hz, 54.60 MB)
+  - C4 (256.0 Hz, 54.60 MB)
+  - C4-M1 (256.0 Hz, 54.60 MB)
+  - F3 (256.0 Hz, 54.60 MB)
+  - F3-M2 (256.0 Hz, 54.60 MB)
+  - F4 (256.0 Hz, 54.60 MB)
+  - F4-M1 (256.0 Hz, 54.60 MB)
+  - O1 (256.0 Hz, 54.60 MB)
+  - O1-M2 (256.0 Hz, 54.60 MB)
+  - O2 (256.0 Hz, 54.60 MB)
+  - O2-M1 (256.0 Hz, 54.60 MB)
+  - M1 (256.0 Hz, 54.60 MB)
+  - M2 (256.0 Hz, 54.60 MB)
+  - E1 (256.0 Hz, 54.60 MB)
+  - E1-M2 (256.0 Hz, 54.60 MB)
+  - E2 (256.0 Hz, 54.60 MB)
+  - E2-M2 (256.0 Hz, 54.60 MB)
+  - CHIN1 (256.0 Hz, 54.60 MB)
+  - Lower.Left-Lower (256.0 Hz, 54.60 MB)
+  - CHIN2 (256.0 Hz, 54.60 MB)
+  - CHINz (256.0 Hz, 54.60 MB)
+  - EKG+ (256.0 Hz, 54.60 MB)
+  - EKG- (256.0 Hz, 54.60 MB)
+  - RLEG+ (256.0 Hz, 54.60 MB)
+  - LLEG+ (256.0 Hz, 54.60 MB)
+  - Snore (256.0 Hz, 54.60 MB)
+  - Thermistor (32.0 Hz, 6.82 MB)
+  - Nasal Pressure (256.0 Hz, 54.60 MB)
+  - Flow_DR (256.0 Hz, 54.60 MB)
+  - Snore_DR (256.0 Hz, 54.60 MB)
+  - Abdomen (64.0 Hz, 13.65 MB)
+  - Chest (64.0 Hz, 13.65 MB)
+  - Phase (64.0 Hz, 13.65 MB)
+  - RMI (64.0 Hz, 13.65 MB)
+  - RR (64.0 Hz, 13.65 MB)
+  - XSum (64.0 Hz, 13.65 MB)
+  - XFlow (64.0 Hz, 13.65 MB)
+  - XVolume (64.0 Hz, 13.65 MB)
+  - Position (4.0 Hz, 0.85 MB)
+  - Elevation (4.0 Hz, 0.85 MB)
+  - Activity (4.0 Hz, 0.85 MB)
+  - PPG (256.0 Hz, 54.60 MB)
+  - Plethysmogram (128.0 Hz, 27.30 MB)
+  - DC13 (256.0 Hz, 54.60 MB)
+  - Flow (256.0 Hz, 54.60 MB)
+  - EPAP (256.0 Hz, 54.60 MB)
+  - IPAP (256.0 Hz, 54.60 MB)
+  - SpO2 (128.0 Hz, 27.30 MB)
+  - Pulse (128.0 Hz, 27.30 MB)
+  - RD-Quality (128.0 Hz, 27.30 MB)
+  - Gravity X (16.0 Hz, 3.41 MB)
+  - Gravity Y (16.0 Hz, 3.41 MB)
+  - Gravity Z (16.0 Hz, 3.41 MB)
+  - Flattening (256.0 Hz, 54.60 MB)
+
+Hasta ID: e1ae919e-d2fc-41ad-af23-50c7d97b196b
+  Kanal sayısı: 55
+  Epoch sayısı: 930
+  Uyku evreleri: W=26, N1=23, N2=440, N3=211, REM=230
+
+Kanallar:
+  - C3 (256.0 Hz, 43.03 MB)
+  - C4 (256.0 Hz, 43.03 MB)
+  - F3 (256.0 Hz, 43.03 MB)
+  - F4 (256.0 Hz, 43.03 MB)
+  - O1 (256.0 Hz, 43.03 MB)
+  - O2 (256.0 Hz, 43.03 MB)
+  - M1 (256.0 Hz, 43.03 MB)
+  - M2 (256.0 Hz, 43.03 MB)
+  - E1 (256.0 Hz, 43.03 MB)
+  - E2 (256.0 Hz, 43.03 MB)
+  - CHIN1 (256.0 Hz, 43.03 MB)
+  - CHIN2 (256.0 Hz, 43.03 MB)
+  - CHINz (256.0 Hz, 43.03 MB)
+  - EKG+ (256.0 Hz, 43.03 MB)
+  - EKG- (256.0 Hz, 43.03 MB)
+  - RLEG+ (256.0 Hz, 43.03 MB)
+  - LLEG+ (256.0 Hz, 43.03 MB)
+  - Snore (256.0 Hz, 43.03 MB)
+  - Thermistor (32.0 Hz, 5.38 MB)
+  - Nasal Pressure (256.0 Hz, 43.03 MB)
+  - Flow_DR (256.0 Hz, 43.03 MB)
+  - Snore_DR (256.0 Hz, 43.03 MB)
+  - Abdomen (64.0 Hz, 10.76 MB)
+  - Chest (64.0 Hz, 10.76 MB)
+  - Phase (64.0 Hz, 10.76 MB)
+  - RMI (64.0 Hz, 10.76 MB)
+  - RR (64.0 Hz, 10.76 MB)
+  - XSum (64.0 Hz, 10.76 MB)
+  - XFlow (64.0 Hz, 10.76 MB)
+  - XVolume (64.0 Hz, 10.76 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 43.03 MB)
+  - Plethysmogram (128.0 Hz, 21.52 MB)
+  - Flow (256.0 Hz, 43.03 MB)
+  - EPAP (256.0 Hz, 43.03 MB)
+  - IPAP (256.0 Hz, 43.03 MB)
+  - SpO2 (128.0 Hz, 21.52 MB)
+  - Pulse (128.0 Hz, 21.52 MB)
+  - RD-Quality (128.0 Hz, 21.52 MB)
+  - Gravity X (16.0 Hz, 2.69 MB)
+  - Gravity Y (16.0 Hz, 2.69 MB)
+  - Gravity Z (16.0 Hz, 2.69 MB)
+  - Flattening (256.0 Hz, 43.03 MB)
+
+Hasta ID: e4650f45-63c1-4af1-99f0-fa4a99db0601
+  Kanal sayısı: 45
+  Epoch sayısı: 735
+  Uyku evreleri: W=70, N2=293, N3=135, N1=103, REM=134
+
+Kanallar:
+  - C3 (256.0 Hz, 47.93 MB)
+  - C3-M2 (256.0 Hz, 47.93 MB)
+  - C4 (256.0 Hz, 47.93 MB)
+  - C4-M1 (256.0 Hz, 47.93 MB)
+  - F3 (256.0 Hz, 47.93 MB)
+  - F3-M2 (256.0 Hz, 47.93 MB)
+  - F4 (256.0 Hz, 47.93 MB)
+  - F4-M1 (256.0 Hz, 47.93 MB)
+  - O1 (256.0 Hz, 47.93 MB)
+  - O1-M2 (256.0 Hz, 47.93 MB)
+  - O2 (256.0 Hz, 47.93 MB)
+  - O2-M1 (256.0 Hz, 47.93 MB)
+  - M1 (256.0 Hz, 47.93 MB)
+  - M2 (256.0 Hz, 47.93 MB)
+  - E1 (256.0 Hz, 47.93 MB)
+  - E1-M2 (256.0 Hz, 47.93 MB)
+  - E2 (256.0 Hz, 47.93 MB)
+  - E2-M2 (256.0 Hz, 47.93 MB)
+  - CHIN1 (256.0 Hz, 47.93 MB)
+  - Lower.Left-Lower (256.0 Hz, 47.93 MB)
+  - CHIN2 (256.0 Hz, 47.93 MB)
+  - CHINz (256.0 Hz, 47.93 MB)
+  - EKG+ (256.0 Hz, 47.93 MB)
+  - EKG- (256.0 Hz, 47.93 MB)
+  - RLEG+ (256.0 Hz, 47.93 MB)
+  - LLEG+ (256.0 Hz, 47.93 MB)
+  - Snore (256.0 Hz, 47.93 MB)
+  - Thermistor (32.0 Hz, 5.99 MB)
+  - Nasal Pressure (256.0 Hz, 47.93 MB)
+  - Flow_DR (256.0 Hz, 47.93 MB)
+  - Snore_DR (256.0 Hz, 47.93 MB)
+  - Abdomen (64.0 Hz, 11.98 MB)
+  - Chest (64.0 Hz, 11.98 MB)
+  - Phase (64.0 Hz, 11.98 MB)
+  - RMI (64.0 Hz, 11.98 MB)
+  - RR (64.0 Hz, 11.98 MB)
+  - XSum (64.0 Hz, 11.98 MB)
+  - XFlow (64.0 Hz, 11.98 MB)
+  - XVolume (64.0 Hz, 11.98 MB)
+  - Position (4.0 Hz, 0.75 MB)
+  - Elevation (4.0 Hz, 0.75 MB)
+  - Activity (4.0 Hz, 0.75 MB)
+  - PPG (256.0 Hz, 47.93 MB)
+  - Plethysmogram (128.0 Hz, 23.97 MB)
+  - DC13 (256.0 Hz, 47.93 MB)
+  - Flow (256.0 Hz, 47.93 MB)
+  - EPAP (256.0 Hz, 47.93 MB)
+  - IPAP (256.0 Hz, 47.93 MB)
+  - SpO2 (128.0 Hz, 23.97 MB)
+  - Pulse (128.0 Hz, 23.97 MB)
+  - RD-Quality (128.0 Hz, 23.97 MB)
+  - Gravity X (16.0 Hz, 3.00 MB)
+  - Gravity Y (16.0 Hz, 3.00 MB)
+  - Gravity Z (16.0 Hz, 3.00 MB)
+  - Flattening (256.0 Hz, 47.93 MB)
+
+Hasta ID: e5e364df-e09e-4230-abc3-e92dd338e426
+  Kanal sayısı: 55
+  Epoch sayısı: 812
+  Uyku evreleri: W=31, N1=41, N2=556, N3=78, REM=106
+
+Kanallar:
+  - C3 (256.0 Hz, 42.59 MB)
+  - C4 (256.0 Hz, 42.59 MB)
+  - F3 (256.0 Hz, 42.59 MB)
+  - F4 (256.0 Hz, 42.59 MB)
+  - O1 (256.0 Hz, 42.59 MB)
+  - O2 (256.0 Hz, 42.59 MB)
+  - M1 (256.0 Hz, 42.59 MB)
+  - M2 (256.0 Hz, 42.59 MB)
+  - E1 (256.0 Hz, 42.59 MB)
+  - E2 (256.0 Hz, 42.59 MB)
+  - CHIN1 (256.0 Hz, 42.59 MB)
+  - CHIN2 (256.0 Hz, 42.59 MB)
+  - CHINz (256.0 Hz, 42.59 MB)
+  - EKG+ (256.0 Hz, 42.59 MB)
+  - EKG- (256.0 Hz, 42.59 MB)
+  - RLEG+ (256.0 Hz, 42.59 MB)
+  - LLEG+ (256.0 Hz, 42.59 MB)
+  - Snore (256.0 Hz, 42.59 MB)
+  - Thermistor (32.0 Hz, 5.32 MB)
+  - Nasal Pressure (256.0 Hz, 42.59 MB)
+  - Flow_DR (256.0 Hz, 42.59 MB)
+  - Snore_DR (256.0 Hz, 42.59 MB)
+  - Abdomen (64.0 Hz, 10.65 MB)
+  - Chest (64.0 Hz, 10.65 MB)
+  - Phase (64.0 Hz, 10.65 MB)
+  - RMI (64.0 Hz, 10.65 MB)
+  - RR (64.0 Hz, 10.65 MB)
+  - XSum (64.0 Hz, 10.65 MB)
+  - XFlow (64.0 Hz, 10.65 MB)
+  - XVolume (64.0 Hz, 10.65 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 42.59 MB)
+  - Plethysmogram (128.0 Hz, 21.29 MB)
+  - Flow (256.0 Hz, 42.59 MB)
+  - EPAP (256.0 Hz, 42.59 MB)
+  - IPAP (256.0 Hz, 42.59 MB)
+  - SpO2 (128.0 Hz, 21.29 MB)
+  - Pulse (128.0 Hz, 21.29 MB)
+  - RD-Quality (128.0 Hz, 21.29 MB)
+  - Gravity X (16.0 Hz, 2.66 MB)
+  - Gravity Y (16.0 Hz, 2.66 MB)
+  - Gravity Z (16.0 Hz, 2.66 MB)
+  - Flattening (256.0 Hz, 42.59 MB)
+
+Hasta ID: edee3d0a-16d7-4413-9aa0-72f6a09f6d0a
+  Kanal sayısı: 45
+  Epoch sayısı: 731
+  Uyku evreleri: W=50, N1=77, N2=380, N3=78, REM=146
+
+Kanallar:
+  - C3 (256.0 Hz, 41.38 MB)
+  - C4 (256.0 Hz, 41.38 MB)
+  - F3 (256.0 Hz, 41.38 MB)
+  - F4 (256.0 Hz, 41.38 MB)
+  - O1 (256.0 Hz, 41.38 MB)
+  - O2 (256.0 Hz, 41.38 MB)
+  - M1 (256.0 Hz, 41.38 MB)
+  - M2 (256.0 Hz, 41.38 MB)
+  - E1 (256.0 Hz, 41.38 MB)
+  - E2 (256.0 Hz, 41.38 MB)
+  - CHIN1 (256.0 Hz, 41.38 MB)
+  - CHIN2 (256.0 Hz, 41.38 MB)
+  - CHINz (256.0 Hz, 41.38 MB)
+  - EKG+ (256.0 Hz, 41.38 MB)
+  - EKG- (256.0 Hz, 41.38 MB)
+  - RLEG+ (256.0 Hz, 41.38 MB)
+  - LLEG+ (256.0 Hz, 41.38 MB)
+  - Snore (256.0 Hz, 41.38 MB)
+  - Thermistor (32.0 Hz, 5.17 MB)
+  - Nasal Pressure (256.0 Hz, 41.38 MB)
+  - Flow_DR (256.0 Hz, 41.38 MB)
+  - Snore_DR (256.0 Hz, 41.38 MB)
+  - Abdomen (64.0 Hz, 10.34 MB)
+  - Chest (64.0 Hz, 10.34 MB)
+  - Phase (64.0 Hz, 10.34 MB)
+  - RMI (64.0 Hz, 10.34 MB)
+  - RR (64.0 Hz, 10.34 MB)
+  - XSum (64.0 Hz, 10.34 MB)
+  - XFlow (64.0 Hz, 10.34 MB)
+  - XVolume (64.0 Hz, 10.34 MB)
+  - Position (4.0 Hz, 0.65 MB)
+  - Elevation (4.0 Hz, 0.65 MB)
+  - Activity (4.0 Hz, 0.65 MB)
+  - PPG (256.0 Hz, 41.38 MB)
+  - Flow (256.0 Hz, 41.38 MB)
+  - EPAP (256.0 Hz, 41.38 MB)
+  - IPAP (256.0 Hz, 41.38 MB)
+  - SpO2 (128.0 Hz, 20.69 MB)
+  - Pulse (128.0 Hz, 20.69 MB)
+  - RD-Quality (128.0 Hz, 20.69 MB)
+  - Gravity X (16.0 Hz, 2.59 MB)
+  - Gravity Y (16.0 Hz, 2.59 MB)
+  - Gravity Z (16.0 Hz, 2.59 MB)
+  - Flattening (256.0 Hz, 41.38 MB)
+
+Hasta ID: f0cfab4a-fd30-43a5-8633-814b69c6bdca
+  Kanal sayısı: 44
+  Epoch sayısı: 707
+  Uyku evreleri: W=93, N1=130, N2=248, N3=177, REM=59
+
+Kanallar:
+  - C3 (256.0 Hz, 38.99 MB)
+  - C4 (256.0 Hz, 38.99 MB)
+  - F3 (256.0 Hz, 38.99 MB)
+  - F4 (256.0 Hz, 38.99 MB)
+  - O1 (256.0 Hz, 38.99 MB)
+  - O2 (256.0 Hz, 38.99 MB)
+  - M1 (256.0 Hz, 38.99 MB)
+  - M2 (256.0 Hz, 38.99 MB)
+  - E1 (256.0 Hz, 38.99 MB)
+  - E2 (256.0 Hz, 38.99 MB)
+  - CHIN1 (256.0 Hz, 38.99 MB)
+  - CHIN2 (256.0 Hz, 38.99 MB)
+  - CHINz (256.0 Hz, 38.99 MB)
+  - EKG+ (256.0 Hz, 38.99 MB)
+  - EKG- (256.0 Hz, 38.99 MB)
+  - RLEG+ (256.0 Hz, 38.99 MB)
+  - LLEG+ (256.0 Hz, 38.99 MB)
+  - Snore (256.0 Hz, 38.99 MB)
+  - Thermistor (32.0 Hz, 4.87 MB)
+  - Nasal Pressure (256.0 Hz, 38.99 MB)
+  - Flow_DR (256.0 Hz, 38.99 MB)
+  - Snore_DR (256.0 Hz, 38.99 MB)
+  - Abdomen (64.0 Hz, 9.75 MB)
+  - Chest (64.0 Hz, 9.75 MB)
+  - Phase (64.0 Hz, 9.75 MB)
+  - RMI (64.0 Hz, 9.75 MB)
+  - RR (64.0 Hz, 9.75 MB)
+  - XSum (64.0 Hz, 9.75 MB)
+  - XFlow (64.0 Hz, 9.75 MB)
+  - XVolume (64.0 Hz, 9.75 MB)
+  - Position (4.0 Hz, 0.61 MB)
+  - Elevation (4.0 Hz, 0.61 MB)
+  - Activity (4.0 Hz, 0.61 MB)
+  - PPG (256.0 Hz, 38.99 MB)
+  - Plethysmogram (128.0 Hz, 19.50 MB)
+  - Flow (256.0 Hz, 38.99 MB)
+  - EPAP (256.0 Hz, 38.99 MB)
+  - IPAP (256.0 Hz, 38.99 MB)
+  - SpO2 (128.0 Hz, 19.50 MB)
+  - Pulse (128.0 Hz, 19.50 MB)
+  - RD-Quality (128.0 Hz, 19.50 MB)
+  - Gravity X (16.0 Hz, 2.44 MB)
+  - Gravity Y (16.0 Hz, 2.44 MB)
+  - Gravity Z (16.0 Hz, 2.44 MB)
+  - Flattening (256.0 Hz, 38.99 MB)
+
+Hasta ID: f94c4f40-d9e5-4624-b4f9-b02d35285646
+  Kanal sayısı: 45
+  Epoch sayısı: 665
+  Uyku evreleri: W=318, N1=77, N2=270
+
+Kanallar:
+  - C3 (256.0 Hz, 42.25 MB)
+  - C4 (256.0 Hz, 42.25 MB)
+  - F3 (256.0 Hz, 42.25 MB)
+  - F4 (256.0 Hz, 42.25 MB)
+  - O1 (256.0 Hz, 42.25 MB)
+  - O2 (256.0 Hz, 42.25 MB)
+  - M1 (256.0 Hz, 42.25 MB)
+  - M2 (256.0 Hz, 42.25 MB)
+  - E1 (256.0 Hz, 42.25 MB)
+  - E2 (256.0 Hz, 42.25 MB)
+  - CHIN1 (256.0 Hz, 42.25 MB)
+  - CHIN2 (256.0 Hz, 42.25 MB)
+  - CHINz (256.0 Hz, 42.25 MB)
+  - EKG+ (256.0 Hz, 42.25 MB)
+  - EKG- (256.0 Hz, 42.25 MB)
+  - RLEG+ (256.0 Hz, 42.25 MB)
+  - LLEG+ (256.0 Hz, 42.25 MB)
+  - Snore (256.0 Hz, 42.25 MB)
+  - Thermistor (32.0 Hz, 5.28 MB)
+  - Nasal Pressure (256.0 Hz, 42.25 MB)
+  - Flow_DR (256.0 Hz, 42.25 MB)
+  - Snore_DR (256.0 Hz, 42.25 MB)
+  - Abdomen (64.0 Hz, 10.56 MB)
+  - Chest (64.0 Hz, 10.56 MB)
+  - Phase (64.0 Hz, 10.56 MB)
+  - RMI (64.0 Hz, 10.56 MB)
+  - RR (64.0 Hz, 10.56 MB)
+  - XSum (64.0 Hz, 10.56 MB)
+  - XFlow (64.0 Hz, 10.56 MB)
+  - XVolume (64.0 Hz, 10.56 MB)
+  - Position (4.0 Hz, 0.66 MB)
+  - Elevation (4.0 Hz, 0.66 MB)
+  - Activity (4.0 Hz, 0.66 MB)
+  - PPG (256.0 Hz, 42.25 MB)
+  - Plethysmogram (128.0 Hz, 21.12 MB)
+  - Flow (256.0 Hz, 42.25 MB)
+  - EPAP (256.0 Hz, 42.25 MB)
+  - IPAP (256.0 Hz, 42.25 MB)
+  - SpO2 (128.0 Hz, 21.12 MB)
+  - Pulse (128.0 Hz, 21.12 MB)
+  - RD-Quality (128.0 Hz, 21.12 MB)
+  - Gravity X (16.0 Hz, 2.64 MB)
+  - Gravity Y (16.0 Hz, 2.64 MB)
+  - Gravity Z (16.0 Hz, 2.64 MB)
+  - Flattening (256.0 Hz, 42.25 MB)
+
+Hasta ID: fb43377e-9f64-4863-9ab0-993c26836f39
+  Kanal sayısı: 45
+  Epoch sayısı: 721
+  Uyku evreleri: W=3, REM=302, N1=116, N2=143, N3=157
+
+Kanallar:
+  - C3 (256.0 Hz, 44.98 MB)
+  - C3-M2 (256.0 Hz, 44.98 MB)
+  - C4 (256.0 Hz, 44.98 MB)
+  - C4-M1 (256.0 Hz, 44.98 MB)
+  - F3 (256.0 Hz, 44.98 MB)
+  - F3-M2 (256.0 Hz, 44.98 MB)
+  - F4 (256.0 Hz, 44.98 MB)
+  - F4-M1 (256.0 Hz, 44.98 MB)
+  - O1 (256.0 Hz, 44.98 MB)
+  - O1-M2 (256.0 Hz, 44.98 MB)
+  - O2 (256.0 Hz, 44.98 MB)
+  - O2-M1 (256.0 Hz, 44.98 MB)
+  - M1 (256.0 Hz, 44.98 MB)
+  - M2 (256.0 Hz, 44.98 MB)
+  - E1 (256.0 Hz, 44.98 MB)
+  - E1-M2 (256.0 Hz, 44.98 MB)
+  - E2 (256.0 Hz, 44.98 MB)
+  - E2-M2 (256.0 Hz, 44.98 MB)
+  - CHIN1 (256.0 Hz, 44.98 MB)
+  - Lower.Left-Lower (256.0 Hz, 44.98 MB)
+  - CHIN2 (256.0 Hz, 44.98 MB)
+  - CHINz (256.0 Hz, 44.98 MB)
+  - EKG+ (256.0 Hz, 44.98 MB)
+  - EKG- (256.0 Hz, 44.98 MB)
+  - RLEG+ (256.0 Hz, 44.98 MB)
+  - LLEG+ (256.0 Hz, 44.98 MB)
+  - Snore (256.0 Hz, 44.98 MB)
+  - Thermistor (32.0 Hz, 5.62 MB)
+  - Nasal Pressure (256.0 Hz, 44.98 MB)
+  - Flow_DR (256.0 Hz, 44.98 MB)
+  - Snore_DR (256.0 Hz, 44.98 MB)
+  - Abdomen (64.0 Hz, 11.25 MB)
+  - Chest (64.0 Hz, 11.25 MB)
+  - Phase (64.0 Hz, 11.25 MB)
+  - RMI (64.0 Hz, 11.25 MB)
+  - RR (64.0 Hz, 11.25 MB)
+  - XSum (64.0 Hz, 11.25 MB)
+  - XFlow (64.0 Hz, 11.25 MB)
+  - XVolume (64.0 Hz, 11.25 MB)
+  - Position (4.0 Hz, 0.70 MB)
+  - Elevation (4.0 Hz, 0.70 MB)
+  - Activity (4.0 Hz, 0.70 MB)
+  - PPG (256.0 Hz, 44.98 MB)
+  - Plethysmogram (128.0 Hz, 22.49 MB)
+  - DC13 (256.0 Hz, 44.98 MB)
+  - Flow (256.0 Hz, 44.98 MB)
+  - EPAP (256.0 Hz, 44.98 MB)
+  - IPAP (256.0 Hz, 44.98 MB)
+  - SpO2 (128.0 Hz, 22.49 MB)
+  - Pulse (128.0 Hz, 22.49 MB)
+  - RD-Quality (128.0 Hz, 22.49 MB)
+  - Gravity X (16.0 Hz, 2.81 MB)
+  - Gravity Y (16.0 Hz, 2.81 MB)
+  - Gravity Z (16.0 Hz, 2.81 MB)
+  - Flattening (256.0 Hz, 44.98 MB)
+
+Hasta ID: ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7
+  Kanal sayısı: 55
+  Epoch sayısı: 768
+  Uyku evreleri: W=74, N1=23, N2=305, N3=209, REM=157

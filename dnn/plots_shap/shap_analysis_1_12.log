@@ -1,0 +1,1084 @@
+
+Veritabanında 17 hasta bulundu:
+======================================================================
+
+Kanallar:
+  - C3 (256.0 Hz, 50.74 MB)
+  - C4 (256.0 Hz, 50.74 MB)
+  - F3 (256.0 Hz, 50.74 MB)
+  - F4 (256.0 Hz, 50.74 MB)
+  - O1 (256.0 Hz, 50.74 MB)
+  - O2 (256.0 Hz, 50.74 MB)
+  - M1 (256.0 Hz, 50.74 MB)
+  - M2 (256.0 Hz, 50.74 MB)
+  - E1 (256.0 Hz, 50.74 MB)
+  - E2 (256.0 Hz, 50.74 MB)
+  - CHIN1 (256.0 Hz, 50.74 MB)
+  - CHIN2 (256.0 Hz, 50.74 MB)
+  - CHINz (256.0 Hz, 50.74 MB)
+  - EKG+ (256.0 Hz, 50.74 MB)
+  - EKG- (256.0 Hz, 50.74 MB)
+  - RLEG+ (256.0 Hz, 50.74 MB)
+  - LLEG+ (256.0 Hz, 50.74 MB)
+  - Snore (256.0 Hz, 50.74 MB)
+  - Thermistor (32.0 Hz, 6.34 MB)
+  - Nasal Pressure (256.0 Hz, 50.74 MB)
+  - Flow_DR (256.0 Hz, 50.74 MB)
+  - Snore_DR (256.0 Hz, 50.74 MB)
+  - Abdomen (64.0 Hz, 12.69 MB)
+  - Chest (64.0 Hz, 12.69 MB)
+  - Phase (64.0 Hz, 12.69 MB)
+  - RMI (64.0 Hz, 12.69 MB)
+  - RR (64.0 Hz, 12.69 MB)
+  - XSum (64.0 Hz, 12.69 MB)
+  - XFlow (64.0 Hz, 12.69 MB)
+  - XVolume (64.0 Hz, 12.69 MB)
+  - Position (4.0 Hz, 0.79 MB)
+  - Elevation (4.0 Hz, 0.79 MB)
+  - Activity (4.0 Hz, 0.79 MB)
+  - PPG (256.0 Hz, 50.74 MB)
+  - Plethysmogram (128.0 Hz, 25.37 MB)
+  - Flow (256.0 Hz, 50.74 MB)
+  - EPAP (256.0 Hz, 50.74 MB)
+  - IPAP (256.0 Hz, 50.74 MB)
+  - SpO2 (128.0 Hz, 25.37 MB)
+  - Pulse (128.0 Hz, 25.37 MB)
+  - RD-Quality (128.0 Hz, 25.37 MB)
+  - Gravity X (16.0 Hz, 3.17 MB)
+  - Gravity Y (16.0 Hz, 3.17 MB)
+  - Gravity Z (16.0 Hz, 3.17 MB)
+  - Flattening (256.0 Hz, 50.74 MB)
+
+Hasta ID: 22cd54f1-5d96-4b12-a392-d5ddada9d8d3
+  Kanal sayısı: 45
+  Epoch sayısı: 866
+  Uyku evreleri: W=11, N1=26, N2=286, REM=241, N3=302
+
+Kanallar:
+  - C3 (256.0 Hz, 42.72 MB)
+  - C4 (256.0 Hz, 42.72 MB)
+  - F3 (256.0 Hz, 42.72 MB)
+  - F4 (256.0 Hz, 42.72 MB)
+  - O1 (256.0 Hz, 42.72 MB)
+  - O2 (256.0 Hz, 42.72 MB)
+  - M1 (256.0 Hz, 42.72 MB)
+  - M2 (256.0 Hz, 42.72 MB)
+  - E1 (256.0 Hz, 42.72 MB)
+  - E2 (256.0 Hz, 42.72 MB)
+  - CHIN1 (256.0 Hz, 42.72 MB)
+  - CHIN2 (256.0 Hz, 42.72 MB)
+  - CHINz (256.0 Hz, 42.72 MB)
+  - EKG+ (256.0 Hz, 42.72 MB)
+  - EKG- (256.0 Hz, 42.72 MB)
+  - RLEG+ (256.0 Hz, 42.72 MB)
+  - LLEG+ (256.0 Hz, 42.72 MB)
+  - Snore (256.0 Hz, 42.72 MB)
+  - Thermistor (32.0 Hz, 5.34 MB)
+  - Nasal Pressure (256.0 Hz, 42.72 MB)
+  - Flow_DR (256.0 Hz, 42.72 MB)
+  - Snore_DR (256.0 Hz, 42.72 MB)
+  - Abdomen (64.0 Hz, 10.68 MB)
+  - Chest (64.0 Hz, 10.68 MB)
+  - Phase (64.0 Hz, 10.68 MB)
+  - RMI (64.0 Hz, 10.68 MB)
+  - RR (64.0 Hz, 10.68 MB)
+  - XSum (64.0 Hz, 10.68 MB)
+  - XFlow (64.0 Hz, 10.68 MB)
+  - XVolume (64.0 Hz, 10.68 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 42.72 MB)
+  - Plethysmogram (128.0 Hz, 21.36 MB)
+  - Flow (256.0 Hz, 42.72 MB)
+  - EPAP (256.0 Hz, 42.72 MB)
+  - IPAP (256.0 Hz, 42.72 MB)
+  - SpO2 (128.0 Hz, 21.36 MB)
+  - Pulse (128.0 Hz, 21.36 MB)
+  - RD-Quality (128.0 Hz, 21.36 MB)
+  - Gravity X (16.0 Hz, 2.67 MB)
+  - Gravity Y (16.0 Hz, 2.67 MB)
+  - Gravity Z (16.0 Hz, 2.67 MB)
+  - Flattening (256.0 Hz, 42.72 MB)
+
+Hasta ID: 28ba35f0-a068-4eeb-a51a-f4c45b4c0843
+  Kanal sayısı: 45
+  Epoch sayısı: 728
+  Uyku evreleri: W=63, N1=31, N2=302, N3=143, REM=189
+
+Kanallar:
+  - C3 (256.0 Hz, 43.33 MB)
+  - C4 (256.0 Hz, 43.33 MB)
+  - F3 (256.0 Hz, 43.33 MB)
+  - F4 (256.0 Hz, 43.33 MB)
+  - O1 (256.0 Hz, 43.33 MB)
+  - O2 (256.0 Hz, 43.33 MB)
+  - M1 (256.0 Hz, 43.33 MB)
+  - M2 (256.0 Hz, 43.33 MB)
+  - E1 (256.0 Hz, 43.33 MB)
+  - E2 (256.0 Hz, 43.33 MB)
+  - CHIN1 (256.0 Hz, 43.33 MB)
+  - CHIN2 (256.0 Hz, 43.33 MB)
+  - CHINz (256.0 Hz, 43.33 MB)
+  - EKG+ (256.0 Hz, 43.33 MB)
+  - EKG- (256.0 Hz, 43.33 MB)
+  - RLEG+ (256.0 Hz, 43.33 MB)
+  - LLEG+ (256.0 Hz, 43.33 MB)
+  - Snore (256.0 Hz, 43.33 MB)
+  - Thermistor (32.0 Hz, 5.42 MB)
+  - Nasal Pressure (256.0 Hz, 43.33 MB)
+  - Flow_DR (256.0 Hz, 43.33 MB)
+  - Snore_DR (256.0 Hz, 43.33 MB)
+  - Abdomen (64.0 Hz, 10.83 MB)
+  - Chest (64.0 Hz, 10.83 MB)
+  - Phase (64.0 Hz, 10.83 MB)
+  - RMI (64.0 Hz, 10.83 MB)
+  - RR (64.0 Hz, 10.83 MB)
+  - XSum (64.0 Hz, 10.83 MB)
+  - XFlow (64.0 Hz, 10.83 MB)
+  - XVolume (64.0 Hz, 10.83 MB)
+  - Position (4.0 Hz, 0.68 MB)
+  - Elevation (4.0 Hz, 0.68 MB)
+  - Activity (4.0 Hz, 0.68 MB)
+  - PPG (256.0 Hz, 43.33 MB)
+  - Plethysmogram (128.0 Hz, 21.66 MB)
+  - Flow (256.0 Hz, 43.33 MB)
+  - EPAP (256.0 Hz, 43.33 MB)
+  - IPAP (256.0 Hz, 43.33 MB)
+  - SpO2 (128.0 Hz, 21.66 MB)
+  - Pulse (128.0 Hz, 21.66 MB)
+  - RD-Quality (128.0 Hz, 21.66 MB)
+  - Gravity X (16.0 Hz, 2.71 MB)
+  - Gravity Y (16.0 Hz, 2.71 MB)
+  - Gravity Z (16.0 Hz, 2.71 MB)
+  - Flattening (256.0 Hz, 43.33 MB)
+
+Hasta ID: 2d42885b-ba49-4c21-9e8f-4963349f252c
+  Kanal sayısı: 45
+  Epoch sayısı: 740
+  Uyku evreleri: W=87, N1=66, N2=285, REM=130, N3=172
+
+Kanallar:
+  - C3 (256.0 Hz, 45.97 MB)
+  - C4 (256.0 Hz, 45.97 MB)
+  - F3 (256.0 Hz, 45.97 MB)
+  - F4 (256.0 Hz, 45.97 MB)
+  - O1 (256.0 Hz, 45.97 MB)
+  - O2 (256.0 Hz, 45.97 MB)
+  - M1 (256.0 Hz, 45.97 MB)
+  - M2 (256.0 Hz, 45.97 MB)
+  - E1 (256.0 Hz, 45.97 MB)
+  - E2 (256.0 Hz, 45.97 MB)
+  - CHIN1 (256.0 Hz, 45.97 MB)
+  - CHIN2 (256.0 Hz, 45.97 MB)
+  - CHINz (256.0 Hz, 45.97 MB)
+  - EKG+ (256.0 Hz, 45.97 MB)
+  - EKG- (256.0 Hz, 45.97 MB)
+  - RLEG+ (256.0 Hz, 45.97 MB)
+  - LLEG+ (256.0 Hz, 45.97 MB)
+  - Snore (256.0 Hz, 45.97 MB)
+  - Thermistor (32.0 Hz, 5.75 MB)
+  - Nasal Pressure (256.0 Hz, 45.97 MB)
+  - Flow_DR (256.0 Hz, 45.97 MB)
+  - Snore_DR (256.0 Hz, 45.97 MB)
+  - Abdomen (64.0 Hz, 11.49 MB)
+  - Chest (64.0 Hz, 11.49 MB)
+  - Phase (64.0 Hz, 11.49 MB)
+  - RMI (64.0 Hz, 11.49 MB)
+  - RR (64.0 Hz, 11.49 MB)
+  - XSum (64.0 Hz, 11.49 MB)
+  - XFlow (64.0 Hz, 11.49 MB)
+  - XVolume (64.0 Hz, 11.49 MB)
+  - Position (4.0 Hz, 0.72 MB)
+  - Elevation (4.0 Hz, 0.72 MB)
+  - Activity (4.0 Hz, 0.72 MB)
+  - PPG (256.0 Hz, 45.97 MB)
+  - Plethysmogram (128.0 Hz, 22.98 MB)
+  - Flow (256.0 Hz, 45.97 MB)
+  - EPAP (256.0 Hz, 45.97 MB)
+  - IPAP (256.0 Hz, 45.97 MB)
+  - SpO2 (128.0 Hz, 22.98 MB)
+  - Pulse (128.0 Hz, 22.98 MB)
+  - RD-Quality (128.0 Hz, 22.98 MB)
+  - Gravity X (16.0 Hz, 2.87 MB)
+  - Gravity Y (16.0 Hz, 2.87 MB)
+  - Gravity Z (16.0 Hz, 2.87 MB)
+  - Flattening (256.0 Hz, 45.97 MB)
+
+Hasta ID: 3da2681a-5991-449c-80a4-52cf3257db02
+  Kanal sayısı: 45
+  Epoch sayısı: 731
+  Uyku evreleri: W=50, N1=77, N2=380, N3=78, REM=146
+
+Kanallar:
+  - C3 (256.0 Hz, 44.75 MB)
+  - C4 (256.0 Hz, 44.75 MB)
+  - F3 (256.0 Hz, 44.75 MB)
+  - F4 (256.0 Hz, 44.75 MB)
+  - O1 (256.0 Hz, 44.75 MB)
+  - O2 (256.0 Hz, 44.75 MB)
+  - M1 (256.0 Hz, 44.75 MB)
+  - M2 (256.0 Hz, 44.75 MB)
+  - E1 (256.0 Hz, 44.75 MB)
+  - E2 (256.0 Hz, 44.75 MB)
+  - CHIN1 (256.0 Hz, 44.75 MB)
+  - CHIN2 (256.0 Hz, 44.75 MB)
+  - CHINz (256.0 Hz, 44.75 MB)
+  - EKG+ (256.0 Hz, 44.75 MB)
+  - EKG- (256.0 Hz, 44.75 MB)
+  - RLEG+ (256.0 Hz, 44.75 MB)
+  - LLEG+ (256.0 Hz, 44.75 MB)
+  - Snore (256.0 Hz, 44.75 MB)
+  - Thermistor (32.0 Hz, 5.59 MB)
+  - Nasal Pressure (256.0 Hz, 44.75 MB)
+  - Flow_DR (256.0 Hz, 44.75 MB)
+  - Snore_DR (256.0 Hz, 44.75 MB)
+  - Abdomen (64.0 Hz, 11.19 MB)
+  - Chest (64.0 Hz, 11.19 MB)
+  - Phase (64.0 Hz, 11.19 MB)
+  - RMI (64.0 Hz, 11.19 MB)
+  - RR (64.0 Hz, 11.19 MB)
+  - XSum (64.0 Hz, 11.19 MB)
+  - XFlow (64.0 Hz, 11.19 MB)
+  - XVolume (64.0 Hz, 11.19 MB)
+  - Position (4.0 Hz, 0.70 MB)
+  - Elevation (4.0 Hz, 0.70 MB)
+  - Activity (4.0 Hz, 0.70 MB)
+  - PPG (256.0 Hz, 44.75 MB)
+  - Plethysmogram (128.0 Hz, 22.38 MB)
+  - Flow (256.0 Hz, 44.75 MB)
+  - EPAP (256.0 Hz, 44.75 MB)
+  - IPAP (256.0 Hz, 44.75 MB)
+  - SpO2 (128.0 Hz, 22.38 MB)
+  - Pulse (128.0 Hz, 22.38 MB)
+  - RD-Quality (128.0 Hz, 22.38 MB)
+  - Gravity X (16.0 Hz, 2.80 MB)
+  - Gravity Y (16.0 Hz, 2.80 MB)
+  - Gravity Z (16.0 Hz, 2.80 MB)
+  - Flattening (256.0 Hz, 44.75 MB)
+
+Hasta ID: 441425cd-4ee5-45b6-a33a-fd7de892d61f
+  Kanal sayısı: 45
+  Epoch sayısı: 764
+  Uyku evreleri: W=35, N2=286, N3=220, N1=108, REM=115
+
+Kanallar:
+  - C3 (256.0 Hz, 41.39 MB)
+  - C4 (256.0 Hz, 41.39 MB)
+  - F3 (256.0 Hz, 41.39 MB)
+  - F4 (256.0 Hz, 41.39 MB)
+  - O1 (256.0 Hz, 41.39 MB)
+  - O2 (256.0 Hz, 41.39 MB)
+  - M1 (256.0 Hz, 41.39 MB)
+  - M2 (256.0 Hz, 41.39 MB)
+  - E1 (256.0 Hz, 41.39 MB)
+  - E2 (256.0 Hz, 41.39 MB)
+  - CHIN1 (256.0 Hz, 41.39 MB)
+  - CHIN2 (256.0 Hz, 41.39 MB)
+  - CHINz (256.0 Hz, 41.39 MB)
+  - EKG+ (256.0 Hz, 41.39 MB)
+  - EKG- (256.0 Hz, 41.39 MB)
+  - RLEG+ (256.0 Hz, 41.39 MB)
+  - LLEG+ (256.0 Hz, 41.39 MB)
+  - Snore (256.0 Hz, 41.39 MB)
+  - Thermistor (32.0 Hz, 5.17 MB)
+  - Nasal Pressure (256.0 Hz, 41.39 MB)
+  - Flow_DR (256.0 Hz, 41.39 MB)
+  - Snore_DR (256.0 Hz, 41.39 MB)
+  - Abdomen (64.0 Hz, 10.35 MB)
+  - Chest (64.0 Hz, 10.35 MB)
+  - Phase (64.0 Hz, 10.35 MB)
+  - RMI (64.0 Hz, 10.35 MB)
+  - RR (64.0 Hz, 10.35 MB)
+  - XSum (64.0 Hz, 10.35 MB)
+  - XFlow (64.0 Hz, 10.35 MB)
+  - XVolume (64.0 Hz, 10.35 MB)
+  - Position (4.0 Hz, 0.65 MB)
+  - Elevation (4.0 Hz, 0.65 MB)
+  - Activity (4.0 Hz, 0.65 MB)
+  - PPG (256.0 Hz, 41.39 MB)
+  - Plethysmogram (128.0 Hz, 20.69 MB)
+  - Flow (256.0 Hz, 41.39 MB)
+  - EPAP (256.0 Hz, 41.39 MB)
+  - IPAP (256.0 Hz, 41.39 MB)
+  - SpO2 (128.0 Hz, 20.69 MB)
+  - Pulse (128.0 Hz, 20.69 MB)
+  - RD-Quality (128.0 Hz, 20.69 MB)
+  - Gravity X (16.0 Hz, 2.59 MB)
+  - Gravity Y (16.0 Hz, 2.59 MB)
+  - Gravity Z (16.0 Hz, 2.59 MB)
+  - Flattening (256.0 Hz, 41.39 MB)
+
+Hasta ID: 4f680835-27cb-422f-b254-1d2994ff548a
+  Kanal sayısı: 45
+  Epoch sayısı: 707
+  Uyku evreleri: W=101, N2=256, N1=119, N3=124, REM=107
+
+Kanallar:
+  - C3 (256.0 Hz, 43.55 MB)
+  - C4 (256.0 Hz, 43.55 MB)
+  - F3 (256.0 Hz, 43.55 MB)
+  - F4 (256.0 Hz, 43.55 MB)
+  - O1 (256.0 Hz, 43.55 MB)
+  - O2 (256.0 Hz, 43.55 MB)
+  - M1 (256.0 Hz, 43.55 MB)
+  - M2 (256.0 Hz, 43.55 MB)
+  - E1 (256.0 Hz, 43.55 MB)
+  - E2 (256.0 Hz, 43.55 MB)
+  - CHIN1 (256.0 Hz, 43.55 MB)
+  - CHIN2 (256.0 Hz, 43.55 MB)
+  - CHINz (256.0 Hz, 43.55 MB)
+  - EKG+ (256.0 Hz, 43.55 MB)
+  - EKG- (256.0 Hz, 43.55 MB)
+  - RLEG+ (256.0 Hz, 43.55 MB)
+  - LLEG+ (256.0 Hz, 43.55 MB)
+  - Snore (256.0 Hz, 43.55 MB)
+  - Thermistor (32.0 Hz, 5.44 MB)
+  - Nasal Pressure (256.0 Hz, 43.55 MB)
+  - Flow_DR (256.0 Hz, 43.55 MB)
+  - Snore_DR (256.0 Hz, 43.55 MB)
+  - Abdomen (64.0 Hz, 10.89 MB)
+  - Chest (64.0 Hz, 10.89 MB)
+  - Phase (64.0 Hz, 10.89 MB)
+  - RMI (64.0 Hz, 10.89 MB)
+  - RR (64.0 Hz, 10.89 MB)
+  - XSum (64.0 Hz, 10.89 MB)
+  - XFlow (64.0 Hz, 10.89 MB)
+  - XVolume (64.0 Hz, 10.89 MB)
+  - Position (4.0 Hz, 0.68 MB)
+  - Elevation (4.0 Hz, 0.68 MB)
+  - Activity (4.0 Hz, 0.68 MB)
+  - PPG (256.0 Hz, 43.55 MB)
+  - Plethysmogram (128.0 Hz, 21.77 MB)
+  - Flow (256.0 Hz, 43.55 MB)
+  - EPAP (256.0 Hz, 43.55 MB)
+  - IPAP (256.0 Hz, 43.55 MB)
+  - SpO2 (128.0 Hz, 21.77 MB)
+  - Pulse (128.0 Hz, 21.77 MB)
+  - RD-Quality (128.0 Hz, 21.77 MB)
+  - Gravity X (16.0 Hz, 2.72 MB)
+  - Gravity Y (16.0 Hz, 2.72 MB)
+  - Gravity Z (16.0 Hz, 2.72 MB)
+  - Flattening (256.0 Hz, 43.55 MB)
+
+Hasta ID: 596ce269-a11b-4dce-859e-9b4f25428033
+  Kanal sayısı: 45
+  Epoch sayısı: 744
+  Uyku evreleri: W=161, N1=36, REM=43, N3=135, N2=369
+
+Kanallar:
+  - C3 (256.0 Hz, 43.13 MB)
+  - C4 (256.0 Hz, 43.13 MB)
+  - F3 (256.0 Hz, 43.13 MB)
+  - F4 (256.0 Hz, 43.13 MB)
+  - O1 (256.0 Hz, 43.13 MB)
+  - O2 (256.0 Hz, 43.13 MB)
+  - M1 (256.0 Hz, 43.13 MB)
+  - M2 (256.0 Hz, 43.13 MB)
+  - E1 (256.0 Hz, 43.13 MB)
+  - E2 (256.0 Hz, 43.13 MB)
+  - CHIN1 (256.0 Hz, 43.13 MB)
+  - CHIN2 (256.0 Hz, 43.13 MB)
+  - CHINz (256.0 Hz, 43.13 MB)
+  - EKG+ (256.0 Hz, 43.13 MB)
+  - EKG- (256.0 Hz, 43.13 MB)
+  - RLEG+ (256.0 Hz, 43.13 MB)
+  - LLEG+ (256.0 Hz, 43.13 MB)
+  - Snore (256.0 Hz, 43.13 MB)
+  - Thermistor (32.0 Hz, 5.39 MB)
+  - Nasal Pressure (256.0 Hz, 43.13 MB)
+  - Flow_DR (256.0 Hz, 43.13 MB)
+  - Snore_DR (256.0 Hz, 43.13 MB)
+  - Abdomen (64.0 Hz, 10.78 MB)
+  - Chest (64.0 Hz, 10.78 MB)
+  - Phase (64.0 Hz, 10.78 MB)
+  - RMI (64.0 Hz, 10.78 MB)
+  - RR (64.0 Hz, 10.78 MB)
+  - XSum (64.0 Hz, 10.78 MB)
+  - XFlow (64.0 Hz, 10.78 MB)
+  - XVolume (64.0 Hz, 10.78 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 43.13 MB)
+  - Plethysmogram (128.0 Hz, 21.56 MB)
+  - Flow (256.0 Hz, 43.13 MB)
+  - EPAP (256.0 Hz, 43.13 MB)
+  - IPAP (256.0 Hz, 43.13 MB)
+  - SpO2 (128.0 Hz, 21.56 MB)
+  - Pulse (128.0 Hz, 21.56 MB)
+  - RD-Quality (128.0 Hz, 21.56 MB)
+  - Gravity X (16.0 Hz, 2.70 MB)
+  - Gravity Y (16.0 Hz, 2.70 MB)
+  - Gravity Z (16.0 Hz, 2.70 MB)
+  - Flattening (256.0 Hz, 43.13 MB)
+
+Hasta ID: 66d496f0-3092-48db-801e-ae81fb623131
+  Kanal sayısı: 45
+  Epoch sayısı: 744
+  Uyku evreleri: W=161, N1=36, REM=43, N3=135, N2=369
+
+Kanallar:
+  - C3 (256.0 Hz, 45.34 MB)
+  - C4 (256.0 Hz, 45.34 MB)
+  - F3 (256.0 Hz, 45.34 MB)
+  - F4 (256.0 Hz, 45.34 MB)
+  - O1 (256.0 Hz, 45.34 MB)
+  - O2 (256.0 Hz, 45.34 MB)
+  - M1 (256.0 Hz, 45.34 MB)
+  - M2 (256.0 Hz, 45.34 MB)
+  - E1 (256.0 Hz, 45.34 MB)
+  - E2 (256.0 Hz, 45.34 MB)
+  - CHIN1 (256.0 Hz, 45.34 MB)
+  - CHIN2 (256.0 Hz, 45.34 MB)
+  - CHINz (256.0 Hz, 45.34 MB)
+  - EKG+ (256.0 Hz, 45.34 MB)
+  - EKG- (256.0 Hz, 45.34 MB)
+  - RLEG+ (256.0 Hz, 45.34 MB)
+  - LLEG+ (256.0 Hz, 45.34 MB)
+  - Snore (256.0 Hz, 45.34 MB)
+  - Thermistor (32.0 Hz, 5.67 MB)
+  - Nasal Pressure (256.0 Hz, 45.34 MB)
+  - Flow_DR (256.0 Hz, 45.34 MB)
+  - Snore_DR (256.0 Hz, 45.34 MB)
+  - Abdomen (64.0 Hz, 11.33 MB)
+  - Chest (64.0 Hz, 11.33 MB)
+  - Phase (64.0 Hz, 11.33 MB)
+  - RMI (64.0 Hz, 11.33 MB)
+  - RR (64.0 Hz, 11.33 MB)
+  - XSum (64.0 Hz, 11.33 MB)
+  - XFlow (64.0 Hz, 11.33 MB)
+  - XVolume (64.0 Hz, 11.33 MB)
+  - Position (4.0 Hz, 0.71 MB)
+  - Elevation (4.0 Hz, 0.71 MB)
+  - Activity (4.0 Hz, 0.71 MB)
+  - PPG (256.0 Hz, 45.34 MB)
+  - Plethysmogram (128.0 Hz, 22.67 MB)
+  - Flow (256.0 Hz, 45.34 MB)
+  - EPAP (256.0 Hz, 45.34 MB)
+  - IPAP (256.0 Hz, 45.34 MB)
+  - SpO2 (128.0 Hz, 22.67 MB)
+  - Pulse (128.0 Hz, 22.67 MB)
+  - RD-Quality (128.0 Hz, 22.67 MB)
+  - Gravity X (16.0 Hz, 2.83 MB)
+  - Gravity Y (16.0 Hz, 2.83 MB)
+  - Gravity Z (16.0 Hz, 2.83 MB)
+  - Flattening (256.0 Hz, 45.34 MB)
+
+Hasta ID: 6b19b899-e4b2-4465-93d7-ab2c329b092d
+  Kanal sayısı: 45
+  Epoch sayısı: 773
+  Uyku evreleri: N3=193, W=126, N2=145, REM=192, N1=117
+
+Kanallar:
+  - C3 (256.0 Hz, 38.54 MB)
+  - C4 (256.0 Hz, 38.54 MB)
+  - F3 (256.0 Hz, 38.54 MB)
+  - F4 (256.0 Hz, 38.54 MB)
+  - O1 (256.0 Hz, 38.54 MB)
+  - O2 (256.0 Hz, 38.54 MB)
+  - M1 (256.0 Hz, 38.54 MB)
+  - M2 (256.0 Hz, 38.54 MB)
+  - E1 (256.0 Hz, 38.54 MB)
+  - E2 (256.0 Hz, 38.54 MB)
+  - CHIN1 (256.0 Hz, 38.54 MB)
+  - CHIN2 (256.0 Hz, 38.54 MB)
+  - CHINz (256.0 Hz, 38.54 MB)
+  - EKG+ (256.0 Hz, 38.54 MB)
+  - EKG- (256.0 Hz, 38.54 MB)
+  - RLEG+ (256.0 Hz, 38.54 MB)
+  - LLEG+ (256.0 Hz, 38.54 MB)
+  - Snore (256.0 Hz, 38.54 MB)
+  - Thermistor (32.0 Hz, 4.82 MB)
+  - Nasal Pressure (256.0 Hz, 38.54 MB)
+  - Flow_DR (256.0 Hz, 38.54 MB)
+  - Snore_DR (256.0 Hz, 38.54 MB)
+  - Abdomen (64.0 Hz, 9.64 MB)
+  - Chest (64.0 Hz, 9.64 MB)
+  - Phase (64.0 Hz, 9.64 MB)
+  - RMI (64.0 Hz, 9.64 MB)
+  - RR (64.0 Hz, 9.64 MB)
+  - XSum (64.0 Hz, 9.64 MB)
+  - XFlow (64.0 Hz, 9.64 MB)
+  - XVolume (64.0 Hz, 9.64 MB)
+  - Position (4.0 Hz, 0.60 MB)
+  - Elevation (4.0 Hz, 0.60 MB)
+  - Activity (4.0 Hz, 0.60 MB)
+  - PPG (256.0 Hz, 38.54 MB)
+  - Plethysmogram (128.0 Hz, 19.27 MB)
+  - Flow (256.0 Hz, 38.54 MB)
+  - EPAP (256.0 Hz, 38.54 MB)
+  - IPAP (256.0 Hz, 38.54 MB)
+  - SpO2 (128.0 Hz, 19.27 MB)
+  - Pulse (128.0 Hz, 19.27 MB)
+  - RD-Quality (128.0 Hz, 19.27 MB)
+  - Gravity X (16.0 Hz, 2.41 MB)
+  - Gravity Y (16.0 Hz, 2.41 MB)
+  - Gravity Z (16.0 Hz, 2.41 MB)
+  - Flattening (256.0 Hz, 38.54 MB)
+
+Hasta ID: 98839ae3-bc28-42f6-9258-c81854ac4b4a
+  Kanal sayısı: 45
+  Epoch sayısı: 657
+  Uyku evreleri: W=26, N1=94, N2=296, N3=180, REM=61
+
+Kanallar:
+  - C3 (256.0 Hz, 46.25 MB)
+  - C4 (256.0 Hz, 46.25 MB)
+  - F3 (256.0 Hz, 46.25 MB)
+  - F4 (256.0 Hz, 46.25 MB)
+  - O1 (256.0 Hz, 46.25 MB)
+  - O2 (256.0 Hz, 46.25 MB)
+  - M1 (256.0 Hz, 46.25 MB)
+  - M2 (256.0 Hz, 46.25 MB)
+  - E1 (256.0 Hz, 46.25 MB)
+  - E2 (256.0 Hz, 46.25 MB)
+  - CHIN1 (256.0 Hz, 46.25 MB)
+  - CHIN2 (256.0 Hz, 46.25 MB)
+  - CHINz (256.0 Hz, 46.25 MB)
+  - EKG+ (256.0 Hz, 46.25 MB)
+  - EKG- (256.0 Hz, 46.25 MB)
+  - RLEG+ (256.0 Hz, 46.25 MB)
+  - LLEG+ (256.0 Hz, 46.25 MB)
+  - Snore (256.0 Hz, 46.25 MB)
+  - Thermistor (32.0 Hz, 5.78 MB)
+  - Nasal Pressure (256.0 Hz, 46.25 MB)
+  - Flow_DR (256.0 Hz, 46.25 MB)
+  - Snore_DR (256.0 Hz, 46.25 MB)
+  - Abdomen (64.0 Hz, 11.56 MB)
+  - Chest (64.0 Hz, 11.56 MB)
+  - Phase (64.0 Hz, 11.56 MB)
+  - RMI (64.0 Hz, 11.56 MB)
+  - RR (64.0 Hz, 11.56 MB)
+  - XSum (64.0 Hz, 11.56 MB)
+  - XFlow (64.0 Hz, 11.56 MB)
+  - XVolume (64.0 Hz, 11.56 MB)
+  - Position (4.0 Hz, 0.72 MB)
+  - Elevation (4.0 Hz, 0.72 MB)
+  - Activity (4.0 Hz, 0.72 MB)
+  - PPG (256.0 Hz, 46.25 MB)
+  - Plethysmogram (128.0 Hz, 23.12 MB)
+  - Flow (256.0 Hz, 46.25 MB)
+  - EPAP (256.0 Hz, 46.25 MB)
+  - IPAP (256.0 Hz, 46.25 MB)
+  - SpO2 (128.0 Hz, 23.12 MB)
+  - Pulse (128.0 Hz, 23.12 MB)
+  - RD-Quality (128.0 Hz, 23.12 MB)
+  - Gravity X (16.0 Hz, 2.89 MB)
+  - Gravity Y (16.0 Hz, 2.89 MB)
+  - Gravity Z (16.0 Hz, 2.89 MB)
+  - Flattening (256.0 Hz, 46.25 MB)
+
+Hasta ID: b551f3fe-85d3-40be-a5fa-a22ce04b4dea
+  Kanal sayısı: 45
+  Epoch sayısı: 789
+  Uyku evreleri: W=59, N1=187, N2=315, N3=150, REM=78
+
+Kanallar:
+  - C3 (256.0 Hz, 36.19 MB)
+  - C4 (256.0 Hz, 36.19 MB)
+  - F3 (256.0 Hz, 36.19 MB)
+  - F4 (256.0 Hz, 36.19 MB)
+  - O1 (256.0 Hz, 36.19 MB)
+  - O2 (256.0 Hz, 36.19 MB)
+  - M1 (256.0 Hz, 36.19 MB)
+  - M2 (256.0 Hz, 36.19 MB)
+  - E1 (256.0 Hz, 36.19 MB)
+  - E2 (256.0 Hz, 36.19 MB)
+  - CHIN1 (256.0 Hz, 36.19 MB)
+  - CHIN2 (256.0 Hz, 36.19 MB)
+  - CHINz (256.0 Hz, 36.19 MB)
+  - EKG+ (256.0 Hz, 36.19 MB)
+  - EKG- (256.0 Hz, 36.19 MB)
+  - RLEG+ (256.0 Hz, 36.19 MB)
+  - LLEG+ (256.0 Hz, 36.19 MB)
+  - Snore (256.0 Hz, 36.19 MB)
+  - Thermistor (32.0 Hz, 4.52 MB)
+  - Nasal Pressure (256.0 Hz, 36.19 MB)
+  - Flow_DR (256.0 Hz, 36.19 MB)
+  - Snore_DR (256.0 Hz, 36.19 MB)
+  - Abdomen (64.0 Hz, 9.05 MB)
+  - Chest (64.0 Hz, 9.05 MB)
+  - Phase (64.0 Hz, 9.05 MB)
+  - RMI (64.0 Hz, 9.05 MB)
+  - RR (64.0 Hz, 9.05 MB)
+  - XSum (64.0 Hz, 9.05 MB)
+  - XFlow (64.0 Hz, 9.05 MB)
+  - XVolume (64.0 Hz, 9.05 MB)
+  - Position (4.0 Hz, 0.57 MB)
+  - Elevation (4.0 Hz, 0.57 MB)
+  - Activity (4.0 Hz, 0.57 MB)
+  - PPG (256.0 Hz, 36.19 MB)
+  - Plethysmogram (128.0 Hz, 18.09 MB)
+  - Flow (256.0 Hz, 36.19 MB)
+  - EPAP (256.0 Hz, 36.19 MB)
+  - IPAP (256.0 Hz, 36.19 MB)
+  - SpO2 (128.0 Hz, 18.09 MB)
+  - Pulse (128.0 Hz, 18.09 MB)
+  - RD-Quality (128.0 Hz, 18.09 MB)
+  - Gravity X (16.0 Hz, 2.26 MB)
+  - Gravity Y (16.0 Hz, 2.26 MB)
+  - Gravity Z (16.0 Hz, 2.26 MB)
+  - Flattening (256.0 Hz, 36.19 MB)
+
+Hasta ID: dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a
+  Kanal sayısı: 45
+  Epoch sayısı: 618
+  Uyku evreleri: W=62, N1=73, N2=286, N3=114, REM=83
+
+Kanallar:
+  - C3 (256.0 Hz, 43.03 MB)
+  - C4 (256.0 Hz, 43.03 MB)
+  - F3 (256.0 Hz, 43.03 MB)
+  - F4 (256.0 Hz, 43.03 MB)
+  - O1 (256.0 Hz, 43.03 MB)
+  - O2 (256.0 Hz, 43.03 MB)
+  - M1 (256.0 Hz, 43.03 MB)
+  - M2 (256.0 Hz, 43.03 MB)
+  - E1 (256.0 Hz, 43.03 MB)
+  - E2 (256.0 Hz, 43.03 MB)
+  - CHIN1 (256.0 Hz, 43.03 MB)
+  - CHIN2 (256.0 Hz, 43.03 MB)
+  - CHINz (256.0 Hz, 43.03 MB)
+  - EKG+ (256.0 Hz, 43.03 MB)
+  - EKG- (256.0 Hz, 43.03 MB)
+  - RLEG+ (256.0 Hz, 43.03 MB)
+  - LLEG+ (256.0 Hz, 43.03 MB)
+  - Snore (256.0 Hz, 43.03 MB)
+  - Thermistor (32.0 Hz, 5.38 MB)
+  - Nasal Pressure (256.0 Hz, 43.03 MB)
+  - Flow_DR (256.0 Hz, 43.03 MB)
+  - Snore_DR (256.0 Hz, 43.03 MB)
+  - Abdomen (64.0 Hz, 10.76 MB)
+  - Chest (64.0 Hz, 10.76 MB)
+  - Phase (64.0 Hz, 10.76 MB)
+  - RMI (64.0 Hz, 10.76 MB)
+  - RR (64.0 Hz, 10.76 MB)
+  - XSum (64.0 Hz, 10.76 MB)
+  - XFlow (64.0 Hz, 10.76 MB)
+  - XVolume (64.0 Hz, 10.76 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 43.03 MB)
+  - Plethysmogram (128.0 Hz, 21.52 MB)
+  - Flow (256.0 Hz, 43.03 MB)
+  - EPAP (256.0 Hz, 43.03 MB)
+  - IPAP (256.0 Hz, 43.03 MB)
+  - SpO2 (128.0 Hz, 21.52 MB)
+  - Pulse (128.0 Hz, 21.52 MB)
+  - RD-Quality (128.0 Hz, 21.52 MB)
+  - Gravity X (16.0 Hz, 2.69 MB)
+  - Gravity Y (16.0 Hz, 2.69 MB)
+  - Gravity Z (16.0 Hz, 2.69 MB)
+  - Flattening (256.0 Hz, 43.03 MB)
+
+Hasta ID: e4650f45-63c1-4af1-99f0-fa4a99db0601
+  Kanal sayısı: 45
+  Epoch sayısı: 735
+  Uyku evreleri: W=70, N2=293, N3=135, N1=103, REM=134
+
+Kanallar:
+  - C3 (256.0 Hz, 42.59 MB)
+  - C4 (256.0 Hz, 42.59 MB)
+  - F3 (256.0 Hz, 42.59 MB)
+  - F4 (256.0 Hz, 42.59 MB)
+  - O1 (256.0 Hz, 42.59 MB)
+  - O2 (256.0 Hz, 42.59 MB)
+  - M1 (256.0 Hz, 42.59 MB)
+  - M2 (256.0 Hz, 42.59 MB)
+  - E1 (256.0 Hz, 42.59 MB)
+  - E2 (256.0 Hz, 42.59 MB)
+  - CHIN1 (256.0 Hz, 42.59 MB)
+  - CHIN2 (256.0 Hz, 42.59 MB)
+  - CHINz (256.0 Hz, 42.59 MB)
+  - EKG+ (256.0 Hz, 42.59 MB)
+  - EKG- (256.0 Hz, 42.59 MB)
+  - RLEG+ (256.0 Hz, 42.59 MB)
+  - LLEG+ (256.0 Hz, 42.59 MB)
+  - Snore (256.0 Hz, 42.59 MB)
+  - Thermistor (32.0 Hz, 5.32 MB)
+  - Nasal Pressure (256.0 Hz, 42.59 MB)
+  - Flow_DR (256.0 Hz, 42.59 MB)
+  - Snore_DR (256.0 Hz, 42.59 MB)
+  - Abdomen (64.0 Hz, 10.65 MB)
+  - Chest (64.0 Hz, 10.65 MB)
+  - Phase (64.0 Hz, 10.65 MB)
+  - RMI (64.0 Hz, 10.65 MB)
+  - RR (64.0 Hz, 10.65 MB)
+  - XSum (64.0 Hz, 10.65 MB)
+  - XFlow (64.0 Hz, 10.65 MB)
+  - XVolume (64.0 Hz, 10.65 MB)
+  - Position (4.0 Hz, 0.67 MB)
+  - Elevation (4.0 Hz, 0.67 MB)
+  - Activity (4.0 Hz, 0.67 MB)
+  - PPG (256.0 Hz, 42.59 MB)
+  - Plethysmogram (128.0 Hz, 21.29 MB)
+  - Flow (256.0 Hz, 42.59 MB)
+  - EPAP (256.0 Hz, 42.59 MB)
+  - IPAP (256.0 Hz, 42.59 MB)
+  - SpO2 (128.0 Hz, 21.29 MB)
+  - Pulse (128.0 Hz, 21.29 MB)
+  - RD-Quality (128.0 Hz, 21.29 MB)
+  - Gravity X (16.0 Hz, 2.66 MB)
+  - Gravity Y (16.0 Hz, 2.66 MB)
+  - Gravity Z (16.0 Hz, 2.66 MB)
+  - Flattening (256.0 Hz, 42.59 MB)
+
+Hasta ID: edee3d0a-16d7-4413-9aa0-72f6a09f6d0a
+  Kanal sayısı: 45
+  Epoch sayısı: 731
+  Uyku evreleri: W=50, N1=77, N2=380, N3=78, REM=146
+
+Kanallar:
+  - C3 (256.0 Hz, 41.38 MB)
+  - C4 (256.0 Hz, 41.38 MB)
+  - F3 (256.0 Hz, 41.38 MB)
+  - F4 (256.0 Hz, 41.38 MB)
+  - O1 (256.0 Hz, 41.38 MB)
+  - O2 (256.0 Hz, 41.38 MB)
+  - M1 (256.0 Hz, 41.38 MB)
+  - M2 (256.0 Hz, 41.38 MB)
+  - E1 (256.0 Hz, 41.38 MB)
+  - E2 (256.0 Hz, 41.38 MB)
+  - CHIN1 (256.0 Hz, 41.38 MB)
+  - CHIN2 (256.0 Hz, 41.38 MB)
+  - CHINz (256.0 Hz, 41.38 MB)
+  - EKG+ (256.0 Hz, 41.38 MB)
+  - EKG- (256.0 Hz, 41.38 MB)
+  - RLEG+ (256.0 Hz, 41.38 MB)
+  - LLEG+ (256.0 Hz, 41.38 MB)
+  - Snore (256.0 Hz, 41.38 MB)
+  - Thermistor (32.0 Hz, 5.17 MB)
+  - Nasal Pressure (256.0 Hz, 41.38 MB)
+  - Flow_DR (256.0 Hz, 41.38 MB)
+  - Snore_DR (256.0 Hz, 41.38 MB)
+  - Abdomen (64.0 Hz, 10.34 MB)
+  - Chest (64.0 Hz, 10.34 MB)
+  - Phase (64.0 Hz, 10.34 MB)
+  - RMI (64.0 Hz, 10.34 MB)
+  - RR (64.0 Hz, 10.34 MB)
+  - XSum (64.0 Hz, 10.34 MB)
+  - XFlow (64.0 Hz, 10.34 MB)
+  - XVolume (64.0 Hz, 10.34 MB)
+  - Position (4.0 Hz, 0.65 MB)
+  - Elevation (4.0 Hz, 0.65 MB)
+  - Activity (4.0 Hz, 0.65 MB)
+  - PPG (256.0 Hz, 41.38 MB)
+  - Flow (256.0 Hz, 41.38 MB)
+  - EPAP (256.0 Hz, 41.38 MB)
+  - IPAP (256.0 Hz, 41.38 MB)
+  - SpO2 (128.0 Hz, 20.69 MB)
+  - Pulse (128.0 Hz, 20.69 MB)
+  - RD-Quality (128.0 Hz, 20.69 MB)
+  - Gravity X (16.0 Hz, 2.59 MB)
+  - Gravity Y (16.0 Hz, 2.59 MB)
+  - Gravity Z (16.0 Hz, 2.59 MB)
+  - Flattening (256.0 Hz, 41.38 MB)
+
+Hasta ID: f0cfab4a-fd30-43a5-8633-814b69c6bdca
+  Kanal sayısı: 44
+  Epoch sayısı: 707
+  Uyku evreleri: W=93, N1=130, N2=248, N3=177, REM=59
+
+Kanallar:
+  - C3 (256.0 Hz, 38.99 MB)
+  - C4 (256.0 Hz, 38.99 MB)
+  - F3 (256.0 Hz, 38.99 MB)
+  - F4 (256.0 Hz, 38.99 MB)
+  - O1 (256.0 Hz, 38.99 MB)
+  - O2 (256.0 Hz, 38.99 MB)
+  - M1 (256.0 Hz, 38.99 MB)
+  - M2 (256.0 Hz, 38.99 MB)
+  - E1 (256.0 Hz, 38.99 MB)
+  - E2 (256.0 Hz, 38.99 MB)
+  - CHIN1 (256.0 Hz, 38.99 MB)
+  - CHIN2 (256.0 Hz, 38.99 MB)
+  - CHINz (256.0 Hz, 38.99 MB)
+  - EKG+ (256.0 Hz, 38.99 MB)
+  - EKG- (256.0 Hz, 38.99 MB)
+  - RLEG+ (256.0 Hz, 38.99 MB)
+  - LLEG+ (256.0 Hz, 38.99 MB)
+  - Snore (256.0 Hz, 38.99 MB)
+  - Thermistor (32.0 Hz, 4.87 MB)
+  - Nasal Pressure (256.0 Hz, 38.99 MB)
+  - Flow_DR (256.0 Hz, 38.99 MB)
+  - Snore_DR (256.0 Hz, 38.99 MB)
+  - Abdomen (64.0 Hz, 9.75 MB)
+  - Chest (64.0 Hz, 9.75 MB)
+  - Phase (64.0 Hz, 9.75 MB)
+  - RMI (64.0 Hz, 9.75 MB)
+  - RR (64.0 Hz, 9.75 MB)
+  - XSum (64.0 Hz, 9.75 MB)
+  - XFlow (64.0 Hz, 9.75 MB)
+  - XVolume (64.0 Hz, 9.75 MB)
+  - Position (4.0 Hz, 0.61 MB)
+  - Elevation (4.0 Hz, 0.61 MB)
+  - Activity (4.0 Hz, 0.61 MB)
+  - PPG (256.0 Hz, 38.99 MB)
+  - Plethysmogram (128.0 Hz, 19.50 MB)
+  - Flow (256.0 Hz, 38.99 MB)
+  - EPAP (256.0 Hz, 38.99 MB)
+  - IPAP (256.0 Hz, 38.99 MB)
+  - SpO2 (128.0 Hz, 19.50 MB)
+  - Pulse (128.0 Hz, 19.50 MB)
+  - RD-Quality (128.0 Hz, 19.50 MB)
+  - Gravity X (16.0 Hz, 2.44 MB)
+  - Gravity Y (16.0 Hz, 2.44 MB)
+  - Gravity Z (16.0 Hz, 2.44 MB)
+  - Flattening (256.0 Hz, 38.99 MB)
+
+Hasta ID: f94c4f40-d9e5-4624-b4f9-b02d35285646
+  Kanal sayısı: 45
+  Epoch sayısı: 665
+  Uyku evreleri: W=318, N1=77, N2=270
+
+Kanallar:
+  - C3 (256.0 Hz, 42.25 MB)
+  - C4 (256.0 Hz, 42.25 MB)
+  - F3 (256.0 Hz, 42.25 MB)
+  - F4 (256.0 Hz, 42.25 MB)
+  - O1 (256.0 Hz, 42.25 MB)
+  - O2 (256.0 Hz, 42.25 MB)
+  - M1 (256.0 Hz, 42.25 MB)
+  - M2 (256.0 Hz, 42.25 MB)
+  - E1 (256.0 Hz, 42.25 MB)
+  - E2 (256.0 Hz, 42.25 MB)
+  - CHIN1 (256.0 Hz, 42.25 MB)
+  - CHIN2 (256.0 Hz, 42.25 MB)
+  - CHINz (256.0 Hz, 42.25 MB)
+  - EKG+ (256.0 Hz, 42.25 MB)
+  - EKG- (256.0 Hz, 42.25 MB)
+  - RLEG+ (256.0 Hz, 42.25 MB)
+  - LLEG+ (256.0 Hz, 42.25 MB)
+  - Snore (256.0 Hz, 42.25 MB)
+  - Thermistor (32.0 Hz, 5.28 MB)
+  - Nasal Pressure (256.0 Hz, 42.25 MB)
+  - Flow_DR (256.0 Hz, 42.25 MB)
+  - Snore_DR (256.0 Hz, 42.25 MB)
+  - Abdomen (64.0 Hz, 10.56 MB)
+  - Chest (64.0 Hz, 10.56 MB)
+  - Phase (64.0 Hz, 10.56 MB)
+  - RMI (64.0 Hz, 10.56 MB)
+  - RR (64.0 Hz, 10.56 MB)
+  - XSum (64.0 Hz, 10.56 MB)
+  - XFlow (64.0 Hz, 10.56 MB)
+  - XVolume (64.0 Hz, 10.56 MB)
+  - Position (4.0 Hz, 0.66 MB)
+  - Elevation (4.0 Hz, 0.66 MB)
+  - Activity (4.0 Hz, 0.66 MB)
+  - PPG (256.0 Hz, 42.25 MB)
+  - Plethysmogram (128.0 Hz, 21.12 MB)
+  - Flow (256.0 Hz, 42.25 MB)
+  - EPAP (256.0 Hz, 42.25 MB)
+  - IPAP (256.0 Hz, 42.25 MB)
+  - SpO2 (128.0 Hz, 21.12 MB)
+  - Pulse (128.0 Hz, 21.12 MB)
+  - RD-Quality (128.0 Hz, 21.12 MB)
+  - Gravity X (16.0 Hz, 2.64 MB)
+  - Gravity Y (16.0 Hz, 2.64 MB)
+  - Gravity Z (16.0 Hz, 2.64 MB)
+  - Flattening (256.0 Hz, 42.25 MB)
+
+Hasta ID: fb43377e-9f64-4863-9ab0-993c26836f39
+  Kanal sayısı: 45
+  Epoch sayısı: 721
+  Uyku evreleri: W=3, REM=302, N1=116, N2=143, N3=157
+
+
+
+================================================================================
+ÖRNEK 5: Tek kanal, tek epoch aralığı - RAW DATA
+================================================================================
+[2025-12-01 07:41:02] ================================================================================
+[2025-12-01 07:41:02] SHAP ANALYSIS - MONGODB VERSION
+[2025-12-01 07:41:02] ================================================================================
+[2025-12-01 07:41:02] 
+1. Hasta listesi alınıyor...
+[2025-12-01 07:41:02] ✓ 17 hasta bulundu
+[2025-12-01 07:41:02] 
+2. Seçilen kanallar: ['C3', 'C4', 'E1', 'CHIN1']
+[2025-12-01 07:41:02] 
+3. Veri yükleniyor...
+[2025-12-01 07:41:02] MongoDB'den veri yükleniyor...
+[2025-12-01 07:41:02]   Hasta sayısı: 17
+[2025-12-01 07:41:02]   Kanal sayısı: 4
+
+======================================================================
+TÜM STAGE VERİLERİ CACHE'E YÜKLENİYOR
+======================================================================
+Toplam 17 hasta bulundu
+----------------------------------------------------------------------
+[1/17] 22cd54f1-5d96-4b12-a392-d5ddada9d8d3: 866 epoch, 0.09 MB ✓
+[2/17] 28ba35f0-a068-4eeb-a51a-f4c45b4c0843: 728 epoch, 0.08 MB ✓
+[3/17] 2d42885b-ba49-4c21-9e8f-4963349f252c: 740 epoch, 0.08 MB ✓
+[4/17] 3da2681a-5991-449c-80a4-52cf3257db02: 731 epoch, 0.08 MB ✓
+[5/17] 441425cd-4ee5-45b6-a33a-fd7de892d61f: 764 epoch, 0.08 MB ✓
+[6/17] 4f680835-27cb-422f-b254-1d2994ff548a: 707 epoch, 0.07 MB ✓
+[7/17] 596ce269-a11b-4dce-859e-9b4f25428033: 744 epoch, 0.08 MB ✓
+[8/17] 66d496f0-3092-48db-801e-ae81fb623131: 744 epoch, 0.08 MB ✓
+[9/17] 6b19b899-e4b2-4465-93d7-ab2c329b092d: 773 epoch, 0.08 MB ✓
+[10/17] 98839ae3-bc28-42f6-9258-c81854ac4b4a: 657 epoch, 0.07 MB ✓
+[11/17] b551f3fe-85d3-40be-a5fa-a22ce04b4dea: 789 epoch, 0.08 MB ✓
+[12/17] dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a: 618 epoch, 0.06 MB ✓
+[13/17] e4650f45-63c1-4af1-99f0-fa4a99db0601: 735 epoch, 0.08 MB ✓
+[14/17] edee3d0a-16d7-4413-9aa0-72f6a09f6d0a: 731 epoch, 0.08 MB ✓
+[15/17] f0cfab4a-fd30-43a5-8633-814b69c6bdca: 707 epoch, 0.07 MB ✓
+[16/17] f94c4f40-d9e5-4624-b4f9-b02d35285646: 665 epoch, 0.07 MB ✓
+[17/17] fb43377e-9f64-4863-9ab0-993c26836f39: 721 epoch, 0.08 MB ✓
+
+======================================================================
+CACHE YÜKLEME TAMAMLANDI
+======================================================================
+Yüklenen hasta: 17/17
+Toplam epoch: 12,420
+Toplam boyut: 1.31 MB
+Cache boyutu: 17 hasta
+======================================================================
+
+[2025-12-01 07:41:02] 
+[1/17] İşleniyor: 22cd54f1-5d96-4b12-a392-d5ddada9d8d3
+[2025-12-01 07:41:02]   Toplam epoch: 100
+  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:   0%|          | 0/100 [00:00<?, ?it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:   2%|▏         | 2/100 [00:00<00:05, 17.05it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:   4%|▍         | 4/100 [00:00<00:05, 17.23it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:   6%|▌         | 6/100 [00:00<00:05, 15.71it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:   8%|▊         | 8/100 [00:00<00:05, 16.21it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  10%|█         | 10/100 [00:00<00:05, 16.76it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  12%|█▏        | 12/100 [00:00<00:05, 17.25it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  14%|█▍        | 14/100 [00:00<00:04, 17.97it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  16%|█▌        | 16/100 [00:00<00:04, 18.38it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  19%|█▉        | 19/100 [00:01<00:04, 18.98it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  21%|██        | 21/100 [00:01<00:04, 19.00it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  23%|██▎       | 23/100 [00:01<00:04, 18.44it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  25%|██▌       | 25/100 [00:01<00:04, 17.72it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  27%|██▋       | 27/100 [00:01<00:04, 17.75it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  30%|███       | 30/100 [00:01<00:03, 18.76it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  32%|███▏      | 32/100 [00:01<00:03, 18.96it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  34%|███▍      | 34/100 [00:01<00:03, 18.95it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  37%|███▋      | 37/100 [00:02<00:03, 20.35it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  40%|████      | 40/100 [00:02<00:02, 21.20it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  43%|████▎     | 43/100 [00:02<00:02, 21.54it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  46%|████▌     | 46/100 [00:02<00:02, 22.01it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  49%|████▉     | 49/100 [00:02<00:02, 21.90it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  52%|█████▏    | 52/100 [00:02<00:02, 21.91it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  55%|█████▌    | 55/100 [00:02<00:01, 22.68it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  58%|█████▊    | 58/100 [00:02<00:01, 22.92it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  61%|██████    | 61/100 [00:03<00:01, 22.70it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  64%|██████▍   | 64/100 [00:03<00:01, 22.39it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  67%|██████▋   | 67/100 [00:03<00:01, 22.13it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  70%|███████   | 70/100 [00:03<00:01, 21.74it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  73%|███████▎  | 73/100 [00:03<00:01, 21.71it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  76%|███████▌  | 76/100 [00:03<00:01, 22.23it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  79%|███████▉  | 79/100 [00:03<00:00, 22.31it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  82%|████████▏ | 82/100 [00:04<00:00, 22.84it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  85%|████████▌ | 85/100 [00:04<00:00, 23.32it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  88%|████████▊ | 88/100 [00:04<00:00, 23.88it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  91%|█████████ | 91/100 [00:04<00:00, 23.65it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  94%|█████████▍| 94/100 [00:04<00:00, 23.89it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3:  97%|█████████▋| 97/100 [00:04<00:00, 24.04it/s]  22cd54f1-5d96-4b12-a392-d5ddada9d8d3: 100%|██████████| 100/100 [00:04<00:00, 23.89it/s]                                                                                         [2025-12-01 07:41:07] 
+[2/17] İşleniyor: 28ba35f0-a068-4eeb-a51a-f4c45b4c0843
+[2025-12-01 07:41:07]   Toplam epoch: 100
+  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:   0%|          | 0/100 [00:00<?, ?it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:   3%|▎         | 3/100 [00:00<00:03, 24.63it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:   6%|▌         | 6/100 [00:00<00:03, 24.17it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:   9%|▉         | 9/100 [00:00<00:03, 23.60it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  12%|█▏        | 12/100 [00:00<00:03, 23.90it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  15%|█▌        | 15/100 [00:00<00:03, 24.37it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  18%|█▊        | 18/100 [00:00<00:03, 23.75it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  21%|██        | 21/100 [00:00<00:03, 23.64it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  24%|██▍       | 24/100 [00:01<00:03, 23.41it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  27%|██▋       | 27/100 [00:01<00:03, 23.54it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  30%|███       | 30/100 [00:01<00:03, 22.79it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  33%|███▎      | 33/100 [00:01<00:03, 22.10it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  36%|███▌      | 36/100 [00:01<00:02, 21.83it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  39%|███▉      | 39/100 [00:01<00:02, 22.45it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  42%|████▏     | 42/100 [00:01<00:02, 22.71it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  45%|████▌     | 45/100 [00:01<00:02, 22.50it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  48%|████▊     | 48/100 [00:02<00:02, 22.22it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  51%|█████     | 51/100 [00:02<00:02, 22.14it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  54%|█████▍    | 54/100 [00:02<00:02, 22.03it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  57%|█████▋    | 57/100 [00:02<00:01, 22.65it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  60%|██████    | 60/100 [00:02<00:01, 23.39it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  63%|██████▎   | 63/100 [00:02<00:01, 23.61it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  66%|██████▌   | 66/100 [00:02<00:01, 23.69it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  69%|██████▉   | 69/100 [00:02<00:01, 24.17it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  72%|███████▏  | 72/100 [00:03<00:01, 24.17it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  75%|███████▌  | 75/100 [00:03<00:01, 23.56it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  78%|███████▊  | 78/100 [00:03<00:00, 23.18it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  81%|████████  | 81/100 [00:03<00:00, 23.33it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  84%|████████▍ | 84/100 [00:03<00:00, 24.04it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  87%|████████▋ | 87/100 [00:03<00:00, 23.07it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  90%|█████████ | 90/100 [00:03<00:00, 21.86it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  93%|█████████▎| 93/100 [00:04<00:00, 21.89it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  96%|█████████▌| 96/100 [00:04<00:00, 22.64it/s]  28ba35f0-a068-4eeb-a51a-f4c45b4c0843:  99%|█████████▉| 99/100 [00:04<00:00, 23.31it/s]                                                                                        [2025-12-01 07:41:11] 
+[3/17] İşleniyor: 2d42885b-ba49-4c21-9e8f-4963349f252c
+[2025-12-01 07:41:11]   Toplam epoch: 100
+  2d42885b-ba49-4c21-9e8f-4963349f252c:   0%|          | 0/100 [00:00<?, ?it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:   3%|▎         | 3/100 [00:00<00:04, 22.19it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:   6%|▌         | 6/100 [00:00<00:04, 22.13it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:   9%|▉         | 9/100 [00:00<00:04, 22.46it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  12%|█▏        | 12/100 [00:00<00:03, 22.97it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  15%|█▌        | 15/100 [00:00<00:03, 22.56it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  18%|█▊        | 18/100 [00:00<00:03, 22.05it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  21%|██        | 21/100 [00:00<00:03, 22.83it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  24%|██▍       | 24/100 [00:01<00:03, 22.86it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  27%|██▋       | 27/100 [00:01<00:03, 22.94it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  30%|███       | 30/100 [00:01<00:03, 22.10it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  33%|███▎      | 33/100 [00:01<00:03, 21.51it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  36%|███▌      | 36/100 [00:01<00:03, 20.72it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  39%|███▉      | 39/100 [00:01<00:03, 20.08it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  42%|████▏     | 42/100 [00:01<00:02, 20.68it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  45%|████▌     | 45/100 [00:02<00:02, 20.75it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  48%|████▊     | 48/100 [00:02<00:02, 20.99it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  51%|█████     | 51/100 [00:02<00:02, 21.17it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  54%|█████▍    | 54/100 [00:02<00:02, 20.62it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  57%|█████▋    | 57/100 [00:02<00:02, 20.48it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  60%|██████    | 60/100 [00:02<00:01, 20.72it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  63%|██████▎   | 63/100 [00:02<00:01, 21.68it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  66%|██████▌   | 66/100 [00:03<00:01, 22.53it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  69%|██████▉   | 69/100 [00:03<00:01, 22.84it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  72%|███████▏  | 72/100 [00:03<00:01, 23.13it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  75%|███████▌  | 75/100 [00:03<00:01, 23.42it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  78%|███████▊  | 78/100 [00:03<00:00, 23.69it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  81%|████████  | 81/100 [00:03<00:00, 23.99it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  84%|████████▍ | 84/100 [00:03<00:00, 24.49it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  87%|████████▋ | 87/100 [00:03<00:00, 23.90it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  90%|█████████ | 90/100 [00:04<00:00, 23.92it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  93%|█████████▎| 93/100 [00:04<00:00, 22.92it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  96%|█████████▌| 96/100 [00:04<00:00, 21.25it/s]  2d42885b-ba49-4c21-9e8f-4963349f252c:  99%|█████████▉| 99/100 [00:04<00:00, 19.67it/s]                                                                                        [2025-12-01 07:41:16] 
+[4/17] İşleniyor: 3da2681a-5991-449c-80a4-52cf3257db02
+[2025-12-01 07:41:16]   Toplam epoch: 100
+  3da2681a-5991-449c-80a4-52cf3257db02:   0%|          | 0/100 [00:00<?, ?it/s]  3da2681a-5991-449c-80a4-52cf3257db02:   3%|▎         | 3/100 [00:00<00:04, 23.94it/s]  3da2681a-5991-449c-80a4-52cf3257db02:   6%|▌         | 6/100 [00:00<00:04, 21.82it/s]  3da2681a-5991-449c-80a4-52cf3257db02:   9%|▉         | 9/100 [00:00<00:04, 21.76it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  12%|█▏        | 12/100 [00:00<00:03, 22.36it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  15%|█▌        | 15/100 [00:00<00:04, 21.16it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  18%|█▊        | 18/100 [00:00<00:03, 21.64it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  21%|██        | 21/100 [00:00<00:03, 22.05it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  24%|██▍       | 24/100 [00:01<00:03, 22.63it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  27%|██▋       | 27/100 [00:01<00:03, 22.47it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  30%|███       | 30/100 [00:01<00:03, 22.60it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  33%|███▎      | 33/100 [00:01<00:02, 22.51it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  36%|███▌      | 36/100 [00:01<00:02, 21.55it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  39%|███▉      | 39/100 [00:01<00:02, 20.61it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  42%|████▏     | 42/100 [00:01<00:02, 21.37it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  45%|████▌     | 45/100 [00:02<00:02, 21.84it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  48%|████▊     | 48/100 [00:02<00:02, 21.73it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  51%|█████     | 51/100 [00:02<00:02, 21.65it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  54%|█████▍    | 54/100 [00:02<00:02, 21.55it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  57%|█████▋    | 57/100 [00:02<00:02, 21.12it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  60%|██████    | 60/100 [00:02<00:01, 21.43it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  63%|██████▎   | 63/100 [00:02<00:01, 21.34it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  66%|██████▌   | 66/100 [00:03<00:01, 21.69it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  69%|██████▉   | 69/100 [00:03<00:01, 20.94it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  72%|███████▏  | 72/100 [00:03<00:01, 21.54it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  75%|███████▌  | 75/100 [00:03<00:01, 22.15it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  78%|███████▊  | 78/100 [00:03<00:00, 22.68it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  81%|████████  | 81/100 [00:03<00:00, 23.16it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  84%|████████▍ | 84/100 [00:03<00:00, 22.85it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  87%|████████▋ | 87/100 [00:03<00:00, 22.63it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  90%|█████████ | 90/100 [00:04<00:00, 21.94it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  93%|█████████▎| 93/100 [00:04<00:00, 22.74it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  96%|█████████▌| 96/100 [00:04<00:00, 22.33it/s]  3da2681a-5991-449c-80a4-52cf3257db02:  99%|█████████▉| 99/100 [00:04<00:00, 21.72it/s]                                                                                        [2025-12-01 07:41:20] 
+[5/17] İşleniyor: 441425cd-4ee5-45b6-a33a-fd7de892d61f
+[2025-12-01 07:41:20]   Toplam epoch: 100
+  441425cd-4ee5-45b6-a33a-fd7de892d61f:   0%|          | 0/100 [00:00<?, ?it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:   3%|▎         | 3/100 [00:00<00:04, 23.18it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:   6%|▌         | 6/100 [00:00<00:04, 22.63it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:   9%|▉         | 9/100 [00:00<00:04, 21.34it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  12%|█▏        | 12/100 [00:00<00:04, 21.15it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  15%|█▌        | 15/100 [00:00<00:03, 21.37it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  18%|█▊        | 18/100 [00:00<00:03, 21.19it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  21%|██        | 21/100 [00:00<00:03, 21.68it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  24%|██▍       | 24/100 [00:01<00:03, 21.11it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  27%|██▋       | 27/100 [00:01<00:03, 21.44it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  30%|███       | 30/100 [00:01<00:03, 21.91it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  33%|███▎      | 33/100 [00:01<00:02, 22.37it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  36%|███▌      | 36/100 [00:01<00:02, 22.20it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  39%|███▉      | 39/100 [00:01<00:02, 21.53it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  42%|████▏     | 42/100 [00:01<00:02, 21.66it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  45%|████▌     | 45/100 [00:02<00:02, 21.50it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  48%|████▊     | 48/100 [00:02<00:02, 21.68it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  51%|█████     | 51/100 [00:02<00:02, 21.97it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  54%|█████▍    | 54/100 [00:02<00:02, 22.48it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  57%|█████▋    | 57/100 [00:02<00:01, 22.82it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  60%|██████    | 60/100 [00:02<00:01, 23.03it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  63%|██████▎   | 63/100 [00:02<00:01, 23.72it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  66%|██████▌   | 66/100 [00:02<00:01, 23.10it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  69%|██████▉   | 69/100 [00:03<00:01, 23.42it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  72%|███████▏  | 72/100 [00:03<00:01, 23.79it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  75%|███████▌  | 75/100 [00:03<00:01, 23.68it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  78%|███████▊  | 78/100 [00:03<00:00, 23.67it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  81%|████████  | 81/100 [00:03<00:00, 23.34it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  84%|████████▍ | 84/100 [00:03<00:00, 22.51it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  87%|████████▋ | 87/100 [00:03<00:00, 22.34it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  90%|█████████ | 90/100 [00:04<00:00, 22.42it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  93%|█████████▎| 93/100 [00:04<00:00, 22.94it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  96%|█████████▌| 96/100 [00:04<00:00, 22.88it/s]  441425cd-4ee5-45b6-a33a-fd7de892d61f:  99%|█████████▉| 99/100 [00:04<00:00, 22.57it/s]                                                                                        [2025-12-01 07:41:25] 
+[6/17] İşleniyor: 4f680835-27cb-422f-b254-1d2994ff548a
+[2025-12-01 07:41:25]   Toplam epoch: 100
+  4f680835-27cb-422f-b254-1d2994ff548a:   0%|          | 0/100 [00:00<?, ?it/s]  4f680835-27cb-422f-b254-1d2994ff548a:   3%|▎         | 3/100 [00:00<00:04, 23.42it/s]  4f680835-27cb-422f-b254-1d2994ff548a:   6%|▌         | 6/100 [00:00<00:04, 23.26it/s]  4f680835-27cb-422f-b254-1d2994ff548a:   9%|▉         | 9/100 [00:00<00:04, 22.23it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  12%|█▏        | 12/100 [00:00<00:03, 22.64it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  15%|█▌        | 15/100 [00:00<00:03, 22.32it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  18%|█▊        | 18/100 [00:00<00:03, 21.65it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  21%|██        | 21/100 [00:00<00:03, 22.58it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  24%|██▍       | 24/100 [00:01<00:03, 22.80it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  27%|██▋       | 27/100 [00:01<00:03, 22.52it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  30%|███       | 30/100 [00:01<00:03, 21.86it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  33%|███▎      | 33/100 [00:01<00:02, 22.73it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  36%|███▌      | 36/100 [00:01<00:02, 21.67it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  39%|███▉      | 39/100 [00:01<00:02, 22.28it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  42%|████▏     | 42/100 [00:01<00:02, 22.58it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  45%|████▌     | 45/100 [00:02<00:02, 22.22it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  48%|████▊     | 48/100 [00:02<00:02, 22.29it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  51%|█████     | 51/100 [00:02<00:02, 22.47it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  54%|█████▍    | 54/100 [00:02<00:02, 22.36it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  57%|█████▋    | 57/100 [00:02<00:01, 22.32it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  60%|██████    | 60/100 [00:02<00:01, 21.15it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  63%|██████▎   | 63/100 [00:02<00:01, 21.07it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  66%|██████▌   | 66/100 [00:02<00:01, 21.09it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  69%|██████▉   | 69/100 [00:03<00:01, 20.96it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  72%|███████▏  | 72/100 [00:03<00:01, 20.92it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  75%|███████▌  | 75/100 [00:03<00:01, 20.58it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  78%|███████▊  | 78/100 [00:03<00:01, 20.47it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  81%|████████  | 81/100 [00:03<00:00, 21.07it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  84%|████████▍ | 84/100 [00:03<00:00, 21.30it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  87%|████████▋ | 87/100 [00:03<00:00, 22.15it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  90%|█████████ | 90/100 [00:04<00:00, 21.97it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  93%|█████████▎| 93/100 [00:04<00:00, 22.19it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  96%|█████████▌| 96/100 [00:04<00:00, 22.47it/s]  4f680835-27cb-422f-b254-1d2994ff548a:  99%|█████████▉| 99/100 [00:04<00:00, 22.79it/s]                                                                                        [2025-12-01 07:41:29] 
+[7/17] İşleniyor: 596ce269-a11b-4dce-859e-9b4f25428033
+[2025-12-01 07:41:29]   Toplam epoch: 100
+  596ce269-a11b-4dce-859e-9b4f25428033:   0%|          | 0/100 [00:00<?, ?it/s]  596ce269-a11b-4dce-859e-9b4f25428033:   3%|▎         | 3/100 [00:00<00:03, 24.38it/s]  596ce269-a11b-4dce-859e-9b4f25428033:   6%|▌         | 6/100 [00:00<00:04, 22.13it/s]  596ce269-a11b-4dce-859e-9b4f25428033:   9%|▉         | 9/100 [00:00<00:04, 22.11it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  12%|█▏        | 12/100 [00:00<00:03, 22.67it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  15%|█▌        | 15/100 [00:00<00:03, 22.44it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  18%|█▊        | 18/100 [00:00<00:03, 21.70it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  21%|██        | 21/100 [00:00<00:03, 21.27it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  24%|██▍       | 24/100 [00:01<00:03, 21.12it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  27%|██▋       | 27/100 [00:01<00:03, 21.46it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  30%|███       | 30/100 [00:01<00:03, 22.18it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  33%|███▎      | 33/100 [00:01<00:02, 23.24it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  36%|███▌      | 36/100 [00:01<00:02, 23.30it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  39%|███▉      | 39/100 [00:01<00:02, 23.60it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  42%|████▏     | 42/100 [00:01<00:02, 24.11it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  45%|████▌     | 45/100 [00:01<00:02, 23.20it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  48%|████▊     | 48/100 [00:02<00:02, 22.24it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  51%|█████     | 51/100 [00:02<00:02, 20.59it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  54%|█████▍    | 54/100 [00:02<00:02, 19.04it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  56%|█████▌    | 56/100 [00:02<00:02, 18.80it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  59%|█████▉    | 59/100 [00:02<00:02, 19.14it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  62%|██████▏   | 62/100 [00:02<00:01, 19.39it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  64%|██████▍   | 64/100 [00:03<00:01, 18.76it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  66%|██████▌   | 66/100 [00:03<00:01, 17.95it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  68%|██████▊   | 68/100 [00:03<00:01, 16.89it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  70%|███████   | 70/100 [00:03<00:01, 16.97it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  73%|███████▎  | 73/100 [00:03<00:01, 18.52it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  76%|███████▌  | 76/100 [00:03<00:01, 19.99it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  79%|███████▉  | 79/100 [00:03<00:01, 20.94it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  82%|████████▏ | 82/100 [00:03<00:00, 20.64it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  85%|████████▌ | 85/100 [00:04<00:00, 20.63it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  88%|████████▊ | 88/100 [00:04<00:00, 21.44it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  91%|█████████ | 91/100 [00:04<00:00, 22.17it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  94%|█████████▍| 94/100 [00:04<00:00, 22.95it/s]  596ce269-a11b-4dce-859e-9b4f25428033:  97%|█████████▋| 97/100 [00:04<00:00, 23.22it/s]  596ce269-a11b-4dce-859e-9b4f25428033: 100%|██████████| 100/100 [00:04<00:00, 23.23it/s]                                                                                         [2025-12-01 07:41:34] 
+[8/17] İşleniyor: 66d496f0-3092-48db-801e-ae81fb623131
+[2025-12-01 07:41:34]   Toplam epoch: 100
+  66d496f0-3092-48db-801e-ae81fb623131:   0%|          | 0/100 [00:00<?, ?it/s]  66d496f0-3092-48db-801e-ae81fb623131:   3%|▎         | 3/100 [00:00<00:04, 22.85it/s]  66d496f0-3092-48db-801e-ae81fb623131:   6%|▌         | 6/100 [00:00<00:04, 23.15it/s]  66d496f0-3092-48db-801e-ae81fb623131:   9%|▉         | 9/100 [00:00<00:04, 22.62it/s]  66d496f0-3092-48db-801e-ae81fb623131:  12%|█▏        | 12/100 [00:00<00:03, 23.03it/s]  66d496f0-3092-48db-801e-ae81fb623131:  15%|█▌        | 15/100 [00:00<00:03, 22.99it/s]  66d496f0-3092-48db-801e-ae81fb623131:  18%|█▊        | 18/100 [00:00<00:03, 23.04it/s]  66d496f0-3092-48db-801e-ae81fb623131:  21%|██        | 21/100 [00:00<00:03, 22.99it/s]  66d496f0-3092-48db-801e-ae81fb623131:  24%|██▍       | 24/100 [00:01<00:03, 23.31it/s]  66d496f0-3092-48db-801e-ae81fb623131:  27%|██▋       | 27/100 [00:01<00:03, 23.75it/s]  66d496f0-3092-48db-801e-ae81fb623131:  30%|███       | 30/100 [00:01<00:02, 23.87it/s]  66d496f0-3092-48db-801e-ae81fb623131:  33%|███▎      | 33/100 [00:01<00:02, 23.02it/s]  66d496f0-3092-48db-801e-ae81fb623131:  36%|███▌      | 36/100 [00:01<00:02, 22.62it/s]  66d496f0-3092-48db-801e-ae81fb623131:  39%|███▉      | 39/100 [00:01<00:02, 22.33it/s]  66d496f0-3092-48db-801e-ae81fb623131:  42%|████▏     | 42/100 [00:01<00:02, 22.66it/s]  66d496f0-3092-48db-801e-ae81fb623131:  45%|████▌     | 45/100 [00:01<00:02, 22.24it/s]  66d496f0-3092-48db-801e-ae81fb623131:  48%|████▊     | 48/100 [00:02<00:02, 22.71it/s]  66d496f0-3092-48db-801e-ae81fb623131:  51%|█████     | 51/100 [00:02<00:02, 23.21it/s]  66d496f0-3092-48db-801e-ae81fb623131:  54%|█████▍    | 54/100 [00:02<00:01, 23.26it/s]  66d496f0-3092-48db-801e-ae81fb623131:  57%|█████▋    | 57/100 [00:02<00:01, 22.82it/s]  66d496f0-3092-48db-801e-ae81fb623131:  60%|██████    | 60/100 [00:02<00:01, 22.64it/s]  66d496f0-3092-48db-801e-ae81fb623131:  63%|██████▎   | 63/100 [00:02<00:01, 22.19it/s]  66d496f0-3092-48db-801e-ae81fb623131:  66%|██████▌   | 66/100 [00:02<00:01, 21.32it/s]  66d496f0-3092-48db-801e-ae81fb623131:  69%|██████▉   | 69/100 [00:03<00:01, 21.26it/s]  66d496f0-3092-48db-801e-ae81fb623131:  72%|███████▏  | 72/100 [00:03<00:01, 21.25it/s]  66d496f0-3092-48db-801e-ae81fb623131:  75%|███████▌  | 75/100 [00:03<00:01, 21.60it/s]  66d496f0-3092-48db-801e-ae81fb623131:  78%|███████▊  | 78/100 [00:03<00:01, 21.37it/s]  66d496f0-3092-48db-801e-ae81fb623131:  81%|████████  | 81/100 [00:03<00:00, 21.22it/s]  66d496f0-3092-48db-801e-ae81fb623131:  84%|████████▍ | 84/100 [00:03<00:00, 21.87it/s]  66d496f0-3092-48db-801e-ae81fb623131:  87%|████████▋ | 87/100 [00:03<00:00, 22.29it/s]  66d496f0-3092-48db-801e-ae81fb623131:  90%|█████████ | 90/100 [00:04<00:00, 22.34it/s]  66d496f0-3092-48db-801e-ae81fb623131:  93%|█████████▎| 93/100 [00:04<00:00, 22.59it/s]  66d496f0-3092-48db-801e-ae81fb623131:  96%|█████████▌| 96/100 [00:04<00:00, 20.88it/s]  66d496f0-3092-48db-801e-ae81fb623131:  99%|█████████▉| 99/100 [00:04<00:00, 19.55it/s]                                                                                        [2025-12-01 07:41:38] 
+[9/17] İşleniyor: 6b19b899-e4b2-4465-93d7-ab2c329b092d
+[2025-12-01 07:41:38]   Toplam epoch: 100
+  6b19b899-e4b2-4465-93d7-ab2c329b092d:   0%|          | 0/100 [00:00<?, ?it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:   3%|▎         | 3/100 [00:00<00:04, 20.66it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:   6%|▌         | 6/100 [00:00<00:04, 20.10it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:   9%|▉         | 9/100 [00:00<00:04, 20.06it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  12%|█▏        | 12/100 [00:00<00:04, 20.81it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  15%|█▌        | 15/100 [00:00<00:04, 20.77it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  18%|█▊        | 18/100 [00:00<00:04, 20.18it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  21%|██        | 21/100 [00:01<00:03, 20.09it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  24%|██▍       | 24/100 [00:01<00:03, 19.73it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  26%|██▌       | 26/100 [00:01<00:03, 19.21it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  28%|██▊       | 28/100 [00:01<00:03, 18.43it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  30%|███       | 30/100 [00:01<00:03, 18.48it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  33%|███▎      | 33/100 [00:01<00:03, 19.57it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  36%|███▌      | 36/100 [00:01<00:03, 19.75it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  39%|███▉      | 39/100 [00:01<00:03, 20.28it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  42%|████▏     | 42/100 [00:02<00:02, 20.75it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  45%|████▌     | 45/100 [00:02<00:02, 20.23it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  48%|████▊     | 48/100 [00:02<00:02, 20.57it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  51%|█████     | 51/100 [00:02<00:02, 20.70it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  54%|█████▍    | 54/100 [00:02<00:02, 21.21it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  57%|█████▋    | 57/100 [00:02<00:01, 21.86it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  60%|██████    | 60/100 [00:02<00:01, 21.13it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  63%|██████▎   | 63/100 [00:03<00:01, 21.46it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  66%|██████▌   | 66/100 [00:03<00:01, 21.39it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  69%|██████▉   | 69/100 [00:03<00:01, 21.68it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  72%|███████▏  | 72/100 [00:03<00:01, 22.06it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  75%|███████▌  | 75/100 [00:03<00:01, 22.17it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  78%|███████▊  | 78/100 [00:03<00:00, 22.06it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  81%|████████  | 81/100 [00:03<00:00, 22.52it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  84%|████████▍ | 84/100 [00:04<00:00, 22.55it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  87%|████████▋ | 87/100 [00:04<00:00, 22.76it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  90%|█████████ | 90/100 [00:04<00:00, 22.81it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  93%|█████████▎| 93/100 [00:04<00:00, 22.39it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  96%|█████████▌| 96/100 [00:04<00:00, 22.32it/s]  6b19b899-e4b2-4465-93d7-ab2c329b092d:  99%|█████████▉| 99/100 [00:04<00:00, 22.27it/s]                                                                                        [2025-12-01 07:41:43] 
+[10/17] İşleniyor: 98839ae3-bc28-42f6-9258-c81854ac4b4a
+[2025-12-01 07:41:43]   Toplam epoch: 100
+  98839ae3-bc28-42f6-9258-c81854ac4b4a:   0%|          | 0/100 [00:00<?, ?it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:   3%|▎         | 3/100 [00:00<00:03, 24.54it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:   6%|▌         | 6/100 [00:00<00:04, 23.19it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:   9%|▉         | 9/100 [00:00<00:03, 23.24it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  12%|█▏        | 12/100 [00:00<00:03, 23.75it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  15%|█▌        | 15/100 [00:00<00:03, 23.48it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  18%|█▊        | 18/100 [00:00<00:03, 22.83it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  21%|██        | 21/100 [00:00<00:03, 23.67it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  24%|██▍       | 24/100 [00:01<00:03, 23.55it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  27%|██▋       | 27/100 [00:01<00:03, 23.67it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  30%|███       | 30/100 [00:01<00:03, 23.09it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  33%|███▎      | 33/100 [00:01<00:02, 22.64it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  36%|███▌      | 36/100 [00:01<00:02, 22.65it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  39%|███▉      | 39/100 [00:01<00:02, 21.96it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  42%|████▏     | 42/100 [00:01<00:02, 22.86it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  45%|████▌     | 45/100 [00:01<00:02, 22.89it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  48%|████▊     | 48/100 [00:02<00:02, 22.60it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  51%|█████     | 51/100 [00:02<00:02, 21.25it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  54%|█████▍    | 54/100 [00:02<00:02, 21.68it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  57%|█████▋    | 57/100 [00:02<00:01, 21.81it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  60%|██████    | 60/100 [00:02<00:01, 22.15it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  63%|██████▎   | 63/100 [00:02<00:01, 22.43it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  66%|██████▌   | 66/100 [00:02<00:01, 22.61it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  69%|██████▉   | 69/100 [00:03<00:01, 23.00it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  72%|███████▏  | 72/100 [00:03<00:01, 22.00it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  75%|███████▌  | 75/100 [00:03<00:01, 21.87it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  78%|███████▊  | 78/100 [00:03<00:00, 22.54it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  81%|████████  | 81/100 [00:03<00:00, 23.05it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  84%|████████▍ | 84/100 [00:03<00:00, 22.68it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  87%|████████▋ | 87/100 [00:03<00:00, 22.06it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  90%|█████████ | 90/100 [00:03<00:00, 21.87it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  93%|█████████▎| 93/100 [00:04<00:00, 21.23it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  96%|█████████▌| 96/100 [00:04<00:00, 21.31it/s]  98839ae3-bc28-42f6-9258-c81854ac4b4a:  99%|█████████▉| 99/100 [00:04<00:00, 21.12it/s]                                                                                        [2025-12-01 07:41:48] 
+[11/17] İşleniyor: b551f3fe-85d3-40be-a5fa-a22ce04b4dea
+[2025-12-01 07:41:48]   Toplam epoch: 100
+  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:   0%|          | 0/100 [00:00<?, ?it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:   3%|▎         | 3/100 [00:00<00:04, 23.11it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:   6%|▌         | 6/100 [00:00<00:04, 20.61it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:   9%|▉         | 9/100 [00:00<00:04, 21.69it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  12%|█▏        | 12/100 [00:00<00:03, 22.47it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  15%|█▌        | 15/100 [00:00<00:03, 22.01it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  18%|█▊        | 18/100 [00:00<00:03, 21.60it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  21%|██        | 21/100 [00:00<00:03, 21.99it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  24%|██▍       | 24/100 [00:01<00:03, 22.14it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  27%|██▋       | 27/100 [00:01<00:03, 21.71it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  30%|███       | 30/100 [00:01<00:03, 21.11it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  33%|███▎      | 33/100 [00:01<00:03, 21.11it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  36%|███▌      | 36/100 [00:01<00:03, 19.49it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  38%|███▊      | 38/100 [00:01<00:03, 19.41it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  40%|████      | 40/100 [00:01<00:03, 19.18it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  43%|████▎     | 43/100 [00:02<00:02, 19.69it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  46%|████▌     | 46/100 [00:02<00:02, 20.14it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  49%|████▉     | 49/100 [00:02<00:02, 19.09it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  51%|█████     | 51/100 [00:02<00:02, 18.57it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  53%|█████▎    | 53/100 [00:02<00:02, 18.85it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  56%|█████▌    | 56/100 [00:02<00:02, 19.76it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  58%|█████▊    | 58/100 [00:02<00:02, 19.70it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  60%|██████    | 60/100 [00:02<00:02, 19.68it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  63%|██████▎   | 63/100 [00:03<00:01, 20.52it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  66%|██████▌   | 66/100 [00:03<00:01, 20.59it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  69%|██████▉   | 69/100 [00:03<00:01, 21.06it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  72%|███████▏  | 72/100 [00:03<00:01, 20.72it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  75%|███████▌  | 75/100 [00:03<00:01, 19.95it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  78%|███████▊  | 78/100 [00:03<00:01, 20.25it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  81%|████████  | 81/100 [00:03<00:00, 20.33it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  84%|████████▍ | 84/100 [00:04<00:00, 20.84it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  87%|████████▋ | 87/100 [00:04<00:00, 20.82it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  90%|█████████ | 90/100 [00:04<00:00, 20.50it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  93%|█████████▎| 93/100 [00:04<00:00, 21.05it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  96%|█████████▌| 96/100 [00:04<00:00, 21.40it/s]  b551f3fe-85d3-40be-a5fa-a22ce04b4dea:  99%|█████████▉| 99/100 [00:04<00:00, 21.74it/s]                                                                                        [2025-12-01 07:41:52] 
+[12/17] İşleniyor: dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a
+[2025-12-01 07:41:52]   Toplam epoch: 100
+  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:   0%|          | 0/100 [00:00<?, ?it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:   3%|▎         | 3/100 [00:00<00:04, 20.44it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:   6%|▌         | 6/100 [00:00<00:04, 21.44it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:   9%|▉         | 9/100 [00:00<00:04, 21.57it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  12%|█▏        | 12/100 [00:00<00:03, 22.46it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  15%|█▌        | 15/100 [00:00<00:03, 22.53it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  18%|█▊        | 18/100 [00:00<00:03, 22.23it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  21%|██        | 21/100 [00:00<00:03, 22.94it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  24%|██▍       | 24/100 [00:01<00:03, 23.16it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  27%|██▋       | 27/100 [00:01<00:03, 22.62it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  30%|███       | 30/100 [00:01<00:03, 22.02it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  33%|███▎      | 33/100 [00:01<00:03, 22.06it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  36%|███▌      | 36/100 [00:01<00:02, 21.94it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  39%|███▉      | 39/100 [00:01<00:02, 22.06it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  42%|████▏     | 42/100 [00:01<00:02, 21.56it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  45%|████▌     | 45/100 [00:02<00:02, 21.77it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  48%|████▊     | 48/100 [00:02<00:02, 22.11it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  51%|█████     | 51/100 [00:02<00:02, 22.16it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  54%|█████▍    | 54/100 [00:02<00:02, 21.85it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  57%|█████▋    | 57/100 [00:02<00:01, 22.13it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  60%|██████    | 60/100 [00:02<00:01, 22.34it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  63%|██████▎   | 63/100 [00:02<00:01, 22.37it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  66%|██████▌   | 66/100 [00:02<00:01, 22.58it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  69%|██████▉   | 69/100 [00:03<00:01, 22.85it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  72%|███████▏  | 72/100 [00:03<00:01, 23.40it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  75%|███████▌  | 75/100 [00:03<00:01, 22.53it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  78%|███████▊  | 78/100 [00:03<00:00, 22.05it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  81%|████████  | 81/100 [00:03<00:00, 21.97it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  84%|████████▍ | 84/100 [00:03<00:00, 22.31it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  87%|████████▋ | 87/100 [00:03<00:00, 22.27it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  90%|█████████ | 90/100 [00:04<00:00, 22.13it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  93%|█████████▎| 93/100 [00:04<00:00, 22.47it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  96%|█████████▌| 96/100 [00:04<00:00, 22.89it/s]  dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a:  99%|█████████▉| 99/100 [00:04<00:00, 22.50it/s]                                                                                        [2025-12-01 07:41:57] 
+[13/17] İşleniyor: e4650f45-63c1-4af1-99f0-fa4a99db0601
+[2025-12-01 07:41:57]   Toplam epoch: 100
+  e4650f45-63c1-4af1-99f0-fa4a99db0601:   0%|          | 0/100 [00:00<?, ?it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:   3%|▎         | 3/100 [00:00<00:05, 19.19it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:   6%|▌         | 6/100 [00:00<00:04, 19.75it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:   8%|▊         | 8/100 [00:00<00:04, 19.73it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  10%|█         | 10/100 [00:00<00:04, 19.23it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  12%|█▏        | 12/100 [00:00<00:04, 18.69it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  14%|█▍        | 14/100 [00:00<00:04, 18.78it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  17%|█▋        | 17/100 [00:00<00:04, 19.69it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  20%|██        | 20/100 [00:01<00:04, 19.82it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  23%|██▎       | 23/100 [00:01<00:03, 20.96it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  26%|██▌       | 26/100 [00:01<00:03, 21.04it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  29%|██▉       | 29/100 [00:01<00:03, 21.30it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  32%|███▏      | 32/100 [00:01<00:03, 21.52it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  35%|███▌      | 35/100 [00:01<00:03, 21.53it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  38%|███▊      | 38/100 [00:01<00:02, 21.41it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  41%|████      | 41/100 [00:01<00:02, 21.79it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  44%|████▍     | 44/100 [00:02<00:02, 21.57it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  47%|████▋     | 47/100 [00:02<00:02, 21.20it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  50%|█████     | 50/100 [00:02<00:02, 21.49it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  53%|█████▎    | 53/100 [00:02<00:02, 22.26it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  56%|█████▌    | 56/100 [00:02<00:02, 21.57it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  59%|█████▉    | 59/100 [00:02<00:01, 21.48it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  62%|██████▏   | 62/100 [00:02<00:01, 20.91it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  65%|██████▌   | 65/100 [00:03<00:01, 21.24it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  68%|██████▊   | 68/100 [00:03<00:02, 13.36it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  71%|███████   | 71/100 [00:03<00:01, 15.06it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  74%|███████▍  | 74/100 [00:03<00:01, 16.51it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  77%|███████▋  | 77/100 [00:03<00:01, 17.77it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  80%|████████  | 80/100 [00:04<00:01, 18.84it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  83%|████████▎ | 83/100 [00:04<00:00, 19.82it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  86%|████████▌ | 86/100 [00:04<00:00, 20.13it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  89%|████████▉ | 89/100 [00:04<00:00, 20.01it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  92%|█████████▏| 92/100 [00:04<00:00, 18.78it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  94%|█████████▍| 94/100 [00:04<00:00, 18.47it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601:  97%|█████████▋| 97/100 [00:04<00:00, 18.83it/s]  e4650f45-63c1-4af1-99f0-fa4a99db0601: 100%|██████████| 100/100 [00:05<00:00, 19.61it/s]                                                                                         [2025-12-01 07:42:02] 
+[14/17] İşleniyor: edee3d0a-16d7-4413-9aa0-72f6a09f6d0a
+[2025-12-01 07:42:02]   Toplam epoch: 100
+  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:   0%|          | 0/100 [00:00<?, ?it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:   3%|▎         | 3/100 [00:00<00:04, 22.76it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:   6%|▌         | 6/100 [00:00<00:04, 21.45it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:   9%|▉         | 9/100 [00:00<00:04, 20.25it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  12%|█▏        | 12/100 [00:00<00:04, 18.10it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  14%|█▍        | 14/100 [00:00<00:04, 18.43it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  17%|█▋        | 17/100 [00:00<00:04, 19.72it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  20%|██        | 20/100 [00:01<00:03, 20.53it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  23%|██▎       | 23/100 [00:01<00:03, 20.95it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  26%|██▌       | 26/100 [00:01<00:03, 20.20it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  29%|██▉       | 29/100 [00:01<00:03, 20.61it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  32%|███▏      | 32/100 [00:01<00:03, 20.89it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  35%|███▌      | 35/100 [00:01<00:03, 20.94it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  38%|███▊      | 38/100 [00:01<00:02, 21.25it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  41%|████      | 41/100 [00:01<00:02, 21.81it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  44%|████▍     | 44/100 [00:02<00:02, 22.01it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  47%|████▋     | 47/100 [00:02<00:02, 22.08it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  50%|█████     | 50/100 [00:02<00:02, 21.84it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  53%|█████▎    | 53/100 [00:02<00:02, 21.16it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  56%|█████▌    | 56/100 [00:02<00:02, 20.85it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  59%|█████▉    | 59/100 [00:02<00:01, 20.65it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  62%|██████▏   | 62/100 [00:02<00:01, 21.00it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  65%|██████▌   | 65/100 [00:03<00:01, 21.03it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  68%|██████▊   | 68/100 [00:03<00:01, 21.31it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  71%|███████   | 71/100 [00:03<00:01, 21.32it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  74%|███████▍  | 74/100 [00:03<00:01, 21.47it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  77%|███████▋  | 77/100 [00:03<00:01, 21.11it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  80%|████████  | 80/100 [00:03<00:00, 20.86it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  83%|████████▎ | 83/100 [00:03<00:00, 21.08it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  86%|████████▌ | 86/100 [00:04<00:00, 21.47it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  89%|████████▉ | 89/100 [00:04<00:00, 21.29it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  92%|█████████▏| 92/100 [00:04<00:00, 21.10it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  95%|█████████▌| 95/100 [00:04<00:00, 20.92it/s]  edee3d0a-16d7-4413-9aa0-72f6a09f6d0a:  98%|█████████▊| 98/100 [00:04<00:00, 20.36it/s]                                                                                        [2025-12-01 07:42:07] 
+[15/17] İşleniyor: f0cfab4a-fd30-43a5-8633-814b69c6bdca
+[2025-12-01 07:42:07]   Toplam epoch: 100
+  f0cfab4a-fd30-43a5-8633-814b69c6bdca:   0%|          | 0/100 [00:00<?, ?it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:   2%|▏         | 2/100 [00:00<00:05, 17.94it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:   4%|▍         | 4/100 [00:00<00:05, 19.02it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:   6%|▌         | 6/100 [00:00<00:05, 18.68it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:   9%|▉         | 9/100 [00:00<00:04, 19.64it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  11%|█         | 11/100 [00:00<00:04, 19.44it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  13%|█▎        | 13/100 [00:00<00:04, 19.00it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  15%|█▌        | 15/100 [00:00<00:04, 18.38it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  17%|█▋        | 17/100 [00:00<00:04, 18.84it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  19%|█▉        | 19/100 [00:01<00:04, 19.06it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  22%|██▏       | 22/100 [00:01<00:03, 19.61it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  25%|██▌       | 25/100 [00:01<00:03, 20.04it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  28%|██▊       | 28/100 [00:01<00:03, 20.94it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  31%|███       | 31/100 [00:01<00:03, 21.70it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  34%|███▍      | 34/100 [00:01<00:02, 22.02it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  37%|███▋      | 37/100 [00:01<00:02, 22.27it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  40%|████      | 40/100 [00:01<00:02, 22.03it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  43%|████▎     | 43/100 [00:02<00:02, 22.39it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  46%|████▌     | 46/100 [00:02<00:02, 22.72it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  49%|████▉     | 49/100 [00:02<00:02, 23.26it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  52%|█████▏    | 52/100 [00:02<00:02, 22.61it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  55%|█████▌    | 55/100 [00:02<00:02, 21.81it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  58%|█████▊    | 58/100 [00:02<00:01, 21.47it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  61%|██████    | 61/100 [00:02<00:01, 22.11it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  64%|██████▍   | 64/100 [00:03<00:01, 22.25it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  67%|██████▋   | 67/100 [00:03<00:01, 22.61it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  70%|███████   | 70/100 [00:03<00:01, 23.02it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  73%|███████▎  | 73/100 [00:03<00:01, 22.23it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  76%|███████▌  | 76/100 [00:03<00:01, 22.85it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  79%|███████▉  | 79/100 [00:03<00:00, 23.04it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  82%|████████▏ | 82/100 [00:03<00:00, 22.31it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  85%|████████▌ | 85/100 [00:03<00:00, 22.28it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  88%|████████▊ | 88/100 [00:04<00:00, 21.96it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  91%|█████████ | 91/100 [00:04<00:00, 21.88it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  94%|█████████▍| 94/100 [00:04<00:00, 21.82it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca:  97%|█████████▋| 97/100 [00:04<00:00, 22.11it/s]  f0cfab4a-fd30-43a5-8633-814b69c6bdca: 100%|██████████| 100/100 [00:04<00:00, 21.89it/s]                                                                                         [2025-12-01 07:42:11] 
+[16/17] İşleniyor: f94c4f40-d9e5-4624-b4f9-b02d35285646
+[2025-12-01 07:42:11]   Toplam epoch: 100
+  f94c4f40-d9e5-4624-b4f9-b02d35285646:   0%|          | 0/100 [00:00<?, ?it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:   3%|▎         | 3/100 [00:00<00:04, 20.44it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:   6%|▌         | 6/100 [00:00<00:04, 19.33it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:   9%|▉         | 9/100 [00:00<00:04, 19.65it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  12%|█▏        | 12/100 [00:00<00:04, 20.68it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  15%|█▌        | 15/100 [00:00<00:03, 21.54it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  18%|█▊        | 18/100 [00:00<00:03, 20.76it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  21%|██        | 21/100 [00:01<00:03, 21.42it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  24%|██▍       | 24/100 [00:01<00:03, 21.39it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  27%|██▋       | 27/100 [00:01<00:03, 21.57it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  30%|███       | 30/100 [00:01<00:03, 22.41it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  33%|███▎      | 33/100 [00:01<00:02, 23.13it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  36%|███▌      | 36/100 [00:01<00:02, 23.61it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  39%|███▉      | 39/100 [00:01<00:02, 23.63it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  42%|████▏     | 42/100 [00:01<00:02, 23.49it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  45%|████▌     | 45/100 [00:02<00:02, 22.96it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  48%|████▊     | 48/100 [00:02<00:02, 23.11it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  51%|█████     | 51/100 [00:02<00:02, 23.45it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  54%|█████▍    | 54/100 [00:02<00:01, 23.22it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  57%|█████▋    | 57/100 [00:02<00:01, 23.34it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  60%|██████    | 60/100 [00:02<00:01, 23.70it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  63%|██████▎   | 63/100 [00:02<00:01, 23.77it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  66%|██████▌   | 66/100 [00:02<00:01, 23.43it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  69%|██████▉   | 69/100 [00:03<00:01, 22.99it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  72%|███████▏  | 72/100 [00:03<00:01, 23.20it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  75%|███████▌  | 75/100 [00:03<00:01, 23.19it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  78%|███████▊  | 78/100 [00:03<00:00, 23.40it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  81%|████████  | 81/100 [00:03<00:00, 22.74it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  84%|████████▍ | 84/100 [00:03<00:00, 22.83it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  87%|████████▋ | 87/100 [00:03<00:00, 21.87it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  90%|█████████ | 90/100 [00:04<00:00, 21.63it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  93%|█████████▎| 93/100 [00:04<00:00, 22.35it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  96%|█████████▌| 96/100 [00:04<00:00, 22.33it/s]  f94c4f40-d9e5-4624-b4f9-b02d35285646:  99%|█████████▉| 99/100 [00:04<00:00, 22.15it/s]                                                                                        [2025-12-01 07:42:16] 
+[17/17] İşleniyor: fb43377e-9f64-4863-9ab0-993c26836f39
+[2025-12-01 07:42:16]   Toplam epoch: 100
+  fb43377e-9f64-4863-9ab0-993c26836f39:   0%|          | 0/100 [00:00<?, ?it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:   3%|▎         | 3/100 [00:00<00:04, 23.25it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:   6%|▌         | 6/100 [00:00<00:04, 23.11it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:   9%|▉         | 9/100 [00:00<00:04, 22.46it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  12%|█▏        | 12/100 [00:00<00:03, 22.01it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  15%|█▌        | 15/100 [00:00<00:03, 21.62it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  18%|█▊        | 18/100 [00:00<00:03, 21.52it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  21%|██        | 21/100 [00:00<00:03, 21.06it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  24%|██▍       | 24/100 [00:01<00:03, 20.89it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  27%|██▋       | 27/100 [00:01<00:03, 20.91it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  30%|███       | 30/100 [00:01<00:03, 20.78it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  33%|███▎      | 33/100 [00:01<00:03, 21.05it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  36%|███▌      | 36/100 [00:01<00:03, 20.77it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  39%|███▉      | 39/100 [00:01<00:02, 20.38it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  42%|████▏     | 42/100 [00:01<00:02, 20.45it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  45%|████▌     | 45/100 [00:02<00:02, 20.12it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  48%|████▊     | 48/100 [00:02<00:02, 19.53it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  50%|█████     | 50/100 [00:02<00:02, 19.56it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  52%|█████▏    | 52/100 [00:02<00:02, 19.33it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  55%|█████▌    | 55/100 [00:02<00:02, 20.14it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  58%|█████▊    | 58/100 [00:02<00:02, 20.81it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  61%|██████    | 61/100 [00:02<00:01, 21.48it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  64%|██████▍   | 64/100 [00:03<00:01, 21.60it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  67%|██████▋   | 67/100 [00:03<00:01, 22.01it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  70%|███████   | 70/100 [00:03<00:01, 22.42it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  73%|███████▎  | 73/100 [00:03<00:01, 22.35it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  76%|███████▌  | 76/100 [00:03<00:01, 22.23it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  79%|███████▉  | 79/100 [00:03<00:00, 22.32it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  82%|████████▏ | 82/100 [00:03<00:00, 21.74it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  85%|████████▌ | 85/100 [00:04<00:00, 21.57it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  88%|████████▊ | 88/100 [00:04<00:00, 22.24it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  91%|█████████ | 91/100 [00:04<00:00, 21.14it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  94%|█████████▍| 94/100 [00:04<00:00, 20.43it/s]  fb43377e-9f64-4863-9ab0-993c26836f39:  97%|█████████▋| 97/100 [00:04<00:00, 20.59it/s]  fb43377e-9f64-4863-9ab0-993c26836f39: 100%|██████████| 100/100 [00:04<00:00, 20.89it/s]                                                                                          20%|====                | 339/1700 [00:11<00:44]        22%|====                | 374/1700 [00:12<00:42]        24%|=====               | 409/1700 [00:13<00:41]        26%|=====               | 441/1700 [00:14<00:39]        28%|======              | 476/1700 [00:15<00:38]        30%|======              | 505/1700 [00:16<00:37]        32%|======              | 538/1700 [00:17<00:36]        34%|=======             | 573/1700 [00:18<00:35]        36%|=======             | 607/1700 [00:19<00:34]        38%|========            | 640/1700 [00:20<00:33]        39%|========            | 669/1700 [00:21<00:32]        41%|========            | 699/1700 [00:22<00:31]        43%|=========           | 735/1700 [00:23<00:30]        45%|=========           | 766/1700 [00:24<00:29]        47%|=========           | 799/1700 [00:25<00:28]        49%|==========          | 831/1700 [00:26<00:27]        51%|==========          | 862/1700 [00:27<00:26]        53%|===========         | 896/1700 [00:28<00:25]        55%|===========         | 928/1700 [00:29<00:24]        57%|===========         | 961/1700 [00:30<00:23]        58%|============        | 992/1700 [00:31<00:22]        60%|============        | 1020/1700 [00:32<00:21]        62%|============        | 1056/1700 [00:33<00:20]        64%|=============       | 1091/1700 [00:34<00:18]        66%|=============       | 1123/1700 [00:35<00:17]        68%|==============      | 1157/1700 [00:36<00:16]        70%|==============      | 1184/1700 [00:37<00:16]        72%|==============      | 1217/1700 [00:38<00:15]        74%|===============     | 1250/1700 [00:39<00:14]        76%|===============     | 1284/1700 [00:40<00:12]        77%|===============     | 1315/1700 [00:41<00:12]        79%|================    | 1345/1700 [00:42<00:11]        81%|================    | 1376/1700 [00:43<00:10]        83%|=================   | 1410/1700 [00:44<00:09]        85%|=================   | 1444/1700 [00:45<00:07]        87%|=================   | 1476/1700 [00:46<00:06]        89%|==================  | 1510/1700 [00:47<00:05]        91%|==================  | 1539/1700 [00:48<00:05]        93%|=================== | 1574/1700 [00:49<00:03]        95%|=================== | 1607/1700 [00:50<00:02]        96%|=================== | 1640/1700 [00:51<00:01]        98%|===================| 1670/1700 [00:52<00:00]       100%|===================| 1695/1700 [00:53<00:00]       [2025-12-01 07:42:21] 
+✓ Veri yükleme tamamlandı!
+[2025-12-01 07:42:21]   Toplam epoch: 1700
+[2025-12-01 07:42:21] 
+4. DataFrame oluşturuluyor...
+[2025-12-01 07:42:21] ✓ DataFrame shape: (1700, 22)
+[2025-12-01 07:42:21] 
+5. Veri temizleniyor...
+[2025-12-01 07:42:21]   Tamamen silinecek sütunlar: 0
+[2025-12-01 07:42:21]   Satırları silinecek sütunlar: 0
+[2025-12-01 07:42:21] ✓ Temizlenmiş DataFrame: (1700, 22)
+[2025-12-01 07:42:21] 
+6. Train/Test split...
+[2025-12-01 07:42:21] ✓ Train: 1360, Test: 340
+[2025-12-01 07:42:21] 
+7. Random Forest eğitimi...
+[2025-12-01 07:42:22] ✓ Test doğruluğu: 0.37
+[2025-12-01 07:42:22]               precision    recall  f1-score   support
+
+          N1       0.00      0.00      0.00        20
+          N2       0.23      0.35      0.27        52
+          N3       1.00      0.20      0.33        70
+         REM       0.00      0.00      0.00        55
+           W       0.48      0.66      0.55       143
+
+    accuracy                           0.37       340
+   macro avg       0.34      0.24      0.23       340
+weighted avg       0.44      0.37      0.34       340
+
+[2025-12-01 07:42:26] CV Doğruluk Ortalaması: 0.35 ± 0.08
+[2025-12-01 07:42:26] 
+8. SHAP analizi başlıyor...
+[2025-12-01 07:43:19]   → SHAP summary plot...
+[2025-12-01 07:43:20] 
+9. Kanal önemleri hesaplanıyor...
+[2025-12-01 07:43:20] 
+Top Channels:
+[2025-12-01 07:43:20]          shap_value
+channel            
+CHIN1      0.056991
+C3         0.053409
+C4         0.052570
+E1         0.044912
+[2025-12-01 07:43:20] 
+10. Permutation importance...
+/home/user/sleep-stage/2.preprocessing_with_ml/dnn/shap_mongodb_clean.py:417: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(data=feature_importance_df.head(20), x='Importance', y='Feature', palette='viridis')
+[2025-12-01 07:43:24] 
+Top Channels (Permutation):
+[2025-12-01 07:43:24]          importance_mean  importance_std
+channel                                 
+C4              0.016765        0.021366
+CHIN1          -0.005000        0.018609
+C3             -0.020294        0.021874
+E1             -0.068235        0.019669
+[2025-12-01 07:43:24] 
+11. Gini importance...
+[2025-12-01 07:43:24] 
+Top 20 Features (Gini):
+[2025-12-01 07:43:24]            Feature  Importance
+11  skewness_CHIN1    0.064453
+5           std_C4    0.054989
+0          mean_C3    0.053582
+7        std_CHIN1    0.053068
+3       mean_CHIN1    0.051287
+4           std_C3    0.050788
+17        power_C4    0.050784
+1          mean_C4    0.050730
+18        power_E1    0.050688
+16        power_C3    0.050602
+9      skewness_C4    0.050134
+12     kurtosis_C3    0.048259
+10     skewness_E1    0.048181
+2          mean_E1    0.047902
+13     kurtosis_C4    0.047853
+19     power_CHIN1    0.047525
+8      skewness_C3    0.046045
+15  kurtosis_CHIN1    0.044832
+6           std_E1    0.044680
+14     kurtosis_E1    0.043618
+[2025-12-01 07:43:26] 
+================================================================================
+[2025-12-01 07:43:26] ÖNERİLEN KANALLAR
+[2025-12-01 07:43:26] ================================================================================
+[2025-12-01 07:43:26] 
+1. SHAP Analizi (Top 7):
+Traceback (most recent call last):
+  File "/home/user/sleep-stage/2.preprocessing_with_ml/dnn/shap_mongodb_clean.py", line 445, in <module>
+    main()
+  File "/home/user/sleep-stage/2.preprocessing_with_ml/dnn/shap_mongodb_clean.py", line 432, in main
+    log(f"  {i}. {channel}: {value:.4f}")
+TypeError: unsupported format string passed to Series.__format__

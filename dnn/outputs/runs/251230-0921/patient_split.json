@@ -1,0 +1,30 @@
+{
+  "train": [
+    "28ba35f0-a068-4eeb-a51a-f4c45b4c0843",
+    "3da2681a-5991-449c-80a4-52cf3257db02",
+    "dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a",
+    "6b914a0f-e9f9-4b3c-8e24-b292a05a053c",
+    "edee3d0a-16d7-4413-9aa0-72f6a09f6d0a",
+    "a82f0ab0-d849-42b7-b3d9-6051343f5ce0",
+    "e5e364df-e09e-4230-abc3-e92dd338e426",
+    "3f2d1717-e701-40bc-8c48-22318f36de16",
+    "fb43377e-9f64-4863-9ab0-993c26836f39",
+    "2d42885b-ba49-4c21-9e8f-4963349f252c",
+    "e4650f45-63c1-4af1-99f0-fa4a99db0601",
+    "9e3eb090-4f91-4ec7-a1da-fc3d23e563c7",
+    "ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7",
+    "f0cfab4a-fd30-43a5-8633-814b69c6bdca"
+  ],
+  "val": [
+    "e1ae919e-d2fc-41ad-af23-50c7d97b196b",
+    "98839ae3-bc28-42f6-9258-c81854ac4b4a",
+    "b551f3fe-85d3-40be-a5fa-a22ce04b4dea"
+  ],
+  "test": [
+    "22cd54f1-5d96-4b12-a392-d5ddada9d8d3",
+    "441425cd-4ee5-45b6-a33a-fd7de892d61f",
+    "4f680835-27cb-422f-b254-1d2994ff548a"
+  ],
+  "seed": null,
+  "timestamp": "2025-12-30 09:21:37"
+}

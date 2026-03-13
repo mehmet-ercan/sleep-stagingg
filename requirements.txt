@@ -1,0 +1,40 @@
+# ============================================================================
+# PyTorch (GPU/CPU)
+# ============================================================================
+# GPU için (CUDA 11.8):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+# 
+# GPU için (CUDA 12.1):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# CPU için:
+#   pip install torch torchvision
+#
+# NOT: requirements.txt'ten torch satırlarını kaldırın ve yukarıdaki komutlardan
+#      birini manuel olarak çalıştırın (GPU/CPU durumunuza göre)
+
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+numpy==2.1.3
+
+# Data Processing
+pymongo==4.15.2
+pyEDFlib==0.1.42
+scipy==1.15.2
+pandas==2.2.3
+
+# Machine Learning
+scikit-learn==1.6.1
+shap==0.47.1
+
+# Visualization
+matplotlib==3.10.1
+seaborn==0.13.2
+
+# Utilities
+tqdm==4.67.1
+
+# Model Export (optional)
+onnx==1.20.0
+onnxscript==0.5.6
