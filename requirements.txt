@@ -17,6 +17,7 @@
 # Core Dependencies
 # ============================================================================
 numpy==2.1.3
+# for running on sleep-telemetry > pip uninstall -y numpy & pip install "numpy<2.0"
 
 # Data Processing
 pymongo==4.15.2

@@ -1,0 +1,4063 @@
+
+======================================================================
+RUN DIRECTORY OLUŞTURULDU
+======================================================================
+Run ID: 260305-0629
+Directory: outputs/runs/260305-0629
+======================================================================
+
+✓ Dizinler oluşturuldu: outputs/
+
+======================================================================
+SLEEP STAGE CLASSIFICATION - CONFIGURATION
+======================================================================
+
+📊 DATA:
+  Channels: ['EEG Fpz-Cz', 'EEG Pz-Oz', 'EOG horizontal']
+  Sample rate: 100 Hz
+  Samples per epoch: 3000
+  Classes: ['W', 'N1', 'N2', 'N3', 'REM']
+
+🔀 SPLIT:
+  Train: 58 patients
+  Val: 10 patients
+  Test: 10 patients
+
+🏗️  MODEL:
+  Type: cnn1d
+  Architecture: 1D-CNN
+
+⚙️  TRAINING:
+  Database: physionet_sleep_sc
+  Batch size: 32
+  Learning rate: 0.001
+  Epochs: 50
+  Optimizer: Adam
+  Weight decay: 0.0001
+  Dropout: 0.3
+  Loss function: CrossEntropyLoss
+  Balance strategy: none
+  Early stopping: True
+
+🔧 PREPROCESSING:
+  Normalization: z-score
+  Filtering: True
+  Augmentation: True
+
+💻 DEVICE:
+  CUDA available: True
+  Device: cuda
+
+📁 OUTPUT:
+  Directory: outputs
+
+======================================================================
+
+Offline modda hasta listesi alınıyor...
+✓ Toplam 153 hasta bulundu
+
+Stage verileri cache'e yükleniyor...
+
+======================================================================
+OFFLINE VERİLER CACHE'E YÜKLENİYOR (.npz)
+======================================================================
+Kaynak: /mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-cassette/offline_data/physionet_sleep_sc
+Hasta sayısı: 153
+Yükleme modu: SADECE STAGES (düşük bellek modu)
+----------------------------------------------------------------------
+[1/153] SC4001E0: 721 epoch ✓ (0.0s)
+[2/153] SC4002E0: 1007 epoch ✓ (0.0s)
+[3/153] SC4011E0: 983 epoch ✓ (0.0s)
+[4/153] SC4012E0: 1066 epoch ✓ (0.0s)
+[5/153] SC4021E0: 905 epoch ✓ (0.0s)
+[6/153] SC4022E0: 889 epoch ✓ (0.0s)
+[7/153] SC4031E0: 832 epoch ✓ (0.0s)
+[8/153] SC4032E0: 791 epoch ✓ (0.0s)
+[9/153] SC4041E0: 1115 epoch ✓ (0.0s)
+[10/153] SC4042E0: 1080 epoch ✓ (0.0s)
+[11/153] SC4051E0: 552 epoch ✓ (0.0s)
+[12/153] SC4052E0: 1126 epoch ✓ (0.0s)
+[13/153] SC4061E0: 723 epoch ✓ (0.0s)
+[14/153] SC4062E0: 896 epoch ✓ (0.0s)
+[15/153] SC4071E0: 856 epoch ✓ (0.0s)
+[16/153] SC4072E0: 1153 epoch ✓ (0.0s)
+[17/153] SC4081E0: 1014 epoch ✓ (0.0s)
+[18/153] SC4082E0: 934 epoch ✓ (0.0s)
+[19/153] SC4091E0: 1012 epoch ✓ (0.0s)
+[20/153] SC4092E0: 985 epoch ✓ (0.0s)
+[21/153] SC4101E0: 984 epoch ✓ (0.0s)
+[22/153] SC4102E0: 972 epoch ✓ (0.0s)
+[23/153] SC4111E0: 808 epoch ✓ (0.0s)
+[24/153] SC4112E0: 682 epoch ✓ (0.0s)
+[25/153] SC4121E0: 932 epoch ✓ (0.0s)
+[26/153] SC4122E0: 857 epoch ✓ (0.0s)
+[27/153] SC4131E0: 908 epoch ✓ (0.0s)
+[28/153] SC4141E0: 884 epoch ✓ (0.0s)
+[29/153] SC4142E0: 832 epoch ✓ (0.0s)
+[30/153] SC4151E0: 832 epoch ✓ (0.0s)
+[31/153] SC4152E0: 1642 epoch ✓ (0.0s)
+[32/153] SC4161E0: 1024 epoch ✓ (0.0s)
+[33/153] SC4162E0: 883 epoch ✓ (0.0s)
+[34/153] SC4171E0: 882 epoch ✓ (0.0s)
+[35/153] SC4172E0: 1653 epoch ✓ (0.0s)
+[36/153] SC4181E0: 844 epoch ✓ (0.0s)
+[37/153] SC4182E0: 800 epoch ✓ (0.0s)
+[38/153] SC4191E0: 1415 epoch ✓ (0.0s)
+[39/153] SC4192E0: 1154 epoch ✓ (0.0s)
+[40/153] SC4201E0: 902 epoch ✓ (0.0s)
+[41/153] SC4202E0: 901 epoch ✓ (0.0s)
+[42/153] SC4211E0: 1458 epoch ✓ (0.0s)
+[43/153] SC4212E0: 688 epoch ✓ (0.0s)
+[44/153] SC4221E0: 979 epoch ✓ (0.0s)
+[45/153] SC4222E0: 988 epoch ✓ (0.0s)
+[46/153] SC4231E0: 784 epoch ✓ (0.0s)
+[47/153] SC4232E0: 1609 epoch ✓ (0.0s)
+[48/153] SC4241E0: 1553 epoch ✓ (0.0s)
+[49/153] SC4242E0: 1655 epoch ✓ (0.0s)
+[50/153] SC4251E0: 852 epoch ✓ (0.0s)
+[51/153] SC4252E0: 900 epoch ✓ (0.0s)
+[52/153] SC4261F0: 1477 epoch ✓ (0.0s)
+[53/153] SC4262F0: 860 epoch ✓ (0.0s)
+[54/153] SC4271F0: 932 epoch ✓ (0.0s)
+[55/153] SC4272F0: 970 epoch ✓ (0.0s)
+[56/153] SC4281G0: 1007 epoch ✓ (0.0s)
+[57/153] SC4282G0: 950 epoch ✓ (0.0s)
+[58/153] SC4291G0: 1011 epoch ✓ (0.0s)
+[59/153] SC4292G0: 1485 epoch ✓ (0.0s)
+[60/153] SC4301E0: 809 epoch ✓ (0.0s)
+[61/153] SC4302E0: 734 epoch ✓ (0.0s)
+[62/153] SC4311E0: 934 epoch ✓ (0.0s)
+[63/153] SC4312E0: 1061 epoch ✓ (0.0s)
+[64/153] SC4321E0: 1440 epoch ✓ (0.0s)
+[65/153] SC4322E0: 901 epoch ✓ (0.0s)
+[66/153] SC4331F0: 1768 epoch ✓ (0.0s)
+[67/153] SC4332F0: 1192 epoch ✓ (0.0s)
+[68/153] SC4341F0: 1381 epoch ✓ (0.0s)
+[69/153] SC4342F0: 1462 epoch ✓ (0.0s)
+[70/153] SC4351F0: 856 epoch ✓ (0.0s)
+[71/153] SC4352F0: 843 epoch ✓ (0.0s)
+[72/153] SC4362F0: 704 epoch ✓ (0.0s)
+[73/153] SC4371F0: 798 epoch ✓ (0.0s)
+[74/153] SC4372F0: 1389 epoch ✓ (0.0s)
+[75/153] SC4381F0: 1656 epoch ✓ (0.0s)
+[76/153] SC4382F0: 1751 epoch ✓ (0.0s)
+[77/153] SC4401E0: 944 epoch ✓ (0.0s)
+[78/153] SC4402E0: 952 epoch ✓ (0.0s)
+[79/153] SC4411E0: 958 epoch ✓ (0.0s)
+[80/153] SC4412E0: 804 epoch ✓ (0.0s)
+[81/153] SC4421E0: 665 epoch ✓ (0.0s)
+[82/153] SC4422E0: 764 epoch ✓ (0.0s)
+[83/153] SC4431E0: 579 epoch ✓ (0.0s)
+[84/153] SC4432E0: 842 epoch ✓ (0.0s)
+[85/153] SC4441E0: 1075 epoch ✓ (0.0s)
+[86/153] SC4442E0: 972 epoch ✓ (0.0s)
+[87/153] SC4451F0: 1088 epoch ✓ (0.0s)
+[88/153] SC4452F0: 1046 epoch ✓ (0.0s)
+[89/153] SC4461F0: 863 epoch ✓ (0.0s)
+[90/153] SC4462F0: 902 epoch ✓ (0.0s)
+[91/153] SC4471F0: 1067 epoch ✓ (0.0s)
+[92/153] SC4472F0: 2055 epoch ✓ (0.0s)
+[93/153] SC4481F0: 1953 epoch ✓ (0.0s)
+[94/153] SC4482F0: 1790 epoch ✓ (0.0s)
+[95/153] SC4491G0: 981 epoch ✓ (0.0s)
+[96/153] SC4492G0: 920 epoch ✓ (0.0s)
+[97/153] SC4501E0: 1206 epoch ✓ (0.0s)
+[98/153] SC4502E0: 983 epoch ✓ (0.0s)
+[99/153] SC4511E0: 967 epoch ✓ (0.0s)
+[100/153] SC4512E0: 834 epoch ✓ (0.0s)
+[101/153] SC4522E0: 877 epoch ✓ (0.0s)
+[102/153] SC4531E0: 976 epoch ✓ (0.0s)
+[103/153] SC4532E0: 936 epoch ✓ (0.0s)
+[104/153] SC4541F0: 1596 epoch ✓ (0.0s)
+[105/153] SC4542F0: 1028 epoch ✓ (0.0s)
+[106/153] SC4551F0: 927 epoch ✓ (0.0s)
+[107/153] SC4552F0: 970 epoch ✓ (0.0s)
+[108/153] SC4561F0: 1117 epoch ✓ (0.0s)
+[109/153] SC4562F0: 1028 epoch ✓ (0.0s)
+[110/153] SC4571F0: 1116 epoch ✓ (0.0s)
+[111/153] SC4572F0: 975 epoch ✓ (0.0s)
+[112/153] SC4581G0: 975 epoch ✓ (0.0s)
+[113/153] SC4582G0: 1055 epoch ✓ (0.0s)
+[114/153] SC4591G0: 1720 epoch ✓ (0.0s)
+[115/153] SC4592G0: 1145 epoch ✓ (0.0s)
+[116/153] SC4601E0: 1229 epoch ✓ (0.0s)
+[117/153] SC4602E0: 1923 epoch ✓ (0.0s)
+[118/153] SC4611E0: 1532 epoch ✓ (0.0s)
+[119/153] SC4612E0: 942 epoch ✓ (0.0s)
+[120/153] SC4621E0: 1325 epoch ✓ (0.0s)
+[121/153] SC4622E0: 1703 epoch ✓ (0.0s)
+[122/153] SC4631E0: 943 epoch ✓ (0.0s)
+[123/153] SC4632E0: 987 epoch ✓ (0.0s)
+[124/153] SC4641E0: 1151 epoch ✓ (0.0s)
+[125/153] SC4642E0: 1929 epoch ✓ (0.0s)
+[126/153] SC4651E0: 2528 epoch ✓ (0.0s)
+[127/153] SC4652E0: 1809 epoch ✓ (0.0s)
+[128/153] SC4661E0: 1907 epoch ✓ (0.0s)
+[129/153] SC4662E0: 1874 epoch ✓ (0.0s)
+[130/153] SC4671G0: 1848 epoch ✓ (0.0s)
+[131/153] SC4672G0: 901 epoch ✓ (0.0s)
+[132/153] SC4701E0: 1597 epoch ✓ (0.0s)
+[133/153] SC4702E0: 1395 epoch ✓ (0.0s)
+[134/153] SC4711E0: 1293 epoch ✓ (0.0s)
+[135/153] SC4712E0: 1121 epoch ✓ (0.0s)
+[136/153] SC4721E0: 911 epoch ✓ (0.0s)
+[137/153] SC4722E0: 1010 epoch ✓ (0.0s)
+[138/153] SC4731E0: 2607 epoch ✓ (0.0s)
+[139/153] SC4732E0: 2251 epoch ✓ (0.0s)
+[140/153] SC4741E0: 2090 epoch ✓ (0.0s)
+[141/153] SC4742E0: 943 epoch ✓ (0.0s)
+[142/153] SC4751E0: 1942 epoch ✓ (0.0s)
+[143/153] SC4752E0: 929 epoch ✓ (0.0s)
+[144/153] SC4761E0: 1563 epoch ✓ (0.0s)
+[145/153] SC4762E0: 2604 epoch ✓ (0.0s)
+[146/153] SC4771G0: 1205 epoch ✓ (0.0s)
+[147/153] SC4772G0: 1204 epoch ✓ (0.1s)
+[148/153] SC4801G0: 1121 epoch ✓ (0.0s)
+[149/153] SC4802G0: 1109 epoch ✓ (0.0s)
+[150/153] SC4811G0: 1173 epoch ✓ (0.0s)
+[151/153] SC4812G0: 1063 epoch ✓ (0.0s)
+[152/153] SC4821G0: 1584 epoch ✓ (0.0s)
+[153/153] SC4822G0: 1246 epoch ✓ (0.0s)
+
+======================================================================
+OFFLINE CACHE HAZIR!
+  Yüklenen hasta: 153/153 (3.2s)
+  Stage cache: 153 hasta (~12.2 MB)
+  Sinyal cache: 0 (patient, channel) çifti
+  Sinyal bellek: 0.00 GB
+======================================================================
+
+✓ 153 hasta cache'de
+
+
+======================================================================
+PATIENT SPLIT (RANDOM)
+======================================================================
+Toplam hasta: 153
+Train: 58 hasta
+Val:   10 hasta
+Test:  10 hasta
+Seed:  Random (timestamp-based)
+======================================================================
+
+✓ Split kaydedildi: outputs/runs/260305-0629/patient_split.json
+
+
+======================================================================
+DATALOADER'LAR OLUŞTURULUYOR
+======================================================================
+RAM Cache: Aktif ✓
+
+train_dataset başlıyor
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  SC4112E0: 682 epoch eklendi
+  SC4052E0: 1126 epoch eklendi
+  SC4592G0: 1145 epoch eklendi
+  SC4481F0: 1953 epoch eklendi
+  SC4022E0: 889 epoch eklendi
+  SC4141E0: 884 epoch eklendi
+  SC4331F0: 1768 epoch eklendi
+  SC4462F0: 902 epoch eklendi
+  SC4342F0: 1462 epoch eklendi
+  SC4102E0: 972 epoch eklendi
+  SC4582G0: 1055 epoch eklendi
+  SC4772G0: 1204 epoch eklendi
+  SC4011E0: 983 epoch eklendi
+  SC4672G0: 901 epoch eklendi
+  SC4402E0: 952 epoch eklendi
+  SC4092E0: 985 epoch eklendi
+  SC4231E0: 784 epoch eklendi
+  SC4472F0: 2055 epoch eklendi
+  SC4751E0: 1942 epoch eklendi
+  SC4021E0: 905 epoch eklendi
+  SC4822G0: 1246 epoch eklendi
+  SC4581G0: 975 epoch eklendi
+  SC4732E0: 2251 epoch eklendi
+  SC4702E0: 1395 epoch eklendi
+  SC4571F0: 1116 epoch eklendi
+  SC4221E0: 979 epoch eklendi
+  SC4711E0: 1293 epoch eklendi
+  SC4771G0: 1205 epoch eklendi
+  SC4201E0: 902 epoch eklendi
+  SC4142E0: 832 epoch eklendi
+  SC4641E0: 1151 epoch eklendi
+  SC4322E0: 901 epoch eklendi
+  SC4502E0: 983 epoch eklendi
+  SC4301E0: 809 epoch eklendi
+  SC4412E0: 804 epoch eklendi
+  SC4762E0: 2604 epoch eklendi
+  SC4362F0: 704 epoch eklendi
+  SC4351F0: 856 epoch eklendi
+  SC4162E0: 883 epoch eklendi
+  SC4561F0: 1117 epoch eklendi
+  SC4031E0: 832 epoch eklendi
+  SC4151E0: 832 epoch eklendi
+  SC4312E0: 1061 epoch eklendi
+  SC4012E0: 1066 epoch eklendi
+  SC4332F0: 1192 epoch eklendi
+  SC4051E0: 552 epoch eklendi
+  SC4471F0: 1067 epoch eklendi
+  SC4131E0: 908 epoch eklendi
+  SC4491G0: 981 epoch eklendi
+  SC4062E0: 896 epoch eklendi
+  SC4601E0: 1229 epoch eklendi
+  SC4802G0: 1109 epoch eklendi
+  SC4752E0: 929 epoch eklendi
+  SC4742E0: 943 epoch eklendi
+  SC4731E0: 2607 epoch eklendi
+  SC4591G0: 1720 epoch eklendi
+  SC4101E0: 984 epoch eklendi
+  SC4182E0: 800 epoch eklendi
+
+======================================================================
+TOPLAM: 66263 epoch
+
+Sınıf dağılımı:
+  W: 18307 epoch (27.6%)
+  N1: 8342 epoch (12.6%)
+  N2: 25656 epoch (38.7%)
+  N3: 4424 epoch (6.7%)
+  REM: 9534 epoch (14.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - BELLEK-VERİMLİ MOD
+Kaynak: Offline (.npz dosyaları)
+Strateji: Hasta bazında yükle → kopyala → serbest bırak
+======================================================================
+Toplam epoch: 66263
+Kanal sayısı: 3
+Tahmini boyut: ~2.22 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/198789 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   0%|          | 1/198789 [00:00<10:04:18,  5.48epoch-kanal/s]Veri yükleniyor:   1%|          | 2047/198789 [00:00<00:41, 4690.00epoch-kanal/s]Veri yükleniyor:   3%|▎         | 5425/198789 [00:00<00:25, 7528.52epoch-kanal/s]Veri yükleniyor:   4%|▍         | 8860/198789 [00:01<00:28, 6650.86epoch-kanal/s]Veri yükleniyor:   7%|▋         | 14072/198789 [00:01<00:15, 12223.14epoch-kanal/s]Veri yükleniyor:   8%|▊         | 16363/198789 [00:01<00:16, 11279.23epoch-kanal/s]Veri yükleniyor:   9%|▉         | 18186/198789 [00:01<00:17, 10400.61epoch-kanal/s]Veri yükleniyor:  10%|█         | 20038/198789 [00:02<00:22, 7900.12epoch-kanal/s] Veri yükleniyor:  13%|█▎        | 25342/198789 [00:02<00:15, 11282.20epoch-kanal/s]Veri yükleniyor:  14%|█▍        | 28048/198789 [00:02<00:16, 10138.93epoch-kanal/s]Veri yükleniyor:  16%|█▋        | 32434/198789 [00:03<00:13, 12002.67epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 35350/198789 [00:03<00:13, 11795.33epoch-kanal/s]Veri yükleniyor:  19%|█▉        | 38515/198789 [00:03<00:14, 11413.06epoch-kanal/s]Veri yükleniyor:  21%|██        | 42127/198789 [00:04<00:13, 11736.30epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 45076/198789 [00:04<00:12, 12063.45epoch-kanal/s]Veri yükleniyor:  24%|██▍       | 47779/198789 [00:04<00:13, 11404.10epoch-kanal/s]Veri yükleniyor:  25%|██▌       | 50635/198789 [00:04<00:13, 11336.47epoch-kanal/s]Veri yükleniyor:  27%|██▋       | 53590/198789 [00:05<00:12, 11949.59epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 55942/198789 [00:05<00:16, 8726.85epoch-kanal/s] Veri yükleniyor:  31%|███       | 62107/198789 [00:06<00:13, 9885.43epoch-kanal/s]Veri yükleniyor:  34%|███▍      | 67479/198789 [00:06<00:09, 14271.33epoch-kanal/s]Veri yükleniyor:  35%|███▌      | 69823/198789 [00:06<00:09, 13510.78epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 71794/198789 [00:06<00:11, 11515.21epoch-kanal/s]Veri yükleniyor:  37%|███▋      | 74386/198789 [00:06<00:11, 10876.80epoch-kanal/s]Veri yükleniyor:  39%|███▉      | 77311/198789 [00:07<00:14, 8242.85epoch-kanal/s] Veri yükleniyor:  42%|████▏     | 84064/198789 [00:07<00:10, 10954.16epoch-kanal/s]Veri yükleniyor:  44%|████▍     | 88249/198789 [00:08<00:09, 11442.75epoch-kanal/s]Veri yükleniyor:  46%|████▌     | 91597/198789 [00:08<00:09, 11687.33epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 94534/198789 [00:08<00:09, 11174.04epoch-kanal/s]Veri yükleniyor:  50%|████▉     | 98413/198789 [00:09<00:08, 11280.83epoch-kanal/s]Veri yükleniyor:  51%|█████▏    | 102028/198789 [00:09<00:07, 12119.50epoch-kanal/s]Veri yükleniyor:  53%|█████▎    | 104734/198789 [00:09<00:07, 12243.52epoch-kanal/s]Veri yükleniyor:  54%|█████▍    | 107230/198789 [00:09<00:08, 11213.09epoch-kanal/s]Veri yükleniyor:  56%|█████▌    | 110683/198789 [00:10<00:07, 11864.44epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 113386/198789 [00:10<00:07, 11600.46epoch-kanal/s]Veri yükleniyor:  59%|█████▊    | 116335/198789 [00:10<00:06, 12277.78epoch-kanal/s]Veri yükleniyor:  60%|█████▉    | 118762/198789 [00:10<00:06, 12182.86epoch-kanal/s]Veri yükleniyor:  61%|██████    | 121174/198789 [00:11<00:10, 7760.31epoch-kanal/s] Veri yükleniyor:  64%|██████▍   | 127963/198789 [00:11<00:04, 14317.82epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 130686/198789 [00:11<00:04, 14230.45epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 133011/198789 [00:11<00:04, 13268.91epoch-kanal/s]Veri yükleniyor:  68%|██████▊   | 134959/198789 [00:12<00:05, 11742.65epoch-kanal/s]Veri yükleniyor:  69%|██████▊   | 136567/198789 [00:12<00:06, 10050.31epoch-kanal/s]Veri yükleniyor:  70%|███████   | 139666/198789 [00:12<00:05, 10951.85epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 142162/198789 [00:12<00:05, 10197.20epoch-kanal/s]Veri yükleniyor:  73%|███████▎  | 144658/198789 [00:13<00:05, 9972.97epoch-kanal/s] Veri yükleniyor:  74%|███████▍  | 147841/198789 [00:13<00:04, 10519.34epoch-kanal/s]Veri yükleniyor:  76%|███████▌  | 151039/198789 [00:13<00:04, 10438.92epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 154615/198789 [00:13<00:03, 12503.11epoch-kanal/s]Veri yükleniyor:  79%|███████▊  | 156271/198789 [00:14<00:03, 10818.06epoch-kanal/s]Veri yükleniyor:  80%|████████  | 159472/198789 [00:14<00:03, 11630.23epoch-kanal/s]Veri yükleniyor:  82%|████████▏ | 162196/198789 [00:14<00:03, 11262.15epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 165139/198789 [00:14<00:02, 11471.63epoch-kanal/s]Veri yükleniyor:  84%|████████▍ | 167827/198789 [00:15<00:02, 10465.33epoch-kanal/s]Veri yükleniyor:  86%|████████▋ | 171514/198789 [00:15<00:02, 10840.83epoch-kanal/s]Veri yükleniyor:  88%|████████▊ | 174841/198789 [00:15<00:02, 11478.71epoch-kanal/s]Veri yükleniyor:  89%|████████▉ | 177628/198789 [00:16<00:01, 11751.14epoch-kanal/s]Veri yükleniyor:  91%|█████████ | 180457/198789 [00:16<00:02, 8443.02epoch-kanal/s] Veri yükleniyor:  94%|█████████▍| 187407/198789 [00:16<00:00, 15067.54epoch-kanal/s]Veri yükleniyor:  96%|█████████▌| 190181/198789 [00:17<00:00, 12013.09epoch-kanal/s]Veri yükleniyor:  97%|█████████▋| 193438/198789 [00:17<00:00, 11469.72epoch-kanal/s]Veri yükleniyor:  99%|█████████▉| 196390/198789 [00:17<00:00, 11837.79epoch-kanal/s]Veri yükleniyor: 100%|██████████| 198789/198789 [00:17<00:00, 11212.27epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 198,789
+Toplam bellek kullanımı: 2.22 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 66263 epoch, 58 hasta
+train_dataset bitti
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  SC4572F0: 975 epoch eklendi
+  SC4442E0: 972 epoch eklendi
+  SC4511E0: 967 epoch eklendi
+  SC4712E0: 1121 epoch eklendi
+  SC4801G0: 1121 epoch eklendi
+  SC4082E0: 934 epoch eklendi
+  SC4222E0: 988 epoch eklendi
+  SC4811G0: 1173 epoch eklendi
+  SC4611E0: 1532 epoch eklendi
+  SC4111E0: 808 epoch eklendi
+
+======================================================================
+TOPLAM: 10591 epoch
+
+Sınıf dağılımı:
+  W: 1638 epoch (15.5%)
+  N1: 1391 epoch (13.1%)
+  N2: 4670 epoch (44.1%)
+  N3: 942 epoch (8.9%)
+  REM: 1950 epoch (18.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - BELLEK-VERİMLİ MOD
+Kaynak: Offline (.npz dosyaları)
+Strateji: Hasta bazında yükle → kopyala → serbest bırak
+======================================================================
+Toplam epoch: 10591
+Kanal sayısı: 3
+Tahmini boyut: ~0.36 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/31773 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   0%|          | 1/31773 [00:00<1:45:40,  5.01epoch-kanal/s]Veri yükleniyor:   9%|▉         | 2926/31773 [00:00<00:03, 7410.84epoch-kanal/s]Veri yükleniyor:  18%|█▊        | 5842/31773 [00:00<00:02, 9362.56epoch-kanal/s]Veri yükleniyor:  28%|██▊       | 8743/31773 [00:01<00:02, 9191.40epoch-kanal/s]Veri yükleniyor:  38%|███▊      | 12106/31773 [00:01<00:02, 9748.35epoch-kanal/s]Veri yükleniyor:  49%|████▊     | 15469/31773 [00:01<00:01, 10680.88epoch-kanal/s]Veri yükleniyor:  58%|█████▊    | 18271/31773 [00:01<00:01, 10578.29epoch-kanal/s]Veri yükleniyor:  67%|██████▋   | 21235/31773 [00:02<00:01, 10164.36epoch-kanal/s]Veri yükleniyor:  78%|███████▊  | 24754/31773 [00:02<00:00, 9515.63epoch-kanal/s] Veri yükleniyor:  92%|█████████▏| 29350/31773 [00:02<00:00, 11522.11epoch-kanal/s]Veri yükleniyor: 100%|██████████| 31773/31773 [00:02<00:00, 10919.14epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 31,773
+Toplam bellek kullanımı: 0.36 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 10591 epoch, 10 hasta
+val_dataset bitti
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  SC4271F0: 932 epoch eklendi
+  SC4172E0: 1653 epoch eklendi
+  SC4512E0: 834 epoch eklendi
+  SC4542F0: 1028 epoch eklendi
+  SC4202E0: 901 epoch eklendi
+  SC4551F0: 927 epoch eklendi
+  SC4002E0: 1007 epoch eklendi
+  SC4001E0: 721 epoch eklendi
+  SC4501E0: 1206 epoch eklendi
+  SC4662E0: 1874 epoch eklendi
+
+======================================================================
+TOPLAM: 11083 epoch
+
+Sınıf dağılımı:
+  W: 2620 epoch (23.6%)
+  N1: 1256 epoch (11.3%)
+  N2: 4463 epoch (40.3%)
+  N3: 1076 epoch (9.7%)
+  REM: 1668 epoch (15.1%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - BELLEK-VERİMLİ MOD
+Kaynak: Offline (.npz dosyaları)
+Strateji: Hasta bazında yükle → kopyala → serbest bırak
+======================================================================
+Toplam epoch: 11083
+Kanal sayısı: 3
+Tahmini boyut: ~0.37 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/33249 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   0%|          | 1/33249 [00:00<1:50:19,  5.02epoch-kanal/s]Veri yükleniyor:   8%|▊         | 2797/33249 [00:00<00:05, 5529.63epoch-kanal/s]Veri yükleniyor:  23%|██▎       | 7756/33249 [00:00<00:02, 11094.00epoch-kanal/s]Veri yükleniyor:  31%|███       | 10258/33249 [00:01<00:02, 10881.43epoch-kanal/s]Veri yükleniyor:  40%|████      | 13342/33249 [00:01<00:01, 11806.66epoch-kanal/s]Veri yükleniyor:  48%|████▊     | 16045/33249 [00:01<00:01, 11838.39epoch-kanal/s]Veri yükleniyor:  57%|█████▋    | 18826/33249 [00:01<00:01, 11827.05epoch-kanal/s]Veri yükleniyor:  66%|██████▌   | 21847/33249 [00:01<00:00, 12861.66epoch-kanal/s]Veri yükleniyor:  72%|███████▏  | 24010/33249 [00:02<00:00, 11072.55epoch-kanal/s]Veri yükleniyor:  83%|████████▎ | 27628/33249 [00:02<00:00, 9073.80epoch-kanal/s] Veri yükleniyor: 100%|█████████▉| 33218/33249 [00:02<00:00, 14645.46epoch-kanal/s]Veri yükleniyor: 100%|██████████| 33249/33249 [00:02<00:00, 11675.37epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 33,249
+Toplam bellek kullanımı: 0.37 GB
+======================================================================
+
+/kaggle/working/sleep-staging/dnn/train.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter will be the default. To switch now, set dynamo=True in torch.onnx.export. This new exporter supports features like exporting LLMs with DynamicCache. We encourage you to try it and share feedback to help improve the experience. Learn more about the new export logic: https://pytorch.org/docs/stable/onnx_dynamo.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html.
+  torch.onnx.export(
+✓ Dataset oluşturuldu: 11083 epoch, 10 hasta
+test_dataset bitti
+train_loader bitti
+val_loader bitti
+test_loader bitti
+✓ DataLoader'lar hazır!
+  Train: 2071 batch
+  Val:   331 batch
+  Test:  347 batch
+======================================================================
+
+
+======================================================================
+1D-CNN MODEL
+======================================================================
+Architecture:
+  Input: [3, 3000]
+  Conv1: 32 filters, kernel=50
+  Conv2: 64 filters, kernel=25
+  Conv3: 128 filters, kernel=10
+  Flatten: 6016 features
+  FC1: 256 units
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 1,679,781
+  Trainable: 1,679,781
+======================================================================
+
+
+======================================================================
+MODEL NETRON İÇİN EXPORT EDİLİYOR
+======================================================================
+Input shape: (1, 3, 3000)
+Export path: outputs/runs/260305-0629/model_architecture.onnx
+✓ Model export edildi!
+
+Netron ile görselleştirmek için:
+  1. https://netron.app/ adresine git
+  2. 'outputs/runs/260305-0629/model_architecture.onnx' dosyasını yükle
+  VEYA
+  1. pip install netron
+  2. netron outputs/runs/260305-0629/model_architecture.onnx
+======================================================================
+
+
+======================================================================
+CLASS WEIGHTS HESAPLANIYOR
+======================================================================
+Class weights:
+  W: 0.7239
+  N1: 1.5887
+  N2: 0.5165
+  N3: 2.9956
+  REM: 1.3900
+======================================================================
+
+
+======================================================================
+TRAINING BAŞLIYOR
+======================================================================
+Epochs: 50
+Batch size: 32
+Learning rate: 0.001
+Device: cuda
+======================================================================
+
+
+Epoch [1/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 1.6476 | Acc: 26.25%
+  Batch [20/2071] Loss: 1.6233 | Acc: 21.88%
+  Batch [30/2071] Loss: 1.6191 | Acc: 22.19%
+  Batch [40/2071] Loss: 1.6146 | Acc: 27.42%
+  Batch [50/2071] Loss: 1.6034 | Acc: 29.25%
+  Batch [60/2071] Loss: 1.5515 | Acc: 30.57%
+  Batch [70/2071] Loss: 1.5007 | Acc: 33.57%
+  Batch [80/2071] Loss: 1.4674 | Acc: 35.70%
+  Batch [90/2071] Loss: 1.4265 | Acc: 38.06%
+  Batch [100/2071] Loss: 1.4015 | Acc: 38.88%
+  Batch [110/2071] Loss: 1.3737 | Acc: 40.31%
+  Batch [120/2071] Loss: 1.3567 | Acc: 41.17%
+  Batch [130/2071] Loss: 1.3462 | Acc: 41.71%
+  Batch [140/2071] Loss: 1.3459 | Acc: 42.23%
+  Batch [150/2071] Loss: 1.3362 | Acc: 43.33%
+  Batch [160/2071] Loss: 1.3243 | Acc: 43.48%
+  Batch [170/2071] Loss: 1.3054 | Acc: 44.32%
+  Batch [180/2071] Loss: 1.2917 | Acc: 44.91%
+  Batch [190/2071] Loss: 1.2805 | Acc: 45.54%
+  Batch [200/2071] Loss: 1.2719 | Acc: 45.69%
+  Batch [210/2071] Loss: 1.2577 | Acc: 46.22%
+  Batch [220/2071] Loss: 1.2516 | Acc: 46.56%
+  Batch [230/2071] Loss: 1.2421 | Acc: 47.26%
+  Batch [240/2071] Loss: 1.2349 | Acc: 47.80%
+  Batch [250/2071] Loss: 1.2268 | Acc: 48.20%
+  Batch [260/2071] Loss: 1.2164 | Acc: 49.01%
+  Batch [270/2071] Loss: 1.2056 | Acc: 49.46%
+  Batch [280/2071] Loss: 1.1978 | Acc: 49.70%
+  Batch [290/2071] Loss: 1.1924 | Acc: 49.92%
+  Batch [300/2071] Loss: 1.1913 | Acc: 49.79%
+  Batch [310/2071] Loss: 1.1855 | Acc: 50.04%
+  Batch [320/2071] Loss: 1.1779 | Acc: 50.51%
+  Batch [330/2071] Loss: 1.1695 | Acc: 50.98%
+  Batch [340/2071] Loss: 1.1631 | Acc: 51.26%
+  Batch [350/2071] Loss: 1.1586 | Acc: 51.60%
+  Batch [360/2071] Loss: 1.1519 | Acc: 51.93%
+  Batch [370/2071] Loss: 1.1475 | Acc: 52.24%
+  Batch [380/2071] Loss: 1.1401 | Acc: 52.58%
+  Batch [390/2071] Loss: 1.1341 | Acc: 52.81%
+  Batch [400/2071] Loss: 1.1260 | Acc: 53.21%
+  Batch [410/2071] Loss: 1.1199 | Acc: 53.54%
+  Batch [420/2071] Loss: 1.1130 | Acc: 53.88%
+  Batch [430/2071] Loss: 1.1070 | Acc: 54.13%
+  Batch [440/2071] Loss: 1.1031 | Acc: 54.25%
+  Batch [450/2071] Loss: 1.0972 | Acc: 54.49%
+  Batch [460/2071] Loss: 1.0937 | Acc: 54.74%
+  Batch [470/2071] Loss: 1.0900 | Acc: 54.90%
+  Batch [480/2071] Loss: 1.0834 | Acc: 55.16%
+  Batch [490/2071] Loss: 1.0788 | Acc: 55.36%
+  Batch [500/2071] Loss: 1.0784 | Acc: 55.37%
+  Batch [510/2071] Loss: 1.0743 | Acc: 55.52%
+  Batch [520/2071] Loss: 1.0723 | Acc: 55.62%
+  Batch [530/2071] Loss: 1.0681 | Acc: 55.93%
+  Batch [540/2071] Loss: 1.0633 | Acc: 56.22%
+  Batch [550/2071] Loss: 1.0618 | Acc: 56.31%
+  Batch [560/2071] Loss: 1.0574 | Acc: 56.38%
+  Batch [570/2071] Loss: 1.0554 | Acc: 56.51%
+  Batch [580/2071] Loss: 1.0525 | Acc: 56.64%
+  Batch [590/2071] Loss: 1.0491 | Acc: 56.82%
+  Batch [600/2071] Loss: 1.0457 | Acc: 56.99%
+  Batch [610/2071] Loss: 1.0457 | Acc: 56.99%
+  Batch [620/2071] Loss: 1.0436 | Acc: 57.09%
+  Batch [630/2071] Loss: 1.0414 | Acc: 57.10%
+  Batch [640/2071] Loss: 1.0400 | Acc: 57.22%
+  Batch [650/2071] Loss: 1.0376 | Acc: 57.23%
+  Batch [660/2071] Loss: 1.0347 | Acc: 57.33%
+  Batch [670/2071] Loss: 1.0323 | Acc: 57.48%
+  Batch [680/2071] Loss: 1.0292 | Acc: 57.57%
+  Batch [690/2071] Loss: 1.0276 | Acc: 57.63%
+  Batch [700/2071] Loss: 1.0237 | Acc: 57.79%
+  Batch [710/2071] Loss: 1.0227 | Acc: 57.85%
+  Batch [720/2071] Loss: 1.0221 | Acc: 57.86%
+  Batch [730/2071] Loss: 1.0210 | Acc: 57.97%
+  Batch [740/2071] Loss: 1.0189 | Acc: 58.10%
+  Batch [750/2071] Loss: 1.0180 | Acc: 58.17%
+  Batch [760/2071] Loss: 1.0154 | Acc: 58.25%
+  Batch [770/2071] Loss: 1.0146 | Acc: 58.30%
+  Batch [780/2071] Loss: 1.0141 | Acc: 58.27%
+  Batch [790/2071] Loss: 1.0129 | Acc: 58.25%
+  Batch [800/2071] Loss: 1.0112 | Acc: 58.30%
+  Batch [810/2071] Loss: 1.0085 | Acc: 58.44%
+  Batch [820/2071] Loss: 1.0055 | Acc: 58.58%
+  Batch [830/2071] Loss: 1.0031 | Acc: 58.61%
+  Batch [840/2071] Loss: 1.0024 | Acc: 58.69%
+  Batch [850/2071] Loss: 0.9997 | Acc: 58.82%
+  Batch [860/2071] Loss: 0.9983 | Acc: 58.91%
+  Batch [870/2071] Loss: 0.9961 | Acc: 58.99%
+  Batch [880/2071] Loss: 0.9963 | Acc: 59.04%
+  Batch [890/2071] Loss: 0.9940 | Acc: 59.11%
+  Batch [900/2071] Loss: 0.9914 | Acc: 59.21%
+  Batch [910/2071] Loss: 0.9896 | Acc: 59.34%
+  Batch [920/2071] Loss: 0.9873 | Acc: 59.36%
+  Batch [930/2071] Loss: 0.9851 | Acc: 59.47%
+  Batch [940/2071] Loss: 0.9846 | Acc: 59.58%
+  Batch [950/2071] Loss: 0.9826 | Acc: 59.64%
+  Batch [960/2071] Loss: 0.9812 | Acc: 59.71%
+  Batch [970/2071] Loss: 0.9792 | Acc: 59.80%
+  Batch [980/2071] Loss: 0.9770 | Acc: 59.87%
+  Batch [990/2071] Loss: 0.9764 | Acc: 59.93%
+  Batch [1000/2071] Loss: 0.9752 | Acc: 60.02%
+  Batch [1010/2071] Loss: 0.9740 | Acc: 60.08%
+  Batch [1020/2071] Loss: 0.9728 | Acc: 60.14%
+  Batch [1030/2071] Loss: 0.9710 | Acc: 60.25%
+  Batch [1040/2071] Loss: 0.9701 | Acc: 60.30%
+  Batch [1050/2071] Loss: 0.9676 | Acc: 60.44%
+  Batch [1060/2071] Loss: 0.9671 | Acc: 60.47%
+  Batch [1070/2071] Loss: 0.9663 | Acc: 60.47%
+  Batch [1080/2071] Loss: 0.9656 | Acc: 60.53%
+  Batch [1090/2071] Loss: 0.9644 | Acc: 60.56%
+  Batch [1100/2071] Loss: 0.9628 | Acc: 60.66%
+  Batch [1110/2071] Loss: 0.9615 | Acc: 60.73%
+  Batch [1120/2071] Loss: 0.9602 | Acc: 60.76%
+  Batch [1130/2071] Loss: 0.9582 | Acc: 60.85%
+  Batch [1140/2071] Loss: 0.9573 | Acc: 60.92%
+  Batch [1150/2071] Loss: 0.9551 | Acc: 60.98%
+  Batch [1160/2071] Loss: 0.9536 | Acc: 61.05%
+  Batch [1170/2071] Loss: 0.9521 | Acc: 61.15%
+  Batch [1180/2071] Loss: 0.9505 | Acc: 61.23%
+  Batch [1190/2071] Loss: 0.9495 | Acc: 61.29%
+  Batch [1200/2071] Loss: 0.9477 | Acc: 61.38%
+  Batch [1210/2071] Loss: 0.9472 | Acc: 61.42%
+  Batch [1220/2071] Loss: 0.9459 | Acc: 61.47%
+  Batch [1230/2071] Loss: 0.9443 | Acc: 61.54%
+  Batch [1240/2071] Loss: 0.9420 | Acc: 61.66%
+  Batch [1250/2071] Loss: 0.9412 | Acc: 61.70%
+  Batch [1260/2071] Loss: 0.9401 | Acc: 61.73%
+  Batch [1270/2071] Loss: 0.9389 | Acc: 61.77%
+  Batch [1280/2071] Loss: 0.9384 | Acc: 61.83%
+  Batch [1290/2071] Loss: 0.9375 | Acc: 61.86%
+  Batch [1300/2071] Loss: 0.9362 | Acc: 61.92%
+  Batch [1310/2071] Loss: 0.9350 | Acc: 61.97%
+  Batch [1320/2071] Loss: 0.9339 | Acc: 62.02%
+  Batch [1330/2071] Loss: 0.9327 | Acc: 62.09%
+  Batch [1340/2071] Loss: 0.9313 | Acc: 62.12%
+  Batch [1350/2071] Loss: 0.9307 | Acc: 62.17%
+  Batch [1360/2071] Loss: 0.9300 | Acc: 62.18%
+  Batch [1370/2071] Loss: 0.9288 | Acc: 62.23%
+  Batch [1380/2071] Loss: 0.9276 | Acc: 62.26%
+  Batch [1390/2071] Loss: 0.9265 | Acc: 62.31%
+  Batch [1400/2071] Loss: 0.9251 | Acc: 62.38%
+  Batch [1410/2071] Loss: 0.9234 | Acc: 62.43%
+  Batch [1420/2071] Loss: 0.9220 | Acc: 62.46%
+  Batch [1430/2071] Loss: 0.9214 | Acc: 62.49%
+  Batch [1440/2071] Loss: 0.9201 | Acc: 62.53%
+  Batch [1450/2071] Loss: 0.9189 | Acc: 62.57%
+  Batch [1460/2071] Loss: 0.9176 | Acc: 62.65%
+  Batch [1470/2071] Loss: 0.9165 | Acc: 62.66%
+  Batch [1480/2071] Loss: 0.9158 | Acc: 62.69%
+  Batch [1490/2071] Loss: 0.9148 | Acc: 62.73%
+  Batch [1500/2071] Loss: 0.9143 | Acc: 62.74%
+  Batch [1510/2071] Loss: 0.9142 | Acc: 62.74%
+  Batch [1520/2071] Loss: 0.9139 | Acc: 62.73%
+  Batch [1530/2071] Loss: 0.9133 | Acc: 62.80%
+  Batch [1540/2071] Loss: 0.9132 | Acc: 62.81%
+  Batch [1550/2071] Loss: 0.9130 | Acc: 62.85%
+  Batch [1560/2071] Loss: 0.9125 | Acc: 62.88%
+  Batch [1570/2071] Loss: 0.9119 | Acc: 62.92%
+  Batch [1580/2071] Loss: 0.9103 | Acc: 63.00%
+  Batch [1590/2071] Loss: 0.9094 | Acc: 63.05%
+  Batch [1600/2071] Loss: 0.9081 | Acc: 63.10%
+  Batch [1610/2071] Loss: 0.9073 | Acc: 63.14%
+  Batch [1620/2071] Loss: 0.9059 | Acc: 63.20%
+  Batch [1630/2071] Loss: 0.9053 | Acc: 63.26%
+  Batch [1640/2071] Loss: 0.9043 | Acc: 63.31%
+  Batch [1650/2071] Loss: 0.9028 | Acc: 63.40%
+  Batch [1660/2071] Loss: 0.9022 | Acc: 63.42%
+  Batch [1670/2071] Loss: 0.9013 | Acc: 63.46%
+  Batch [1680/2071] Loss: 0.9003 | Acc: 63.51%
+  Batch [1690/2071] Loss: 0.8990 | Acc: 63.57%
+  Batch [1700/2071] Loss: 0.8984 | Acc: 63.61%
+  Batch [1710/2071] Loss: 0.8973 | Acc: 63.64%
+  Batch [1720/2071] Loss: 0.8963 | Acc: 63.69%
+  Batch [1730/2071] Loss: 0.8955 | Acc: 63.73%
+  Batch [1740/2071] Loss: 0.8945 | Acc: 63.78%
+  Batch [1750/2071] Loss: 0.8937 | Acc: 63.82%
+  Batch [1760/2071] Loss: 0.8929 | Acc: 63.83%
+  Batch [1770/2071] Loss: 0.8920 | Acc: 63.91%
+  Batch [1780/2071] Loss: 0.8908 | Acc: 63.96%
+  Batch [1790/2071] Loss: 0.8896 | Acc: 64.02%
+  Batch [1800/2071] Loss: 0.8882 | Acc: 64.09%
+  Batch [1810/2071] Loss: 0.8863 | Acc: 64.16%
+  Batch [1820/2071] Loss: 0.8855 | Acc: 64.19%
+  Batch [1830/2071] Loss: 0.8856 | Acc: 64.18%
+  Batch [1840/2071] Loss: 0.8849 | Acc: 64.23%
+  Batch [1850/2071] Loss: 0.8838 | Acc: 64.30%
+  Batch [1860/2071] Loss: 0.8828 | Acc: 64.33%
+  Batch [1870/2071] Loss: 0.8822 | Acc: 64.35%
+  Batch [1880/2071] Loss: 0.8814 | Acc: 64.38%
+  Batch [1890/2071] Loss: 0.8803 | Acc: 64.43%
+  Batch [1900/2071] Loss: 0.8793 | Acc: 64.46%
+  Batch [1910/2071] Loss: 0.8782 | Acc: 64.51%
+  Batch [1920/2071] Loss: 0.8779 | Acc: 64.51%
+  Batch [1930/2071] Loss: 0.8766 | Acc: 64.56%
+  Batch [1940/2071] Loss: 0.8756 | Acc: 64.60%
+  Batch [1950/2071] Loss: 0.8743 | Acc: 64.64%
+  Batch [1960/2071] Loss: 0.8728 | Acc: 64.69%
+  Batch [1970/2071] Loss: 0.8728 | Acc: 64.69%
+  Batch [1980/2071] Loss: 0.8723 | Acc: 64.71%
+  Batch [1990/2071] Loss: 0.8716 | Acc: 64.74%
+  Batch [2000/2071] Loss: 0.8713 | Acc: 64.75%
+  Batch [2010/2071] Loss: 0.8706 | Acc: 64.78%
+  Batch [2020/2071] Loss: 0.8693 | Acc: 64.85%
+  Batch [2030/2071] Loss: 0.8687 | Acc: 64.90%
+  Batch [2040/2071] Loss: 0.8681 | Acc: 64.92%
+  Batch [2050/2071] Loss: 0.8672 | Acc: 64.97%
+  Batch [2060/2071] Loss: 0.8671 | Acc: 64.97%
+  Batch [2070/2071] Loss: 0.8666 | Acc: 64.98%
+
+======================================================================
+Epoch 1 Summary:
+  Train Loss: 0.8666 | Train Acc: 64.97%
+  Val Loss:   1.0903 | Val Acc:   59.34%
+  Learning Rate: 0.001000
+  Time: 135.3s
+  ✓ Best model! (Val Loss: 1.0903, Val Acc: 59.34%)
+======================================================================
+
+Epoch [2/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.7400 | Acc: 72.81%
+  Batch [20/2071] Loss: 0.7604 | Acc: 70.94%
+  Batch [30/2071] Loss: 0.7433 | Acc: 70.62%
+  Batch [40/2071] Loss: 0.7335 | Acc: 70.62%
+  Batch [50/2071] Loss: 0.7171 | Acc: 71.38%
+  Batch [60/2071] Loss: 0.7123 | Acc: 71.72%
+  Batch [70/2071] Loss: 0.7079 | Acc: 72.23%
+  Batch [80/2071] Loss: 0.7141 | Acc: 72.15%
+  Batch [90/2071] Loss: 0.7194 | Acc: 71.81%
+  Batch [100/2071] Loss: 0.7131 | Acc: 71.50%
+  Batch [110/2071] Loss: 0.7108 | Acc: 71.59%
+  Batch [120/2071] Loss: 0.7008 | Acc: 72.19%
+  Batch [130/2071] Loss: 0.6934 | Acc: 72.48%
+  Batch [140/2071] Loss: 0.6972 | Acc: 72.48%
+  Batch [150/2071] Loss: 0.6995 | Acc: 72.48%
+  Batch [160/2071] Loss: 0.6969 | Acc: 72.85%
+  Batch [170/2071] Loss: 0.6933 | Acc: 72.68%
+  Batch [180/2071] Loss: 0.6985 | Acc: 72.40%
+  Batch [190/2071] Loss: 0.6954 | Acc: 72.63%
+  Batch [200/2071] Loss: 0.7003 | Acc: 72.52%
+  Batch [210/2071] Loss: 0.6968 | Acc: 72.71%
+  Batch [220/2071] Loss: 0.6972 | Acc: 72.74%
+  Batch [230/2071] Loss: 0.6954 | Acc: 72.74%
+  Batch [240/2071] Loss: 0.6960 | Acc: 72.81%
+  Batch [250/2071] Loss: 0.6921 | Acc: 72.90%
+  Batch [260/2071] Loss: 0.6946 | Acc: 72.67%
+  Batch [270/2071] Loss: 0.6955 | Acc: 72.56%
+  Batch [280/2071] Loss: 0.6940 | Acc: 72.57%
+  Batch [290/2071] Loss: 0.6933 | Acc: 72.64%
+  Batch [300/2071] Loss: 0.6946 | Acc: 72.64%
+  Batch [310/2071] Loss: 0.6960 | Acc: 72.68%
+  Batch [320/2071] Loss: 0.6972 | Acc: 72.60%
+  Batch [330/2071] Loss: 0.6966 | Acc: 72.71%
+  Batch [340/2071] Loss: 0.6967 | Acc: 72.65%
+  Batch [350/2071] Loss: 0.6937 | Acc: 72.69%
+  Batch [360/2071] Loss: 0.6947 | Acc: 72.69%
+  Batch [370/2071] Loss: 0.6963 | Acc: 72.67%
+  Batch [380/2071] Loss: 0.6931 | Acc: 72.74%
+  Batch [390/2071] Loss: 0.6940 | Acc: 72.84%
+  Batch [400/2071] Loss: 0.6912 | Acc: 72.80%
+  Batch [410/2071] Loss: 0.6920 | Acc: 72.72%
+  Batch [420/2071] Loss: 0.6919 | Acc: 72.69%
+  Batch [430/2071] Loss: 0.6914 | Acc: 72.73%
+  Batch [440/2071] Loss: 0.6909 | Acc: 72.78%
+  Batch [450/2071] Loss: 0.6921 | Acc: 72.67%
+  Batch [460/2071] Loss: 0.6940 | Acc: 72.65%
+  Batch [470/2071] Loss: 0.6952 | Acc: 72.46%
+  Batch [480/2071] Loss: 0.6972 | Acc: 72.38%
+  Batch [490/2071] Loss: 0.6981 | Acc: 72.33%
+  Batch [500/2071] Loss: 0.6975 | Acc: 72.38%
+  Batch [510/2071] Loss: 0.6970 | Acc: 72.41%
+  Batch [520/2071] Loss: 0.6968 | Acc: 72.37%
+  Batch [530/2071] Loss: 0.6958 | Acc: 72.40%
+  Batch [540/2071] Loss: 0.6952 | Acc: 72.40%
+  Batch [550/2071] Loss: 0.6948 | Acc: 72.38%
+  Batch [560/2071] Loss: 0.6951 | Acc: 72.42%
+  Batch [570/2071] Loss: 0.6954 | Acc: 72.36%
+  Batch [580/2071] Loss: 0.6967 | Acc: 72.40%
+  Batch [590/2071] Loss: 0.6966 | Acc: 72.37%
+  Batch [600/2071] Loss: 0.6949 | Acc: 72.47%
+  Batch [610/2071] Loss: 0.6944 | Acc: 72.50%
+  Batch [620/2071] Loss: 0.6940 | Acc: 72.52%
+  Batch [630/2071] Loss: 0.6944 | Acc: 72.56%
+  Batch [640/2071] Loss: 0.6955 | Acc: 72.54%
+  Batch [650/2071] Loss: 0.6962 | Acc: 72.45%
+  Batch [660/2071] Loss: 0.6962 | Acc: 72.47%
+  Batch [670/2071] Loss: 0.6957 | Acc: 72.51%
+  Batch [680/2071] Loss: 0.6947 | Acc: 72.58%
+  Batch [690/2071] Loss: 0.6962 | Acc: 72.61%
+  Batch [700/2071] Loss: 0.6972 | Acc: 72.41%
+  Batch [710/2071] Loss: 0.6960 | Acc: 72.46%
+  Batch [720/2071] Loss: 0.6960 | Acc: 72.46%
+  Batch [730/2071] Loss: 0.6962 | Acc: 72.47%
+  Batch [740/2071] Loss: 0.6955 | Acc: 72.41%
+  Batch [750/2071] Loss: 0.6946 | Acc: 72.45%
+  Batch [760/2071] Loss: 0.6951 | Acc: 72.41%
+  Batch [770/2071] Loss: 0.6953 | Acc: 72.36%
+  Batch [780/2071] Loss: 0.6955 | Acc: 72.34%
+  Batch [790/2071] Loss: 0.6941 | Acc: 72.40%
+  Batch [800/2071] Loss: 0.6937 | Acc: 72.39%
+  Batch [810/2071] Loss: 0.6934 | Acc: 72.36%
+  Batch [820/2071] Loss: 0.6944 | Acc: 72.35%
+  Batch [830/2071] Loss: 0.6949 | Acc: 72.29%
+  Batch [840/2071] Loss: 0.6941 | Acc: 72.31%
+  Batch [850/2071] Loss: 0.6930 | Acc: 72.29%
+  Batch [860/2071] Loss: 0.6950 | Acc: 72.28%
+  Batch [870/2071] Loss: 0.6952 | Acc: 72.22%
+  Batch [880/2071] Loss: 0.6955 | Acc: 72.25%
+  Batch [890/2071] Loss: 0.6954 | Acc: 72.28%
+  Batch [900/2071] Loss: 0.6946 | Acc: 72.30%
+  Batch [910/2071] Loss: 0.6942 | Acc: 72.28%
+  Batch [920/2071] Loss: 0.6933 | Acc: 72.31%
+  Batch [930/2071] Loss: 0.6928 | Acc: 72.33%
+  Batch [940/2071] Loss: 0.6926 | Acc: 72.34%
+  Batch [950/2071] Loss: 0.6918 | Acc: 72.33%
+  Batch [960/2071] Loss: 0.6928 | Acc: 72.31%
+  Batch [970/2071] Loss: 0.6934 | Acc: 72.30%
+  Batch [980/2071] Loss: 0.6942 | Acc: 72.31%
+  Batch [990/2071] Loss: 0.6938 | Acc: 72.27%
+  Batch [1000/2071] Loss: 0.6937 | Acc: 72.28%
+  Batch [1010/2071] Loss: 0.6948 | Acc: 72.27%
+  Batch [1020/2071] Loss: 0.6945 | Acc: 72.30%
+  Batch [1030/2071] Loss: 0.6934 | Acc: 72.31%
+  Batch [1040/2071] Loss: 0.6932 | Acc: 72.29%
+  Batch [1050/2071] Loss: 0.6933 | Acc: 72.29%
+  Batch [1060/2071] Loss: 0.6931 | Acc: 72.30%
+  Batch [1070/2071] Loss: 0.6926 | Acc: 72.34%
+  Batch [1080/2071] Loss: 0.6924 | Acc: 72.34%
+  Batch [1090/2071] Loss: 0.6938 | Acc: 72.26%
+  Batch [1100/2071] Loss: 0.6945 | Acc: 72.19%
+  Batch [1110/2071] Loss: 0.6941 | Acc: 72.22%
+  Batch [1120/2071] Loss: 0.6937 | Acc: 72.23%
+  Batch [1130/2071] Loss: 0.6938 | Acc: 72.25%
+  Batch [1140/2071] Loss: 0.6941 | Acc: 72.21%
+  Batch [1150/2071] Loss: 0.6937 | Acc: 72.19%
+  Batch [1160/2071] Loss: 0.6939 | Acc: 72.18%
+  Batch [1170/2071] Loss: 0.6937 | Acc: 72.20%
+  Batch [1180/2071] Loss: 0.6938 | Acc: 72.16%
+  Batch [1190/2071] Loss: 0.6927 | Acc: 72.20%
+  Batch [1200/2071] Loss: 0.6927 | Acc: 72.22%
+  Batch [1210/2071] Loss: 0.6923 | Acc: 72.26%
+  Batch [1220/2071] Loss: 0.6924 | Acc: 72.24%
+  Batch [1230/2071] Loss: 0.6920 | Acc: 72.23%
+  Batch [1240/2071] Loss: 0.6921 | Acc: 72.17%
+  Batch [1250/2071] Loss: 0.6921 | Acc: 72.16%
+  Batch [1260/2071] Loss: 0.6917 | Acc: 72.17%
+  Batch [1270/2071] Loss: 0.6911 | Acc: 72.16%
+  Batch [1280/2071] Loss: 0.6913 | Acc: 72.14%
+  Batch [1290/2071] Loss: 0.6906 | Acc: 72.14%
+  Batch [1300/2071] Loss: 0.6901 | Acc: 72.16%
+  Batch [1310/2071] Loss: 0.6900 | Acc: 72.14%
+  Batch [1320/2071] Loss: 0.6897 | Acc: 72.15%
+  Batch [1330/2071] Loss: 0.6898 | Acc: 72.16%
+  Batch [1340/2071] Loss: 0.6898 | Acc: 72.13%
+  Batch [1350/2071] Loss: 0.6904 | Acc: 72.09%
+  Batch [1360/2071] Loss: 0.6903 | Acc: 72.08%
+  Batch [1370/2071] Loss: 0.6902 | Acc: 72.09%
+  Batch [1380/2071] Loss: 0.6907 | Acc: 72.10%
+  Batch [1390/2071] Loss: 0.6909 | Acc: 72.08%
+  Batch [1400/2071] Loss: 0.6908 | Acc: 72.09%
+  Batch [1410/2071] Loss: 0.6899 | Acc: 72.10%
+  Batch [1420/2071] Loss: 0.6902 | Acc: 72.10%
+  Batch [1430/2071] Loss: 0.6906 | Acc: 72.03%
+  Batch [1440/2071] Loss: 0.6914 | Acc: 72.01%
+  Batch [1450/2071] Loss: 0.6915 | Acc: 72.00%
+  Batch [1460/2071] Loss: 0.6910 | Acc: 72.02%
+  Batch [1470/2071] Loss: 0.6915 | Acc: 72.03%
+  Batch [1480/2071] Loss: 0.6913 | Acc: 72.02%
+  Batch [1490/2071] Loss: 0.6915 | Acc: 72.00%
+  Batch [1500/2071] Loss: 0.6915 | Acc: 71.98%
+  Batch [1510/2071] Loss: 0.6919 | Acc: 71.99%
+  Batch [1520/2071] Loss: 0.6923 | Acc: 71.96%
+  Batch [1530/2071] Loss: 0.6922 | Acc: 71.95%
+  Batch [1540/2071] Loss: 0.6925 | Acc: 71.95%
+  Batch [1550/2071] Loss: 0.6923 | Acc: 71.98%
+  Batch [1560/2071] Loss: 0.6923 | Acc: 71.98%
+  Batch [1570/2071] Loss: 0.6924 | Acc: 71.96%
+  Batch [1580/2071] Loss: 0.6923 | Acc: 71.96%
+  Batch [1590/2071] Loss: 0.6918 | Acc: 72.00%
+  Batch [1600/2071] Loss: 0.6913 | Acc: 72.00%
+  Batch [1610/2071] Loss: 0.6913 | Acc: 72.00%
+  Batch [1620/2071] Loss: 0.6911 | Acc: 72.01%
+  Batch [1630/2071] Loss: 0.6906 | Acc: 72.04%
+  Batch [1640/2071] Loss: 0.6911 | Acc: 72.03%
+  Batch [1650/2071] Loss: 0.6914 | Acc: 72.02%
+  Batch [1660/2071] Loss: 0.6917 | Acc: 71.99%
+  Batch [1670/2071] Loss: 0.6917 | Acc: 71.97%
+  Batch [1680/2071] Loss: 0.6916 | Acc: 71.98%
+  Batch [1690/2071] Loss: 0.6916 | Acc: 71.95%
+  Batch [1700/2071] Loss: 0.6917 | Acc: 71.95%
+  Batch [1710/2071] Loss: 0.6915 | Acc: 71.93%
+  Batch [1720/2071] Loss: 0.6914 | Acc: 71.95%
+  Batch [1730/2071] Loss: 0.6912 | Acc: 71.97%
+  Batch [1740/2071] Loss: 0.6906 | Acc: 71.98%
+  Batch [1750/2071] Loss: 0.6905 | Acc: 72.00%
+  Batch [1760/2071] Loss: 0.6906 | Acc: 72.01%
+  Batch [1770/2071] Loss: 0.6904 | Acc: 72.02%
+  Batch [1780/2071] Loss: 0.6905 | Acc: 72.01%
+  Batch [1790/2071] Loss: 0.6907 | Acc: 71.99%
+  Batch [1800/2071] Loss: 0.6900 | Acc: 72.02%
+  Batch [1810/2071] Loss: 0.6893 | Acc: 72.06%
+  Batch [1820/2071] Loss: 0.6889 | Acc: 72.07%
+  Batch [1830/2071] Loss: 0.6887 | Acc: 72.07%
+  Batch [1840/2071] Loss: 0.6884 | Acc: 72.11%
+  Batch [1850/2071] Loss: 0.6880 | Acc: 72.12%
+  Batch [1860/2071] Loss: 0.6878 | Acc: 72.12%
+  Batch [1870/2071] Loss: 0.6879 | Acc: 72.12%
+  Batch [1880/2071] Loss: 0.6873 | Acc: 72.13%
+  Batch [1890/2071] Loss: 0.6870 | Acc: 72.14%
+  Batch [1900/2071] Loss: 0.6870 | Acc: 72.13%
+  Batch [1910/2071] Loss: 0.6865 | Acc: 72.13%
+  Batch [1920/2071] Loss: 0.6863 | Acc: 72.16%
+  Batch [1930/2071] Loss: 0.6864 | Acc: 72.15%
+  Batch [1940/2071] Loss: 0.6866 | Acc: 72.14%
+  Batch [1950/2071] Loss: 0.6863 | Acc: 72.13%
+  Batch [1960/2071] Loss: 0.6859 | Acc: 72.17%
+  Batch [1970/2071] Loss: 0.6859 | Acc: 72.15%
+  Batch [1980/2071] Loss: 0.6858 | Acc: 72.16%
+  Batch [1990/2071] Loss: 0.6852 | Acc: 72.18%
+  Batch [2000/2071] Loss: 0.6852 | Acc: 72.19%
+  Batch [2010/2071] Loss: 0.6849 | Acc: 72.16%
+  Batch [2020/2071] Loss: 0.6847 | Acc: 72.17%
+  Batch [2030/2071] Loss: 0.6851 | Acc: 72.17%
+  Batch [2040/2071] Loss: 0.6855 | Acc: 72.15%
+  Batch [2050/2071] Loss: 0.6860 | Acc: 72.14%
+  Batch [2060/2071] Loss: 0.6856 | Acc: 72.16%
+  Batch [2070/2071] Loss: 0.6851 | Acc: 72.18%
+
+======================================================================
+Epoch 2 Summary:
+  Train Loss: 0.6849 | Train Acc: 72.18%
+  Val Loss:   1.1268 | Val Acc:   63.09%
+  Learning Rate: 0.001000
+  Time: 134.9s
+======================================================================
+
+Epoch [3/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.6762 | Acc: 75.62%
+  Batch [20/2071] Loss: 0.6606 | Acc: 74.84%
+  Batch [30/2071] Loss: 0.6518 | Acc: 74.17%
+  Batch [40/2071] Loss: 0.6598 | Acc: 74.22%
+  Batch [50/2071] Loss: 0.6417 | Acc: 74.62%
+  Batch [60/2071] Loss: 0.6248 | Acc: 75.78%
+  Batch [70/2071] Loss: 0.6224 | Acc: 75.71%
+  Batch [80/2071] Loss: 0.6188 | Acc: 75.39%
+  Batch [90/2071] Loss: 0.6214 | Acc: 75.03%
+  Batch [100/2071] Loss: 0.6316 | Acc: 74.53%
+  Batch [110/2071] Loss: 0.6357 | Acc: 73.84%
+  Batch [120/2071] Loss: 0.6316 | Acc: 74.14%
+  Batch [130/2071] Loss: 0.6338 | Acc: 74.11%
+  Batch [140/2071] Loss: 0.6314 | Acc: 73.86%
+  Batch [150/2071] Loss: 0.6276 | Acc: 74.31%
+  Batch [160/2071] Loss: 0.6250 | Acc: 74.43%
+  Batch [170/2071] Loss: 0.6289 | Acc: 74.17%
+  Batch [180/2071] Loss: 0.6294 | Acc: 73.84%
+  Batch [190/2071] Loss: 0.6302 | Acc: 73.77%
+  Batch [200/2071] Loss: 0.6271 | Acc: 73.88%
+  Batch [210/2071] Loss: 0.6287 | Acc: 73.97%
+  Batch [220/2071] Loss: 0.6325 | Acc: 73.88%
+  Batch [230/2071] Loss: 0.6337 | Acc: 73.82%
+  Batch [240/2071] Loss: 0.6429 | Acc: 73.59%
+  Batch [250/2071] Loss: 0.6447 | Acc: 73.47%
+  Batch [260/2071] Loss: 0.6451 | Acc: 73.22%
+  Batch [270/2071] Loss: 0.6439 | Acc: 73.19%
+  Batch [280/2071] Loss: 0.6459 | Acc: 73.02%
+  Batch [290/2071] Loss: 0.6488 | Acc: 72.90%
+  Batch [300/2071] Loss: 0.6494 | Acc: 73.00%
+  Batch [310/2071] Loss: 0.6490 | Acc: 73.02%
+  Batch [320/2071] Loss: 0.6516 | Acc: 73.18%
+  Batch [330/2071] Loss: 0.6515 | Acc: 73.17%
+  Batch [340/2071] Loss: 0.6505 | Acc: 73.12%
+  Batch [350/2071] Loss: 0.6516 | Acc: 73.21%
+  Batch [360/2071] Loss: 0.6505 | Acc: 73.23%
+  Batch [370/2071] Loss: 0.6509 | Acc: 73.29%
+  Batch [380/2071] Loss: 0.6536 | Acc: 73.18%
+  Batch [390/2071] Loss: 0.6524 | Acc: 73.30%
+  Batch [400/2071] Loss: 0.6545 | Acc: 73.24%
+  Batch [410/2071] Loss: 0.6537 | Acc: 73.25%
+  Batch [420/2071] Loss: 0.6537 | Acc: 73.26%
+  Batch [430/2071] Loss: 0.6523 | Acc: 73.34%
+  Batch [440/2071] Loss: 0.6517 | Acc: 73.31%
+  Batch [450/2071] Loss: 0.6519 | Acc: 73.33%
+  Batch [460/2071] Loss: 0.6524 | Acc: 73.29%
+  Batch [470/2071] Loss: 0.6506 | Acc: 73.32%
+  Batch [480/2071] Loss: 0.6522 | Acc: 73.26%
+  Batch [490/2071] Loss: 0.6531 | Acc: 73.25%
+  Batch [500/2071] Loss: 0.6546 | Acc: 73.16%
+  Batch [510/2071] Loss: 0.6517 | Acc: 73.33%
+  Batch [520/2071] Loss: 0.6516 | Acc: 73.36%
+  Batch [530/2071] Loss: 0.6527 | Acc: 73.41%
+  Batch [540/2071] Loss: 0.6518 | Acc: 73.43%
+  Batch [550/2071] Loss: 0.6519 | Acc: 73.46%
+  Batch [560/2071] Loss: 0.6526 | Acc: 73.40%
+  Batch [570/2071] Loss: 0.6519 | Acc: 73.47%
+  Batch [580/2071] Loss: 0.6509 | Acc: 73.48%
+  Batch [590/2071] Loss: 0.6517 | Acc: 73.45%
+  Batch [600/2071] Loss: 0.6508 | Acc: 73.47%
+  Batch [610/2071] Loss: 0.6498 | Acc: 73.48%
+  Batch [620/2071] Loss: 0.6521 | Acc: 73.42%
+  Batch [630/2071] Loss: 0.6541 | Acc: 73.29%
+  Batch [640/2071] Loss: 0.6546 | Acc: 73.29%
+  Batch [650/2071] Loss: 0.6551 | Acc: 73.35%
+  Batch [660/2071] Loss: 0.6546 | Acc: 73.34%
+  Batch [670/2071] Loss: 0.6541 | Acc: 73.33%
+  Batch [680/2071] Loss: 0.6541 | Acc: 73.33%
+  Batch [690/2071] Loss: 0.6546 | Acc: 73.31%
+  Batch [700/2071] Loss: 0.6549 | Acc: 73.26%
+  Batch [710/2071] Loss: 0.6558 | Acc: 73.24%
+  Batch [720/2071] Loss: 0.6573 | Acc: 73.09%
+  Batch [730/2071] Loss: 0.6577 | Acc: 73.06%
+  Batch [740/2071] Loss: 0.6562 | Acc: 73.14%
+  Batch [750/2071] Loss: 0.6564 | Acc: 73.14%
+  Batch [760/2071] Loss: 0.6566 | Acc: 73.14%
+  Batch [770/2071] Loss: 0.6566 | Acc: 73.15%
+  Batch [780/2071] Loss: 0.6561 | Acc: 73.16%
+  Batch [790/2071] Loss: 0.6560 | Acc: 73.17%
+  Batch [800/2071] Loss: 0.6570 | Acc: 73.13%
+  Batch [810/2071] Loss: 0.6567 | Acc: 73.12%
+  Batch [820/2071] Loss: 0.6557 | Acc: 73.14%
+  Batch [830/2071] Loss: 0.6554 | Acc: 73.13%
+  Batch [840/2071] Loss: 0.6551 | Acc: 73.07%
+  Batch [850/2071] Loss: 0.6538 | Acc: 73.13%
+  Batch [860/2071] Loss: 0.6547 | Acc: 73.09%
+  Batch [870/2071] Loss: 0.6545 | Acc: 73.09%
+  Batch [880/2071] Loss: 0.6530 | Acc: 73.16%
+  Batch [890/2071] Loss: 0.6526 | Acc: 73.20%
+  Batch [900/2071] Loss: 0.6537 | Acc: 73.21%
+  Batch [910/2071] Loss: 0.6539 | Acc: 73.19%
+  Batch [920/2071] Loss: 0.6534 | Acc: 73.23%
+  Batch [930/2071] Loss: 0.6532 | Acc: 73.23%
+  Batch [940/2071] Loss: 0.6534 | Acc: 73.22%
+  Batch [950/2071] Loss: 0.6541 | Acc: 73.16%
+  Batch [960/2071] Loss: 0.6544 | Acc: 73.12%
+  Batch [970/2071] Loss: 0.6545 | Acc: 73.13%
+  Batch [980/2071] Loss: 0.6542 | Acc: 73.14%
+  Batch [990/2071] Loss: 0.6543 | Acc: 73.13%
+  Batch [1000/2071] Loss: 0.6538 | Acc: 73.16%
+  Batch [1010/2071] Loss: 0.6538 | Acc: 73.17%
+  Batch [1020/2071] Loss: 0.6544 | Acc: 73.13%
+  Batch [1030/2071] Loss: 0.6545 | Acc: 73.11%
+  Batch [1040/2071] Loss: 0.6546 | Acc: 73.16%
+  Batch [1050/2071] Loss: 0.6549 | Acc: 73.07%
+  Batch [1060/2071] Loss: 0.6546 | Acc: 73.06%
+  Batch [1070/2071] Loss: 0.6550 | Acc: 73.04%
+  Batch [1080/2071] Loss: 0.6550 | Acc: 73.06%
+  Batch [1090/2071] Loss: 0.6543 | Acc: 73.06%
+  Batch [1100/2071] Loss: 0.6556 | Acc: 73.06%
+  Batch [1110/2071] Loss: 0.6559 | Acc: 73.04%
+  Batch [1120/2071] Loss: 0.6556 | Acc: 73.03%
+  Batch [1130/2071] Loss: 0.6544 | Acc: 73.06%
+  Batch [1140/2071] Loss: 0.6548 | Acc: 73.04%
+  Batch [1150/2071] Loss: 0.6552 | Acc: 73.04%
+  Batch [1160/2071] Loss: 0.6554 | Acc: 73.07%
+  Batch [1170/2071] Loss: 0.6559 | Acc: 73.08%
+  Batch [1180/2071] Loss: 0.6569 | Acc: 73.03%
+  Batch [1190/2071] Loss: 0.6563 | Acc: 73.07%
+  Batch [1200/2071] Loss: 0.6563 | Acc: 73.05%
+  Batch [1210/2071] Loss: 0.6561 | Acc: 73.02%
+  Batch [1220/2071] Loss: 0.6564 | Acc: 73.02%
+  Batch [1230/2071] Loss: 0.6558 | Acc: 73.06%
+  Batch [1240/2071] Loss: 0.6566 | Acc: 73.02%
+  Batch [1250/2071] Loss: 0.6556 | Acc: 73.07%
+  Batch [1260/2071] Loss: 0.6566 | Acc: 73.01%
+  Batch [1270/2071] Loss: 0.6569 | Acc: 73.02%
+  Batch [1280/2071] Loss: 0.6565 | Acc: 73.03%
+  Batch [1290/2071] Loss: 0.6563 | Acc: 73.03%
+  Batch [1300/2071] Loss: 0.6566 | Acc: 73.03%
+  Batch [1310/2071] Loss: 0.6567 | Acc: 73.04%
+  Batch [1320/2071] Loss: 0.6564 | Acc: 73.05%
+  Batch [1330/2071] Loss: 0.6563 | Acc: 73.02%
+  Batch [1340/2071] Loss: 0.6558 | Acc: 73.01%
+  Batch [1350/2071] Loss: 0.6561 | Acc: 73.01%
+  Batch [1360/2071] Loss: 0.6559 | Acc: 72.99%
+  Batch [1370/2071] Loss: 0.6552 | Acc: 72.99%
+  Batch [1380/2071] Loss: 0.6550 | Acc: 73.00%
+  Batch [1390/2071] Loss: 0.6547 | Acc: 73.00%
+  Batch [1400/2071] Loss: 0.6544 | Acc: 72.97%
+  Batch [1410/2071] Loss: 0.6542 | Acc: 72.95%
+  Batch [1420/2071] Loss: 0.6541 | Acc: 72.98%
+  Batch [1430/2071] Loss: 0.6548 | Acc: 72.93%
+  Batch [1440/2071] Loss: 0.6543 | Acc: 72.92%
+  Batch [1450/2071] Loss: 0.6539 | Acc: 72.95%
+  Batch [1460/2071] Loss: 0.6535 | Acc: 72.97%
+  Batch [1470/2071] Loss: 0.6548 | Acc: 72.93%
+  Batch [1480/2071] Loss: 0.6549 | Acc: 72.91%
+  Batch [1490/2071] Loss: 0.6547 | Acc: 72.91%
+  Batch [1500/2071] Loss: 0.6551 | Acc: 72.89%
+  Batch [1510/2071] Loss: 0.6560 | Acc: 72.86%
+  Batch [1520/2071] Loss: 0.6558 | Acc: 72.86%
+  Batch [1530/2071] Loss: 0.6561 | Acc: 72.87%
+  Batch [1540/2071] Loss: 0.6562 | Acc: 72.84%
+  Batch [1550/2071] Loss: 0.6562 | Acc: 72.82%
+  Batch [1560/2071] Loss: 0.6558 | Acc: 72.85%
+  Batch [1570/2071] Loss: 0.6558 | Acc: 72.86%
+  Batch [1580/2071] Loss: 0.6554 | Acc: 72.87%
+  Batch [1590/2071] Loss: 0.6556 | Acc: 72.89%
+  Batch [1600/2071] Loss: 0.6555 | Acc: 72.91%
+  Batch [1610/2071] Loss: 0.6552 | Acc: 72.92%
+  Batch [1620/2071] Loss: 0.6551 | Acc: 72.91%
+  Batch [1630/2071] Loss: 0.6553 | Acc: 72.89%
+  Batch [1640/2071] Loss: 0.6549 | Acc: 72.91%
+  Batch [1650/2071] Loss: 0.6548 | Acc: 72.89%
+  Batch [1660/2071] Loss: 0.6546 | Acc: 72.88%
+  Batch [1670/2071] Loss: 0.6538 | Acc: 72.90%
+  Batch [1680/2071] Loss: 0.6534 | Acc: 72.92%
+  Batch [1690/2071] Loss: 0.6535 | Acc: 72.88%
+  Batch [1700/2071] Loss: 0.6538 | Acc: 72.88%
+  Batch [1710/2071] Loss: 0.6542 | Acc: 72.86%
+  Batch [1720/2071] Loss: 0.6545 | Acc: 72.83%
+  Batch [1730/2071] Loss: 0.6544 | Acc: 72.82%
+  Batch [1740/2071] Loss: 0.6544 | Acc: 72.81%
+  Batch [1750/2071] Loss: 0.6545 | Acc: 72.81%
+  Batch [1760/2071] Loss: 0.6541 | Acc: 72.84%
+  Batch [1770/2071] Loss: 0.6538 | Acc: 72.83%
+  Batch [1780/2071] Loss: 0.6539 | Acc: 72.82%
+  Batch [1790/2071] Loss: 0.6533 | Acc: 72.84%
+  Batch [1800/2071] Loss: 0.6534 | Acc: 72.85%
+  Batch [1810/2071] Loss: 0.6535 | Acc: 72.87%
+  Batch [1820/2071] Loss: 0.6534 | Acc: 72.87%
+  Batch [1830/2071] Loss: 0.6535 | Acc: 72.88%
+  Batch [1840/2071] Loss: 0.6526 | Acc: 72.91%
+  Batch [1850/2071] Loss: 0.6532 | Acc: 72.88%
+  Batch [1860/2071] Loss: 0.6525 | Acc: 72.90%
+  Batch [1870/2071] Loss: 0.6524 | Acc: 72.91%
+  Batch [1880/2071] Loss: 0.6525 | Acc: 72.91%
+  Batch [1890/2071] Loss: 0.6523 | Acc: 72.92%
+  Batch [1900/2071] Loss: 0.6524 | Acc: 72.92%
+  Batch [1910/2071] Loss: 0.6524 | Acc: 72.92%
+  Batch [1920/2071] Loss: 0.6521 | Acc: 72.94%
+  Batch [1930/2071] Loss: 0.6517 | Acc: 72.97%
+  Batch [1940/2071] Loss: 0.6515 | Acc: 72.96%
+  Batch [1950/2071] Loss: 0.6522 | Acc: 72.96%
+  Batch [1960/2071] Loss: 0.6518 | Acc: 72.96%
+  Batch [1970/2071] Loss: 0.6518 | Acc: 72.97%
+  Batch [1980/2071] Loss: 0.6520 | Acc: 72.96%
+  Batch [1990/2071] Loss: 0.6516 | Acc: 72.98%
+  Batch [2000/2071] Loss: 0.6513 | Acc: 73.00%
+  Batch [2010/2071] Loss: 0.6514 | Acc: 72.99%
+  Batch [2020/2071] Loss: 0.6512 | Acc: 72.99%
+  Batch [2030/2071] Loss: 0.6515 | Acc: 72.98%
+  Batch [2040/2071] Loss: 0.6514 | Acc: 72.99%
+  Batch [2050/2071] Loss: 0.6516 | Acc: 72.99%
+  Batch [2060/2071] Loss: 0.6515 | Acc: 73.00%
+  Batch [2070/2071] Loss: 0.6511 | Acc: 73.02%
+
+======================================================================
+Epoch 3 Summary:
+  Train Loss: 0.6509 | Train Acc: 73.02%
+  Val Loss:   1.0059 | Val Acc:   60.16%
+  Learning Rate: 0.001000
+  Time: 134.3s
+  ✓ Best model! (Val Loss: 1.0059, Val Acc: 60.16%)
+======================================================================
+
+Epoch [4/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.6930 | Acc: 69.06%
+  Batch [20/2071] Loss: 0.6265 | Acc: 72.50%
+  Batch [30/2071] Loss: 0.6220 | Acc: 73.96%
+  Batch [40/2071] Loss: 0.6065 | Acc: 74.38%
+  Batch [50/2071] Loss: 0.6061 | Acc: 74.62%
+  Batch [60/2071] Loss: 0.5967 | Acc: 74.90%
+  Batch [70/2071] Loss: 0.5956 | Acc: 75.13%
+  Batch [80/2071] Loss: 0.5978 | Acc: 75.20%
+  Batch [90/2071] Loss: 0.6024 | Acc: 74.51%
+  Batch [100/2071] Loss: 0.6010 | Acc: 75.19%
+  Batch [110/2071] Loss: 0.6064 | Acc: 74.97%
+  Batch [120/2071] Loss: 0.6057 | Acc: 75.42%
+  Batch [130/2071] Loss: 0.6076 | Acc: 75.22%
+  Batch [140/2071] Loss: 0.6066 | Acc: 75.09%
+  Batch [150/2071] Loss: 0.6037 | Acc: 74.98%
+  Batch [160/2071] Loss: 0.6057 | Acc: 74.90%
+  Batch [170/2071] Loss: 0.6073 | Acc: 74.91%
+  Batch [180/2071] Loss: 0.6143 | Acc: 74.64%
+  Batch [190/2071] Loss: 0.6140 | Acc: 74.67%
+  Batch [200/2071] Loss: 0.6147 | Acc: 74.62%
+  Batch [210/2071] Loss: 0.6172 | Acc: 74.58%
+  Batch [220/2071] Loss: 0.6159 | Acc: 74.62%
+  Batch [230/2071] Loss: 0.6178 | Acc: 74.50%
+  Batch [240/2071] Loss: 0.6218 | Acc: 74.47%
+  Batch [250/2071] Loss: 0.6206 | Acc: 74.40%
+  Batch [260/2071] Loss: 0.6220 | Acc: 74.40%
+  Batch [270/2071] Loss: 0.6275 | Acc: 74.04%
+  Batch [280/2071] Loss: 0.6268 | Acc: 74.05%
+  Batch [290/2071] Loss: 0.6259 | Acc: 74.04%
+  Batch [300/2071] Loss: 0.6251 | Acc: 74.05%
+  Batch [310/2071] Loss: 0.6249 | Acc: 74.01%
+  Batch [320/2071] Loss: 0.6260 | Acc: 73.98%
+  Batch [330/2071] Loss: 0.6289 | Acc: 73.92%
+  Batch [340/2071] Loss: 0.6282 | Acc: 73.83%
+  Batch [350/2071] Loss: 0.6292 | Acc: 73.88%
+  Batch [360/2071] Loss: 0.6297 | Acc: 73.89%
+  Batch [370/2071] Loss: 0.6298 | Acc: 73.99%
+  Batch [380/2071] Loss: 0.6285 | Acc: 74.08%
+  Batch [390/2071] Loss: 0.6280 | Acc: 74.07%
+  Batch [400/2071] Loss: 0.6283 | Acc: 74.10%
+  Batch [410/2071] Loss: 0.6301 | Acc: 73.88%
+  Batch [420/2071] Loss: 0.6302 | Acc: 73.79%
+  Batch [430/2071] Loss: 0.6297 | Acc: 73.84%
+  Batch [440/2071] Loss: 0.6281 | Acc: 73.88%
+  Batch [450/2071] Loss: 0.6267 | Acc: 73.88%
+  Batch [460/2071] Loss: 0.6266 | Acc: 73.97%
+  Batch [470/2071] Loss: 0.6266 | Acc: 73.97%
+  Batch [480/2071] Loss: 0.6254 | Acc: 73.93%
+  Batch [490/2071] Loss: 0.6247 | Acc: 73.91%
+  Batch [500/2071] Loss: 0.6234 | Acc: 73.96%
+  Batch [510/2071] Loss: 0.6241 | Acc: 73.92%
+  Batch [520/2071] Loss: 0.6236 | Acc: 73.97%
+  Batch [530/2071] Loss: 0.6244 | Acc: 74.03%
+  Batch [540/2071] Loss: 0.6227 | Acc: 74.14%
+  Batch [550/2071] Loss: 0.6226 | Acc: 74.12%
+  Batch [560/2071] Loss: 0.6231 | Acc: 74.11%
+  Batch [570/2071] Loss: 0.6227 | Acc: 74.10%
+  Batch [580/2071] Loss: 0.6222 | Acc: 74.14%
+  Batch [590/2071] Loss: 0.6220 | Acc: 74.26%
+  Batch [600/2071] Loss: 0.6217 | Acc: 74.23%
+  Batch [610/2071] Loss: 0.6222 | Acc: 74.19%
+  Batch [620/2071] Loss: 0.6225 | Acc: 74.15%
+  Batch [630/2071] Loss: 0.6227 | Acc: 74.23%
+  Batch [640/2071] Loss: 0.6221 | Acc: 74.27%
+  Batch [650/2071] Loss: 0.6220 | Acc: 74.23%
+  Batch [660/2071] Loss: 0.6215 | Acc: 74.24%
+  Batch [670/2071] Loss: 0.6249 | Acc: 74.12%
+  Batch [680/2071] Loss: 0.6275 | Acc: 73.98%
+  Batch [690/2071] Loss: 0.6283 | Acc: 73.93%
+  Batch [700/2071] Loss: 0.6281 | Acc: 73.99%
+  Batch [710/2071] Loss: 0.6276 | Acc: 74.02%
+  Batch [720/2071] Loss: 0.6277 | Acc: 73.98%
+  Batch [730/2071] Loss: 0.6278 | Acc: 73.94%
+  Batch [740/2071] Loss: 0.6288 | Acc: 73.94%
+  Batch [750/2071] Loss: 0.6308 | Acc: 73.92%
+  Batch [760/2071] Loss: 0.6313 | Acc: 73.85%
+  Batch [770/2071] Loss: 0.6309 | Acc: 73.88%
+  Batch [780/2071] Loss: 0.6304 | Acc: 73.86%
+  Batch [790/2071] Loss: 0.6306 | Acc: 73.83%
+  Batch [800/2071] Loss: 0.6306 | Acc: 73.79%
+  Batch [810/2071] Loss: 0.6302 | Acc: 73.84%
+  Batch [820/2071] Loss: 0.6304 | Acc: 73.83%
+  Batch [830/2071] Loss: 0.6308 | Acc: 73.77%
+  Batch [840/2071] Loss: 0.6320 | Acc: 73.73%
+  Batch [850/2071] Loss: 0.6321 | Acc: 73.68%
+  Batch [860/2071] Loss: 0.6312 | Acc: 73.72%
+  Batch [870/2071] Loss: 0.6307 | Acc: 73.73%
+  Batch [880/2071] Loss: 0.6309 | Acc: 73.75%
+  Batch [890/2071] Loss: 0.6319 | Acc: 73.69%
+  Batch [900/2071] Loss: 0.6316 | Acc: 73.64%
+  Batch [910/2071] Loss: 0.6313 | Acc: 73.67%
+  Batch [920/2071] Loss: 0.6319 | Acc: 73.63%
+  Batch [930/2071] Loss: 0.6311 | Acc: 73.65%
+  Batch [940/2071] Loss: 0.6310 | Acc: 73.62%
+  Batch [950/2071] Loss: 0.6305 | Acc: 73.67%
+  Batch [960/2071] Loss: 0.6303 | Acc: 73.65%
+  Batch [970/2071] Loss: 0.6302 | Acc: 73.67%
+  Batch [980/2071] Loss: 0.6315 | Acc: 73.57%
+  Batch [990/2071] Loss: 0.6313 | Acc: 73.57%
+  Batch [1000/2071] Loss: 0.6318 | Acc: 73.57%
+  Batch [1010/2071] Loss: 0.6325 | Acc: 73.57%
+  Batch [1020/2071] Loss: 0.6331 | Acc: 73.54%
+  Batch [1030/2071] Loss: 0.6334 | Acc: 73.46%
+  Batch [1040/2071] Loss: 0.6338 | Acc: 73.49%
+  Batch [1050/2071] Loss: 0.6334 | Acc: 73.51%
+  Batch [1060/2071] Loss: 0.6331 | Acc: 73.53%
+  Batch [1070/2071] Loss: 0.6329 | Acc: 73.53%
+  Batch [1080/2071] Loss: 0.6335 | Acc: 73.53%
+  Batch [1090/2071] Loss: 0.6327 | Acc: 73.56%
+  Batch [1100/2071] Loss: 0.6329 | Acc: 73.56%
+  Batch [1110/2071] Loss: 0.6329 | Acc: 73.53%
+  Batch [1120/2071] Loss: 0.6324 | Acc: 73.58%
+  Batch [1130/2071] Loss: 0.6330 | Acc: 73.59%
+  Batch [1140/2071] Loss: 0.6331 | Acc: 73.56%
+  Batch [1150/2071] Loss: 0.6329 | Acc: 73.57%
+  Batch [1160/2071] Loss: 0.6328 | Acc: 73.56%
+  Batch [1170/2071] Loss: 0.6322 | Acc: 73.61%
+  Batch [1180/2071] Loss: 0.6322 | Acc: 73.62%
+  Batch [1190/2071] Loss: 0.6324 | Acc: 73.61%
+  Batch [1200/2071] Loss: 0.6321 | Acc: 73.66%
+  Batch [1210/2071] Loss: 0.6319 | Acc: 73.66%
+  Batch [1220/2071] Loss: 0.6324 | Acc: 73.63%
+  Batch [1230/2071] Loss: 0.6321 | Acc: 73.63%
+  Batch [1240/2071] Loss: 0.6305 | Acc: 73.66%
+  Batch [1250/2071] Loss: 0.6307 | Acc: 73.66%
+  Batch [1260/2071] Loss: 0.6308 | Acc: 73.67%
+  Batch [1270/2071] Loss: 0.6307 | Acc: 73.63%
+  Batch [1280/2071] Loss: 0.6306 | Acc: 73.63%
+  Batch [1290/2071] Loss: 0.6312 | Acc: 73.63%
+  Batch [1300/2071] Loss: 0.6319 | Acc: 73.58%
+  Batch [1310/2071] Loss: 0.6318 | Acc: 73.58%
+  Batch [1320/2071] Loss: 0.6315 | Acc: 73.59%
+  Batch [1330/2071] Loss: 0.6315 | Acc: 73.63%
+  Batch [1340/2071] Loss: 0.6311 | Acc: 73.63%
+  Batch [1350/2071] Loss: 0.6307 | Acc: 73.68%
+  Batch [1360/2071] Loss: 0.6312 | Acc: 73.66%
+  Batch [1370/2071] Loss: 0.6310 | Acc: 73.65%
+  Batch [1380/2071] Loss: 0.6310 | Acc: 73.65%
+  Batch [1390/2071] Loss: 0.6308 | Acc: 73.67%
+  Batch [1400/2071] Loss: 0.6307 | Acc: 73.67%
+  Batch [1410/2071] Loss: 0.6315 | Acc: 73.63%
+  Batch [1420/2071] Loss: 0.6308 | Acc: 73.65%
+  Batch [1430/2071] Loss: 0.6305 | Acc: 73.66%
+  Batch [1440/2071] Loss: 0.6305 | Acc: 73.66%
+  Batch [1450/2071] Loss: 0.6300 | Acc: 73.70%
+  Batch [1460/2071] Loss: 0.6308 | Acc: 73.70%
+  Batch [1470/2071] Loss: 0.6311 | Acc: 73.69%
+  Batch [1480/2071] Loss: 0.6309 | Acc: 73.68%
+  Batch [1490/2071] Loss: 0.6309 | Acc: 73.67%
+  Batch [1500/2071] Loss: 0.6306 | Acc: 73.66%
+  Batch [1510/2071] Loss: 0.6313 | Acc: 73.64%
+  Batch [1520/2071] Loss: 0.6312 | Acc: 73.64%
+  Batch [1530/2071] Loss: 0.6312 | Acc: 73.66%
+  Batch [1540/2071] Loss: 0.6308 | Acc: 73.66%
+  Batch [1550/2071] Loss: 0.6315 | Acc: 73.64%
+  Batch [1560/2071] Loss: 0.6315 | Acc: 73.65%
+  Batch [1570/2071] Loss: 0.6309 | Acc: 73.62%
+  Batch [1580/2071] Loss: 0.6310 | Acc: 73.63%
+  Batch [1590/2071] Loss: 0.6312 | Acc: 73.60%
+  Batch [1600/2071] Loss: 0.6319 | Acc: 73.57%
+  Batch [1610/2071] Loss: 0.6320 | Acc: 73.56%
+  Batch [1620/2071] Loss: 0.6320 | Acc: 73.57%
+  Batch [1630/2071] Loss: 0.6319 | Acc: 73.55%
+  Batch [1640/2071] Loss: 0.6319 | Acc: 73.56%
+  Batch [1650/2071] Loss: 0.6323 | Acc: 73.52%
+  Batch [1660/2071] Loss: 0.6326 | Acc: 73.49%
+  Batch [1670/2071] Loss: 0.6324 | Acc: 73.51%
+  Batch [1680/2071] Loss: 0.6325 | Acc: 73.51%
+  Batch [1690/2071] Loss: 0.6327 | Acc: 73.49%
+  Batch [1700/2071] Loss: 0.6324 | Acc: 73.49%
+  Batch [1710/2071] Loss: 0.6325 | Acc: 73.50%
+  Batch [1720/2071] Loss: 0.6331 | Acc: 73.47%
+  Batch [1730/2071] Loss: 0.6332 | Acc: 73.44%
+  Batch [1740/2071] Loss: 0.6333 | Acc: 73.42%
+  Batch [1750/2071] Loss: 0.6331 | Acc: 73.44%
+  Batch [1760/2071] Loss: 0.6331 | Acc: 73.46%
+  Batch [1770/2071] Loss: 0.6335 | Acc: 73.48%
+  Batch [1780/2071] Loss: 0.6334 | Acc: 73.48%
+  Batch [1790/2071] Loss: 0.6333 | Acc: 73.48%
+  Batch [1800/2071] Loss: 0.6334 | Acc: 73.47%
+  Batch [1810/2071] Loss: 0.6333 | Acc: 73.48%
+  Batch [1820/2071] Loss: 0.6333 | Acc: 73.47%
+  Batch [1830/2071] Loss: 0.6335 | Acc: 73.48%
+  Batch [1840/2071] Loss: 0.6334 | Acc: 73.48%
+  Batch [1850/2071] Loss: 0.6335 | Acc: 73.48%
+  Batch [1860/2071] Loss: 0.6331 | Acc: 73.48%
+  Batch [1870/2071] Loss: 0.6333 | Acc: 73.47%
+  Batch [1880/2071] Loss: 0.6331 | Acc: 73.46%
+  Batch [1890/2071] Loss: 0.6332 | Acc: 73.45%
+  Batch [1900/2071] Loss: 0.6330 | Acc: 73.46%
+  Batch [1910/2071] Loss: 0.6331 | Acc: 73.47%
+  Batch [1920/2071] Loss: 0.6332 | Acc: 73.46%
+  Batch [1930/2071] Loss: 0.6329 | Acc: 73.48%
+  Batch [1940/2071] Loss: 0.6327 | Acc: 73.49%
+  Batch [1950/2071] Loss: 0.6327 | Acc: 73.50%
+  Batch [1960/2071] Loss: 0.6325 | Acc: 73.51%
+  Batch [1970/2071] Loss: 0.6324 | Acc: 73.50%
+  Batch [1980/2071] Loss: 0.6318 | Acc: 73.52%
+  Batch [1990/2071] Loss: 0.6317 | Acc: 73.52%
+  Batch [2000/2071] Loss: 0.6315 | Acc: 73.54%
+  Batch [2010/2071] Loss: 0.6318 | Acc: 73.52%
+  Batch [2020/2071] Loss: 0.6318 | Acc: 73.51%
+  Batch [2030/2071] Loss: 0.6320 | Acc: 73.50%
+  Batch [2040/2071] Loss: 0.6317 | Acc: 73.51%
+  Batch [2050/2071] Loss: 0.6316 | Acc: 73.51%
+  Batch [2060/2071] Loss: 0.6312 | Acc: 73.52%
+  Batch [2070/2071] Loss: 0.6314 | Acc: 73.53%
+
+======================================================================
+Epoch 4 Summary:
+  Train Loss: 0.6313 | Train Acc: 73.53%
+  Val Loss:   1.0319 | Val Acc:   61.21%
+  Learning Rate: 0.001000
+  Time: 134.8s
+======================================================================
+
+Epoch [5/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.4963 | Acc: 78.12%
+  Batch [20/2071] Loss: 0.5957 | Acc: 75.47%
+  Batch [30/2071] Loss: 0.5845 | Acc: 75.94%
+  Batch [40/2071] Loss: 0.6063 | Acc: 72.66%
+  Batch [50/2071] Loss: 0.6136 | Acc: 72.81%
+  Batch [60/2071] Loss: 0.6167 | Acc: 72.29%
+  Batch [70/2071] Loss: 0.6150 | Acc: 72.28%
+  Batch [80/2071] Loss: 0.6258 | Acc: 71.91%
+  Batch [90/2071] Loss: 0.6203 | Acc: 72.08%
+  Batch [100/2071] Loss: 0.6288 | Acc: 71.81%
+  Batch [110/2071] Loss: 0.6266 | Acc: 72.02%
+  Batch [120/2071] Loss: 0.6242 | Acc: 72.37%
+  Batch [130/2071] Loss: 0.6264 | Acc: 72.55%
+  Batch [140/2071] Loss: 0.6270 | Acc: 72.46%
+  Batch [150/2071] Loss: 0.6240 | Acc: 72.71%
+  Batch [160/2071] Loss: 0.6191 | Acc: 72.85%
+  Batch [170/2071] Loss: 0.6182 | Acc: 72.79%
+  Batch [180/2071] Loss: 0.6207 | Acc: 72.78%
+  Batch [190/2071] Loss: 0.6228 | Acc: 72.63%
+  Batch [200/2071] Loss: 0.6186 | Acc: 72.70%
+  Batch [210/2071] Loss: 0.6209 | Acc: 72.66%
+  Batch [220/2071] Loss: 0.6269 | Acc: 72.68%
+  Batch [230/2071] Loss: 0.6235 | Acc: 72.87%
+  Batch [240/2071] Loss: 0.6242 | Acc: 73.06%
+  Batch [250/2071] Loss: 0.6223 | Acc: 73.12%
+  Batch [260/2071] Loss: 0.6215 | Acc: 73.19%
+  Batch [270/2071] Loss: 0.6219 | Acc: 73.18%
+  Batch [280/2071] Loss: 0.6209 | Acc: 73.26%
+  Batch [290/2071] Loss: 0.6229 | Acc: 73.17%
+  Batch [300/2071] Loss: 0.6221 | Acc: 73.17%
+  Batch [310/2071] Loss: 0.6214 | Acc: 73.28%
+  Batch [320/2071] Loss: 0.6227 | Acc: 73.24%
+  Batch [330/2071] Loss: 0.6221 | Acc: 73.14%
+  Batch [340/2071] Loss: 0.6211 | Acc: 73.17%
+  Batch [350/2071] Loss: 0.6224 | Acc: 73.19%
+  Batch [360/2071] Loss: 0.6209 | Acc: 73.35%
+  Batch [370/2071] Loss: 0.6218 | Acc: 73.32%
+  Batch [380/2071] Loss: 0.6218 | Acc: 73.36%
+  Batch [390/2071] Loss: 0.6211 | Acc: 73.34%
+  Batch [400/2071] Loss: 0.6192 | Acc: 73.35%
+  Batch [410/2071] Loss: 0.6186 | Acc: 73.29%
+  Batch [420/2071] Loss: 0.6202 | Acc: 73.32%
+  Batch [430/2071] Loss: 0.6198 | Acc: 73.34%
+  Batch [440/2071] Loss: 0.6194 | Acc: 73.39%
+  Batch [450/2071] Loss: 0.6195 | Acc: 73.26%
+  Batch [460/2071] Loss: 0.6196 | Acc: 73.22%
+  Batch [470/2071] Loss: 0.6199 | Acc: 73.19%
+  Batch [480/2071] Loss: 0.6202 | Acc: 73.17%
+  Batch [490/2071] Loss: 0.6193 | Acc: 73.34%
+  Batch [500/2071] Loss: 0.6178 | Acc: 73.42%
+  Batch [510/2071] Loss: 0.6166 | Acc: 73.50%
+  Batch [520/2071] Loss: 0.6181 | Acc: 73.49%
+  Batch [530/2071] Loss: 0.6174 | Acc: 73.51%
+  Batch [540/2071] Loss: 0.6171 | Acc: 73.54%
+  Batch [550/2071] Loss: 0.6178 | Acc: 73.51%
+  Batch [560/2071] Loss: 0.6179 | Acc: 73.42%
+  Batch [570/2071] Loss: 0.6196 | Acc: 73.38%
+  Batch [580/2071] Loss: 0.6210 | Acc: 73.34%
+  Batch [590/2071] Loss: 0.6208 | Acc: 73.37%
+  Batch [600/2071] Loss: 0.6194 | Acc: 73.43%
+  Batch [610/2071] Loss: 0.6197 | Acc: 73.51%
+  Batch [620/2071] Loss: 0.6186 | Acc: 73.58%
+  Batch [630/2071] Loss: 0.6195 | Acc: 73.54%
+  Batch [640/2071] Loss: 0.6202 | Acc: 73.55%
+  Batch [650/2071] Loss: 0.6199 | Acc: 73.58%
+  Batch [660/2071] Loss: 0.6201 | Acc: 73.63%
+  Batch [670/2071] Loss: 0.6215 | Acc: 73.62%
+  Batch [680/2071] Loss: 0.6211 | Acc: 73.62%
+  Batch [690/2071] Loss: 0.6208 | Acc: 73.60%
+  Batch [700/2071] Loss: 0.6205 | Acc: 73.62%
+  Batch [710/2071] Loss: 0.6219 | Acc: 73.61%
+  Batch [720/2071] Loss: 0.6225 | Acc: 73.49%
+  Batch [730/2071] Loss: 0.6223 | Acc: 73.50%
+  Batch [740/2071] Loss: 0.6217 | Acc: 73.57%
+  Batch [750/2071] Loss: 0.6218 | Acc: 73.56%
+  Batch [760/2071] Loss: 0.6207 | Acc: 73.63%
+  Batch [770/2071] Loss: 0.6212 | Acc: 73.62%
+  Batch [780/2071] Loss: 0.6203 | Acc: 73.66%
+  Batch [790/2071] Loss: 0.6193 | Acc: 73.69%
+  Batch [800/2071] Loss: 0.6187 | Acc: 73.78%
+  Batch [810/2071] Loss: 0.6175 | Acc: 73.81%
+  Batch [820/2071] Loss: 0.6169 | Acc: 73.88%
+  Batch [830/2071] Loss: 0.6177 | Acc: 73.84%
+  Batch [840/2071] Loss: 0.6172 | Acc: 73.87%
+  Batch [850/2071] Loss: 0.6179 | Acc: 73.86%
+  Batch [860/2071] Loss: 0.6179 | Acc: 73.88%
+  Batch [870/2071] Loss: 0.6185 | Acc: 73.87%
+  Batch [880/2071] Loss: 0.6189 | Acc: 73.76%
+  Batch [890/2071] Loss: 0.6201 | Acc: 73.73%
+  Batch [900/2071] Loss: 0.6196 | Acc: 73.75%
+  Batch [910/2071] Loss: 0.6201 | Acc: 73.72%
+  Batch [920/2071] Loss: 0.6204 | Acc: 73.69%
+  Batch [930/2071] Loss: 0.6209 | Acc: 73.65%
+  Batch [940/2071] Loss: 0.6207 | Acc: 73.66%
+  Batch [950/2071] Loss: 0.6206 | Acc: 73.68%
+  Batch [960/2071] Loss: 0.6222 | Acc: 73.60%
+  Batch [970/2071] Loss: 0.6220 | Acc: 73.62%
+  Batch [980/2071] Loss: 0.6209 | Acc: 73.67%
+  Batch [990/2071] Loss: 0.6204 | Acc: 73.73%
+  Batch [1000/2071] Loss: 0.6204 | Acc: 73.75%
+  Batch [1010/2071] Loss: 0.6204 | Acc: 73.73%
+  Batch [1020/2071] Loss: 0.6209 | Acc: 73.73%
+  Batch [1030/2071] Loss: 0.6206 | Acc: 73.76%
+  Batch [1040/2071] Loss: 0.6198 | Acc: 73.80%
+  Batch [1050/2071] Loss: 0.6206 | Acc: 73.77%
+  Batch [1060/2071] Loss: 0.6209 | Acc: 73.71%
+  Batch [1070/2071] Loss: 0.6210 | Acc: 73.70%
+  Batch [1080/2071] Loss: 0.6218 | Acc: 73.67%
+  Batch [1090/2071] Loss: 0.6215 | Acc: 73.68%
+  Batch [1100/2071] Loss: 0.6219 | Acc: 73.67%
+  Batch [1110/2071] Loss: 0.6225 | Acc: 73.65%
+  Batch [1120/2071] Loss: 0.6235 | Acc: 73.61%
+  Batch [1130/2071] Loss: 0.6227 | Acc: 73.65%
+  Batch [1140/2071] Loss: 0.6226 | Acc: 73.66%
+  Batch [1150/2071] Loss: 0.6228 | Acc: 73.65%
+  Batch [1160/2071] Loss: 0.6225 | Acc: 73.66%
+  Batch [1170/2071] Loss: 0.6228 | Acc: 73.66%
+  Batch [1180/2071] Loss: 0.6219 | Acc: 73.69%
+  Batch [1190/2071] Loss: 0.6225 | Acc: 73.70%
+  Batch [1200/2071] Loss: 0.6216 | Acc: 73.71%
+  Batch [1210/2071] Loss: 0.6214 | Acc: 73.71%
+  Batch [1220/2071] Loss: 0.6212 | Acc: 73.73%
+  Batch [1230/2071] Loss: 0.6220 | Acc: 73.67%
+  Batch [1240/2071] Loss: 0.6219 | Acc: 73.66%
+  Batch [1250/2071] Loss: 0.6215 | Acc: 73.70%
+  Batch [1260/2071] Loss: 0.6209 | Acc: 73.73%
+  Batch [1270/2071] Loss: 0.6211 | Acc: 73.73%
+  Batch [1280/2071] Loss: 0.6209 | Acc: 73.74%
+  Batch [1290/2071] Loss: 0.6217 | Acc: 73.70%
+  Batch [1300/2071] Loss: 0.6212 | Acc: 73.71%
+  Batch [1310/2071] Loss: 0.6213 | Acc: 73.73%
+  Batch [1320/2071] Loss: 0.6215 | Acc: 73.72%
+  Batch [1330/2071] Loss: 0.6214 | Acc: 73.73%
+  Batch [1340/2071] Loss: 0.6214 | Acc: 73.74%
+  Batch [1350/2071] Loss: 0.6212 | Acc: 73.75%
+  Batch [1360/2071] Loss: 0.6210 | Acc: 73.77%
+  Batch [1370/2071] Loss: 0.6215 | Acc: 73.75%
+  Batch [1380/2071] Loss: 0.6213 | Acc: 73.73%
+  Batch [1390/2071] Loss: 0.6213 | Acc: 73.77%
+  Batch [1400/2071] Loss: 0.6215 | Acc: 73.75%
+  Batch [1410/2071] Loss: 0.6211 | Acc: 73.76%
+  Batch [1420/2071] Loss: 0.6209 | Acc: 73.78%
+  Batch [1430/2071] Loss: 0.6205 | Acc: 73.78%
+  Batch [1440/2071] Loss: 0.6208 | Acc: 73.76%
+  Batch [1450/2071] Loss: 0.6214 | Acc: 73.72%
+  Batch [1460/2071] Loss: 0.6213 | Acc: 73.74%
+  Batch [1470/2071] Loss: 0.6211 | Acc: 73.76%
+  Batch [1480/2071] Loss: 0.6213 | Acc: 73.74%
+  Batch [1490/2071] Loss: 0.6212 | Acc: 73.76%
+  Batch [1500/2071] Loss: 0.6214 | Acc: 73.76%
+  Batch [1510/2071] Loss: 0.6211 | Acc: 73.77%
+  Batch [1520/2071] Loss: 0.6220 | Acc: 73.74%
+  Batch [1530/2071] Loss: 0.6219 | Acc: 73.73%
+  Batch [1540/2071] Loss: 0.6216 | Acc: 73.75%
+  Batch [1550/2071] Loss: 0.6222 | Acc: 73.73%
+  Batch [1560/2071] Loss: 0.6222 | Acc: 73.70%
+  Batch [1570/2071] Loss: 0.6222 | Acc: 73.70%
+  Batch [1580/2071] Loss: 0.6222 | Acc: 73.72%
+  Batch [1590/2071] Loss: 0.6221 | Acc: 73.71%
+  Batch [1600/2071] Loss: 0.6224 | Acc: 73.68%
+  Batch [1610/2071] Loss: 0.6232 | Acc: 73.67%
+  Batch [1620/2071] Loss: 0.6230 | Acc: 73.68%
+  Batch [1630/2071] Loss: 0.6228 | Acc: 73.68%
+  Batch [1640/2071] Loss: 0.6223 | Acc: 73.70%
+  Batch [1650/2071] Loss: 0.6222 | Acc: 73.68%
+  Batch [1660/2071] Loss: 0.6219 | Acc: 73.69%
+  Batch [1670/2071] Loss: 0.6218 | Acc: 73.68%
+  Batch [1680/2071] Loss: 0.6221 | Acc: 73.66%
+  Batch [1690/2071] Loss: 0.6218 | Acc: 73.68%
+  Batch [1700/2071] Loss: 0.6218 | Acc: 73.68%
+  Batch [1710/2071] Loss: 0.6218 | Acc: 73.66%
+  Batch [1720/2071] Loss: 0.6215 | Acc: 73.66%
+  Batch [1730/2071] Loss: 0.6215 | Acc: 73.68%
+  Batch [1740/2071] Loss: 0.6215 | Acc: 73.70%
+  Batch [1750/2071] Loss: 0.6213 | Acc: 73.70%
+  Batch [1760/2071] Loss: 0.6213 | Acc: 73.71%
+  Batch [1770/2071] Loss: 0.6216 | Acc: 73.70%
+  Batch [1780/2071] Loss: 0.6216 | Acc: 73.70%
+  Batch [1790/2071] Loss: 0.6221 | Acc: 73.69%
+  Batch [1800/2071] Loss: 0.6215 | Acc: 73.72%
+  Batch [1810/2071] Loss: 0.6214 | Acc: 73.73%
+  Batch [1820/2071] Loss: 0.6212 | Acc: 73.75%
+  Batch [1830/2071] Loss: 0.6209 | Acc: 73.77%
+  Batch [1840/2071] Loss: 0.6207 | Acc: 73.76%
+  Batch [1850/2071] Loss: 0.6207 | Acc: 73.74%
+  Batch [1860/2071] Loss: 0.6206 | Acc: 73.74%
+  Batch [1870/2071] Loss: 0.6204 | Acc: 73.73%
+  Batch [1880/2071] Loss: 0.6203 | Acc: 73.74%
+  Batch [1890/2071] Loss: 0.6197 | Acc: 73.74%
+  Batch [1900/2071] Loss: 0.6199 | Acc: 73.73%
+  Batch [1910/2071] Loss: 0.6199 | Acc: 73.74%
+  Batch [1920/2071] Loss: 0.6199 | Acc: 73.74%
+  Batch [1930/2071] Loss: 0.6202 | Acc: 73.73%
+  Batch [1940/2071] Loss: 0.6200 | Acc: 73.72%
+  Batch [1950/2071] Loss: 0.6199 | Acc: 73.73%
+  Batch [1960/2071] Loss: 0.6195 | Acc: 73.75%
+  Batch [1970/2071] Loss: 0.6198 | Acc: 73.75%
+  Batch [1980/2071] Loss: 0.6196 | Acc: 73.74%
+  Batch [1990/2071] Loss: 0.6194 | Acc: 73.74%
+  Batch [2000/2071] Loss: 0.6198 | Acc: 73.73%
+  Batch [2010/2071] Loss: 0.6200 | Acc: 73.71%
+  Batch [2020/2071] Loss: 0.6196 | Acc: 73.73%
+  Batch [2030/2071] Loss: 0.6197 | Acc: 73.72%
+  Batch [2040/2071] Loss: 0.6193 | Acc: 73.73%
+  Batch [2050/2071] Loss: 0.6195 | Acc: 73.75%
+  Batch [2060/2071] Loss: 0.6194 | Acc: 73.76%
+  Batch [2070/2071] Loss: 0.6194 | Acc: 73.75%
+
+======================================================================
+Epoch 5 Summary:
+  Train Loss: 0.6193 | Train Acc: 73.75%
+  Val Loss:   0.9997 | Val Acc:   63.78%
+  Learning Rate: 0.001000
+  Time: 134.8s
+  ✓ Best model! (Val Loss: 0.9997, Val Acc: 63.78%)
+======================================================================
+
+Epoch [6/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.7987 | Acc: 71.88%
+  Batch [20/2071] Loss: 0.6932 | Acc: 72.81%
+  Batch [30/2071] Loss: 0.6665 | Acc: 72.60%
+  Batch [40/2071] Loss: 0.6618 | Acc: 74.30%
+  Batch [50/2071] Loss: 0.6406 | Acc: 74.31%
+  Batch [60/2071] Loss: 0.6411 | Acc: 74.74%
+  Batch [70/2071] Loss: 0.6533 | Acc: 74.15%
+  Batch [80/2071] Loss: 0.6391 | Acc: 74.18%
+  Batch [90/2071] Loss: 0.6508 | Acc: 73.68%
+  Batch [100/2071] Loss: 0.6496 | Acc: 72.91%
+  Batch [110/2071] Loss: 0.6494 | Acc: 72.50%
+  Batch [120/2071] Loss: 0.6414 | Acc: 73.07%
+  Batch [130/2071] Loss: 0.6396 | Acc: 73.27%
+  Batch [140/2071] Loss: 0.6370 | Acc: 73.33%
+  Batch [150/2071] Loss: 0.6353 | Acc: 73.65%
+  Batch [160/2071] Loss: 0.6312 | Acc: 73.54%
+  Batch [170/2071] Loss: 0.6313 | Acc: 73.51%
+  Batch [180/2071] Loss: 0.6271 | Acc: 73.66%
+  Batch [190/2071] Loss: 0.6227 | Acc: 73.88%
+  Batch [200/2071] Loss: 0.6203 | Acc: 73.97%
+  Batch [210/2071] Loss: 0.6189 | Acc: 73.87%
+  Batch [220/2071] Loss: 0.6176 | Acc: 73.91%
+  Batch [230/2071] Loss: 0.6197 | Acc: 73.91%
+  Batch [240/2071] Loss: 0.6218 | Acc: 73.74%
+  Batch [250/2071] Loss: 0.6209 | Acc: 73.83%
+  Batch [260/2071] Loss: 0.6155 | Acc: 74.03%
+  Batch [270/2071] Loss: 0.6154 | Acc: 74.00%
+  Batch [280/2071] Loss: 0.6160 | Acc: 73.97%
+  Batch [290/2071] Loss: 0.6160 | Acc: 74.06%
+  Batch [300/2071] Loss: 0.6196 | Acc: 73.96%
+  Batch [310/2071] Loss: 0.6157 | Acc: 74.18%
+  Batch [320/2071] Loss: 0.6137 | Acc: 74.26%
+  Batch [330/2071] Loss: 0.6131 | Acc: 74.26%
+  Batch [340/2071] Loss: 0.6152 | Acc: 74.19%
+  Batch [350/2071] Loss: 0.6142 | Acc: 74.26%
+  Batch [360/2071] Loss: 0.6135 | Acc: 74.31%
+  Batch [370/2071] Loss: 0.6117 | Acc: 74.31%
+  Batch [380/2071] Loss: 0.6114 | Acc: 74.35%
+  Batch [390/2071] Loss: 0.6116 | Acc: 74.22%
+  Batch [400/2071] Loss: 0.6107 | Acc: 74.18%
+  Batch [410/2071] Loss: 0.6131 | Acc: 74.05%
+  Batch [420/2071] Loss: 0.6151 | Acc: 74.00%
+  Batch [430/2071] Loss: 0.6159 | Acc: 74.01%
+  Batch [440/2071] Loss: 0.6164 | Acc: 73.98%
+  Batch [450/2071] Loss: 0.6146 | Acc: 73.99%
+  Batch [460/2071] Loss: 0.6153 | Acc: 73.95%
+  Batch [470/2071] Loss: 0.6137 | Acc: 74.02%
+  Batch [480/2071] Loss: 0.6134 | Acc: 74.03%
+  Batch [490/2071] Loss: 0.6141 | Acc: 73.99%
+  Batch [500/2071] Loss: 0.6119 | Acc: 74.09%
+  Batch [510/2071] Loss: 0.6109 | Acc: 74.14%
+  Batch [520/2071] Loss: 0.6106 | Acc: 74.13%
+  Batch [530/2071] Loss: 0.6108 | Acc: 74.09%
+  Batch [540/2071] Loss: 0.6108 | Acc: 74.09%
+  Batch [550/2071] Loss: 0.6108 | Acc: 74.16%
+  Batch [560/2071] Loss: 0.6111 | Acc: 74.14%
+  Batch [570/2071] Loss: 0.6107 | Acc: 74.13%
+  Batch [580/2071] Loss: 0.6109 | Acc: 74.13%
+  Batch [590/2071] Loss: 0.6109 | Acc: 74.11%
+  Batch [600/2071] Loss: 0.6096 | Acc: 74.17%
+  Batch [610/2071] Loss: 0.6091 | Acc: 74.30%
+  Batch [620/2071] Loss: 0.6103 | Acc: 74.32%
+  Batch [630/2071] Loss: 0.6105 | Acc: 74.33%
+  Batch [640/2071] Loss: 0.6098 | Acc: 74.34%
+  Batch [650/2071] Loss: 0.6104 | Acc: 74.30%
+  Batch [660/2071] Loss: 0.6099 | Acc: 74.38%
+  Batch [670/2071] Loss: 0.6103 | Acc: 74.38%
+  Batch [680/2071] Loss: 0.6093 | Acc: 74.38%
+  Batch [690/2071] Loss: 0.6098 | Acc: 74.38%
+  Batch [700/2071] Loss: 0.6085 | Acc: 74.39%
+  Batch [710/2071] Loss: 0.6079 | Acc: 74.38%
+  Batch [720/2071] Loss: 0.6079 | Acc: 74.41%
+  Batch [730/2071] Loss: 0.6069 | Acc: 74.49%
+  Batch [740/2071] Loss: 0.6074 | Acc: 74.43%
+  Batch [750/2071] Loss: 0.6061 | Acc: 74.49%
+  Batch [760/2071] Loss: 0.6056 | Acc: 74.51%
+  Batch [770/2071] Loss: 0.6056 | Acc: 74.55%
+  Batch [780/2071] Loss: 0.6052 | Acc: 74.60%
+  Batch [790/2071] Loss: 0.6055 | Acc: 74.64%
+  Batch [800/2071] Loss: 0.6052 | Acc: 74.62%
+  Batch [810/2071] Loss: 0.6061 | Acc: 74.63%
+  Batch [820/2071] Loss: 0.6065 | Acc: 74.61%
+  Batch [830/2071] Loss: 0.6071 | Acc: 74.57%
+  Batch [840/2071] Loss: 0.6073 | Acc: 74.56%
+  Batch [850/2071] Loss: 0.6075 | Acc: 74.51%
+  Batch [860/2071] Loss: 0.6081 | Acc: 74.48%
+  Batch [870/2071] Loss: 0.6076 | Acc: 74.45%
+  Batch [880/2071] Loss: 0.6067 | Acc: 74.48%
+  Batch [890/2071] Loss: 0.6063 | Acc: 74.53%
+  Batch [900/2071] Loss: 0.6072 | Acc: 74.52%
+  Batch [910/2071] Loss: 0.6073 | Acc: 74.46%
+  Batch [920/2071] Loss: 0.6077 | Acc: 74.47%
+  Batch [930/2071] Loss: 0.6078 | Acc: 74.47%
+  Batch [940/2071] Loss: 0.6072 | Acc: 74.47%
+  Batch [950/2071] Loss: 0.6071 | Acc: 74.47%
+  Batch [960/2071] Loss: 0.6073 | Acc: 74.45%
+  Batch [970/2071] Loss: 0.6079 | Acc: 74.42%
+  Batch [980/2071] Loss: 0.6078 | Acc: 74.43%
+  Batch [990/2071] Loss: 0.6084 | Acc: 74.40%
+  Batch [1000/2071] Loss: 0.6092 | Acc: 74.40%
+  Batch [1010/2071] Loss: 0.6092 | Acc: 74.41%
+  Batch [1020/2071] Loss: 0.6085 | Acc: 74.42%
+  Batch [1030/2071] Loss: 0.6085 | Acc: 74.45%
+  Batch [1040/2071] Loss: 0.6089 | Acc: 74.44%
+  Batch [1050/2071] Loss: 0.6092 | Acc: 74.38%
+  Batch [1060/2071] Loss: 0.6087 | Acc: 74.39%
+  Batch [1070/2071] Loss: 0.6080 | Acc: 74.40%
+  Batch [1080/2071] Loss: 0.6072 | Acc: 74.40%
+  Batch [1090/2071] Loss: 0.6066 | Acc: 74.42%
+  Batch [1100/2071] Loss: 0.6070 | Acc: 74.39%
+  Batch [1110/2071] Loss: 0.6070 | Acc: 74.41%
+  Batch [1120/2071] Loss: 0.6067 | Acc: 74.41%
+  Batch [1130/2071] Loss: 0.6072 | Acc: 74.39%
+  Batch [1140/2071] Loss: 0.6078 | Acc: 74.34%
+  Batch [1150/2071] Loss: 0.6081 | Acc: 74.33%
+  Batch [1160/2071] Loss: 0.6085 | Acc: 74.36%
+  Batch [1170/2071] Loss: 0.6088 | Acc: 74.33%
+  Batch [1180/2071] Loss: 0.6089 | Acc: 74.29%
+  Batch [1190/2071] Loss: 0.6087 | Acc: 74.32%
+  Batch [1200/2071] Loss: 0.6086 | Acc: 74.33%
+  Batch [1210/2071] Loss: 0.6080 | Acc: 74.34%
+  Batch [1220/2071] Loss: 0.6085 | Acc: 74.27%
+  Batch [1230/2071] Loss: 0.6078 | Acc: 74.31%
+  Batch [1240/2071] Loss: 0.6079 | Acc: 74.32%
+  Batch [1250/2071] Loss: 0.6076 | Acc: 74.33%
+  Batch [1260/2071] Loss: 0.6071 | Acc: 74.33%
+  Batch [1270/2071] Loss: 0.6070 | Acc: 74.35%
+  Batch [1280/2071] Loss: 0.6071 | Acc: 74.36%
+  Batch [1290/2071] Loss: 0.6070 | Acc: 74.36%
+  Batch [1300/2071] Loss: 0.6067 | Acc: 74.37%
+  Batch [1310/2071] Loss: 0.6071 | Acc: 74.35%
+  Batch [1320/2071] Loss: 0.6069 | Acc: 74.34%
+  Batch [1330/2071] Loss: 0.6073 | Acc: 74.32%
+  Batch [1340/2071] Loss: 0.6074 | Acc: 74.33%
+  Batch [1350/2071] Loss: 0.6070 | Acc: 74.35%
+  Batch [1360/2071] Loss: 0.6061 | Acc: 74.39%
+  Batch [1370/2071] Loss: 0.6057 | Acc: 74.42%
+  Batch [1380/2071] Loss: 0.6053 | Acc: 74.44%
+  Batch [1390/2071] Loss: 0.6057 | Acc: 74.44%
+  Batch [1400/2071] Loss: 0.6059 | Acc: 74.42%
+  Batch [1410/2071] Loss: 0.6056 | Acc: 74.44%
+  Batch [1420/2071] Loss: 0.6050 | Acc: 74.47%
+  Batch [1430/2071] Loss: 0.6054 | Acc: 74.45%
+  Batch [1440/2071] Loss: 0.6054 | Acc: 74.47%
+  Batch [1450/2071] Loss: 0.6058 | Acc: 74.43%
+  Batch [1460/2071] Loss: 0.6070 | Acc: 74.41%
+  Batch [1470/2071] Loss: 0.6072 | Acc: 74.38%
+  Batch [1480/2071] Loss: 0.6076 | Acc: 74.35%
+  Batch [1490/2071] Loss: 0.6072 | Acc: 74.38%
+  Batch [1500/2071] Loss: 0.6076 | Acc: 74.37%
+  Batch [1510/2071] Loss: 0.6079 | Acc: 74.38%
+  Batch [1520/2071] Loss: 0.6082 | Acc: 74.36%
+  Batch [1530/2071] Loss: 0.6086 | Acc: 74.37%
+  Batch [1540/2071] Loss: 0.6085 | Acc: 74.39%
+  Batch [1550/2071] Loss: 0.6084 | Acc: 74.42%
+  Batch [1560/2071] Loss: 0.6080 | Acc: 74.45%
+  Batch [1570/2071] Loss: 0.6078 | Acc: 74.46%
+  Batch [1580/2071] Loss: 0.6082 | Acc: 74.44%
+  Batch [1590/2071] Loss: 0.6084 | Acc: 74.45%
+  Batch [1600/2071] Loss: 0.6088 | Acc: 74.43%
+  Batch [1610/2071] Loss: 0.6088 | Acc: 74.45%
+  Batch [1620/2071] Loss: 0.6087 | Acc: 74.46%
+  Batch [1630/2071] Loss: 0.6083 | Acc: 74.49%
+  Batch [1640/2071] Loss: 0.6081 | Acc: 74.50%
+  Batch [1650/2071] Loss: 0.6080 | Acc: 74.49%
+  Batch [1660/2071] Loss: 0.6082 | Acc: 74.49%
+  Batch [1670/2071] Loss: 0.6080 | Acc: 74.49%
+  Batch [1680/2071] Loss: 0.6078 | Acc: 74.51%
+  Batch [1690/2071] Loss: 0.6079 | Acc: 74.52%
+  Batch [1700/2071] Loss: 0.6081 | Acc: 74.52%
+  Batch [1710/2071] Loss: 0.6084 | Acc: 74.52%
+  Batch [1720/2071] Loss: 0.6084 | Acc: 74.52%
+  Batch [1730/2071] Loss: 0.6084 | Acc: 74.49%
+  Batch [1740/2071] Loss: 0.6087 | Acc: 74.51%
+  Batch [1750/2071] Loss: 0.6090 | Acc: 74.49%
+  Batch [1760/2071] Loss: 0.6092 | Acc: 74.47%
+  Batch [1770/2071] Loss: 0.6090 | Acc: 74.47%
+  Batch [1780/2071] Loss: 0.6090 | Acc: 74.46%
+  Batch [1790/2071] Loss: 0.6095 | Acc: 74.47%
+  Batch [1800/2071] Loss: 0.6091 | Acc: 74.48%
+  Batch [1810/2071] Loss: 0.6089 | Acc: 74.50%
+  Batch [1820/2071] Loss: 0.6089 | Acc: 74.51%
+  Batch [1830/2071] Loss: 0.6093 | Acc: 74.51%
+  Batch [1840/2071] Loss: 0.6094 | Acc: 74.51%
+  Batch [1850/2071] Loss: 0.6091 | Acc: 74.52%
+  Batch [1860/2071] Loss: 0.6091 | Acc: 74.51%
+  Batch [1870/2071] Loss: 0.6092 | Acc: 74.49%
+  Batch [1880/2071] Loss: 0.6091 | Acc: 74.50%
+  Batch [1890/2071] Loss: 0.6086 | Acc: 74.52%
+  Batch [1900/2071] Loss: 0.6087 | Acc: 74.53%
+  Batch [1910/2071] Loss: 0.6088 | Acc: 74.52%
+  Batch [1920/2071] Loss: 0.6090 | Acc: 74.51%
+  Batch [1930/2071] Loss: 0.6094 | Acc: 74.49%
+  Batch [1940/2071] Loss: 0.6094 | Acc: 74.47%
+  Batch [1950/2071] Loss: 0.6095 | Acc: 74.46%
+  Batch [1960/2071] Loss: 0.6097 | Acc: 74.45%
+  Batch [1970/2071] Loss: 0.6095 | Acc: 74.45%
+  Batch [1980/2071] Loss: 0.6098 | Acc: 74.46%
+  Batch [1990/2071] Loss: 0.6102 | Acc: 74.44%
+  Batch [2000/2071] Loss: 0.6099 | Acc: 74.41%
+  Batch [2010/2071] Loss: 0.6095 | Acc: 74.44%
+  Batch [2020/2071] Loss: 0.6090 | Acc: 74.47%
+  Batch [2030/2071] Loss: 0.6085 | Acc: 74.47%
+  Batch [2040/2071] Loss: 0.6084 | Acc: 74.48%
+  Batch [2050/2071] Loss: 0.6086 | Acc: 74.48%
+  Batch [2060/2071] Loss: 0.6085 | Acc: 74.47%
+  Batch [2070/2071] Loss: 0.6087 | Acc: 74.44%
+
+======================================================================
+Epoch 6 Summary:
+  Train Loss: 0.6087 | Train Acc: 74.44%
+  Val Loss:   0.9077 | Val Acc:   67.60%
+  Learning Rate: 0.001000
+  Time: 134.8s
+  ✓ Best model! (Val Loss: 0.9077, Val Acc: 67.60%)
+======================================================================
+
+Epoch [7/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5044 | Acc: 78.44%
+  Batch [20/2071] Loss: 0.5477 | Acc: 76.25%
+  Batch [30/2071] Loss: 0.5473 | Acc: 77.50%
+  Batch [40/2071] Loss: 0.5601 | Acc: 77.11%
+  Batch [50/2071] Loss: 0.5619 | Acc: 76.62%
+  Batch [60/2071] Loss: 0.5580 | Acc: 76.20%
+  Batch [70/2071] Loss: 0.5664 | Acc: 75.85%
+  Batch [80/2071] Loss: 0.5635 | Acc: 76.13%
+  Batch [90/2071] Loss: 0.5739 | Acc: 76.08%
+  Batch [100/2071] Loss: 0.5765 | Acc: 75.81%
+  Batch [110/2071] Loss: 0.5771 | Acc: 75.88%
+  Batch [120/2071] Loss: 0.5740 | Acc: 75.83%
+  Batch [130/2071] Loss: 0.5695 | Acc: 75.94%
+  Batch [140/2071] Loss: 0.5696 | Acc: 76.05%
+  Batch [150/2071] Loss: 0.5709 | Acc: 75.85%
+  Batch [160/2071] Loss: 0.5673 | Acc: 75.88%
+  Batch [170/2071] Loss: 0.5633 | Acc: 76.12%
+  Batch [180/2071] Loss: 0.5675 | Acc: 76.02%
+  Batch [190/2071] Loss: 0.5641 | Acc: 76.15%
+  Batch [200/2071] Loss: 0.5629 | Acc: 76.19%
+  Batch [210/2071] Loss: 0.5680 | Acc: 75.88%
+  Batch [220/2071] Loss: 0.5720 | Acc: 75.53%
+  Batch [230/2071] Loss: 0.5769 | Acc: 75.27%
+  Batch [240/2071] Loss: 0.5774 | Acc: 75.27%
+  Batch [250/2071] Loss: 0.5781 | Acc: 75.31%
+  Batch [260/2071] Loss: 0.5772 | Acc: 75.44%
+  Batch [270/2071] Loss: 0.5755 | Acc: 75.62%
+  Batch [280/2071] Loss: 0.5747 | Acc: 75.80%
+  Batch [290/2071] Loss: 0.5752 | Acc: 75.77%
+  Batch [300/2071] Loss: 0.5752 | Acc: 75.77%
+  Batch [310/2071] Loss: 0.5749 | Acc: 75.67%
+  Batch [320/2071] Loss: 0.5763 | Acc: 75.65%
+  Batch [330/2071] Loss: 0.5768 | Acc: 75.68%
+  Batch [340/2071] Loss: 0.5765 | Acc: 75.66%
+  Batch [350/2071] Loss: 0.5773 | Acc: 75.71%
+  Batch [360/2071] Loss: 0.5771 | Acc: 75.68%
+  Batch [370/2071] Loss: 0.5764 | Acc: 75.75%
+  Batch [380/2071] Loss: 0.5756 | Acc: 75.84%
+  Batch [390/2071] Loss: 0.5748 | Acc: 75.97%
+  Batch [400/2071] Loss: 0.5748 | Acc: 76.02%
+  Batch [410/2071] Loss: 0.5747 | Acc: 75.93%
+  Batch [420/2071] Loss: 0.5748 | Acc: 75.89%
+  Batch [430/2071] Loss: 0.5745 | Acc: 75.90%
+  Batch [440/2071] Loss: 0.5752 | Acc: 75.91%
+  Batch [450/2071] Loss: 0.5748 | Acc: 75.86%
+  Batch [460/2071] Loss: 0.5755 | Acc: 75.90%
+  Batch [470/2071] Loss: 0.5753 | Acc: 75.92%
+  Batch [480/2071] Loss: 0.5748 | Acc: 75.90%
+  Batch [490/2071] Loss: 0.5756 | Acc: 75.84%
+  Batch [500/2071] Loss: 0.5778 | Acc: 75.79%
+  Batch [510/2071] Loss: 0.5793 | Acc: 75.78%
+  Batch [520/2071] Loss: 0.5794 | Acc: 75.72%
+  Batch [530/2071] Loss: 0.5790 | Acc: 75.65%
+  Batch [540/2071] Loss: 0.5795 | Acc: 75.73%
+  Batch [550/2071] Loss: 0.5803 | Acc: 75.66%
+  Batch [560/2071] Loss: 0.5797 | Acc: 75.71%
+  Batch [570/2071] Loss: 0.5811 | Acc: 75.59%
+  Batch [580/2071] Loss: 0.5817 | Acc: 75.53%
+  Batch [590/2071] Loss: 0.5818 | Acc: 75.45%
+  Batch [600/2071] Loss: 0.5826 | Acc: 75.48%
+  Batch [610/2071] Loss: 0.5829 | Acc: 75.46%
+  Batch [620/2071] Loss: 0.5841 | Acc: 75.39%
+  Batch [630/2071] Loss: 0.5827 | Acc: 75.44%
+  Batch [640/2071] Loss: 0.5845 | Acc: 75.45%
+  Batch [650/2071] Loss: 0.5851 | Acc: 75.40%
+  Batch [660/2071] Loss: 0.5863 | Acc: 75.28%
+  Batch [670/2071] Loss: 0.5873 | Acc: 75.26%
+  Batch [680/2071] Loss: 0.5884 | Acc: 75.25%
+  Batch [690/2071] Loss: 0.5876 | Acc: 75.26%
+  Batch [700/2071] Loss: 0.5885 | Acc: 75.21%
+  Batch [710/2071] Loss: 0.5883 | Acc: 75.23%
+  Batch [720/2071] Loss: 0.5894 | Acc: 75.16%
+  Batch [730/2071] Loss: 0.5900 | Acc: 75.17%
+  Batch [740/2071] Loss: 0.5899 | Acc: 75.21%
+  Batch [750/2071] Loss: 0.5900 | Acc: 75.23%
+  Batch [760/2071] Loss: 0.5907 | Acc: 75.22%
+  Batch [770/2071] Loss: 0.5920 | Acc: 75.19%
+  Batch [780/2071] Loss: 0.5921 | Acc: 75.15%
+  Batch [790/2071] Loss: 0.5921 | Acc: 75.16%
+  Batch [800/2071] Loss: 0.5926 | Acc: 75.14%
+  Batch [810/2071] Loss: 0.5927 | Acc: 75.15%
+  Batch [820/2071] Loss: 0.5924 | Acc: 75.13%
+  Batch [830/2071] Loss: 0.5926 | Acc: 75.14%
+  Batch [840/2071] Loss: 0.5933 | Acc: 75.15%
+  Batch [850/2071] Loss: 0.5935 | Acc: 75.17%
+  Batch [860/2071] Loss: 0.5925 | Acc: 75.16%
+  Batch [870/2071] Loss: 0.5929 | Acc: 75.13%
+  Batch [880/2071] Loss: 0.5921 | Acc: 75.17%
+  Batch [890/2071] Loss: 0.5938 | Acc: 75.13%
+  Batch [900/2071] Loss: 0.5938 | Acc: 75.15%
+  Batch [910/2071] Loss: 0.5938 | Acc: 75.14%
+  Batch [920/2071] Loss: 0.5937 | Acc: 75.15%
+  Batch [930/2071] Loss: 0.5938 | Acc: 75.17%
+  Batch [940/2071] Loss: 0.5939 | Acc: 75.15%
+  Batch [950/2071] Loss: 0.5946 | Acc: 75.12%
+  Batch [960/2071] Loss: 0.5950 | Acc: 75.08%
+  Batch [970/2071] Loss: 0.5951 | Acc: 75.08%
+  Batch [980/2071] Loss: 0.5958 | Acc: 75.06%
+  Batch [990/2071] Loss: 0.5962 | Acc: 75.05%
+  Batch [1000/2071] Loss: 0.5963 | Acc: 75.07%
+  Batch [1010/2071] Loss: 0.5967 | Acc: 75.03%
+  Batch [1020/2071] Loss: 0.5968 | Acc: 75.00%
+  Batch [1030/2071] Loss: 0.5976 | Acc: 75.02%
+  Batch [1040/2071] Loss: 0.5975 | Acc: 75.02%
+  Batch [1050/2071] Loss: 0.5980 | Acc: 75.01%
+  Batch [1060/2071] Loss: 0.5971 | Acc: 75.05%
+  Batch [1070/2071] Loss: 0.5975 | Acc: 75.07%
+  Batch [1080/2071] Loss: 0.5970 | Acc: 75.07%
+  Batch [1090/2071] Loss: 0.5978 | Acc: 75.03%
+  Batch [1100/2071] Loss: 0.5981 | Acc: 74.99%
+  Batch [1110/2071] Loss: 0.5977 | Acc: 75.03%
+  Batch [1120/2071] Loss: 0.5985 | Acc: 75.00%
+  Batch [1130/2071] Loss: 0.5993 | Acc: 74.99%
+  Batch [1140/2071] Loss: 0.6006 | Acc: 74.96%
+  Batch [1150/2071] Loss: 0.5999 | Acc: 75.01%
+  Batch [1160/2071] Loss: 0.5998 | Acc: 75.02%
+  Batch [1170/2071] Loss: 0.6003 | Acc: 75.01%
+  Batch [1180/2071] Loss: 0.6002 | Acc: 75.02%
+  Batch [1190/2071] Loss: 0.5994 | Acc: 75.04%
+  Batch [1200/2071] Loss: 0.5986 | Acc: 75.05%
+  Batch [1210/2071] Loss: 0.5980 | Acc: 75.09%
+  Batch [1220/2071] Loss: 0.5984 | Acc: 75.05%
+  Batch [1230/2071] Loss: 0.5989 | Acc: 75.04%
+  Batch [1240/2071] Loss: 0.5999 | Acc: 74.97%
+  Batch [1250/2071] Loss: 0.5998 | Acc: 74.96%
+  Batch [1260/2071] Loss: 0.5997 | Acc: 74.99%
+  Batch [1270/2071] Loss: 0.6000 | Acc: 74.98%
+  Batch [1280/2071] Loss: 0.5995 | Acc: 74.99%
+  Batch [1290/2071] Loss: 0.5994 | Acc: 74.96%
+  Batch [1300/2071] Loss: 0.5992 | Acc: 74.94%
+  Batch [1310/2071] Loss: 0.5995 | Acc: 74.94%
+  Batch [1320/2071] Loss: 0.5993 | Acc: 74.94%
+  Batch [1330/2071] Loss: 0.5988 | Acc: 74.97%
+  Batch [1340/2071] Loss: 0.5989 | Acc: 74.95%
+  Batch [1350/2071] Loss: 0.5992 | Acc: 74.92%
+  Batch [1360/2071] Loss: 0.5989 | Acc: 74.91%
+  Batch [1370/2071] Loss: 0.5986 | Acc: 74.92%
+  Batch [1380/2071] Loss: 0.5992 | Acc: 74.90%
+  Batch [1390/2071] Loss: 0.5994 | Acc: 74.88%
+  Batch [1400/2071] Loss: 0.5989 | Acc: 74.90%
+  Batch [1410/2071] Loss: 0.5989 | Acc: 74.91%
+  Batch [1420/2071] Loss: 0.5986 | Acc: 74.93%
+  Batch [1430/2071] Loss: 0.5989 | Acc: 74.95%
+  Batch [1440/2071] Loss: 0.5986 | Acc: 74.96%
+  Batch [1450/2071] Loss: 0.5977 | Acc: 74.99%
+  Batch [1460/2071] Loss: 0.5979 | Acc: 74.98%
+  Batch [1470/2071] Loss: 0.5979 | Acc: 74.98%
+  Batch [1480/2071] Loss: 0.5978 | Acc: 74.97%
+  Batch [1490/2071] Loss: 0.5974 | Acc: 74.97%
+  Batch [1500/2071] Loss: 0.5977 | Acc: 74.96%
+  Batch [1510/2071] Loss: 0.5977 | Acc: 74.97%
+  Batch [1520/2071] Loss: 0.5981 | Acc: 74.95%
+  Batch [1530/2071] Loss: 0.5983 | Acc: 74.96%
+  Batch [1540/2071] Loss: 0.5992 | Acc: 74.92%
+  Batch [1550/2071] Loss: 0.5997 | Acc: 74.87%
+  Batch [1560/2071] Loss: 0.6000 | Acc: 74.86%
+  Batch [1570/2071] Loss: 0.6003 | Acc: 74.85%
+  Batch [1580/2071] Loss: 0.6003 | Acc: 74.82%
+  Batch [1590/2071] Loss: 0.5999 | Acc: 74.82%
+  Batch [1600/2071] Loss: 0.6001 | Acc: 74.82%
+  Batch [1610/2071] Loss: 0.6004 | Acc: 74.80%
+  Batch [1620/2071] Loss: 0.6004 | Acc: 74.79%
+  Batch [1630/2071] Loss: 0.6001 | Acc: 74.77%
+  Batch [1640/2071] Loss: 0.6005 | Acc: 74.73%
+  Batch [1650/2071] Loss: 0.6007 | Acc: 74.74%
+  Batch [1660/2071] Loss: 0.6005 | Acc: 74.74%
+  Batch [1670/2071] Loss: 0.6002 | Acc: 74.75%
+  Batch [1680/2071] Loss: 0.6001 | Acc: 74.76%
+  Batch [1690/2071] Loss: 0.6007 | Acc: 74.74%
+  Batch [1700/2071] Loss: 0.6011 | Acc: 74.76%
+  Batch [1710/2071] Loss: 0.6017 | Acc: 74.73%
+  Batch [1720/2071] Loss: 0.6017 | Acc: 74.72%
+  Batch [1730/2071] Loss: 0.6020 | Acc: 74.71%
+  Batch [1740/2071] Loss: 0.6019 | Acc: 74.68%
+  Batch [1750/2071] Loss: 0.6020 | Acc: 74.67%
+  Batch [1760/2071] Loss: 0.6022 | Acc: 74.67%
+  Batch [1770/2071] Loss: 0.6019 | Acc: 74.70%
+  Batch [1780/2071] Loss: 0.6018 | Acc: 74.69%
+  Batch [1790/2071] Loss: 0.6013 | Acc: 74.70%
+  Batch [1800/2071] Loss: 0.6017 | Acc: 74.69%
+  Batch [1810/2071] Loss: 0.6019 | Acc: 74.67%
+  Batch [1820/2071] Loss: 0.6012 | Acc: 74.70%
+  Batch [1830/2071] Loss: 0.6015 | Acc: 74.69%
+  Batch [1840/2071] Loss: 0.6015 | Acc: 74.68%
+  Batch [1850/2071] Loss: 0.6018 | Acc: 74.65%
+  Batch [1860/2071] Loss: 0.6013 | Acc: 74.66%
+  Batch [1870/2071] Loss: 0.6014 | Acc: 74.66%
+  Batch [1880/2071] Loss: 0.6016 | Acc: 74.64%
+  Batch [1890/2071] Loss: 0.6019 | Acc: 74.61%
+  Batch [1900/2071] Loss: 0.6016 | Acc: 74.61%
+  Batch [1910/2071] Loss: 0.6010 | Acc: 74.64%
+  Batch [1920/2071] Loss: 0.6012 | Acc: 74.67%
+  Batch [1930/2071] Loss: 0.6016 | Acc: 74.66%
+  Batch [1940/2071] Loss: 0.6019 | Acc: 74.66%
+  Batch [1950/2071] Loss: 0.6023 | Acc: 74.62%
+  Batch [1960/2071] Loss: 0.6022 | Acc: 74.62%
+  Batch [1970/2071] Loss: 0.6021 | Acc: 74.61%
+  Batch [1980/2071] Loss: 0.6020 | Acc: 74.62%
+  Batch [1990/2071] Loss: 0.6022 | Acc: 74.63%
+  Batch [2000/2071] Loss: 0.6023 | Acc: 74.61%
+  Batch [2010/2071] Loss: 0.6018 | Acc: 74.62%
+  Batch [2020/2071] Loss: 0.6016 | Acc: 74.65%
+  Batch [2030/2071] Loss: 0.6018 | Acc: 74.65%
+  Batch [2040/2071] Loss: 0.6015 | Acc: 74.66%
+  Batch [2050/2071] Loss: 0.6015 | Acc: 74.66%
+  Batch [2060/2071] Loss: 0.6015 | Acc: 74.68%
+  Batch [2070/2071] Loss: 0.6014 | Acc: 74.69%
+
+======================================================================
+Epoch 7 Summary:
+  Train Loss: 0.6015 | Train Acc: 74.69%
+  Val Loss:   0.9543 | Val Acc:   63.80%
+  Learning Rate: 0.001000
+  Time: 134.5s
+======================================================================
+
+Epoch [8/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.6080 | Acc: 74.69%
+  Batch [20/2071] Loss: 0.5782 | Acc: 74.53%
+  Batch [30/2071] Loss: 0.5757 | Acc: 74.90%
+  Batch [40/2071] Loss: 0.5971 | Acc: 74.92%
+  Batch [50/2071] Loss: 0.6072 | Acc: 74.75%
+  Batch [60/2071] Loss: 0.5970 | Acc: 74.38%
+  Batch [70/2071] Loss: 0.5966 | Acc: 73.93%
+  Batch [80/2071] Loss: 0.5990 | Acc: 74.10%
+  Batch [90/2071] Loss: 0.6009 | Acc: 74.41%
+  Batch [100/2071] Loss: 0.5892 | Acc: 74.59%
+  Batch [110/2071] Loss: 0.5999 | Acc: 74.74%
+  Batch [120/2071] Loss: 0.5957 | Acc: 74.32%
+  Batch [130/2071] Loss: 0.5976 | Acc: 74.09%
+  Batch [140/2071] Loss: 0.5997 | Acc: 74.20%
+  Batch [150/2071] Loss: 0.5970 | Acc: 74.23%
+  Batch [160/2071] Loss: 0.5943 | Acc: 74.53%
+  Batch [170/2071] Loss: 0.5930 | Acc: 74.49%
+  Batch [180/2071] Loss: 0.5970 | Acc: 74.39%
+  Batch [190/2071] Loss: 0.5966 | Acc: 74.38%
+  Batch [200/2071] Loss: 0.5922 | Acc: 74.52%
+  Batch [210/2071] Loss: 0.5854 | Acc: 74.87%
+  Batch [220/2071] Loss: 0.5812 | Acc: 75.24%
+  Batch [230/2071] Loss: 0.5797 | Acc: 75.23%
+  Batch [240/2071] Loss: 0.5791 | Acc: 75.25%
+  Batch [250/2071] Loss: 0.5802 | Acc: 75.19%
+  Batch [260/2071] Loss: 0.5771 | Acc: 75.35%
+  Batch [270/2071] Loss: 0.5776 | Acc: 75.23%
+  Batch [280/2071] Loss: 0.5761 | Acc: 75.37%
+  Batch [290/2071] Loss: 0.5741 | Acc: 75.38%
+  Batch [300/2071] Loss: 0.5748 | Acc: 75.36%
+  Batch [310/2071] Loss: 0.5766 | Acc: 75.43%
+  Batch [320/2071] Loss: 0.5767 | Acc: 75.36%
+  Batch [330/2071] Loss: 0.5790 | Acc: 75.27%
+  Batch [340/2071] Loss: 0.5805 | Acc: 75.31%
+  Batch [350/2071] Loss: 0.5824 | Acc: 75.39%
+  Batch [360/2071] Loss: 0.5843 | Acc: 75.30%
+  Batch [370/2071] Loss: 0.5838 | Acc: 75.41%
+  Batch [380/2071] Loss: 0.5849 | Acc: 75.36%
+  Batch [390/2071] Loss: 0.5859 | Acc: 75.18%
+  Batch [400/2071] Loss: 0.5847 | Acc: 75.20%
+  Batch [410/2071] Loss: 0.5858 | Acc: 75.23%
+  Batch [420/2071] Loss: 0.5849 | Acc: 75.32%
+  Batch [430/2071] Loss: 0.5830 | Acc: 75.32%
+  Batch [440/2071] Loss: 0.5840 | Acc: 75.29%
+  Batch [450/2071] Loss: 0.5839 | Acc: 75.31%
+  Batch [460/2071] Loss: 0.5852 | Acc: 75.25%
+  Batch [470/2071] Loss: 0.5862 | Acc: 75.27%
+  Batch [480/2071] Loss: 0.5862 | Acc: 75.38%
+  Batch [490/2071] Loss: 0.5869 | Acc: 75.31%
+  Batch [500/2071] Loss: 0.5863 | Acc: 75.40%
+  Batch [510/2071] Loss: 0.5877 | Acc: 75.39%
+  Batch [520/2071] Loss: 0.5877 | Acc: 75.35%
+  Batch [530/2071] Loss: 0.5882 | Acc: 75.32%
+  Batch [540/2071] Loss: 0.5883 | Acc: 75.30%
+  Batch [550/2071] Loss: 0.5885 | Acc: 75.30%
+  Batch [560/2071] Loss: 0.5870 | Acc: 75.39%
+  Batch [570/2071] Loss: 0.5894 | Acc: 75.33%
+  Batch [580/2071] Loss: 0.5901 | Acc: 75.32%
+  Batch [590/2071] Loss: 0.5901 | Acc: 75.29%
+  Batch [600/2071] Loss: 0.5910 | Acc: 75.28%
+  Batch [610/2071] Loss: 0.5904 | Acc: 75.30%
+  Batch [620/2071] Loss: 0.5901 | Acc: 75.24%
+  Batch [630/2071] Loss: 0.5914 | Acc: 75.24%
+  Batch [640/2071] Loss: 0.5937 | Acc: 75.13%
+  Batch [650/2071] Loss: 0.5936 | Acc: 75.10%
+  Batch [660/2071] Loss: 0.5930 | Acc: 75.09%
+  Batch [670/2071] Loss: 0.5929 | Acc: 75.09%
+  Batch [680/2071] Loss: 0.5922 | Acc: 75.10%
+  Batch [690/2071] Loss: 0.5919 | Acc: 75.12%
+  Batch [700/2071] Loss: 0.5925 | Acc: 75.10%
+  Batch [710/2071] Loss: 0.5920 | Acc: 75.11%
+  Batch [720/2071] Loss: 0.5919 | Acc: 75.10%
+  Batch [730/2071] Loss: 0.5920 | Acc: 75.09%
+  Batch [740/2071] Loss: 0.5915 | Acc: 75.15%
+  Batch [750/2071] Loss: 0.5911 | Acc: 75.15%
+  Batch [760/2071] Loss: 0.5913 | Acc: 75.16%
+  Batch [770/2071] Loss: 0.5926 | Acc: 75.12%
+  Batch [780/2071] Loss: 0.5931 | Acc: 75.10%
+  Batch [790/2071] Loss: 0.5928 | Acc: 75.11%
+  Batch [800/2071] Loss: 0.5938 | Acc: 75.09%
+  Batch [810/2071] Loss: 0.5947 | Acc: 75.01%
+  Batch [820/2071] Loss: 0.5944 | Acc: 75.02%
+  Batch [830/2071] Loss: 0.5942 | Acc: 74.97%
+  Batch [840/2071] Loss: 0.5948 | Acc: 74.92%
+  Batch [850/2071] Loss: 0.5961 | Acc: 74.88%
+  Batch [860/2071] Loss: 0.5949 | Acc: 74.89%
+  Batch [870/2071] Loss: 0.5939 | Acc: 74.93%
+  Batch [880/2071] Loss: 0.5929 | Acc: 74.93%
+  Batch [890/2071] Loss: 0.5938 | Acc: 74.87%
+  Batch [900/2071] Loss: 0.5932 | Acc: 74.85%
+  Batch [910/2071] Loss: 0.5924 | Acc: 74.90%
+  Batch [920/2071] Loss: 0.5918 | Acc: 74.90%
+  Batch [930/2071] Loss: 0.5913 | Acc: 74.89%
+  Batch [940/2071] Loss: 0.5903 | Acc: 74.93%
+  Batch [950/2071] Loss: 0.5907 | Acc: 74.93%
+  Batch [960/2071] Loss: 0.5908 | Acc: 74.97%
+  Batch [970/2071] Loss: 0.5908 | Acc: 74.99%
+  Batch [980/2071] Loss: 0.5914 | Acc: 74.95%
+  Batch [990/2071] Loss: 0.5919 | Acc: 74.95%
+  Batch [1000/2071] Loss: 0.5923 | Acc: 74.92%
+  Batch [1010/2071] Loss: 0.5918 | Acc: 74.92%
+  Batch [1020/2071] Loss: 0.5911 | Acc: 74.94%
+  Batch [1030/2071] Loss: 0.5912 | Acc: 74.93%
+  Batch [1040/2071] Loss: 0.5902 | Acc: 74.98%
+  Batch [1050/2071] Loss: 0.5907 | Acc: 74.94%
+  Batch [1060/2071] Loss: 0.5893 | Acc: 75.00%
+  Batch [1070/2071] Loss: 0.5898 | Acc: 74.99%
+  Batch [1080/2071] Loss: 0.5899 | Acc: 75.01%
+  Batch [1090/2071] Loss: 0.5906 | Acc: 74.96%
+  Batch [1100/2071] Loss: 0.5902 | Acc: 74.99%
+  Batch [1110/2071] Loss: 0.5902 | Acc: 75.01%
+  Batch [1120/2071] Loss: 0.5907 | Acc: 75.02%
+  Batch [1130/2071] Loss: 0.5903 | Acc: 75.05%
+  Batch [1140/2071] Loss: 0.5907 | Acc: 74.99%
+  Batch [1150/2071] Loss: 0.5902 | Acc: 74.99%
+  Batch [1160/2071] Loss: 0.5902 | Acc: 75.02%
+  Batch [1170/2071] Loss: 0.5912 | Acc: 75.01%
+  Batch [1180/2071] Loss: 0.5907 | Acc: 75.05%
+  Batch [1190/2071] Loss: 0.5905 | Acc: 75.03%
+  Batch [1200/2071] Loss: 0.5907 | Acc: 75.03%
+  Batch [1210/2071] Loss: 0.5907 | Acc: 75.03%
+  Batch [1220/2071] Loss: 0.5905 | Acc: 75.01%
+  Batch [1230/2071] Loss: 0.5896 | Acc: 75.03%
+  Batch [1240/2071] Loss: 0.5906 | Acc: 75.02%
+  Batch [1250/2071] Loss: 0.5905 | Acc: 74.99%
+  Batch [1260/2071] Loss: 0.5914 | Acc: 74.96%
+  Batch [1270/2071] Loss: 0.5912 | Acc: 74.98%
+  Batch [1280/2071] Loss: 0.5910 | Acc: 74.99%
+  Batch [1290/2071] Loss: 0.5909 | Acc: 74.97%
+  Batch [1300/2071] Loss: 0.5912 | Acc: 74.98%
+  Batch [1310/2071] Loss: 0.5917 | Acc: 74.94%
+  Batch [1320/2071] Loss: 0.5927 | Acc: 74.91%
+  Batch [1330/2071] Loss: 0.5926 | Acc: 74.92%
+  Batch [1340/2071] Loss: 0.5922 | Acc: 74.92%
+  Batch [1350/2071] Loss: 0.5925 | Acc: 74.91%
+  Batch [1360/2071] Loss: 0.5928 | Acc: 74.90%
+  Batch [1370/2071] Loss: 0.5926 | Acc: 74.92%
+  Batch [1380/2071] Loss: 0.5926 | Acc: 74.92%
+  Batch [1390/2071] Loss: 0.5925 | Acc: 74.90%
+  Batch [1400/2071] Loss: 0.5929 | Acc: 74.91%
+  Batch [1410/2071] Loss: 0.5932 | Acc: 74.93%
+  Batch [1420/2071] Loss: 0.5927 | Acc: 74.93%
+  Batch [1430/2071] Loss: 0.5936 | Acc: 74.93%
+  Batch [1440/2071] Loss: 0.5933 | Acc: 74.92%
+  Batch [1450/2071] Loss: 0.5940 | Acc: 74.91%
+  Batch [1460/2071] Loss: 0.5934 | Acc: 74.93%
+  Batch [1470/2071] Loss: 0.5931 | Acc: 74.94%
+  Batch [1480/2071] Loss: 0.5937 | Acc: 74.93%
+  Batch [1490/2071] Loss: 0.5936 | Acc: 74.95%
+  Batch [1500/2071] Loss: 0.5930 | Acc: 74.97%
+  Batch [1510/2071] Loss: 0.5928 | Acc: 74.96%
+  Batch [1520/2071] Loss: 0.5927 | Acc: 74.95%
+  Batch [1530/2071] Loss: 0.5924 | Acc: 74.97%
+  Batch [1540/2071] Loss: 0.5924 | Acc: 74.97%
+  Batch [1550/2071] Loss: 0.5924 | Acc: 74.98%
+  Batch [1560/2071] Loss: 0.5926 | Acc: 74.97%
+  Batch [1570/2071] Loss: 0.5929 | Acc: 74.96%
+  Batch [1580/2071] Loss: 0.5932 | Acc: 74.96%
+  Batch [1590/2071] Loss: 0.5934 | Acc: 74.94%
+  Batch [1600/2071] Loss: 0.5937 | Acc: 74.95%
+  Batch [1610/2071] Loss: 0.5932 | Acc: 74.97%
+  Batch [1620/2071] Loss: 0.5934 | Acc: 74.92%
+  Batch [1630/2071] Loss: 0.5937 | Acc: 74.92%
+  Batch [1640/2071] Loss: 0.5937 | Acc: 74.93%
+  Batch [1650/2071] Loss: 0.5939 | Acc: 74.93%
+  Batch [1660/2071] Loss: 0.5939 | Acc: 74.91%
+  Batch [1670/2071] Loss: 0.5938 | Acc: 74.91%
+  Batch [1680/2071] Loss: 0.5940 | Acc: 74.91%
+  Batch [1690/2071] Loss: 0.5940 | Acc: 74.91%
+  Batch [1700/2071] Loss: 0.5940 | Acc: 74.92%
+  Batch [1710/2071] Loss: 0.5937 | Acc: 74.92%
+  Batch [1720/2071] Loss: 0.5937 | Acc: 74.91%
+  Batch [1730/2071] Loss: 0.5934 | Acc: 74.90%
+  Batch [1740/2071] Loss: 0.5934 | Acc: 74.91%
+  Batch [1750/2071] Loss: 0.5938 | Acc: 74.91%
+  Batch [1760/2071] Loss: 0.5939 | Acc: 74.91%
+  Batch [1770/2071] Loss: 0.5939 | Acc: 74.92%
+  Batch [1780/2071] Loss: 0.5942 | Acc: 74.88%
+  Batch [1790/2071] Loss: 0.5943 | Acc: 74.87%
+  Batch [1800/2071] Loss: 0.5944 | Acc: 74.86%
+  Batch [1810/2071] Loss: 0.5943 | Acc: 74.86%
+  Batch [1820/2071] Loss: 0.5943 | Acc: 74.87%
+  Batch [1830/2071] Loss: 0.5953 | Acc: 74.85%
+  Batch [1840/2071] Loss: 0.5953 | Acc: 74.85%
+  Batch [1850/2071] Loss: 0.5956 | Acc: 74.82%
+  Batch [1860/2071] Loss: 0.5956 | Acc: 74.83%
+  Batch [1870/2071] Loss: 0.5954 | Acc: 74.87%
+  Batch [1880/2071] Loss: 0.5955 | Acc: 74.88%
+  Batch [1890/2071] Loss: 0.5952 | Acc: 74.88%
+  Batch [1900/2071] Loss: 0.5957 | Acc: 74.86%
+  Batch [1910/2071] Loss: 0.5955 | Acc: 74.84%
+  Batch [1920/2071] Loss: 0.5961 | Acc: 74.83%
+  Batch [1930/2071] Loss: 0.5963 | Acc: 74.81%
+  Batch [1940/2071] Loss: 0.5961 | Acc: 74.80%
+  Batch [1950/2071] Loss: 0.5960 | Acc: 74.79%
+  Batch [1960/2071] Loss: 0.5962 | Acc: 74.78%
+  Batch [1970/2071] Loss: 0.5961 | Acc: 74.81%
+  Batch [1980/2071] Loss: 0.5960 | Acc: 74.81%
+  Batch [1990/2071] Loss: 0.5959 | Acc: 74.81%
+  Batch [2000/2071] Loss: 0.5962 | Acc: 74.81%
+  Batch [2010/2071] Loss: 0.5964 | Acc: 74.78%
+  Batch [2020/2071] Loss: 0.5963 | Acc: 74.78%
+  Batch [2030/2071] Loss: 0.5968 | Acc: 74.77%
+  Batch [2040/2071] Loss: 0.5967 | Acc: 74.76%
+  Batch [2050/2071] Loss: 0.5969 | Acc: 74.75%
+  Batch [2060/2071] Loss: 0.5967 | Acc: 74.78%
+  Batch [2070/2071] Loss: 0.5969 | Acc: 74.80%
+
+======================================================================
+Epoch 8 Summary:
+  Train Loss: 0.5969 | Train Acc: 74.80%
+  Val Loss:   1.0229 | Val Acc:   60.65%
+  Learning Rate: 0.001000
+  Time: 134.2s
+======================================================================
+
+Epoch [9/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5466 | Acc: 74.06%
+  Batch [20/2071] Loss: 0.5320 | Acc: 76.56%
+  Batch [30/2071] Loss: 0.5453 | Acc: 76.98%
+  Batch [40/2071] Loss: 0.5571 | Acc: 76.64%
+  Batch [50/2071] Loss: 0.5585 | Acc: 77.38%
+  Batch [60/2071] Loss: 0.5647 | Acc: 76.51%
+  Batch [70/2071] Loss: 0.5627 | Acc: 76.38%
+  Batch [80/2071] Loss: 0.5687 | Acc: 76.29%
+  Batch [90/2071] Loss: 0.5715 | Acc: 76.15%
+  Batch [100/2071] Loss: 0.5706 | Acc: 76.22%
+  Batch [110/2071] Loss: 0.5694 | Acc: 76.11%
+  Batch [120/2071] Loss: 0.5757 | Acc: 75.83%
+  Batch [130/2071] Loss: 0.5744 | Acc: 75.84%
+  Batch [140/2071] Loss: 0.5688 | Acc: 76.00%
+  Batch [150/2071] Loss: 0.5713 | Acc: 75.92%
+  Batch [160/2071] Loss: 0.5717 | Acc: 75.82%
+  Batch [170/2071] Loss: 0.5719 | Acc: 75.66%
+  Batch [180/2071] Loss: 0.5696 | Acc: 75.82%
+  Batch [190/2071] Loss: 0.5685 | Acc: 75.87%
+  Batch [200/2071] Loss: 0.5663 | Acc: 75.95%
+  Batch [210/2071] Loss: 0.5624 | Acc: 76.19%
+  Batch [220/2071] Loss: 0.5633 | Acc: 76.18%
+  Batch [230/2071] Loss: 0.5625 | Acc: 76.21%
+  Batch [240/2071] Loss: 0.5626 | Acc: 76.22%
+  Batch [250/2071] Loss: 0.5643 | Acc: 76.04%
+  Batch [260/2071] Loss: 0.5641 | Acc: 76.08%
+  Batch [270/2071] Loss: 0.5677 | Acc: 75.98%
+  Batch [280/2071] Loss: 0.5679 | Acc: 76.07%
+  Batch [290/2071] Loss: 0.5702 | Acc: 75.96%
+  Batch [300/2071] Loss: 0.5720 | Acc: 75.86%
+  Batch [310/2071] Loss: 0.5737 | Acc: 75.80%
+  Batch [320/2071] Loss: 0.5736 | Acc: 75.73%
+  Batch [330/2071] Loss: 0.5725 | Acc: 75.77%
+  Batch [340/2071] Loss: 0.5746 | Acc: 75.78%
+  Batch [350/2071] Loss: 0.5743 | Acc: 75.88%
+  Batch [360/2071] Loss: 0.5750 | Acc: 75.84%
+  Batch [370/2071] Loss: 0.5774 | Acc: 75.75%
+  Batch [380/2071] Loss: 0.5805 | Acc: 75.73%
+  Batch [390/2071] Loss: 0.5806 | Acc: 75.65%
+  Batch [400/2071] Loss: 0.5799 | Acc: 75.55%
+  Batch [410/2071] Loss: 0.5796 | Acc: 75.54%
+  Batch [420/2071] Loss: 0.5800 | Acc: 75.47%
+  Batch [430/2071] Loss: 0.5787 | Acc: 75.56%
+  Batch [440/2071] Loss: 0.5782 | Acc: 75.58%
+  Batch [450/2071] Loss: 0.5760 | Acc: 75.64%
+  Batch [460/2071] Loss: 0.5787 | Acc: 75.68%
+  Batch [470/2071] Loss: 0.5790 | Acc: 75.66%
+  Batch [480/2071] Loss: 0.5796 | Acc: 75.65%
+  Batch [490/2071] Loss: 0.5790 | Acc: 75.66%
+  Batch [500/2071] Loss: 0.5781 | Acc: 75.70%
+  Batch [510/2071] Loss: 0.5768 | Acc: 75.73%
+  Batch [520/2071] Loss: 0.5755 | Acc: 75.76%
+  Batch [530/2071] Loss: 0.5767 | Acc: 75.69%
+  Batch [540/2071] Loss: 0.5768 | Acc: 75.64%
+  Batch [550/2071] Loss: 0.5792 | Acc: 75.57%
+  Batch [560/2071] Loss: 0.5794 | Acc: 75.55%
+  Batch [570/2071] Loss: 0.5800 | Acc: 75.48%
+  Batch [580/2071] Loss: 0.5788 | Acc: 75.53%
+  Batch [590/2071] Loss: 0.5797 | Acc: 75.48%
+  Batch [600/2071] Loss: 0.5794 | Acc: 75.48%
+  Batch [610/2071] Loss: 0.5796 | Acc: 75.45%
+  Batch [620/2071] Loss: 0.5804 | Acc: 75.43%
+  Batch [630/2071] Loss: 0.5794 | Acc: 75.50%
+  Batch [640/2071] Loss: 0.5803 | Acc: 75.49%
+  Batch [650/2071] Loss: 0.5807 | Acc: 75.46%
+  Batch [660/2071] Loss: 0.5803 | Acc: 75.49%
+  Batch [670/2071] Loss: 0.5807 | Acc: 75.50%
+  Batch [680/2071] Loss: 0.5806 | Acc: 75.47%
+  Batch [690/2071] Loss: 0.5811 | Acc: 75.47%
+  Batch [700/2071] Loss: 0.5821 | Acc: 75.46%
+  Batch [710/2071] Loss: 0.5817 | Acc: 75.44%
+  Batch [720/2071] Loss: 0.5818 | Acc: 75.45%
+  Batch [730/2071] Loss: 0.5829 | Acc: 75.42%
+  Batch [740/2071] Loss: 0.5834 | Acc: 75.38%
+  Batch [750/2071] Loss: 0.5832 | Acc: 75.35%
+  Batch [760/2071] Loss: 0.5841 | Acc: 75.30%
+  Batch [770/2071] Loss: 0.5846 | Acc: 75.24%
+  Batch [780/2071] Loss: 0.5843 | Acc: 75.31%
+  Batch [790/2071] Loss: 0.5842 | Acc: 75.28%
+  Batch [800/2071] Loss: 0.5844 | Acc: 75.30%
+  Batch [810/2071] Loss: 0.5834 | Acc: 75.36%
+  Batch [820/2071] Loss: 0.5842 | Acc: 75.33%
+  Batch [830/2071] Loss: 0.5849 | Acc: 75.33%
+  Batch [840/2071] Loss: 0.5847 | Acc: 75.34%
+  Batch [850/2071] Loss: 0.5835 | Acc: 75.38%
+  Batch [860/2071] Loss: 0.5836 | Acc: 75.36%
+  Batch [870/2071] Loss: 0.5833 | Acc: 75.37%
+  Batch [880/2071] Loss: 0.5828 | Acc: 75.36%
+  Batch [890/2071] Loss: 0.5824 | Acc: 75.36%
+  Batch [900/2071] Loss: 0.5822 | Acc: 75.33%
+  Batch [910/2071] Loss: 0.5823 | Acc: 75.32%
+  Batch [920/2071] Loss: 0.5823 | Acc: 75.34%
+  Batch [930/2071] Loss: 0.5817 | Acc: 75.36%
+  Batch [940/2071] Loss: 0.5815 | Acc: 75.38%
+  Batch [950/2071] Loss: 0.5808 | Acc: 75.40%
+  Batch [960/2071] Loss: 0.5808 | Acc: 75.42%
+  Batch [970/2071] Loss: 0.5808 | Acc: 75.39%
+  Batch [980/2071] Loss: 0.5808 | Acc: 75.41%
+  Batch [990/2071] Loss: 0.5819 | Acc: 75.37%
+  Batch [1000/2071] Loss: 0.5820 | Acc: 75.35%
+  Batch [1010/2071] Loss: 0.5817 | Acc: 75.36%
+  Batch [1020/2071] Loss: 0.5809 | Acc: 75.38%
+  Batch [1030/2071] Loss: 0.5806 | Acc: 75.39%
+  Batch [1040/2071] Loss: 0.5803 | Acc: 75.42%
+  Batch [1050/2071] Loss: 0.5814 | Acc: 75.42%
+  Batch [1060/2071] Loss: 0.5825 | Acc: 75.39%
+  Batch [1070/2071] Loss: 0.5826 | Acc: 75.43%
+  Batch [1080/2071] Loss: 0.5839 | Acc: 75.40%
+  Batch [1090/2071] Loss: 0.5845 | Acc: 75.33%
+  Batch [1100/2071] Loss: 0.5844 | Acc: 75.34%
+  Batch [1110/2071] Loss: 0.5847 | Acc: 75.32%
+  Batch [1120/2071] Loss: 0.5849 | Acc: 75.30%
+  Batch [1130/2071] Loss: 0.5852 | Acc: 75.30%
+  Batch [1140/2071] Loss: 0.5860 | Acc: 75.26%
+  Batch [1150/2071] Loss: 0.5863 | Acc: 75.23%
+  Batch [1160/2071] Loss: 0.5863 | Acc: 75.25%
+  Batch [1170/2071] Loss: 0.5867 | Acc: 75.23%
+  Batch [1180/2071] Loss: 0.5870 | Acc: 75.22%
+  Batch [1190/2071] Loss: 0.5863 | Acc: 75.24%
+  Batch [1200/2071] Loss: 0.5861 | Acc: 75.23%
+  Batch [1210/2071] Loss: 0.5865 | Acc: 75.22%
+  Batch [1220/2071] Loss: 0.5868 | Acc: 75.19%
+  Batch [1230/2071] Loss: 0.5866 | Acc: 75.21%
+  Batch [1240/2071] Loss: 0.5862 | Acc: 75.21%
+  Batch [1250/2071] Loss: 0.5864 | Acc: 75.20%
+  Batch [1260/2071] Loss: 0.5868 | Acc: 75.15%
+  Batch [1270/2071] Loss: 0.5876 | Acc: 75.11%
+  Batch [1280/2071] Loss: 0.5877 | Acc: 75.10%
+  Batch [1290/2071] Loss: 0.5877 | Acc: 75.11%
+  Batch [1300/2071] Loss: 0.5875 | Acc: 75.12%
+  Batch [1310/2071] Loss: 0.5869 | Acc: 75.16%
+  Batch [1320/2071] Loss: 0.5869 | Acc: 75.15%
+  Batch [1330/2071] Loss: 0.5876 | Acc: 75.12%
+  Batch [1340/2071] Loss: 0.5876 | Acc: 75.14%
+  Batch [1350/2071] Loss: 0.5873 | Acc: 75.13%
+  Batch [1360/2071] Loss: 0.5870 | Acc: 75.13%
+  Batch [1370/2071] Loss: 0.5869 | Acc: 75.17%
+  Batch [1380/2071] Loss: 0.5871 | Acc: 75.16%
+  Batch [1390/2071] Loss: 0.5865 | Acc: 75.21%
+  Batch [1400/2071] Loss: 0.5861 | Acc: 75.22%
+  Batch [1410/2071] Loss: 0.5864 | Acc: 75.23%
+  Batch [1420/2071] Loss: 0.5871 | Acc: 75.21%
+  Batch [1430/2071] Loss: 0.5872 | Acc: 75.21%
+  Batch [1440/2071] Loss: 0.5876 | Acc: 75.17%
+  Batch [1450/2071] Loss: 0.5877 | Acc: 75.15%
+  Batch [1460/2071] Loss: 0.5878 | Acc: 75.13%
+  Batch [1470/2071] Loss: 0.5879 | Acc: 75.12%
+  Batch [1480/2071] Loss: 0.5884 | Acc: 75.09%
+  Batch [1490/2071] Loss: 0.5890 | Acc: 75.04%
+  Batch [1500/2071] Loss: 0.5895 | Acc: 75.03%
+  Batch [1510/2071] Loss: 0.5891 | Acc: 75.05%
+  Batch [1520/2071] Loss: 0.5891 | Acc: 75.05%
+  Batch [1530/2071] Loss: 0.5892 | Acc: 75.03%
+  Batch [1540/2071] Loss: 0.5888 | Acc: 75.07%
+  Batch [1550/2071] Loss: 0.5889 | Acc: 75.06%
+  Batch [1560/2071] Loss: 0.5892 | Acc: 75.07%
+  Batch [1570/2071] Loss: 0.5899 | Acc: 75.02%
+  Batch [1580/2071] Loss: 0.5902 | Acc: 75.03%
+  Batch [1590/2071] Loss: 0.5908 | Acc: 75.00%
+  Batch [1600/2071] Loss: 0.5909 | Acc: 74.99%
+  Batch [1610/2071] Loss: 0.5911 | Acc: 74.97%
+  Batch [1620/2071] Loss: 0.5906 | Acc: 75.00%
+  Batch [1630/2071] Loss: 0.5904 | Acc: 75.01%
+  Batch [1640/2071] Loss: 0.5906 | Acc: 75.00%
+  Batch [1650/2071] Loss: 0.5908 | Acc: 75.00%
+  Batch [1660/2071] Loss: 0.5909 | Acc: 74.98%
+  Batch [1670/2071] Loss: 0.5908 | Acc: 74.98%
+  Batch [1680/2071] Loss: 0.5904 | Acc: 75.00%
+  Batch [1690/2071] Loss: 0.5905 | Acc: 75.00%
+  Batch [1700/2071] Loss: 0.5908 | Acc: 74.99%
+  Batch [1710/2071] Loss: 0.5907 | Acc: 75.00%
+  Batch [1720/2071] Loss: 0.5907 | Acc: 75.00%
+  Batch [1730/2071] Loss: 0.5907 | Acc: 75.02%
+  Batch [1740/2071] Loss: 0.5908 | Acc: 75.03%
+  Batch [1750/2071] Loss: 0.5909 | Acc: 75.03%
+  Batch [1760/2071] Loss: 0.5906 | Acc: 75.06%
+  Batch [1770/2071] Loss: 0.5904 | Acc: 75.08%
+  Batch [1780/2071] Loss: 0.5902 | Acc: 75.09%
+  Batch [1790/2071] Loss: 0.5899 | Acc: 75.10%
+  Batch [1800/2071] Loss: 0.5898 | Acc: 75.10%
+  Batch [1810/2071] Loss: 0.5895 | Acc: 75.10%
+  Batch [1820/2071] Loss: 0.5889 | Acc: 75.12%
+  Batch [1830/2071] Loss: 0.5895 | Acc: 75.11%
+  Batch [1840/2071] Loss: 0.5895 | Acc: 75.10%
+  Batch [1850/2071] Loss: 0.5889 | Acc: 75.11%
+  Batch [1860/2071] Loss: 0.5886 | Acc: 75.13%
+  Batch [1870/2071] Loss: 0.5886 | Acc: 75.15%
+  Batch [1880/2071] Loss: 0.5885 | Acc: 75.13%
+  Batch [1890/2071] Loss: 0.5886 | Acc: 75.13%
+  Batch [1900/2071] Loss: 0.5882 | Acc: 75.16%
+  Batch [1910/2071] Loss: 0.5882 | Acc: 75.17%
+  Batch [1920/2071] Loss: 0.5888 | Acc: 75.16%
+  Batch [1930/2071] Loss: 0.5892 | Acc: 75.13%
+  Batch [1940/2071] Loss: 0.5892 | Acc: 75.13%
+  Batch [1950/2071] Loss: 0.5895 | Acc: 75.12%
+  Batch [1960/2071] Loss: 0.5897 | Acc: 75.11%
+  Batch [1970/2071] Loss: 0.5904 | Acc: 75.12%
+  Batch [1980/2071] Loss: 0.5906 | Acc: 75.13%
+  Batch [1990/2071] Loss: 0.5902 | Acc: 75.13%
+  Batch [2000/2071] Loss: 0.5904 | Acc: 75.14%
+  Batch [2010/2071] Loss: 0.5905 | Acc: 75.13%
+  Batch [2020/2071] Loss: 0.5903 | Acc: 75.14%
+  Batch [2030/2071] Loss: 0.5904 | Acc: 75.15%
+  Batch [2040/2071] Loss: 0.5904 | Acc: 75.14%
+  Batch [2050/2071] Loss: 0.5904 | Acc: 75.12%
+  Batch [2060/2071] Loss: 0.5901 | Acc: 75.13%
+  Batch [2070/2071] Loss: 0.5903 | Acc: 75.14%
+
+======================================================================
+Epoch 9 Summary:
+  Train Loss: 0.5903 | Train Acc: 75.15%
+  Val Loss:   1.0722 | Val Acc:   60.70%
+  Learning Rate: 0.001000
+  Time: 135.3s
+======================================================================
+
+Epoch [10/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5294 | Acc: 76.88%
+  Batch [20/2071] Loss: 0.5631 | Acc: 75.62%
+  Batch [30/2071] Loss: 0.5793 | Acc: 73.96%
+  Batch [40/2071] Loss: 0.5765 | Acc: 73.83%
+  Batch [50/2071] Loss: 0.5830 | Acc: 73.44%
+  Batch [60/2071] Loss: 0.5881 | Acc: 73.70%
+  Batch [70/2071] Loss: 0.5874 | Acc: 73.39%
+  Batch [80/2071] Loss: 0.5934 | Acc: 73.09%
+  Batch [90/2071] Loss: 0.5917 | Acc: 73.44%
+  Batch [100/2071] Loss: 0.5903 | Acc: 74.00%
+  Batch [110/2071] Loss: 0.5908 | Acc: 74.20%
+  Batch [120/2071] Loss: 0.5945 | Acc: 74.11%
+  Batch [130/2071] Loss: 0.5891 | Acc: 74.45%
+  Batch [140/2071] Loss: 0.5928 | Acc: 74.40%
+  Batch [150/2071] Loss: 0.5918 | Acc: 74.69%
+  Batch [160/2071] Loss: 0.5887 | Acc: 74.51%
+  Batch [170/2071] Loss: 0.5864 | Acc: 74.80%
+  Batch [180/2071] Loss: 0.5802 | Acc: 74.97%
+  Batch [190/2071] Loss: 0.5811 | Acc: 74.93%
+  Batch [200/2071] Loss: 0.5824 | Acc: 75.06%
+  Batch [210/2071] Loss: 0.5833 | Acc: 75.04%
+  Batch [220/2071] Loss: 0.5858 | Acc: 75.03%
+  Batch [230/2071] Loss: 0.5890 | Acc: 74.85%
+  Batch [240/2071] Loss: 0.5912 | Acc: 74.69%
+  Batch [250/2071] Loss: 0.5905 | Acc: 74.76%
+  Batch [260/2071] Loss: 0.5879 | Acc: 74.86%
+  Batch [270/2071] Loss: 0.5881 | Acc: 74.95%
+  Batch [280/2071] Loss: 0.5845 | Acc: 75.07%
+  Batch [290/2071] Loss: 0.5849 | Acc: 75.09%
+  Batch [300/2071] Loss: 0.5854 | Acc: 75.11%
+  Batch [310/2071] Loss: 0.5837 | Acc: 75.25%
+  Batch [320/2071] Loss: 0.5863 | Acc: 75.32%
+  Batch [330/2071] Loss: 0.5859 | Acc: 75.19%
+  Batch [340/2071] Loss: 0.5857 | Acc: 75.17%
+  Batch [350/2071] Loss: 0.5853 | Acc: 75.16%
+  Batch [360/2071] Loss: 0.5832 | Acc: 75.29%
+  Batch [370/2071] Loss: 0.5830 | Acc: 75.31%
+  Batch [380/2071] Loss: 0.5828 | Acc: 75.25%
+  Batch [390/2071] Loss: 0.5803 | Acc: 75.42%
+  Batch [400/2071] Loss: 0.5801 | Acc: 75.38%
+  Batch [410/2071] Loss: 0.5809 | Acc: 75.34%
+  Batch [420/2071] Loss: 0.5814 | Acc: 75.25%
+  Batch [430/2071] Loss: 0.5836 | Acc: 75.18%
+  Batch [440/2071] Loss: 0.5840 | Acc: 75.14%
+  Batch [450/2071] Loss: 0.5859 | Acc: 75.02%
+  Batch [460/2071] Loss: 0.5863 | Acc: 74.99%
+  Batch [470/2071] Loss: 0.5865 | Acc: 74.90%
+  Batch [480/2071] Loss: 0.5862 | Acc: 74.97%
+  Batch [490/2071] Loss: 0.5845 | Acc: 75.06%
+  Batch [500/2071] Loss: 0.5856 | Acc: 75.06%
+  Batch [510/2071] Loss: 0.5859 | Acc: 75.04%
+  Batch [520/2071] Loss: 0.5865 | Acc: 75.08%
+  Batch [530/2071] Loss: 0.5860 | Acc: 75.14%
+  Batch [540/2071] Loss: 0.5860 | Acc: 75.15%
+  Batch [550/2071] Loss: 0.5857 | Acc: 75.14%
+  Batch [560/2071] Loss: 0.5867 | Acc: 75.17%
+  Batch [570/2071] Loss: 0.5864 | Acc: 75.18%
+  Batch [580/2071] Loss: 0.5854 | Acc: 75.19%
+  Batch [590/2071] Loss: 0.5843 | Acc: 75.23%
+  Batch [600/2071] Loss: 0.5845 | Acc: 75.24%
+  Batch [610/2071] Loss: 0.5849 | Acc: 75.22%
+  Batch [620/2071] Loss: 0.5841 | Acc: 75.28%
+  Batch [630/2071] Loss: 0.5837 | Acc: 75.24%
+  Batch [640/2071] Loss: 0.5841 | Acc: 75.23%
+  Batch [650/2071] Loss: 0.5843 | Acc: 75.25%
+  Batch [660/2071] Loss: 0.5845 | Acc: 75.27%
+  Batch [670/2071] Loss: 0.5846 | Acc: 75.27%
+  Batch [680/2071] Loss: 0.5847 | Acc: 75.28%
+  Batch [690/2071] Loss: 0.5843 | Acc: 75.31%
+  Batch [700/2071] Loss: 0.5842 | Acc: 75.38%
+  Batch [710/2071] Loss: 0.5849 | Acc: 75.35%
+  Batch [720/2071] Loss: 0.5856 | Acc: 75.34%
+  Batch [730/2071] Loss: 0.5851 | Acc: 75.45%
+  Batch [740/2071] Loss: 0.5862 | Acc: 75.45%
+  Batch [750/2071] Loss: 0.5843 | Acc: 75.50%
+  Batch [760/2071] Loss: 0.5837 | Acc: 75.57%
+  Batch [770/2071] Loss: 0.5825 | Acc: 75.58%
+  Batch [780/2071] Loss: 0.5836 | Acc: 75.60%
+  Batch [790/2071] Loss: 0.5846 | Acc: 75.52%
+  Batch [800/2071] Loss: 0.5867 | Acc: 75.45%
+  Batch [810/2071] Loss: 0.5872 | Acc: 75.46%
+  Batch [820/2071] Loss: 0.5877 | Acc: 75.47%
+  Batch [830/2071] Loss: 0.5886 | Acc: 75.44%
+  Batch [840/2071] Loss: 0.5895 | Acc: 75.42%
+  Batch [850/2071] Loss: 0.5886 | Acc: 75.45%
+  Batch [860/2071] Loss: 0.5874 | Acc: 75.46%
+  Batch [870/2071] Loss: 0.5869 | Acc: 75.45%
+  Batch [880/2071] Loss: 0.5860 | Acc: 75.48%
+  Batch [890/2071] Loss: 0.5870 | Acc: 75.42%
+  Batch [900/2071] Loss: 0.5872 | Acc: 75.41%
+  Batch [910/2071] Loss: 0.5872 | Acc: 75.40%
+  Batch [920/2071] Loss: 0.5856 | Acc: 75.41%
+  Batch [930/2071] Loss: 0.5847 | Acc: 75.49%
+  Batch [940/2071] Loss: 0.5853 | Acc: 75.43%
+  Batch [950/2071] Loss: 0.5848 | Acc: 75.45%
+  Batch [960/2071] Loss: 0.5850 | Acc: 75.45%
+  Batch [970/2071] Loss: 0.5843 | Acc: 75.44%
+  Batch [980/2071] Loss: 0.5840 | Acc: 75.46%
+  Batch [990/2071] Loss: 0.5843 | Acc: 75.48%
+  Batch [1000/2071] Loss: 0.5857 | Acc: 75.40%
+  Batch [1010/2071] Loss: 0.5850 | Acc: 75.39%
+  Batch [1020/2071] Loss: 0.5844 | Acc: 75.39%
+  Batch [1030/2071] Loss: 0.5847 | Acc: 75.38%
+  Batch [1040/2071] Loss: 0.5840 | Acc: 75.38%
+  Batch [1050/2071] Loss: 0.5844 | Acc: 75.35%
+  Batch [1060/2071] Loss: 0.5845 | Acc: 75.38%
+  Batch [1070/2071] Loss: 0.5840 | Acc: 75.37%
+  Batch [1080/2071] Loss: 0.5834 | Acc: 75.36%
+  Batch [1090/2071] Loss: 0.5830 | Acc: 75.38%
+  Batch [1100/2071] Loss: 0.5828 | Acc: 75.38%
+  Batch [1110/2071] Loss: 0.5830 | Acc: 75.37%
+  Batch [1120/2071] Loss: 0.5837 | Acc: 75.38%
+  Batch [1130/2071] Loss: 0.5837 | Acc: 75.36%
+  Batch [1140/2071] Loss: 0.5837 | Acc: 75.36%
+  Batch [1150/2071] Loss: 0.5838 | Acc: 75.36%
+  Batch [1160/2071] Loss: 0.5846 | Acc: 75.34%
+  Batch [1170/2071] Loss: 0.5845 | Acc: 75.36%
+  Batch [1180/2071] Loss: 0.5841 | Acc: 75.37%
+  Batch [1190/2071] Loss: 0.5837 | Acc: 75.37%
+  Batch [1200/2071] Loss: 0.5841 | Acc: 75.36%
+  Batch [1210/2071] Loss: 0.5839 | Acc: 75.36%
+  Batch [1220/2071] Loss: 0.5836 | Acc: 75.38%
+  Batch [1230/2071] Loss: 0.5837 | Acc: 75.40%
+  Batch [1240/2071] Loss: 0.5830 | Acc: 75.40%
+  Batch [1250/2071] Loss: 0.5834 | Acc: 75.39%
+  Batch [1260/2071] Loss: 0.5833 | Acc: 75.36%
+  Batch [1270/2071] Loss: 0.5832 | Acc: 75.37%
+  Batch [1280/2071] Loss: 0.5826 | Acc: 75.41%
+  Batch [1290/2071] Loss: 0.5819 | Acc: 75.45%
+  Batch [1300/2071] Loss: 0.5822 | Acc: 75.46%
+  Batch [1310/2071] Loss: 0.5827 | Acc: 75.42%
+  Batch [1320/2071] Loss: 0.5826 | Acc: 75.41%
+  Batch [1330/2071] Loss: 0.5827 | Acc: 75.42%
+  Batch [1340/2071] Loss: 0.5819 | Acc: 75.44%
+  Batch [1350/2071] Loss: 0.5819 | Acc: 75.43%
+  Batch [1360/2071] Loss: 0.5812 | Acc: 75.45%
+  Batch [1370/2071] Loss: 0.5806 | Acc: 75.47%
+  Batch [1380/2071] Loss: 0.5804 | Acc: 75.51%
+  Batch [1390/2071] Loss: 0.5810 | Acc: 75.47%
+  Batch [1400/2071] Loss: 0.5806 | Acc: 75.49%
+  Batch [1410/2071] Loss: 0.5811 | Acc: 75.48%
+  Batch [1420/2071] Loss: 0.5812 | Acc: 75.48%
+  Batch [1430/2071] Loss: 0.5811 | Acc: 75.52%
+  Batch [1440/2071] Loss: 0.5807 | Acc: 75.51%
+  Batch [1450/2071] Loss: 0.5806 | Acc: 75.49%
+  Batch [1460/2071] Loss: 0.5801 | Acc: 75.50%
+  Batch [1470/2071] Loss: 0.5804 | Acc: 75.50%
+  Batch [1480/2071] Loss: 0.5810 | Acc: 75.50%
+  Batch [1490/2071] Loss: 0.5806 | Acc: 75.51%
+  Batch [1500/2071] Loss: 0.5813 | Acc: 75.49%
+  Batch [1510/2071] Loss: 0.5810 | Acc: 75.50%
+  Batch [1520/2071] Loss: 0.5812 | Acc: 75.52%
+  Batch [1530/2071] Loss: 0.5816 | Acc: 75.47%
+  Batch [1540/2071] Loss: 0.5816 | Acc: 75.46%
+  Batch [1550/2071] Loss: 0.5817 | Acc: 75.46%
+  Batch [1560/2071] Loss: 0.5818 | Acc: 75.45%
+  Batch [1570/2071] Loss: 0.5820 | Acc: 75.43%
+  Batch [1580/2071] Loss: 0.5823 | Acc: 75.43%
+  Batch [1590/2071] Loss: 0.5821 | Acc: 75.44%
+  Batch [1600/2071] Loss: 0.5822 | Acc: 75.41%
+  Batch [1610/2071] Loss: 0.5823 | Acc: 75.42%
+  Batch [1620/2071] Loss: 0.5830 | Acc: 75.39%
+  Batch [1630/2071] Loss: 0.5828 | Acc: 75.38%
+  Batch [1640/2071] Loss: 0.5829 | Acc: 75.36%
+  Batch [1650/2071] Loss: 0.5832 | Acc: 75.35%
+  Batch [1660/2071] Loss: 0.5830 | Acc: 75.35%
+  Batch [1670/2071] Loss: 0.5831 | Acc: 75.32%
+  Batch [1680/2071] Loss: 0.5833 | Acc: 75.33%
+  Batch [1690/2071] Loss: 0.5835 | Acc: 75.33%
+  Batch [1700/2071] Loss: 0.5835 | Acc: 75.33%
+  Batch [1710/2071] Loss: 0.5835 | Acc: 75.35%
+  Batch [1720/2071] Loss: 0.5833 | Acc: 75.37%
+  Batch [1730/2071] Loss: 0.5836 | Acc: 75.37%
+  Batch [1740/2071] Loss: 0.5836 | Acc: 75.38%
+  Batch [1750/2071] Loss: 0.5840 | Acc: 75.36%
+  Batch [1760/2071] Loss: 0.5840 | Acc: 75.35%
+  Batch [1770/2071] Loss: 0.5843 | Acc: 75.35%
+  Batch [1780/2071] Loss: 0.5846 | Acc: 75.35%
+  Batch [1790/2071] Loss: 0.5848 | Acc: 75.32%
+  Batch [1800/2071] Loss: 0.5848 | Acc: 75.30%
+  Batch [1810/2071] Loss: 0.5844 | Acc: 75.32%
+  Batch [1820/2071] Loss: 0.5838 | Acc: 75.33%
+  Batch [1830/2071] Loss: 0.5841 | Acc: 75.36%
+  Batch [1840/2071] Loss: 0.5844 | Acc: 75.37%
+  Batch [1850/2071] Loss: 0.5839 | Acc: 75.38%
+  Batch [1860/2071] Loss: 0.5838 | Acc: 75.39%
+  Batch [1870/2071] Loss: 0.5838 | Acc: 75.41%
+  Batch [1880/2071] Loss: 0.5843 | Acc: 75.38%
+  Batch [1890/2071] Loss: 0.5840 | Acc: 75.41%
+  Batch [1900/2071] Loss: 0.5839 | Acc: 75.41%
+  Batch [1910/2071] Loss: 0.5839 | Acc: 75.40%
+  Batch [1920/2071] Loss: 0.5837 | Acc: 75.41%
+  Batch [1930/2071] Loss: 0.5838 | Acc: 75.41%
+  Batch [1940/2071] Loss: 0.5839 | Acc: 75.38%
+  Batch [1950/2071] Loss: 0.5841 | Acc: 75.36%
+  Batch [1960/2071] Loss: 0.5844 | Acc: 75.34%
+  Batch [1970/2071] Loss: 0.5843 | Acc: 75.33%
+  Batch [1980/2071] Loss: 0.5842 | Acc: 75.34%
+  Batch [1990/2071] Loss: 0.5847 | Acc: 75.32%
+  Batch [2000/2071] Loss: 0.5843 | Acc: 75.33%
+  Batch [2010/2071] Loss: 0.5843 | Acc: 75.32%
+  Batch [2020/2071] Loss: 0.5839 | Acc: 75.33%
+  Batch [2030/2071] Loss: 0.5837 | Acc: 75.34%
+  Batch [2040/2071] Loss: 0.5834 | Acc: 75.35%
+  Batch [2050/2071] Loss: 0.5833 | Acc: 75.36%
+  Batch [2060/2071] Loss: 0.5839 | Acc: 75.37%
+  Batch [2070/2071] Loss: 0.5836 | Acc: 75.38%
+
+======================================================================
+Epoch 10 Summary:
+  Train Loss: 0.5836 | Train Acc: 75.38%
+  Val Loss:   0.9771 | Val Acc:   63.41%
+  Learning Rate: 0.001000
+  Time: 135.4s
+======================================================================
+
+Epoch [11/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5716 | Acc: 78.75%
+  Batch [20/2071] Loss: 0.5535 | Acc: 76.25%
+  Batch [30/2071] Loss: 0.5693 | Acc: 76.04%
+  Batch [40/2071] Loss: 0.5601 | Acc: 77.42%
+  Batch [50/2071] Loss: 0.5762 | Acc: 76.25%
+  Batch [60/2071] Loss: 0.5810 | Acc: 76.35%
+  Batch [70/2071] Loss: 0.5838 | Acc: 75.85%
+  Batch [80/2071] Loss: 0.5813 | Acc: 75.94%
+  Batch [90/2071] Loss: 0.5798 | Acc: 76.60%
+  Batch [100/2071] Loss: 0.5724 | Acc: 76.97%
+  Batch [110/2071] Loss: 0.5683 | Acc: 76.70%
+  Batch [120/2071] Loss: 0.5779 | Acc: 76.30%
+  Batch [130/2071] Loss: 0.5761 | Acc: 76.25%
+  Batch [140/2071] Loss: 0.5744 | Acc: 76.27%
+  Batch [150/2071] Loss: 0.5759 | Acc: 76.27%
+  Batch [160/2071] Loss: 0.5749 | Acc: 76.09%
+  Batch [170/2071] Loss: 0.5720 | Acc: 76.14%
+  Batch [180/2071] Loss: 0.5726 | Acc: 76.09%
+  Batch [190/2071] Loss: 0.5688 | Acc: 76.20%
+  Batch [200/2071] Loss: 0.5742 | Acc: 76.00%
+  Batch [210/2071] Loss: 0.5832 | Acc: 75.58%
+  Batch [220/2071] Loss: 0.5856 | Acc: 75.43%
+  Batch [230/2071] Loss: 0.5838 | Acc: 75.43%
+  Batch [240/2071] Loss: 0.5851 | Acc: 75.42%
+  Batch [250/2071] Loss: 0.5845 | Acc: 75.56%
+  Batch [260/2071] Loss: 0.5839 | Acc: 75.53%
+  Batch [270/2071] Loss: 0.5845 | Acc: 75.45%
+  Batch [280/2071] Loss: 0.5850 | Acc: 75.54%
+  Batch [290/2071] Loss: 0.5844 | Acc: 75.54%
+  Batch [300/2071] Loss: 0.5863 | Acc: 75.47%
+  Batch [310/2071] Loss: 0.5867 | Acc: 75.39%
+  Batch [320/2071] Loss: 0.5850 | Acc: 75.49%
+  Batch [330/2071] Loss: 0.5839 | Acc: 75.71%
+  Batch [340/2071] Loss: 0.5841 | Acc: 75.74%
+  Batch [350/2071] Loss: 0.5844 | Acc: 75.73%
+  Batch [360/2071] Loss: 0.5860 | Acc: 75.66%
+  Batch [370/2071] Loss: 0.5846 | Acc: 75.75%
+  Batch [380/2071] Loss: 0.5856 | Acc: 75.74%
+  Batch [390/2071] Loss: 0.5849 | Acc: 75.77%
+  Batch [400/2071] Loss: 0.5838 | Acc: 75.73%
+  Batch [410/2071] Loss: 0.5839 | Acc: 75.69%
+  Batch [420/2071] Loss: 0.5840 | Acc: 75.75%
+  Batch [430/2071] Loss: 0.5821 | Acc: 75.66%
+  Batch [440/2071] Loss: 0.5809 | Acc: 75.65%
+  Batch [450/2071] Loss: 0.5784 | Acc: 75.75%
+  Batch [460/2071] Loss: 0.5785 | Acc: 75.65%
+  Batch [470/2071] Loss: 0.5783 | Acc: 75.64%
+  Batch [480/2071] Loss: 0.5802 | Acc: 75.53%
+  Batch [490/2071] Loss: 0.5824 | Acc: 75.42%
+  Batch [500/2071] Loss: 0.5817 | Acc: 75.39%
+  Batch [510/2071] Loss: 0.5834 | Acc: 75.32%
+  Batch [520/2071] Loss: 0.5828 | Acc: 75.38%
+  Batch [530/2071] Loss: 0.5817 | Acc: 75.38%
+  Batch [540/2071] Loss: 0.5828 | Acc: 75.36%
+  Batch [550/2071] Loss: 0.5822 | Acc: 75.36%
+  Batch [560/2071] Loss: 0.5837 | Acc: 75.33%
+  Batch [570/2071] Loss: 0.5846 | Acc: 75.27%
+  Batch [580/2071] Loss: 0.5853 | Acc: 75.24%
+  Batch [590/2071] Loss: 0.5850 | Acc: 75.29%
+  Batch [600/2071] Loss: 0.5842 | Acc: 75.40%
+  Batch [610/2071] Loss: 0.5835 | Acc: 75.36%
+  Batch [620/2071] Loss: 0.5815 | Acc: 75.43%
+  Batch [630/2071] Loss: 0.5810 | Acc: 75.45%
+  Batch [640/2071] Loss: 0.5800 | Acc: 75.56%
+  Batch [650/2071] Loss: 0.5790 | Acc: 75.59%
+  Batch [660/2071] Loss: 0.5786 | Acc: 75.61%
+  Batch [670/2071] Loss: 0.5779 | Acc: 75.64%
+  Batch [680/2071] Loss: 0.5779 | Acc: 75.60%
+  Batch [690/2071] Loss: 0.5785 | Acc: 75.66%
+  Batch [700/2071] Loss: 0.5793 | Acc: 75.61%
+  Batch [710/2071] Loss: 0.5785 | Acc: 75.62%
+  Batch [720/2071] Loss: 0.5771 | Acc: 75.64%
+  Batch [730/2071] Loss: 0.5773 | Acc: 75.65%
+  Batch [740/2071] Loss: 0.5773 | Acc: 75.65%
+  Batch [750/2071] Loss: 0.5774 | Acc: 75.65%
+  Batch [760/2071] Loss: 0.5783 | Acc: 75.65%
+  Batch [770/2071] Loss: 0.5771 | Acc: 75.65%
+  Batch [780/2071] Loss: 0.5783 | Acc: 75.63%
+  Batch [790/2071] Loss: 0.5787 | Acc: 75.58%
+  Batch [800/2071] Loss: 0.5781 | Acc: 75.61%
+  Batch [810/2071] Loss: 0.5788 | Acc: 75.60%
+  Batch [820/2071] Loss: 0.5781 | Acc: 75.59%
+  Batch [830/2071] Loss: 0.5788 | Acc: 75.59%
+  Batch [840/2071] Loss: 0.5782 | Acc: 75.62%
+  Batch [850/2071] Loss: 0.5777 | Acc: 75.63%
+  Batch [860/2071] Loss: 0.5791 | Acc: 75.65%
+  Batch [870/2071] Loss: 0.5796 | Acc: 75.53%
+  Batch [880/2071] Loss: 0.5790 | Acc: 75.52%
+  Batch [890/2071] Loss: 0.5798 | Acc: 75.50%
+  Batch [900/2071] Loss: 0.5796 | Acc: 75.48%
+  Batch [910/2071] Loss: 0.5795 | Acc: 75.50%
+  Batch [920/2071] Loss: 0.5797 | Acc: 75.49%
+  Batch [930/2071] Loss: 0.5799 | Acc: 75.49%
+  Batch [940/2071] Loss: 0.5797 | Acc: 75.51%
+  Batch [950/2071] Loss: 0.5797 | Acc: 75.55%
+  Batch [960/2071] Loss: 0.5792 | Acc: 75.57%
+  Batch [970/2071] Loss: 0.5790 | Acc: 75.56%
+  Batch [980/2071] Loss: 0.5796 | Acc: 75.55%
+  Batch [990/2071] Loss: 0.5798 | Acc: 75.52%
+  Batch [1000/2071] Loss: 0.5800 | Acc: 75.53%
+  Batch [1010/2071] Loss: 0.5800 | Acc: 75.51%
+  Batch [1020/2071] Loss: 0.5792 | Acc: 75.54%
+  Batch [1030/2071] Loss: 0.5791 | Acc: 75.56%
+  Batch [1040/2071] Loss: 0.5797 | Acc: 75.51%
+  Batch [1050/2071] Loss: 0.5804 | Acc: 75.47%
+  Batch [1060/2071] Loss: 0.5810 | Acc: 75.48%
+  Batch [1070/2071] Loss: 0.5816 | Acc: 75.47%
+  Batch [1080/2071] Loss: 0.5812 | Acc: 75.50%
+  Batch [1090/2071] Loss: 0.5808 | Acc: 75.51%
+  Batch [1100/2071] Loss: 0.5810 | Acc: 75.48%
+  Batch [1110/2071] Loss: 0.5810 | Acc: 75.48%
+  Batch [1120/2071] Loss: 0.5813 | Acc: 75.49%
+  Batch [1130/2071] Loss: 0.5821 | Acc: 75.46%
+  Batch [1140/2071] Loss: 0.5825 | Acc: 75.45%
+  Batch [1150/2071] Loss: 0.5824 | Acc: 75.46%
+  Batch [1160/2071] Loss: 0.5827 | Acc: 75.43%
+  Batch [1170/2071] Loss: 0.5826 | Acc: 75.43%
+  Batch [1180/2071] Loss: 0.5828 | Acc: 75.44%
+  Batch [1190/2071] Loss: 0.5842 | Acc: 75.41%
+  Batch [1200/2071] Loss: 0.5840 | Acc: 75.41%
+  Batch [1210/2071] Loss: 0.5840 | Acc: 75.41%
+  Batch [1220/2071] Loss: 0.5840 | Acc: 75.37%
+  Batch [1230/2071] Loss: 0.5836 | Acc: 75.39%
+  Batch [1240/2071] Loss: 0.5833 | Acc: 75.40%
+  Batch [1250/2071] Loss: 0.5837 | Acc: 75.36%
+  Batch [1260/2071] Loss: 0.5835 | Acc: 75.32%
+  Batch [1270/2071] Loss: 0.5842 | Acc: 75.29%
+  Batch [1280/2071] Loss: 0.5850 | Acc: 75.26%
+  Batch [1290/2071] Loss: 0.5850 | Acc: 75.25%
+  Batch [1300/2071] Loss: 0.5860 | Acc: 75.26%
+  Batch [1310/2071] Loss: 0.5867 | Acc: 75.22%
+  Batch [1320/2071] Loss: 0.5868 | Acc: 75.23%
+  Batch [1330/2071] Loss: 0.5879 | Acc: 75.22%
+  Batch [1340/2071] Loss: 0.5877 | Acc: 75.21%
+  Batch [1350/2071] Loss: 0.5877 | Acc: 75.23%
+  Batch [1360/2071] Loss: 0.5879 | Acc: 75.19%
+  Batch [1370/2071] Loss: 0.5872 | Acc: 75.21%
+  Batch [1380/2071] Loss: 0.5877 | Acc: 75.22%
+  Batch [1390/2071] Loss: 0.5873 | Acc: 75.22%
+  Batch [1400/2071] Loss: 0.5870 | Acc: 75.23%
+  Batch [1410/2071] Loss: 0.5871 | Acc: 75.25%
+  Batch [1420/2071] Loss: 0.5879 | Acc: 75.21%
+  Batch [1430/2071] Loss: 0.5874 | Acc: 75.23%
+  Batch [1440/2071] Loss: 0.5881 | Acc: 75.22%
+  Batch [1450/2071] Loss: 0.5882 | Acc: 75.21%
+  Batch [1460/2071] Loss: 0.5883 | Acc: 75.18%
+  Batch [1470/2071] Loss: 0.5883 | Acc: 75.18%
+  Batch [1480/2071] Loss: 0.5885 | Acc: 75.13%
+  Batch [1490/2071] Loss: 0.5886 | Acc: 75.11%
+  Batch [1500/2071] Loss: 0.5885 | Acc: 75.14%
+  Batch [1510/2071] Loss: 0.5881 | Acc: 75.18%
+  Batch [1520/2071] Loss: 0.5881 | Acc: 75.19%
+  Batch [1530/2071] Loss: 0.5881 | Acc: 75.17%
+  Batch [1540/2071] Loss: 0.5878 | Acc: 75.17%
+  Batch [1550/2071] Loss: 0.5880 | Acc: 75.18%
+  Batch [1560/2071] Loss: 0.5877 | Acc: 75.20%
+  Batch [1570/2071] Loss: 0.5877 | Acc: 75.19%
+  Batch [1580/2071] Loss: 0.5877 | Acc: 75.20%
+  Batch [1590/2071] Loss: 0.5879 | Acc: 75.20%
+  Batch [1600/2071] Loss: 0.5879 | Acc: 75.18%
+  Batch [1610/2071] Loss: 0.5873 | Acc: 75.20%
+  Batch [1620/2071] Loss: 0.5873 | Acc: 75.19%
+  Batch [1630/2071] Loss: 0.5874 | Acc: 75.17%
+  Batch [1640/2071] Loss: 0.5872 | Acc: 75.15%
+  Batch [1650/2071] Loss: 0.5872 | Acc: 75.15%
+  Batch [1660/2071] Loss: 0.5872 | Acc: 75.15%
+  Batch [1670/2071] Loss: 0.5866 | Acc: 75.18%
+  Batch [1680/2071] Loss: 0.5866 | Acc: 75.17%
+  Batch [1690/2071] Loss: 0.5866 | Acc: 75.18%
+  Batch [1700/2071] Loss: 0.5867 | Acc: 75.18%
+  Batch [1710/2071] Loss: 0.5866 | Acc: 75.18%
+  Batch [1720/2071] Loss: 0.5871 | Acc: 75.14%
+  Batch [1730/2071] Loss: 0.5873 | Acc: 75.13%
+  Batch [1740/2071] Loss: 0.5874 | Acc: 75.14%
+  Batch [1750/2071] Loss: 0.5874 | Acc: 75.13%
+  Batch [1760/2071] Loss: 0.5877 | Acc: 75.11%
+  Batch [1770/2071] Loss: 0.5874 | Acc: 75.12%
+  Batch [1780/2071] Loss: 0.5873 | Acc: 75.12%
+  Batch [1790/2071] Loss: 0.5875 | Acc: 75.11%
+  Batch [1800/2071] Loss: 0.5876 | Acc: 75.11%
+  Batch [1810/2071] Loss: 0.5876 | Acc: 75.10%
+  Batch [1820/2071] Loss: 0.5875 | Acc: 75.10%
+  Batch [1830/2071] Loss: 0.5876 | Acc: 75.09%
+  Batch [1840/2071] Loss: 0.5875 | Acc: 75.09%
+  Batch [1850/2071] Loss: 0.5877 | Acc: 75.07%
+  Batch [1860/2071] Loss: 0.5873 | Acc: 75.07%
+  Batch [1870/2071] Loss: 0.5871 | Acc: 75.09%
+  Batch [1880/2071] Loss: 0.5871 | Acc: 75.10%
+  Batch [1890/2071] Loss: 0.5872 | Acc: 75.07%
+  Batch [1900/2071] Loss: 0.5872 | Acc: 75.07%
+  Batch [1910/2071] Loss: 0.5871 | Acc: 75.08%
+  Batch [1920/2071] Loss: 0.5872 | Acc: 75.07%
+  Batch [1930/2071] Loss: 0.5869 | Acc: 75.07%
+  Batch [1940/2071] Loss: 0.5871 | Acc: 75.06%
+  Batch [1950/2071] Loss: 0.5865 | Acc: 75.08%
+  Batch [1960/2071] Loss: 0.5863 | Acc: 75.06%
+  Batch [1970/2071] Loss: 0.5862 | Acc: 75.06%
+  Batch [1980/2071] Loss: 0.5858 | Acc: 75.06%
+  Batch [1990/2071] Loss: 0.5864 | Acc: 75.04%
+  Batch [2000/2071] Loss: 0.5861 | Acc: 75.05%
+  Batch [2010/2071] Loss: 0.5862 | Acc: 75.08%
+  Batch [2020/2071] Loss: 0.5861 | Acc: 75.09%
+  Batch [2030/2071] Loss: 0.5859 | Acc: 75.11%
+  Batch [2040/2071] Loss: 0.5862 | Acc: 75.10%
+  Batch [2050/2071] Loss: 0.5859 | Acc: 75.13%
+  Batch [2060/2071] Loss: 0.5859 | Acc: 75.15%
+  Batch [2070/2071] Loss: 0.5861 | Acc: 75.16%
+
+======================================================================
+Epoch 11 Summary:
+  Train Loss: 0.5861 | Train Acc: 75.16%
+  Val Loss:   1.0191 | Val Acc:   62.69%
+  Learning Rate: 0.001000
+  Time: 134.4s
+======================================================================
+
+Epoch [12/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5315 | Acc: 73.12%
+  Batch [20/2071] Loss: 0.5334 | Acc: 75.94%
+  Batch [30/2071] Loss: 0.5456 | Acc: 76.35%
+  Batch [40/2071] Loss: 0.5759 | Acc: 76.41%
+  Batch [50/2071] Loss: 0.5836 | Acc: 75.19%
+  Batch [60/2071] Loss: 0.5801 | Acc: 75.36%
+  Batch [70/2071] Loss: 0.5728 | Acc: 75.62%
+  Batch [80/2071] Loss: 0.5816 | Acc: 75.66%
+  Batch [90/2071] Loss: 0.5743 | Acc: 76.08%
+  Batch [100/2071] Loss: 0.5699 | Acc: 76.09%
+  Batch [110/2071] Loss: 0.5713 | Acc: 76.14%
+  Batch [120/2071] Loss: 0.5676 | Acc: 76.33%
+  Batch [130/2071] Loss: 0.5650 | Acc: 76.59%
+  Batch [140/2071] Loss: 0.5648 | Acc: 76.61%
+  Batch [150/2071] Loss: 0.5645 | Acc: 76.54%
+  Batch [160/2071] Loss: 0.5694 | Acc: 76.60%
+  Batch [170/2071] Loss: 0.5703 | Acc: 76.16%
+  Batch [180/2071] Loss: 0.5718 | Acc: 76.13%
+  Batch [190/2071] Loss: 0.5721 | Acc: 76.02%
+  Batch [200/2071] Loss: 0.5701 | Acc: 76.05%
+  Batch [210/2071] Loss: 0.5713 | Acc: 76.10%
+  Batch [220/2071] Loss: 0.5691 | Acc: 76.08%
+  Batch [230/2071] Loss: 0.5679 | Acc: 75.94%
+  Batch [240/2071] Loss: 0.5634 | Acc: 76.11%
+  Batch [250/2071] Loss: 0.5636 | Acc: 76.05%
+  Batch [260/2071] Loss: 0.5635 | Acc: 76.03%
+  Batch [270/2071] Loss: 0.5667 | Acc: 75.94%
+  Batch [280/2071] Loss: 0.5685 | Acc: 75.76%
+  Batch [290/2071] Loss: 0.5688 | Acc: 75.58%
+  Batch [300/2071] Loss: 0.5674 | Acc: 75.64%
+  Batch [310/2071] Loss: 0.5728 | Acc: 75.52%
+  Batch [320/2071] Loss: 0.5723 | Acc: 75.50%
+  Batch [330/2071] Loss: 0.5743 | Acc: 75.37%
+  Batch [340/2071] Loss: 0.5730 | Acc: 75.39%
+  Batch [350/2071] Loss: 0.5720 | Acc: 75.45%
+  Batch [360/2071] Loss: 0.5750 | Acc: 75.45%
+  Batch [370/2071] Loss: 0.5773 | Acc: 75.42%
+  Batch [380/2071] Loss: 0.5785 | Acc: 75.39%
+  Batch [390/2071] Loss: 0.5777 | Acc: 75.43%
+  Batch [400/2071] Loss: 0.5801 | Acc: 75.36%
+  Batch [410/2071] Loss: 0.5803 | Acc: 75.33%
+  Batch [420/2071] Loss: 0.5803 | Acc: 75.31%
+  Batch [430/2071] Loss: 0.5802 | Acc: 75.31%
+  Batch [440/2071] Loss: 0.5794 | Acc: 75.27%
+  Batch [450/2071] Loss: 0.5789 | Acc: 75.35%
+  Batch [460/2071] Loss: 0.5787 | Acc: 75.24%
+  Batch [470/2071] Loss: 0.5805 | Acc: 75.19%
+  Batch [480/2071] Loss: 0.5803 | Acc: 75.21%
+  Batch [490/2071] Loss: 0.5800 | Acc: 75.26%
+  Batch [500/2071] Loss: 0.5792 | Acc: 75.21%
+  Batch [510/2071] Loss: 0.5790 | Acc: 75.17%
+  Batch [520/2071] Loss: 0.5772 | Acc: 75.25%
+  Batch [530/2071] Loss: 0.5751 | Acc: 75.35%
+  Batch [540/2071] Loss: 0.5751 | Acc: 75.38%
+  Batch [550/2071] Loss: 0.5747 | Acc: 75.38%
+  Batch [560/2071] Loss: 0.5728 | Acc: 75.42%
+  Batch [570/2071] Loss: 0.5738 | Acc: 75.38%
+  Batch [580/2071] Loss: 0.5750 | Acc: 75.30%
+  Batch [590/2071] Loss: 0.5752 | Acc: 75.26%
+  Batch [600/2071] Loss: 0.5747 | Acc: 75.29%
+  Batch [610/2071] Loss: 0.5755 | Acc: 75.32%
+  Batch [620/2071] Loss: 0.5750 | Acc: 75.32%
+  Batch [630/2071] Loss: 0.5753 | Acc: 75.24%
+  Batch [640/2071] Loss: 0.5764 | Acc: 75.17%
+  Batch [650/2071] Loss: 0.5757 | Acc: 75.20%
+  Batch [660/2071] Loss: 0.5766 | Acc: 75.17%
+  Batch [670/2071] Loss: 0.5756 | Acc: 75.22%
+  Batch [680/2071] Loss: 0.5753 | Acc: 75.22%
+  Batch [690/2071] Loss: 0.5758 | Acc: 75.17%
+  Batch [700/2071] Loss: 0.5755 | Acc: 75.17%
+  Batch [710/2071] Loss: 0.5744 | Acc: 75.22%
+  Batch [720/2071] Loss: 0.5747 | Acc: 75.13%
+  Batch [730/2071] Loss: 0.5740 | Acc: 75.15%
+  Batch [740/2071] Loss: 0.5731 | Acc: 75.19%
+  Batch [750/2071] Loss: 0.5735 | Acc: 75.16%
+  Batch [760/2071] Loss: 0.5735 | Acc: 75.22%
+  Batch [770/2071] Loss: 0.5728 | Acc: 75.28%
+  Batch [780/2071] Loss: 0.5735 | Acc: 75.24%
+  Batch [790/2071] Loss: 0.5732 | Acc: 75.28%
+  Batch [800/2071] Loss: 0.5743 | Acc: 75.24%
+  Batch [810/2071] Loss: 0.5731 | Acc: 75.35%
+  Batch [820/2071] Loss: 0.5729 | Acc: 75.39%
+  Batch [830/2071] Loss: 0.5732 | Acc: 75.39%
+  Batch [840/2071] Loss: 0.5735 | Acc: 75.35%
+  Batch [850/2071] Loss: 0.5736 | Acc: 75.33%
+  Batch [860/2071] Loss: 0.5738 | Acc: 75.33%
+  Batch [870/2071] Loss: 0.5737 | Acc: 75.29%
+  Batch [880/2071] Loss: 0.5733 | Acc: 75.32%
+  Batch [890/2071] Loss: 0.5722 | Acc: 75.40%
+  Batch [900/2071] Loss: 0.5735 | Acc: 75.36%
+  Batch [910/2071] Loss: 0.5742 | Acc: 75.28%
+  Batch [920/2071] Loss: 0.5745 | Acc: 75.24%
+  Batch [930/2071] Loss: 0.5747 | Acc: 75.24%
+  Batch [940/2071] Loss: 0.5745 | Acc: 75.27%
+  Batch [950/2071] Loss: 0.5744 | Acc: 75.27%
+  Batch [960/2071] Loss: 0.5754 | Acc: 75.24%
+  Batch [970/2071] Loss: 0.5756 | Acc: 75.23%
+  Batch [980/2071] Loss: 0.5761 | Acc: 75.22%
+  Batch [990/2071] Loss: 0.5768 | Acc: 75.21%
+  Batch [1000/2071] Loss: 0.5765 | Acc: 75.25%
+  Batch [1010/2071] Loss: 0.5774 | Acc: 75.24%
+  Batch [1020/2071] Loss: 0.5775 | Acc: 75.22%
+  Batch [1030/2071] Loss: 0.5785 | Acc: 75.22%
+  Batch [1040/2071] Loss: 0.5790 | Acc: 75.23%
+  Batch [1050/2071] Loss: 0.5790 | Acc: 75.24%
+  Batch [1060/2071] Loss: 0.5790 | Acc: 75.24%
+  Batch [1070/2071] Loss: 0.5787 | Acc: 75.27%
+  Batch [1080/2071] Loss: 0.5787 | Acc: 75.26%
+  Batch [1090/2071] Loss: 0.5789 | Acc: 75.29%
+  Batch [1100/2071] Loss: 0.5786 | Acc: 75.31%
+  Batch [1110/2071] Loss: 0.5786 | Acc: 75.28%
+  Batch [1120/2071] Loss: 0.5794 | Acc: 75.27%
+  Batch [1130/2071] Loss: 0.5792 | Acc: 75.29%
+  Batch [1140/2071] Loss: 0.5788 | Acc: 75.29%
+  Batch [1150/2071] Loss: 0.5786 | Acc: 75.31%
+  Batch [1160/2071] Loss: 0.5785 | Acc: 75.32%
+  Batch [1170/2071] Loss: 0.5782 | Acc: 75.32%
+  Batch [1180/2071] Loss: 0.5780 | Acc: 75.32%
+  Batch [1190/2071] Loss: 0.5783 | Acc: 75.34%
+  Batch [1200/2071] Loss: 0.5782 | Acc: 75.34%
+  Batch [1210/2071] Loss: 0.5790 | Acc: 75.32%
+  Batch [1220/2071] Loss: 0.5796 | Acc: 75.31%
+  Batch [1230/2071] Loss: 0.5790 | Acc: 75.33%
+  Batch [1240/2071] Loss: 0.5784 | Acc: 75.37%
+  Batch [1250/2071] Loss: 0.5786 | Acc: 75.36%
+  Batch [1260/2071] Loss: 0.5783 | Acc: 75.37%
+  Batch [1270/2071] Loss: 0.5789 | Acc: 75.36%
+  Batch [1280/2071] Loss: 0.5792 | Acc: 75.37%
+  Batch [1290/2071] Loss: 0.5803 | Acc: 75.35%
+  Batch [1300/2071] Loss: 0.5801 | Acc: 75.35%
+  Batch [1310/2071] Loss: 0.5796 | Acc: 75.37%
+  Batch [1320/2071] Loss: 0.5793 | Acc: 75.40%
+  Batch [1330/2071] Loss: 0.5792 | Acc: 75.39%
+  Batch [1340/2071] Loss: 0.5791 | Acc: 75.40%
+  Batch [1350/2071] Loss: 0.5792 | Acc: 75.42%
+  Batch [1360/2071] Loss: 0.5792 | Acc: 75.43%
+  Batch [1370/2071] Loss: 0.5786 | Acc: 75.46%
+  Batch [1380/2071] Loss: 0.5783 | Acc: 75.47%
+  Batch [1390/2071] Loss: 0.5784 | Acc: 75.46%
+  Batch [1400/2071] Loss: 0.5788 | Acc: 75.46%
+  Batch [1410/2071] Loss: 0.5785 | Acc: 75.47%
+  Batch [1420/2071] Loss: 0.5781 | Acc: 75.47%
+  Batch [1430/2071] Loss: 0.5776 | Acc: 75.50%
+  Batch [1440/2071] Loss: 0.5773 | Acc: 75.51%
+  Batch [1450/2071] Loss: 0.5774 | Acc: 75.50%
+  Batch [1460/2071] Loss: 0.5775 | Acc: 75.49%
+  Batch [1470/2071] Loss: 0.5777 | Acc: 75.50%
+  Batch [1480/2071] Loss: 0.5770 | Acc: 75.53%
+  Batch [1490/2071] Loss: 0.5767 | Acc: 75.54%
+  Batch [1500/2071] Loss: 0.5766 | Acc: 75.54%
+  Batch [1510/2071] Loss: 0.5768 | Acc: 75.54%
+  Batch [1520/2071] Loss: 0.5765 | Acc: 75.54%
+  Batch [1530/2071] Loss: 0.5765 | Acc: 75.55%
+  Batch [1540/2071] Loss: 0.5767 | Acc: 75.53%
+  Batch [1550/2071] Loss: 0.5771 | Acc: 75.54%
+  Batch [1560/2071] Loss: 0.5775 | Acc: 75.55%
+  Batch [1570/2071] Loss: 0.5777 | Acc: 75.56%
+  Batch [1580/2071] Loss: 0.5780 | Acc: 75.57%
+  Batch [1590/2071] Loss: 0.5787 | Acc: 75.52%
+  Batch [1600/2071] Loss: 0.5789 | Acc: 75.51%
+  Batch [1610/2071] Loss: 0.5791 | Acc: 75.51%
+  Batch [1620/2071] Loss: 0.5794 | Acc: 75.47%
+  Batch [1630/2071] Loss: 0.5791 | Acc: 75.47%
+  Batch [1640/2071] Loss: 0.5790 | Acc: 75.50%
+  Batch [1650/2071] Loss: 0.5789 | Acc: 75.50%
+  Batch [1660/2071] Loss: 0.5795 | Acc: 75.50%
+  Batch [1670/2071] Loss: 0.5797 | Acc: 75.48%
+  Batch [1680/2071] Loss: 0.5802 | Acc: 75.46%
+  Batch [1690/2071] Loss: 0.5796 | Acc: 75.48%
+  Batch [1700/2071] Loss: 0.5793 | Acc: 75.47%
+  Batch [1710/2071] Loss: 0.5789 | Acc: 75.49%
+  Batch [1720/2071] Loss: 0.5789 | Acc: 75.49%
+  Batch [1730/2071] Loss: 0.5790 | Acc: 75.51%
+  Batch [1740/2071] Loss: 0.5791 | Acc: 75.54%
+  Batch [1750/2071] Loss: 0.5790 | Acc: 75.55%
+  Batch [1760/2071] Loss: 0.5787 | Acc: 75.56%
+  Batch [1770/2071] Loss: 0.5786 | Acc: 75.56%
+  Batch [1780/2071] Loss: 0.5787 | Acc: 75.54%
+  Batch [1790/2071] Loss: 0.5787 | Acc: 75.56%
+  Batch [1800/2071] Loss: 0.5785 | Acc: 75.59%
+  Batch [1810/2071] Loss: 0.5783 | Acc: 75.59%
+  Batch [1820/2071] Loss: 0.5780 | Acc: 75.59%
+  Batch [1830/2071] Loss: 0.5779 | Acc: 75.61%
+  Batch [1840/2071] Loss: 0.5776 | Acc: 75.63%
+  Batch [1850/2071] Loss: 0.5778 | Acc: 75.61%
+  Batch [1860/2071] Loss: 0.5779 | Acc: 75.57%
+  Batch [1870/2071] Loss: 0.5780 | Acc: 75.58%
+  Batch [1880/2071] Loss: 0.5783 | Acc: 75.60%
+  Batch [1890/2071] Loss: 0.5784 | Acc: 75.60%
+  Batch [1900/2071] Loss: 0.5783 | Acc: 75.61%
+  Batch [1910/2071] Loss: 0.5783 | Acc: 75.61%
+  Batch [1920/2071] Loss: 0.5785 | Acc: 75.63%
+  Batch [1930/2071] Loss: 0.5788 | Acc: 75.63%
+  Batch [1940/2071] Loss: 0.5786 | Acc: 75.63%
+  Batch [1950/2071] Loss: 0.5785 | Acc: 75.63%
+  Batch [1960/2071] Loss: 0.5788 | Acc: 75.62%
+  Batch [1970/2071] Loss: 0.5788 | Acc: 75.61%
+  Batch [1980/2071] Loss: 0.5790 | Acc: 75.60%
+  Batch [1990/2071] Loss: 0.5788 | Acc: 75.62%
+  Batch [2000/2071] Loss: 0.5785 | Acc: 75.62%
+  Batch [2010/2071] Loss: 0.5785 | Acc: 75.63%
+  Batch [2020/2071] Loss: 0.5785 | Acc: 75.62%
+  Batch [2030/2071] Loss: 0.5783 | Acc: 75.64%
+  Batch [2040/2071] Loss: 0.5783 | Acc: 75.64%
+  Batch [2050/2071] Loss: 0.5782 | Acc: 75.65%
+  Batch [2060/2071] Loss: 0.5782 | Acc: 75.65%
+  Batch [2070/2071] Loss: 0.5776 | Acc: 75.68%
+
+======================================================================
+Epoch 12 Summary:
+  Train Loss: 0.5777 | Train Acc: 75.68%
+  Val Loss:   0.9530 | Val Acc:   67.27%
+  Learning Rate: 0.001000
+  Time: 134.9s
+======================================================================
+
+Epoch [13/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5402 | Acc: 74.69%
+  Batch [20/2071] Loss: 0.5504 | Acc: 74.84%
+  Batch [30/2071] Loss: 0.5256 | Acc: 76.04%
+  Batch [40/2071] Loss: 0.5386 | Acc: 76.48%
+  Batch [50/2071] Loss: 0.5328 | Acc: 76.75%
+  Batch [60/2071] Loss: 0.5300 | Acc: 77.03%
+  Batch [70/2071] Loss: 0.5268 | Acc: 77.46%
+  Batch [80/2071] Loss: 0.5245 | Acc: 77.77%
+  Batch [90/2071] Loss: 0.5356 | Acc: 77.71%
+  Batch [100/2071] Loss: 0.5349 | Acc: 77.53%
+  Batch [110/2071] Loss: 0.5338 | Acc: 77.41%
+  Batch [120/2071] Loss: 0.5364 | Acc: 77.37%
+  Batch [130/2071] Loss: 0.5327 | Acc: 77.40%
+  Batch [140/2071] Loss: 0.5329 | Acc: 77.14%
+  Batch [150/2071] Loss: 0.5334 | Acc: 77.08%
+  Batch [160/2071] Loss: 0.5318 | Acc: 77.11%
+  Batch [170/2071] Loss: 0.5308 | Acc: 77.06%
+  Batch [180/2071] Loss: 0.5281 | Acc: 77.19%
+  Batch [190/2071] Loss: 0.5259 | Acc: 77.27%
+  Batch [200/2071] Loss: 0.5240 | Acc: 77.48%
+  Batch [210/2071] Loss: 0.5239 | Acc: 77.49%
+  Batch [220/2071] Loss: 0.5241 | Acc: 77.54%
+  Batch [230/2071] Loss: 0.5233 | Acc: 77.53%
+  Batch [240/2071] Loss: 0.5244 | Acc: 77.60%
+  Batch [250/2071] Loss: 0.5251 | Acc: 77.56%
+  Batch [260/2071] Loss: 0.5240 | Acc: 77.55%
+  Batch [270/2071] Loss: 0.5260 | Acc: 77.50%
+  Batch [280/2071] Loss: 0.5288 | Acc: 77.34%
+  Batch [290/2071] Loss: 0.5306 | Acc: 77.30%
+  Batch [300/2071] Loss: 0.5303 | Acc: 77.18%
+  Batch [310/2071] Loss: 0.5299 | Acc: 77.23%
+  Batch [320/2071] Loss: 0.5299 | Acc: 77.29%
+  Batch [330/2071] Loss: 0.5297 | Acc: 77.32%
+  Batch [340/2071] Loss: 0.5298 | Acc: 77.25%
+  Batch [350/2071] Loss: 0.5288 | Acc: 77.30%
+  Batch [360/2071] Loss: 0.5267 | Acc: 77.43%
+  Batch [370/2071] Loss: 0.5261 | Acc: 77.47%
+  Batch [380/2071] Loss: 0.5252 | Acc: 77.49%
+  Batch [390/2071] Loss: 0.5286 | Acc: 77.43%
+  Batch [400/2071] Loss: 0.5276 | Acc: 77.44%
+  Batch [410/2071] Loss: 0.5271 | Acc: 77.46%
+  Batch [420/2071] Loss: 0.5264 | Acc: 77.49%
+  Batch [430/2071] Loss: 0.5271 | Acc: 77.37%
+  Batch [440/2071] Loss: 0.5278 | Acc: 77.41%
+  Batch [450/2071] Loss: 0.5282 | Acc: 77.43%
+  Batch [460/2071] Loss: 0.5290 | Acc: 77.36%
+  Batch [470/2071] Loss: 0.5296 | Acc: 77.35%
+  Batch [480/2071] Loss: 0.5304 | Acc: 77.31%
+  Batch [490/2071] Loss: 0.5303 | Acc: 77.29%
+  Batch [500/2071] Loss: 0.5316 | Acc: 77.19%
+  Batch [510/2071] Loss: 0.5320 | Acc: 77.19%
+  Batch [520/2071] Loss: 0.5312 | Acc: 77.22%
+  Batch [530/2071] Loss: 0.5320 | Acc: 77.21%
+  Batch [540/2071] Loss: 0.5310 | Acc: 77.20%
+  Batch [550/2071] Loss: 0.5308 | Acc: 77.22%
+  Batch [560/2071] Loss: 0.5316 | Acc: 77.22%
+  Batch [570/2071] Loss: 0.5318 | Acc: 77.15%
+  Batch [580/2071] Loss: 0.5314 | Acc: 77.18%
+  Batch [590/2071] Loss: 0.5304 | Acc: 77.22%
+  Batch [600/2071] Loss: 0.5314 | Acc: 77.24%
+  Batch [610/2071] Loss: 0.5321 | Acc: 77.18%
+  Batch [620/2071] Loss: 0.5321 | Acc: 77.17%
+  Batch [630/2071] Loss: 0.5312 | Acc: 77.20%
+  Batch [640/2071] Loss: 0.5305 | Acc: 77.23%
+  Batch [650/2071] Loss: 0.5308 | Acc: 77.17%
+  Batch [660/2071] Loss: 0.5307 | Acc: 77.18%
+  Batch [670/2071] Loss: 0.5294 | Acc: 77.27%
+  Batch [680/2071] Loss: 0.5300 | Acc: 77.20%
+  Batch [690/2071] Loss: 0.5309 | Acc: 77.16%
+  Batch [700/2071] Loss: 0.5311 | Acc: 77.13%
+  Batch [710/2071] Loss: 0.5318 | Acc: 77.05%
+  Batch [720/2071] Loss: 0.5304 | Acc: 77.14%
+  Batch [730/2071] Loss: 0.5299 | Acc: 77.17%
+  Batch [740/2071] Loss: 0.5306 | Acc: 77.15%
+  Batch [750/2071] Loss: 0.5302 | Acc: 77.21%
+  Batch [760/2071] Loss: 0.5309 | Acc: 77.16%
+  Batch [770/2071] Loss: 0.5306 | Acc: 77.18%
+  Batch [780/2071] Loss: 0.5314 | Acc: 77.14%
+  Batch [790/2071] Loss: 0.5316 | Acc: 77.14%
+  Batch [800/2071] Loss: 0.5311 | Acc: 77.15%
+  Batch [810/2071] Loss: 0.5316 | Acc: 77.12%
+  Batch [820/2071] Loss: 0.5309 | Acc: 77.14%
+  Batch [830/2071] Loss: 0.5306 | Acc: 77.16%
+  Batch [840/2071] Loss: 0.5314 | Acc: 77.13%
+  Batch [850/2071] Loss: 0.5304 | Acc: 77.18%
+  Batch [860/2071] Loss: 0.5301 | Acc: 77.23%
+  Batch [870/2071] Loss: 0.5295 | Acc: 77.27%
+  Batch [880/2071] Loss: 0.5295 | Acc: 77.26%
+  Batch [890/2071] Loss: 0.5302 | Acc: 77.17%
+  Batch [900/2071] Loss: 0.5299 | Acc: 77.18%
+  Batch [910/2071] Loss: 0.5307 | Acc: 77.16%
+  Batch [920/2071] Loss: 0.5315 | Acc: 77.17%
+  Batch [930/2071] Loss: 0.5318 | Acc: 77.13%
+  Batch [940/2071] Loss: 0.5315 | Acc: 77.10%
+  Batch [950/2071] Loss: 0.5317 | Acc: 77.10%
+  Batch [960/2071] Loss: 0.5319 | Acc: 77.11%
+  Batch [970/2071] Loss: 0.5326 | Acc: 77.11%
+  Batch [980/2071] Loss: 0.5334 | Acc: 77.09%
+  Batch [990/2071] Loss: 0.5339 | Acc: 77.03%
+  Batch [1000/2071] Loss: 0.5333 | Acc: 77.06%
+  Batch [1010/2071] Loss: 0.5337 | Acc: 77.04%
+  Batch [1020/2071] Loss: 0.5335 | Acc: 77.01%
+  Batch [1030/2071] Loss: 0.5339 | Acc: 77.01%
+  Batch [1040/2071] Loss: 0.5344 | Acc: 77.00%
+  Batch [1050/2071] Loss: 0.5346 | Acc: 76.96%
+  Batch [1060/2071] Loss: 0.5346 | Acc: 76.95%
+  Batch [1070/2071] Loss: 0.5341 | Acc: 76.95%
+  Batch [1080/2071] Loss: 0.5341 | Acc: 76.98%
+  Batch [1090/2071] Loss: 0.5332 | Acc: 77.02%
+  Batch [1100/2071] Loss: 0.5332 | Acc: 77.03%
+  Batch [1110/2071] Loss: 0.5335 | Acc: 77.00%
+  Batch [1120/2071] Loss: 0.5338 | Acc: 76.99%
+  Batch [1130/2071] Loss: 0.5339 | Acc: 77.00%
+  Batch [1140/2071] Loss: 0.5340 | Acc: 77.03%
+  Batch [1150/2071] Loss: 0.5347 | Acc: 76.98%
+  Batch [1160/2071] Loss: 0.5348 | Acc: 76.98%
+  Batch [1170/2071] Loss: 0.5348 | Acc: 76.99%
+  Batch [1180/2071] Loss: 0.5346 | Acc: 76.98%
+  Batch [1190/2071] Loss: 0.5351 | Acc: 76.96%
+  Batch [1200/2071] Loss: 0.5345 | Acc: 76.98%
+  Batch [1210/2071] Loss: 0.5347 | Acc: 77.00%
+  Batch [1220/2071] Loss: 0.5349 | Acc: 76.99%
+  Batch [1230/2071] Loss: 0.5350 | Acc: 76.96%
+  Batch [1240/2071] Loss: 0.5346 | Acc: 76.97%
+  Batch [1250/2071] Loss: 0.5344 | Acc: 76.97%
+  Batch [1260/2071] Loss: 0.5344 | Acc: 76.97%
+  Batch [1270/2071] Loss: 0.5351 | Acc: 76.97%
+  Batch [1280/2071] Loss: 0.5347 | Acc: 76.98%
+  Batch [1290/2071] Loss: 0.5345 | Acc: 76.99%
+  Batch [1300/2071] Loss: 0.5342 | Acc: 77.00%
+  Batch [1310/2071] Loss: 0.5340 | Acc: 76.99%
+  Batch [1320/2071] Loss: 0.5336 | Acc: 77.02%
+  Batch [1330/2071] Loss: 0.5346 | Acc: 77.00%
+  Batch [1340/2071] Loss: 0.5341 | Acc: 77.01%
+  Batch [1350/2071] Loss: 0.5340 | Acc: 77.05%
+  Batch [1360/2071] Loss: 0.5338 | Acc: 77.04%
+  Batch [1370/2071] Loss: 0.5337 | Acc: 77.06%
+  Batch [1380/2071] Loss: 0.5337 | Acc: 77.05%
+  Batch [1390/2071] Loss: 0.5342 | Acc: 77.03%
+  Batch [1400/2071] Loss: 0.5337 | Acc: 77.04%
+  Batch [1410/2071] Loss: 0.5340 | Acc: 77.05%
+  Batch [1420/2071] Loss: 0.5337 | Acc: 77.07%
+  Batch [1430/2071] Loss: 0.5343 | Acc: 77.03%
+  Batch [1440/2071] Loss: 0.5341 | Acc: 77.05%
+  Batch [1450/2071] Loss: 0.5344 | Acc: 77.05%
+  Batch [1460/2071] Loss: 0.5346 | Acc: 77.05%
+  Batch [1470/2071] Loss: 0.5341 | Acc: 77.05%
+  Batch [1480/2071] Loss: 0.5343 | Acc: 77.03%
+  Batch [1490/2071] Loss: 0.5338 | Acc: 77.04%
+  Batch [1500/2071] Loss: 0.5341 | Acc: 77.04%
+  Batch [1510/2071] Loss: 0.5350 | Acc: 77.04%
+  Batch [1520/2071] Loss: 0.5350 | Acc: 77.04%
+  Batch [1530/2071] Loss: 0.5352 | Acc: 77.06%
+  Batch [1540/2071] Loss: 0.5352 | Acc: 77.07%
+  Batch [1550/2071] Loss: 0.5352 | Acc: 77.05%
+  Batch [1560/2071] Loss: 0.5353 | Acc: 77.05%
+  Batch [1570/2071] Loss: 0.5347 | Acc: 77.06%
+  Batch [1580/2071] Loss: 0.5342 | Acc: 77.09%
+  Batch [1590/2071] Loss: 0.5343 | Acc: 77.08%
+  Batch [1600/2071] Loss: 0.5343 | Acc: 77.08%
+  Batch [1610/2071] Loss: 0.5340 | Acc: 77.08%
+  Batch [1620/2071] Loss: 0.5342 | Acc: 77.07%
+  Batch [1630/2071] Loss: 0.5344 | Acc: 77.05%
+  Batch [1640/2071] Loss: 0.5344 | Acc: 77.03%
+  Batch [1650/2071] Loss: 0.5343 | Acc: 77.03%
+  Batch [1660/2071] Loss: 0.5342 | Acc: 77.04%
+  Batch [1670/2071] Loss: 0.5342 | Acc: 77.06%
+  Batch [1680/2071] Loss: 0.5343 | Acc: 77.06%
+  Batch [1690/2071] Loss: 0.5346 | Acc: 77.04%
+  Batch [1700/2071] Loss: 0.5346 | Acc: 77.02%
+  Batch [1710/2071] Loss: 0.5349 | Acc: 77.01%
+  Batch [1720/2071] Loss: 0.5345 | Acc: 77.02%
+  Batch [1730/2071] Loss: 0.5344 | Acc: 77.03%
+  Batch [1740/2071] Loss: 0.5340 | Acc: 77.02%
+  Batch [1750/2071] Loss: 0.5342 | Acc: 77.01%
+  Batch [1760/2071] Loss: 0.5339 | Acc: 77.02%
+  Batch [1770/2071] Loss: 0.5334 | Acc: 77.05%
+  Batch [1780/2071] Loss: 0.5338 | Acc: 77.04%
+  Batch [1790/2071] Loss: 0.5344 | Acc: 77.03%
+  Batch [1800/2071] Loss: 0.5341 | Acc: 77.02%
+  Batch [1810/2071] Loss: 0.5343 | Acc: 77.00%
+  Batch [1820/2071] Loss: 0.5342 | Acc: 77.01%
+  Batch [1830/2071] Loss: 0.5345 | Acc: 76.99%
+  Batch [1840/2071] Loss: 0.5341 | Acc: 76.99%
+  Batch [1850/2071] Loss: 0.5341 | Acc: 77.01%
+  Batch [1860/2071] Loss: 0.5340 | Acc: 77.00%
+  Batch [1870/2071] Loss: 0.5338 | Acc: 77.01%
+  Batch [1880/2071] Loss: 0.5337 | Acc: 77.02%
+  Batch [1890/2071] Loss: 0.5337 | Acc: 77.02%
+  Batch [1900/2071] Loss: 0.5343 | Acc: 76.98%
+  Batch [1910/2071] Loss: 0.5346 | Acc: 76.98%
+  Batch [1920/2071] Loss: 0.5346 | Acc: 76.99%
+  Batch [1930/2071] Loss: 0.5347 | Acc: 76.96%
+  Batch [1940/2071] Loss: 0.5347 | Acc: 76.95%
+  Batch [1950/2071] Loss: 0.5344 | Acc: 76.95%
+  Batch [1960/2071] Loss: 0.5339 | Acc: 76.98%
+  Batch [1970/2071] Loss: 0.5338 | Acc: 76.98%
+  Batch [1980/2071] Loss: 0.5341 | Acc: 76.97%
+  Batch [1990/2071] Loss: 0.5344 | Acc: 76.96%
+  Batch [2000/2071] Loss: 0.5345 | Acc: 76.97%
+  Batch [2010/2071] Loss: 0.5348 | Acc: 76.96%
+  Batch [2020/2071] Loss: 0.5344 | Acc: 76.97%
+  Batch [2030/2071] Loss: 0.5347 | Acc: 76.96%
+  Batch [2040/2071] Loss: 0.5344 | Acc: 76.97%
+  Batch [2050/2071] Loss: 0.5344 | Acc: 76.98%
+  Batch [2060/2071] Loss: 0.5339 | Acc: 77.00%
+  Batch [2070/2071] Loss: 0.5338 | Acc: 77.01%
+
+======================================================================
+Epoch 13 Summary:
+  Train Loss: 0.5338 | Train Acc: 77.01%
+  Val Loss:   1.0246 | Val Acc:   65.89%
+  Learning Rate: 0.000500
+  Time: 134.1s
+======================================================================
+
+Epoch [14/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5089 | Acc: 78.12%
+  Batch [20/2071] Loss: 0.5332 | Acc: 78.44%
+  Batch [30/2071] Loss: 0.5262 | Acc: 78.65%
+  Batch [40/2071] Loss: 0.5080 | Acc: 78.75%
+  Batch [50/2071] Loss: 0.5040 | Acc: 78.94%
+  Batch [60/2071] Loss: 0.5141 | Acc: 78.85%
+  Batch [70/2071] Loss: 0.5254 | Acc: 78.26%
+  Batch [80/2071] Loss: 0.5254 | Acc: 78.28%
+  Batch [90/2071] Loss: 0.5239 | Acc: 78.47%
+  Batch [100/2071] Loss: 0.5256 | Acc: 78.22%
+  Batch [110/2071] Loss: 0.5240 | Acc: 78.35%
+  Batch [120/2071] Loss: 0.5253 | Acc: 78.15%
+  Batch [130/2071] Loss: 0.5220 | Acc: 78.12%
+  Batch [140/2071] Loss: 0.5188 | Acc: 78.12%
+  Batch [150/2071] Loss: 0.5226 | Acc: 78.12%
+  Batch [160/2071] Loss: 0.5236 | Acc: 78.16%
+  Batch [170/2071] Loss: 0.5264 | Acc: 78.05%
+  Batch [180/2071] Loss: 0.5261 | Acc: 78.06%
+  Batch [190/2071] Loss: 0.5267 | Acc: 77.88%
+  Batch [200/2071] Loss: 0.5259 | Acc: 77.95%
+  Batch [210/2071] Loss: 0.5175 | Acc: 78.17%
+  Batch [220/2071] Loss: 0.5140 | Acc: 78.30%
+  Batch [230/2071] Loss: 0.5145 | Acc: 78.26%
+  Batch [240/2071] Loss: 0.5135 | Acc: 78.20%
+  Batch [250/2071] Loss: 0.5152 | Acc: 78.09%
+  Batch [260/2071] Loss: 0.5158 | Acc: 78.12%
+  Batch [270/2071] Loss: 0.5198 | Acc: 77.97%
+  Batch [280/2071] Loss: 0.5178 | Acc: 78.02%
+  Batch [290/2071] Loss: 0.5191 | Acc: 77.97%
+  Batch [300/2071] Loss: 0.5194 | Acc: 77.95%
+  Batch [310/2071] Loss: 0.5190 | Acc: 77.97%
+  Batch [320/2071] Loss: 0.5176 | Acc: 78.06%
+  Batch [330/2071] Loss: 0.5159 | Acc: 78.14%
+  Batch [340/2071] Loss: 0.5159 | Acc: 78.15%
+  Batch [350/2071] Loss: 0.5168 | Acc: 78.15%
+  Batch [360/2071] Loss: 0.5191 | Acc: 77.91%
+  Batch [370/2071] Loss: 0.5179 | Acc: 77.86%
+  Batch [380/2071] Loss: 0.5171 | Acc: 77.93%
+  Batch [390/2071] Loss: 0.5171 | Acc: 77.98%
+  Batch [400/2071] Loss: 0.5207 | Acc: 77.89%
+  Batch [410/2071] Loss: 0.5206 | Acc: 77.87%
+  Batch [420/2071] Loss: 0.5187 | Acc: 77.95%
+  Batch [430/2071] Loss: 0.5184 | Acc: 77.92%
+  Batch [440/2071] Loss: 0.5191 | Acc: 77.89%
+  Batch [450/2071] Loss: 0.5195 | Acc: 77.85%
+  Batch [460/2071] Loss: 0.5199 | Acc: 77.86%
+  Batch [470/2071] Loss: 0.5199 | Acc: 77.82%
+  Batch [480/2071] Loss: 0.5205 | Acc: 77.73%
+  Batch [490/2071] Loss: 0.5212 | Acc: 77.76%
+  Batch [500/2071] Loss: 0.5213 | Acc: 77.74%
+  Batch [510/2071] Loss: 0.5229 | Acc: 77.59%
+  Batch [520/2071] Loss: 0.5247 | Acc: 77.48%
+  Batch [530/2071] Loss: 0.5245 | Acc: 77.54%
+  Batch [540/2071] Loss: 0.5257 | Acc: 77.51%
+  Batch [550/2071] Loss: 0.5257 | Acc: 77.47%
+  Batch [560/2071] Loss: 0.5263 | Acc: 77.48%
+  Batch [570/2071] Loss: 0.5251 | Acc: 77.49%
+  Batch [580/2071] Loss: 0.5248 | Acc: 77.46%
+  Batch [590/2071] Loss: 0.5249 | Acc: 77.43%
+  Batch [600/2071] Loss: 0.5250 | Acc: 77.47%
+  Batch [610/2071] Loss: 0.5258 | Acc: 77.47%
+  Batch [620/2071] Loss: 0.5245 | Acc: 77.46%
+  Batch [630/2071] Loss: 0.5258 | Acc: 77.43%
+  Batch [640/2071] Loss: 0.5268 | Acc: 77.40%
+  Batch [650/2071] Loss: 0.5253 | Acc: 77.39%
+  Batch [660/2071] Loss: 0.5262 | Acc: 77.30%
+  Batch [670/2071] Loss: 0.5258 | Acc: 77.29%
+  Batch [680/2071] Loss: 0.5251 | Acc: 77.30%
+  Batch [690/2071] Loss: 0.5238 | Acc: 77.36%
+  Batch [700/2071] Loss: 0.5230 | Acc: 77.41%
+  Batch [710/2071] Loss: 0.5222 | Acc: 77.46%
+  Batch [720/2071] Loss: 0.5220 | Acc: 77.43%
+  Batch [730/2071] Loss: 0.5223 | Acc: 77.40%
+  Batch [740/2071] Loss: 0.5226 | Acc: 77.37%
+  Batch [750/2071] Loss: 0.5226 | Acc: 77.38%
+  Batch [760/2071] Loss: 0.5233 | Acc: 77.43%
+  Batch [770/2071] Loss: 0.5227 | Acc: 77.44%
+  Batch [780/2071] Loss: 0.5232 | Acc: 77.46%
+  Batch [790/2071] Loss: 0.5223 | Acc: 77.49%
+  Batch [800/2071] Loss: 0.5213 | Acc: 77.53%
+  Batch [810/2071] Loss: 0.5215 | Acc: 77.55%
+  Batch [820/2071] Loss: 0.5222 | Acc: 77.47%
+  Batch [830/2071] Loss: 0.5215 | Acc: 77.52%
+  Batch [840/2071] Loss: 0.5218 | Acc: 77.54%
+  Batch [850/2071] Loss: 0.5213 | Acc: 77.54%
+  Batch [860/2071] Loss: 0.5215 | Acc: 77.55%
+  Batch [870/2071] Loss: 0.5215 | Acc: 77.56%
+  Batch [880/2071] Loss: 0.5220 | Acc: 77.56%
+  Batch [890/2071] Loss: 0.5232 | Acc: 77.55%
+  Batch [900/2071] Loss: 0.5230 | Acc: 77.54%
+  Batch [910/2071] Loss: 0.5232 | Acc: 77.51%
+  Batch [920/2071] Loss: 0.5228 | Acc: 77.54%
+  Batch [930/2071] Loss: 0.5223 | Acc: 77.57%
+  Batch [940/2071] Loss: 0.5217 | Acc: 77.62%
+  Batch [950/2071] Loss: 0.5217 | Acc: 77.62%
+  Batch [960/2071] Loss: 0.5212 | Acc: 77.61%
+  Batch [970/2071] Loss: 0.5214 | Acc: 77.61%
+  Batch [980/2071] Loss: 0.5214 | Acc: 77.59%
+  Batch [990/2071] Loss: 0.5212 | Acc: 77.62%
+  Batch [1000/2071] Loss: 0.5229 | Acc: 77.54%
+  Batch [1010/2071] Loss: 0.5229 | Acc: 77.50%
+  Batch [1020/2071] Loss: 0.5236 | Acc: 77.47%
+  Batch [1030/2071] Loss: 0.5237 | Acc: 77.52%
+  Batch [1040/2071] Loss: 0.5234 | Acc: 77.54%
+  Batch [1050/2071] Loss: 0.5233 | Acc: 77.51%
+  Batch [1060/2071] Loss: 0.5238 | Acc: 77.51%
+  Batch [1070/2071] Loss: 0.5240 | Acc: 77.49%
+  Batch [1080/2071] Loss: 0.5229 | Acc: 77.50%
+  Batch [1090/2071] Loss: 0.5226 | Acc: 77.53%
+  Batch [1100/2071] Loss: 0.5223 | Acc: 77.55%
+  Batch [1110/2071] Loss: 0.5223 | Acc: 77.54%
+  Batch [1120/2071] Loss: 0.5223 | Acc: 77.53%
+  Batch [1130/2071] Loss: 0.5231 | Acc: 77.50%
+  Batch [1140/2071] Loss: 0.5232 | Acc: 77.45%
+  Batch [1150/2071] Loss: 0.5234 | Acc: 77.43%
+  Batch [1160/2071] Loss: 0.5237 | Acc: 77.41%
+  Batch [1170/2071] Loss: 0.5231 | Acc: 77.41%
+  Batch [1180/2071] Loss: 0.5232 | Acc: 77.40%
+  Batch [1190/2071] Loss: 0.5233 | Acc: 77.38%
+  Batch [1200/2071] Loss: 0.5232 | Acc: 77.37%
+  Batch [1210/2071] Loss: 0.5233 | Acc: 77.38%
+  Batch [1220/2071] Loss: 0.5225 | Acc: 77.41%
+  Batch [1230/2071] Loss: 0.5223 | Acc: 77.41%
+  Batch [1240/2071] Loss: 0.5224 | Acc: 77.39%
+  Batch [1250/2071] Loss: 0.5222 | Acc: 77.40%
+  Batch [1260/2071] Loss: 0.5216 | Acc: 77.41%
+  Batch [1270/2071] Loss: 0.5223 | Acc: 77.40%
+  Batch [1280/2071] Loss: 0.5217 | Acc: 77.39%
+  Batch [1290/2071] Loss: 0.5217 | Acc: 77.40%
+  Batch [1300/2071] Loss: 0.5216 | Acc: 77.41%
+  Batch [1310/2071] Loss: 0.5214 | Acc: 77.40%
+  Batch [1320/2071] Loss: 0.5211 | Acc: 77.42%
+  Batch [1330/2071] Loss: 0.5212 | Acc: 77.44%
+  Batch [1340/2071] Loss: 0.5216 | Acc: 77.43%
+  Batch [1350/2071] Loss: 0.5210 | Acc: 77.47%
+  Batch [1360/2071] Loss: 0.5209 | Acc: 77.47%
+  Batch [1370/2071] Loss: 0.5210 | Acc: 77.47%
+  Batch [1380/2071] Loss: 0.5215 | Acc: 77.49%
+  Batch [1390/2071] Loss: 0.5216 | Acc: 77.48%
+  Batch [1400/2071] Loss: 0.5211 | Acc: 77.47%
+  Batch [1410/2071] Loss: 0.5212 | Acc: 77.48%
+  Batch [1420/2071] Loss: 0.5214 | Acc: 77.49%
+  Batch [1430/2071] Loss: 0.5213 | Acc: 77.49%
+  Batch [1440/2071] Loss: 0.5218 | Acc: 77.45%
+  Batch [1450/2071] Loss: 0.5214 | Acc: 77.48%
+  Batch [1460/2071] Loss: 0.5220 | Acc: 77.45%
+  Batch [1470/2071] Loss: 0.5219 | Acc: 77.44%
+  Batch [1480/2071] Loss: 0.5219 | Acc: 77.45%
+  Batch [1490/2071] Loss: 0.5220 | Acc: 77.45%
+  Batch [1500/2071] Loss: 0.5221 | Acc: 77.44%
+  Batch [1510/2071] Loss: 0.5219 | Acc: 77.46%
+  Batch [1520/2071] Loss: 0.5219 | Acc: 77.45%
+  Batch [1530/2071] Loss: 0.5221 | Acc: 77.45%
+  Batch [1540/2071] Loss: 0.5224 | Acc: 77.42%
+  Batch [1550/2071] Loss: 0.5226 | Acc: 77.44%
+  Batch [1560/2071] Loss: 0.5224 | Acc: 77.45%
+  Batch [1570/2071] Loss: 0.5222 | Acc: 77.45%
+  Batch [1580/2071] Loss: 0.5223 | Acc: 77.44%
+  Batch [1590/2071] Loss: 0.5222 | Acc: 77.44%
+  Batch [1600/2071] Loss: 0.5233 | Acc: 77.38%
+  Batch [1610/2071] Loss: 0.5232 | Acc: 77.40%
+  Batch [1620/2071] Loss: 0.5236 | Acc: 77.41%
+  Batch [1630/2071] Loss: 0.5237 | Acc: 77.40%
+  Batch [1640/2071] Loss: 0.5235 | Acc: 77.43%
+  Batch [1650/2071] Loss: 0.5232 | Acc: 77.43%
+  Batch [1660/2071] Loss: 0.5230 | Acc: 77.43%
+  Batch [1670/2071] Loss: 0.5235 | Acc: 77.44%
+  Batch [1680/2071] Loss: 0.5233 | Acc: 77.46%
+  Batch [1690/2071] Loss: 0.5237 | Acc: 77.46%
+  Batch [1700/2071] Loss: 0.5242 | Acc: 77.47%
+  Batch [1710/2071] Loss: 0.5242 | Acc: 77.46%
+  Batch [1720/2071] Loss: 0.5246 | Acc: 77.46%
+  Batch [1730/2071] Loss: 0.5247 | Acc: 77.47%
+  Batch [1740/2071] Loss: 0.5244 | Acc: 77.48%
+  Batch [1750/2071] Loss: 0.5241 | Acc: 77.48%
+  Batch [1760/2071] Loss: 0.5236 | Acc: 77.49%
+  Batch [1770/2071] Loss: 0.5237 | Acc: 77.49%
+  Batch [1780/2071] Loss: 0.5238 | Acc: 77.46%
+  Batch [1790/2071] Loss: 0.5239 | Acc: 77.46%
+  Batch [1800/2071] Loss: 0.5241 | Acc: 77.46%
+  Batch [1810/2071] Loss: 0.5241 | Acc: 77.45%
+  Batch [1820/2071] Loss: 0.5238 | Acc: 77.46%
+  Batch [1830/2071] Loss: 0.5234 | Acc: 77.48%
+  Batch [1840/2071] Loss: 0.5237 | Acc: 77.47%
+  Batch [1850/2071] Loss: 0.5234 | Acc: 77.47%
+  Batch [1860/2071] Loss: 0.5231 | Acc: 77.49%
+  Batch [1870/2071] Loss: 0.5228 | Acc: 77.49%
+  Batch [1880/2071] Loss: 0.5232 | Acc: 77.49%
+  Batch [1890/2071] Loss: 0.5230 | Acc: 77.50%
+  Batch [1900/2071] Loss: 0.5228 | Acc: 77.51%
+  Batch [1910/2071] Loss: 0.5224 | Acc: 77.52%
+  Batch [1920/2071] Loss: 0.5223 | Acc: 77.53%
+  Batch [1930/2071] Loss: 0.5224 | Acc: 77.54%
+  Batch [1940/2071] Loss: 0.5222 | Acc: 77.54%
+  Batch [1950/2071] Loss: 0.5224 | Acc: 77.53%
+  Batch [1960/2071] Loss: 0.5220 | Acc: 77.54%
+  Batch [1970/2071] Loss: 0.5215 | Acc: 77.55%
+  Batch [1980/2071] Loss: 0.5214 | Acc: 77.55%
+  Batch [1990/2071] Loss: 0.5214 | Acc: 77.54%
+  Batch [2000/2071] Loss: 0.5215 | Acc: 77.54%
+  Batch [2010/2071] Loss: 0.5210 | Acc: 77.57%
+  Batch [2020/2071] Loss: 0.5212 | Acc: 77.57%
+  Batch [2030/2071] Loss: 0.5211 | Acc: 77.59%
+  Batch [2040/2071] Loss: 0.5212 | Acc: 77.58%
+  Batch [2050/2071] Loss: 0.5215 | Acc: 77.57%
+  Batch [2060/2071] Loss: 0.5216 | Acc: 77.58%
+  Batch [2070/2071] Loss: 0.5221 | Acc: 77.56%
+
+======================================================================
+Epoch 14 Summary:
+  Train Loss: 0.5221 | Train Acc: 77.56%
+  Val Loss:   0.9665 | Val Acc:   63.03%
+  Learning Rate: 0.000500
+  Time: 133.4s
+======================================================================
+
+Epoch [15/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.4683 | Acc: 76.25%
+  Batch [20/2071] Loss: 0.4956 | Acc: 77.66%
+  Batch [30/2071] Loss: 0.4848 | Acc: 78.65%
+  Batch [40/2071] Loss: 0.5122 | Acc: 77.19%
+  Batch [50/2071] Loss: 0.5222 | Acc: 77.25%
+  Batch [60/2071] Loss: 0.5098 | Acc: 77.81%
+  Batch [70/2071] Loss: 0.4989 | Acc: 78.21%
+  Batch [80/2071] Loss: 0.5049 | Acc: 78.05%
+  Batch [90/2071] Loss: 0.5000 | Acc: 78.09%
+  Batch [100/2071] Loss: 0.4992 | Acc: 77.81%
+  Batch [110/2071] Loss: 0.4974 | Acc: 78.15%
+  Batch [120/2071] Loss: 0.4991 | Acc: 78.20%
+  Batch [130/2071] Loss: 0.5002 | Acc: 78.10%
+  Batch [140/2071] Loss: 0.5020 | Acc: 77.92%
+  Batch [150/2071] Loss: 0.4972 | Acc: 77.94%
+  Batch [160/2071] Loss: 0.5006 | Acc: 77.85%
+  Batch [170/2071] Loss: 0.5042 | Acc: 77.76%
+  Batch [180/2071] Loss: 0.5053 | Acc: 77.81%
+  Batch [190/2071] Loss: 0.5073 | Acc: 77.65%
+  Batch [200/2071] Loss: 0.5077 | Acc: 77.81%
+  Batch [210/2071] Loss: 0.5103 | Acc: 77.74%
+  Batch [220/2071] Loss: 0.5091 | Acc: 77.86%
+  Batch [230/2071] Loss: 0.5123 | Acc: 77.65%
+  Batch [240/2071] Loss: 0.5144 | Acc: 77.50%
+  Batch [250/2071] Loss: 0.5169 | Acc: 77.20%
+  Batch [260/2071] Loss: 0.5160 | Acc: 77.25%
+  Batch [270/2071] Loss: 0.5142 | Acc: 77.31%
+  Batch [280/2071] Loss: 0.5125 | Acc: 77.34%
+  Batch [290/2071] Loss: 0.5094 | Acc: 77.51%
+  Batch [300/2071] Loss: 0.5131 | Acc: 77.42%
+  Batch [310/2071] Loss: 0.5133 | Acc: 77.34%
+  Batch [320/2071] Loss: 0.5114 | Acc: 77.39%
+  Batch [330/2071] Loss: 0.5111 | Acc: 77.38%
+  Batch [340/2071] Loss: 0.5106 | Acc: 77.32%
+  Batch [350/2071] Loss: 0.5112 | Acc: 77.39%
+  Batch [360/2071] Loss: 0.5124 | Acc: 77.31%
+  Batch [370/2071] Loss: 0.5141 | Acc: 77.38%
+  Batch [380/2071] Loss: 0.5137 | Acc: 77.32%
+  Batch [390/2071] Loss: 0.5132 | Acc: 77.39%
+  Batch [400/2071] Loss: 0.5132 | Acc: 77.41%
+  Batch [410/2071] Loss: 0.5119 | Acc: 77.45%
+  Batch [420/2071] Loss: 0.5090 | Acc: 77.63%
+  Batch [430/2071] Loss: 0.5079 | Acc: 77.67%
+  Batch [440/2071] Loss: 0.5085 | Acc: 77.56%
+  Batch [450/2071] Loss: 0.5088 | Acc: 77.61%
+  Batch [460/2071] Loss: 0.5102 | Acc: 77.57%
+  Batch [470/2071] Loss: 0.5084 | Acc: 77.59%
+  Batch [480/2071] Loss: 0.5085 | Acc: 77.68%
+  Batch [490/2071] Loss: 0.5071 | Acc: 77.80%
+  Batch [500/2071] Loss: 0.5079 | Acc: 77.75%
+  Batch [510/2071] Loss: 0.5057 | Acc: 77.81%
+  Batch [520/2071] Loss: 0.5058 | Acc: 77.87%
+  Batch [530/2071] Loss: 0.5056 | Acc: 77.84%
+  Batch [540/2071] Loss: 0.5052 | Acc: 77.80%
+  Batch [550/2071] Loss: 0.5062 | Acc: 77.75%
+  Batch [560/2071] Loss: 0.5063 | Acc: 77.74%
+  Batch [570/2071] Loss: 0.5080 | Acc: 77.73%
+  Batch [580/2071] Loss: 0.5082 | Acc: 77.74%
+  Batch [590/2071] Loss: 0.5086 | Acc: 77.64%
+  Batch [600/2071] Loss: 0.5089 | Acc: 77.55%
+  Batch [610/2071] Loss: 0.5098 | Acc: 77.55%
+  Batch [620/2071] Loss: 0.5109 | Acc: 77.60%
+  Batch [630/2071] Loss: 0.5105 | Acc: 77.61%
+  Batch [640/2071] Loss: 0.5097 | Acc: 77.66%
+  Batch [650/2071] Loss: 0.5100 | Acc: 77.66%
+  Batch [660/2071] Loss: 0.5093 | Acc: 77.73%
+  Batch [670/2071] Loss: 0.5092 | Acc: 77.72%
+  Batch [680/2071] Loss: 0.5102 | Acc: 77.67%
+  Batch [690/2071] Loss: 0.5108 | Acc: 77.64%
+  Batch [700/2071] Loss: 0.5115 | Acc: 77.60%
+  Batch [710/2071] Loss: 0.5107 | Acc: 77.65%
+  Batch [720/2071] Loss: 0.5093 | Acc: 77.70%
+  Batch [730/2071] Loss: 0.5090 | Acc: 77.72%
+  Batch [740/2071] Loss: 0.5088 | Acc: 77.76%
+  Batch [750/2071] Loss: 0.5089 | Acc: 77.80%
+  Batch [760/2071] Loss: 0.5089 | Acc: 77.83%
+  Batch [770/2071] Loss: 0.5092 | Acc: 77.81%
+  Batch [780/2071] Loss: 0.5102 | Acc: 77.75%
+  Batch [790/2071] Loss: 0.5108 | Acc: 77.73%
+  Batch [800/2071] Loss: 0.5106 | Acc: 77.78%
+  Batch [810/2071] Loss: 0.5101 | Acc: 77.78%
+  Batch [820/2071] Loss: 0.5104 | Acc: 77.77%
+  Batch [830/2071] Loss: 0.5110 | Acc: 77.76%
+  Batch [840/2071] Loss: 0.5099 | Acc: 77.78%
+  Batch [850/2071] Loss: 0.5110 | Acc: 77.81%
+  Batch [860/2071] Loss: 0.5112 | Acc: 77.82%
+  Batch [870/2071] Loss: 0.5117 | Acc: 77.79%
+  Batch [880/2071] Loss: 0.5111 | Acc: 77.81%
+  Batch [890/2071] Loss: 0.5112 | Acc: 77.80%
+  Batch [900/2071] Loss: 0.5116 | Acc: 77.74%
+  Batch [910/2071] Loss: 0.5118 | Acc: 77.74%
+  Batch [920/2071] Loss: 0.5115 | Acc: 77.74%
+  Batch [930/2071] Loss: 0.5113 | Acc: 77.74%
+  Batch [940/2071] Loss: 0.5101 | Acc: 77.76%
+  Batch [950/2071] Loss: 0.5095 | Acc: 77.79%
+  Batch [960/2071] Loss: 0.5102 | Acc: 77.76%
+  Batch [970/2071] Loss: 0.5108 | Acc: 77.76%
+  Batch [980/2071] Loss: 0.5108 | Acc: 77.76%
+  Batch [990/2071] Loss: 0.5111 | Acc: 77.77%
+  Batch [1000/2071] Loss: 0.5106 | Acc: 77.79%
+  Batch [1010/2071] Loss: 0.5109 | Acc: 77.71%
+  Batch [1020/2071] Loss: 0.5106 | Acc: 77.73%
+  Batch [1030/2071] Loss: 0.5106 | Acc: 77.74%
+  Batch [1040/2071] Loss: 0.5106 | Acc: 77.77%
+  Batch [1050/2071] Loss: 0.5107 | Acc: 77.78%
+  Batch [1060/2071] Loss: 0.5105 | Acc: 77.78%
+  Batch [1070/2071] Loss: 0.5104 | Acc: 77.79%
+  Batch [1080/2071] Loss: 0.5104 | Acc: 77.80%
+  Batch [1090/2071] Loss: 0.5112 | Acc: 77.79%
+  Batch [1100/2071] Loss: 0.5108 | Acc: 77.79%
+  Batch [1110/2071] Loss: 0.5107 | Acc: 77.78%
+  Batch [1120/2071] Loss: 0.5109 | Acc: 77.79%
+  Batch [1130/2071] Loss: 0.5112 | Acc: 77.78%
+  Batch [1140/2071] Loss: 0.5112 | Acc: 77.78%
+  Batch [1150/2071] Loss: 0.5115 | Acc: 77.76%
+  Batch [1160/2071] Loss: 0.5112 | Acc: 77.77%
+  Batch [1170/2071] Loss: 0.5113 | Acc: 77.75%
+  Batch [1180/2071] Loss: 0.5111 | Acc: 77.75%
+  Batch [1190/2071] Loss: 0.5119 | Acc: 77.73%
+  Batch [1200/2071] Loss: 0.5117 | Acc: 77.74%
+  Batch [1210/2071] Loss: 0.5114 | Acc: 77.76%
+  Batch [1220/2071] Loss: 0.5117 | Acc: 77.76%
+  Batch [1230/2071] Loss: 0.5111 | Acc: 77.77%
+  Batch [1240/2071] Loss: 0.5108 | Acc: 77.78%
+  Batch [1250/2071] Loss: 0.5102 | Acc: 77.81%
+  Batch [1260/2071] Loss: 0.5111 | Acc: 77.79%
+  Batch [1270/2071] Loss: 0.5121 | Acc: 77.71%
+  Batch [1280/2071] Loss: 0.5121 | Acc: 77.72%
+  Batch [1290/2071] Loss: 0.5119 | Acc: 77.71%
+  Batch [1300/2071] Loss: 0.5114 | Acc: 77.74%
+  Batch [1310/2071] Loss: 0.5119 | Acc: 77.76%
+  Batch [1320/2071] Loss: 0.5124 | Acc: 77.73%
+  Batch [1330/2071] Loss: 0.5130 | Acc: 77.70%
+  Batch [1340/2071] Loss: 0.5129 | Acc: 77.72%
+  Batch [1350/2071] Loss: 0.5128 | Acc: 77.74%
+  Batch [1360/2071] Loss: 0.5126 | Acc: 77.76%
+  Batch [1370/2071] Loss: 0.5127 | Acc: 77.77%
+  Batch [1380/2071] Loss: 0.5124 | Acc: 77.79%
+  Batch [1390/2071] Loss: 0.5120 | Acc: 77.81%
+  Batch [1400/2071] Loss: 0.5120 | Acc: 77.80%
+  Batch [1410/2071] Loss: 0.5130 | Acc: 77.80%
+  Batch [1420/2071] Loss: 0.5135 | Acc: 77.76%
+  Batch [1430/2071] Loss: 0.5134 | Acc: 77.75%
+  Batch [1440/2071] Loss: 0.5135 | Acc: 77.76%
+  Batch [1450/2071] Loss: 0.5137 | Acc: 77.78%
+  Batch [1460/2071] Loss: 0.5133 | Acc: 77.79%
+  Batch [1470/2071] Loss: 0.5138 | Acc: 77.78%
+  Batch [1480/2071] Loss: 0.5142 | Acc: 77.74%
+  Batch [1490/2071] Loss: 0.5143 | Acc: 77.73%
+  Batch [1500/2071] Loss: 0.5144 | Acc: 77.71%
+  Batch [1510/2071] Loss: 0.5139 | Acc: 77.74%
+  Batch [1520/2071] Loss: 0.5138 | Acc: 77.74%
+  Batch [1530/2071] Loss: 0.5138 | Acc: 77.75%
+  Batch [1540/2071] Loss: 0.5139 | Acc: 77.74%
+  Batch [1550/2071] Loss: 0.5138 | Acc: 77.73%
+  Batch [1560/2071] Loss: 0.5137 | Acc: 77.72%
+  Batch [1570/2071] Loss: 0.5137 | Acc: 77.73%
+  Batch [1580/2071] Loss: 0.5139 | Acc: 77.72%
+  Batch [1590/2071] Loss: 0.5138 | Acc: 77.70%
+  Batch [1600/2071] Loss: 0.5134 | Acc: 77.72%
+  Batch [1610/2071] Loss: 0.5131 | Acc: 77.73%
+  Batch [1620/2071] Loss: 0.5131 | Acc: 77.73%
+  Batch [1630/2071] Loss: 0.5126 | Acc: 77.75%
+  Batch [1640/2071] Loss: 0.5128 | Acc: 77.74%
+  Batch [1650/2071] Loss: 0.5130 | Acc: 77.73%
+  Batch [1660/2071] Loss: 0.5131 | Acc: 77.73%
+  Batch [1670/2071] Loss: 0.5134 | Acc: 77.72%
+  Batch [1680/2071] Loss: 0.5130 | Acc: 77.74%
+  Batch [1690/2071] Loss: 0.5130 | Acc: 77.75%
+  Batch [1700/2071] Loss: 0.5132 | Acc: 77.74%
+  Batch [1710/2071] Loss: 0.5129 | Acc: 77.75%
+  Batch [1720/2071] Loss: 0.5128 | Acc: 77.77%
+  Batch [1730/2071] Loss: 0.5124 | Acc: 77.79%
+  Batch [1740/2071] Loss: 0.5128 | Acc: 77.77%
+  Batch [1750/2071] Loss: 0.5128 | Acc: 77.77%
+  Batch [1760/2071] Loss: 0.5128 | Acc: 77.76%
+  Batch [1770/2071] Loss: 0.5133 | Acc: 77.75%
+  Batch [1780/2071] Loss: 0.5137 | Acc: 77.74%
+  Batch [1790/2071] Loss: 0.5137 | Acc: 77.74%
+  Batch [1800/2071] Loss: 0.5132 | Acc: 77.74%
+  Batch [1810/2071] Loss: 0.5129 | Acc: 77.76%
+  Batch [1820/2071] Loss: 0.5123 | Acc: 77.77%
+  Batch [1830/2071] Loss: 0.5121 | Acc: 77.77%
+  Batch [1840/2071] Loss: 0.5120 | Acc: 77.79%
+  Batch [1850/2071] Loss: 0.5125 | Acc: 77.77%
+  Batch [1860/2071] Loss: 0.5125 | Acc: 77.79%
+  Batch [1870/2071] Loss: 0.5126 | Acc: 77.79%
+  Batch [1880/2071] Loss: 0.5129 | Acc: 77.79%
+  Batch [1890/2071] Loss: 0.5127 | Acc: 77.79%
+  Batch [1900/2071] Loss: 0.5123 | Acc: 77.81%
+  Batch [1910/2071] Loss: 0.5117 | Acc: 77.84%
+  Batch [1920/2071] Loss: 0.5111 | Acc: 77.86%
+  Batch [1930/2071] Loss: 0.5113 | Acc: 77.85%
+  Batch [1940/2071] Loss: 0.5109 | Acc: 77.85%
+  Batch [1950/2071] Loss: 0.5111 | Acc: 77.85%
+  Batch [1960/2071] Loss: 0.5115 | Acc: 77.84%
+  Batch [1970/2071] Loss: 0.5124 | Acc: 77.82%
+  Batch [1980/2071] Loss: 0.5127 | Acc: 77.82%
+  Batch [1990/2071] Loss: 0.5125 | Acc: 77.84%
+  Batch [2000/2071] Loss: 0.5129 | Acc: 77.83%
+  Batch [2010/2071] Loss: 0.5132 | Acc: 77.82%
+  Batch [2020/2071] Loss: 0.5129 | Acc: 77.84%
+  Batch [2030/2071] Loss: 0.5126 | Acc: 77.85%
+  Batch [2040/2071] Loss: 0.5125 | Acc: 77.86%
+  Batch [2050/2071] Loss: 0.5131 | Acc: 77.84%
+  Batch [2060/2071] Loss: 0.5131 | Acc: 77.84%
+  Batch [2070/2071] Loss: 0.5134 | Acc: 77.84%
+
+======================================================================
+Epoch 15 Summary:
+  Train Loss: 0.5133 | Train Acc: 77.85%
+  Val Loss:   0.9437 | Val Acc:   64.20%
+  Learning Rate: 0.000500
+  Time: 134.8s
+======================================================================
+
+Epoch [16/50]
+----------------------------------------------------------------------
+  Batch [10/2071] Loss: 0.5004 | Acc: 77.19%
+  Batch [20/2071] Loss: 0.5813 | Acc: 74.69%
+  Batch [30/2071] Loss: 0.5593 | Acc: 75.94%
+  Batch [40/2071] Loss: 0.5391 | Acc: 76.80%
+  Batch [50/2071] Loss: 0.5358 | Acc: 76.94%
+  Batch [60/2071] Loss: 0.5346 | Acc: 77.03%
+  Batch [70/2071] Loss: 0.5355 | Acc: 76.61%
+  Batch [80/2071] Loss: 0.5383 | Acc: 76.60%
+  Batch [90/2071] Loss: 0.5331 | Acc: 77.36%
+  Batch [100/2071] Loss: 0.5278 | Acc: 77.56%
+  Batch [110/2071] Loss: 0.5268 | Acc: 77.47%
+  Batch [120/2071] Loss: 0.5284 | Acc: 77.16%
+  Batch [130/2071] Loss: 0.5282 | Acc: 77.09%
+  Batch [140/2071] Loss: 0.5286 | Acc: 77.17%
+  Batch [150/2071] Loss: 0.5281 | Acc: 77.38%
+  Batch [160/2071] Loss: 0.5247 | Acc: 77.13%
+  Batch [170/2071] Loss: 0.5186 | Acc: 77.39%
+  Batch [180/2071] Loss: 0.5150 | Acc: 77.74%
+  Batch [190/2071] Loss: 0.5133 | Acc: 77.78%
+  Batch [200/2071] Loss: 0.5060 | Acc: 78.16%
+  Batch [210/2071] Loss: 0.5102 | Acc: 77.95%
+  Batch [220/2071] Loss: 0.5123 | Acc: 77.78%
+  Batch [230/2071] Loss: 0.5110 | Acc: 77.80%
+  Batch [240/2071] Loss: 0.5099 | Acc: 77.89%
+  Batch [250/2071] Loss: 0.5077 | Acc: 77.91%
+  Batch [260/2071] Loss: 0.5062 | Acc: 78.00%
+  Batch [270/2071] Loss: 0.5034 | Acc: 78.09%
+  Batch [280/2071] Loss: 0.4995 | Acc: 78.27%
+  Batch [290/2071] Loss: 0.5005 | Acc: 78.20%
+  Batch [300/2071] Loss: 0.5016 | Acc: 78.11%
+  Batch [310/2071] Loss: 0.5039 | Acc: 78.12%
+  Batch [320/2071] Loss: 0.5037 | Acc: 78.10%
+  Batch [330/2071] Loss: 0.5059 | Acc: 78.06%
+  Batch [340/2071] Loss: 0.5055 | Acc: 78.08%
+  Batch [350/2071] Loss: 0.5057 | Acc: 78.12%
+  Batch [360/2071] Loss: 0.5047 | Acc: 78.17%
+  Batch [370/2071] Loss: 0.5052 | Acc: 78.07%
+  Batch [380/2071] Loss: 0.5047 | Acc: 78.11%
+  Batch [390/2071] Loss: 0.5059 | Acc: 78.09%
+  Batch [400/2071] Loss: 0.5060 | Acc: 78.15%
+  Batch [410/2071] Loss: 0.5050 | Acc: 78.21%
+  Batch [420/2071] Loss: 0.5041 | Acc: 78.24%
+  Batch [430/2071] Loss: 0.5056 | Acc: 78.15%
+  Batch [440/2071] Loss: 0.5049 | Acc: 78.15%
+  Batch [450/2071] Loss: 0.5032 | Acc: 78.22%
+  Batch [460/2071] Loss: 0.5048 | Acc: 78.18%
+  Batch [470/2071] Loss: 0.5070 | Acc: 78.03%
+  Batch [480/2071] Loss: 0.5093 | Acc: 78.01%
+  Batch [490/2071] Loss: 0.5077 | Acc: 78.09%
+  Batch [500/2071] Loss: 0.5092 | Acc: 78.05%
+  Batch [510/2071] Loss: 0.5094 | Acc: 78.06%
+  Batch [520/2071] Loss: 0.5103 | Acc: 78.00%
+  Batch [530/2071] Loss: 0.5115 | Acc: 77.98%
+  Batch [540/2071] Loss: 0.5109 | Acc: 77.97%
+  Batch [550/2071] Loss: 0.5107 | Acc: 77.97%
+  Batch [560/2071] Loss: 0.5092 | Acc: 78.00%
+  Batch [570/2071] Loss: 0.5089 | Acc: 78.05%
+  Batch [580/2071] Loss: 0.5074 | Acc: 78.12%
+  Batch [590/2071] Loss: 0.5067 | Acc: 78.16%
+  Batch [600/2071] Loss: 0.5069 | Acc: 78.19%
+  Batch [610/2071] Loss: 0.5071 | Acc: 78.11%
+  Batch [620/2071] Loss: 0.5082 | Acc: 78.00%
+  Batch [630/2071] Loss: 0.5085 | Acc: 78.00%
+  Batch [640/2071] Loss: 0.5084 | Acc: 78.01%
+  Batch [650/2071] Loss: 0.5077 | Acc: 77.99%
+  Batch [660/2071] Loss: 0.5068 | Acc: 78.03%
+  Batch [670/2071] Loss: 0.5063 | Acc: 78.03%
+  Batch [680/2071] Loss: 0.5057 | Acc: 78.10%
+  Batch [690/2071] Loss: 0.5057 | Acc: 78.09%
+  Batch [700/2071] Loss: 0.5051 | Acc: 78.09%
+  Batch [710/2071] Loss: 0.5047 | Acc: 78.09%
+  Batch [720/2071] Loss: 0.5055 | Acc: 78.09%
+  Batch [730/2071] Loss: 0.5047 | Acc: 78.15%
+  Batch [740/2071] Loss: 0.5058 | Acc: 78.12%
+  Batch [750/2071] Loss: 0.5056 | Acc: 78.12%
+  Batch [760/2071] Loss: 0.5063 | Acc: 78.07%
+  Batch [770/2071] Loss: 0.5057 | Acc: 78.13%
+  Batch [780/2071] Loss: 0.5057 | Acc: 78.16%
+  Batch [790/2071] Loss: 0.5065 | Acc: 78.16%
+  Batch [800/2071] Loss: 0.5067 | Acc: 78.12%
+  Batch [810/2071] Loss: 0.5074 | Acc: 78.12%
+  Batch [820/2071] Loss: 0.5071 | Acc: 78.10%
+  Batch [830/2071] Loss: 0.5071 | Acc: 78.11%/kaggle/working/sleep-staging/dnn/train.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter will be the default. To switch now, set dynamo=True in torch.onnx.export. This new exporter supports features like exporting LLMs with DynamicCache. We encourage you to try it and share feedback to help improve the experience. Learn more about the new export logic: https://pytorch.org/docs/stable/onnx_dynamo.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html.
+  torch.onnx.export(
+
+  Batch [840/2071] Loss: 0.5061 | Acc: 78.16%
+  Batch [850/2071] Loss: 0.5055 | Acc: 78.17%
+  Batch [860/2071] Loss: 0.5062 | Acc: 78.16%
+  Batch [870/2071] Loss: 0.5075 | Acc: 78.15%
+  Batch [880/2071] Loss: 0.5074 | Acc: 78.17%
+  Batch [890/2071] Loss: 0.5066 | Acc: 78.20%
+  Batch [900/2071] Loss: 0.5052 | Acc: 78.24%
+  Batch [910/2071] Loss: 0.5043 | Acc: 78.30%
+  Batch [920/2071] Loss: 0.5042 | Acc: 78.31%
+  Batch [930/2071] Loss: 0.5041 | Acc: 78.33%
+  Batch [940/2071] Loss: 0.5044 | Acc: 78.31%
+  Batch [950/2071] Loss: 0.5045 | Acc: 78.29%
+  Batch [960/2071] Loss: 0.5043 | Acc: 78.29%
+  Batch [970/2071] Loss: 0.5043 | Acc: 78.30%
+  Batch [980/2071] Loss: 0.5043 | Acc: 78.28%
+  Batch [990/2071] Loss: 0.5035 | Acc: 78.31%
+  Batch [1000/2071] Loss: 0.5038 | Acc: 78.30%
+  Batch [1010/2071] Loss: 0.5035 | Acc: 78.29%
+  Batch [1020/2071] Loss: 0.5041 | Acc: 78.24%
+  Batch [1030/2071] Loss: 0.5040 | Acc: 78.29%
+  Batch [1040/2071] Loss: 0.5039 | Acc: 78.27%
+  Batch [1050/2071] Loss: 0.5041 | Acc: 78.24%
+  Batch [1060/2071] Loss: 0.5050 | Acc: 78.23%
+  Batch [1070/2071] Loss: 0.5052 | Acc: 78.23%
+  Batch [1080/2071] Loss: 0.5048 | Acc: 78.23%
+  Batch [1090/2071] Loss: 0.5044 | Acc: 78.25%
+  Batch [1100/2071] Loss: 0.5039 | Acc: 78.27%
+  Batch [1110/2071] Loss: 0.5037 | Acc: 78.25%
+  Batch [1120/2071] Loss: 0.5036 | Acc: 78.27%
+  Batch [1130/2071] Loss: 0.5042 | Acc: 78.21%
+  Batch [1140/2071] Loss: 0.5053 | Acc: 78.18%
+  Batch [1150/2071] Loss: 0.5053 | Acc: 78.18%
+  Batch [1160/2071] Loss: 0.5057 | Acc: 78.17%
+  Batch [1170/2071] Loss: 0.5053 | Acc: 78.19%
+  Batch [1180/2071] Loss: 0.5060 | Acc: 78.15%
+  Batch [1190/2071] Loss: 0.5061 | Acc: 78.12%
+  Batch [1200/2071] Loss: 0.5060 | Acc: 78.14%
+  Batch [1210/2071] Loss: 0.5060 | Acc: 78.11%
+  Batch [1220/2071] Loss: 0.5058 | Acc: 78.13%
+  Batch [1230/2071] Loss: 0.5060 | Acc: 78.13%
+  Batch [1240/2071] Loss: 0.5062 | Acc: 78.13%
+  Batch [1250/2071] Loss: 0.5064 | Acc: 78.12%
+  Batch [1260/2071] Loss: 0.5066 | Acc: 78.14%
+  Batch [1270/2071] Loss: 0.5066 | Acc: 78.15%
+  Batch [1280/2071] Loss: 0.5071 | Acc: 78.10%
+  Batch [1290/2071] Loss: 0.5071 | Acc: 78.10%
+  Batch [1300/2071] Loss: 0.5074 | Acc: 78.11%
+  Batch [1310/2071] Loss: 0.5072 | Acc: 78.10%
+  Batch [1320/2071] Loss: 0.5072 | Acc: 78.09%
+  Batch [1330/2071] Loss: 0.5070 | Acc: 78.10%
+  Batch [1340/2071] Loss: 0.5066 | Acc: 78.12%
+  Batch [1350/2071] Loss: 0.5067 | Acc: 78.12%
+  Batch [1360/2071] Loss: 0.5067 | Acc: 78.09%
+  Batch [1370/2071] Loss: 0.5072 | Acc: 78.08%
+  Batch [1380/2071] Loss: 0.5067 | Acc: 78.10%
+  Batch [1390/2071] Loss: 0.5065 | Acc: 78.08%
+  Batch [1400/2071] Loss: 0.5066 | Acc: 78.09%
+  Batch [1410/2071] Loss: 0.5069 | Acc: 78.11%
+  Batch [1420/2071] Loss: 0.5068 | Acc: 78.12%
+  Batch [1430/2071] Loss: 0.5063 | Acc: 78.14%
+  Batch [1440/2071] Loss: 0.5063 | Acc: 78.16%
+  Batch [1450/2071] Loss: 0.5063 | Acc: 78.18%
+  Batch [1460/2071] Loss: 0.5064 | Acc: 78.18%
+  Batch [1470/2071] Loss: 0.5066 | Acc: 78.18%
+  Batch [1480/2071] Loss: 0.5068 | Acc: 78.16%
+  Batch [1490/2071] Loss: 0.5069 | Acc: 78.12%
+  Batch [1500/2071] Loss: 0.5070 | Acc: 78.10%
+  Batch [1510/2071] Loss: 0.5064 | Acc: 78.14%
+  Batch [1520/2071] Loss: 0.5065 | Acc: 78.17%
+  Batch [1530/2071] Loss: 0.5059 | Acc: 78.18%
+  Batch [1540/2071] Loss: 0.5062 | Acc: 78.18%
+  Batch [1550/2071] Loss: 0.5057 | Acc: 78.19%
+  Batch [1560/2071] Loss: 0.5055 | Acc: 78.21%
+  Batch [1570/2071] Loss: 0.5052 | Acc: 78.22%
+  Batch [1580/2071] Loss: 0.5055 | Acc: 78.21%
+  Batch [1590/2071] Loss: 0.5054 | Acc: 78.19%
+  Batch [1600/2071] Loss: 0.5051 | Acc: 78.22%
+  Batch [1610/2071] Loss: 0.5053 | Acc: 78.22%
+  Batch [1620/2071] Loss: 0.5059 | Acc: 78.19%
+  Batch [1630/2071] Loss: 0.5062 | Acc: 78.17%
+  Batch [1640/2071] Loss: 0.5062 | Acc: 78.17%
+  Batch [1650/2071] Loss: 0.5061 | Acc: 78.17%
+  Batch [1660/2071] Loss: 0.5055 | Acc: 78.17%
+  Batch [1670/2071] Loss: 0.5054 | Acc: 78.17%
+  Batch [1680/2071] Loss: 0.5059 | Acc: 78.14%
+  Batch [1690/2071] Loss: 0.5052 | Acc: 78.15%
+  Batch [1700/2071] Loss: 0.5050 | Acc: 78.17%
+  Batch [1710/2071] Loss: 0.5049 | Acc: 78.20%
+  Batch [1720/2071] Loss: 0.5049 | Acc: 78.21%
+  Batch [1730/2071] Loss: 0.5049 | Acc: 78.21%
+  Batch [1740/2071] Loss: 0.5048 | Acc: 78.20%
+  Batch [1750/2071] Loss: 0.5046 | Acc: 78.23%
+  Batch [1760/2071] Loss: 0.5047 | Acc: 78.23%
+  Batch [1770/2071] Loss: 0.5050 | Acc: 78.20%
+  Batch [1780/2071] Loss: 0.5050 | Acc: 78.21%
+  Batch [1790/2071] Loss: 0.5052 | Acc: 78.21%
+  Batch [1800/2071] Loss: 0.5053 | Acc: 78.21%
+  Batch [1810/2071] Loss: 0.5054 | Acc: 78.19%
+  Batch [1820/2071] Loss: 0.5052 | Acc: 78.19%
+  Batch [1830/2071] Loss: 0.5052 | Acc: 78.18%
+  Batch [1840/2071] Loss: 0.5053 | Acc: 78.19%
+  Batch [1850/2071] Loss: 0.5052 | Acc: 78.19%
+  Batch [1860/2071] Loss: 0.5053 | Acc: 78.19%
+  Batch [1870/2071] Loss: 0.5054 | Acc: 78.19%
+  Batch [1880/2071] Loss: 0.5058 | Acc: 78.17%
+  Batch [1890/2071] Loss: 0.5056 | Acc: 78.18%
+  Batch [1900/2071] Loss: 0.5057 | Acc: 78.19%
+  Batch [1910/2071] Loss: 0.5056 | Acc: 78.18%
+  Batch [1920/2071] Loss: 0.5056 | Acc: 78.19%
+  Batch [1930/2071] Loss: 0.5054 | Acc: 78.21%
+  Batch [1940/2071] Loss: 0.5054 | Acc: 78.22%
+  Batch [1950/2071] Loss: 0.5054 | Acc: 78.22%
+  Batch [1960/2071] Loss: 0.5061 | Acc: 78.20%
+  Batch [1970/2071] Loss: 0.5061 | Acc: 78.18%
+  Batch [1980/2071] Loss: 0.5062 | Acc: 78.18%
+  Batch [1990/2071] Loss: 0.5061 | Acc: 78.17%
+  Batch [2000/2071] Loss: 0.5063 | Acc: 78.15%
+  Batch [2010/2071] Loss: 0.5061 | Acc: 78.16%
+  Batch [2020/2071] Loss: 0.5058 | Acc: 78.16%
+  Batch [2030/2071] Loss: 0.5058 | Acc: 78.16%
+  Batch [2040/2071] Loss: 0.5063 | Acc: 78.13%
+  Batch [2050/2071] Loss: 0.5061 | Acc: 78.13%
+  Batch [2060/2071] Loss: 0.5063 | Acc: 78.12%
+  Batch [2070/2071] Loss: 0.5064 | Acc: 78.12%
+
+======================================================================
+Epoch 16 Summary:
+  Train Loss: 0.5064 | Train Acc: 78.12%
+  Val Loss:   0.9306 | Val Acc:   65.60%
+  Learning Rate: 0.000500
+  Time: 135.3s
+======================================================================
+
+⚠ Early stopping! 10 epoch boyunca iyileşme yok.
+
+======================================================================
+TRAINING TAMAMLANDI!
+======================================================================
+Toplam süre: 35.9 dakika
+Best val loss: 0.9077
+Best val acc: 67.60%
+======================================================================
+
+
+======================================================================
+TRAINING HISTORY GRAFİĞİ KAYDEDİLDİ
+======================================================================
+Dosya: outputs/runs/260305-0629/training_history.png
+======================================================================
+
+📊 OVERFITTING ANALİZİ:
+  Final Train Accuracy: 78.12%
+  Final Val Accuracy: 65.60%
+  Best Val Accuracy: 67.60%
+  Train-Val Gap: 12.52%
+
+  ⚠️  OVERFITTING TESPİT EDİLDİ!
+  Öneriler:
+    - Daha fazla veri ekleyin
+    - Dropout oranını artırın (şu an: 0.3)
+    - Weight decay artırın (şu an: 0.0001)
+    - Data augmentation kullanın
+    - Early stopping patience azaltın
+======================================================================
+
+
+======================================================================
+MODEL NETRON İÇİN EXPORT EDİLİYOR
+======================================================================
+Input shape: (1, 3, 3000)
+Export path: outputs/runs/260305-0629/trained_model.onnx
+✓ Model export edildi!
+
+Netron ile görselleştirmek için:
+  1. https://netron.app/ adresine git
+  2. 'outputs/runs/260305-0629/trained_model.onnx' dosyasını yükle
+  VEYA
+  1. pip install netron
+  2. netron outputs/runs/260305-0629/trained_model.onnx
+======================================================================
+
+✓ Training history kaydedildi: outputs/runs/260305-0629/training_history.json

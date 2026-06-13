@@ -1,0 +1,48 @@
+{
+  "train": [
+    "0b0cbf36-ca44-4a8f-9d8d-31769fd2c7a7",
+    "46311fc7-26c6-46c0-af94-ccb7d98a83b2",
+    "d5c44d4f-3f78-4eb6-9c27-fedc8366ca43",
+    "8936d287-96f9-413c-aa6e-08dee7abe51b",
+    "c4d192a5-bd54-4a1c-825c-6e4a33bc85b0",
+    "7fa9cdf4-b072-4748-a476-93ae91657bee",
+    "aacc7ceb-4ce5-400e-866f-9efdfdebf58b",
+    "0e1db582-e7ae-4903-abb0-c507376bee96",
+    "d3caff66-3ebd-4e22-b923-31f698ca7a02",
+    "658873df-b9a2-43e6-8c37-b8304efde5b1",
+    "c3796230-8f7d-4b7f-bc98-ad80dd029c95",
+    "dbc8c784-09f3-4e09-ae83-841c45bf7517",
+    "6b914a0f-e9f9-4b3c-8e24-b292a05a053c",
+    "82df386e-1afb-4dd0-b9e1-75e98961ce00",
+    "3f2d1717-e701-40bc-8c48-22318f36de16",
+    "06d40147-a3fe-47f3-99de-0047b8ce5940",
+    "5d29266c-729c-4f74-bc5d-ab7fcdb31f0f",
+    "e1ae919e-d2fc-41ad-af23-50c7d97b196b",
+    "b2f7074f-94d9-4068-8c41-9ba93e3fc130",
+    "ef817fcf-e36a-42c8-8ab4-02e5e62fecd3",
+    "d659b7aa-ae0a-47d2-8980-e545b62fcd7b",
+    "7b89bba4-f73f-4ca7-a6db-ab556378d577",
+    "ffa83f68-7ebd-4f4f-9eb4-e3a638439ba7",
+    "72aca66e-422e-4827-8f41-01118bd4f324",
+    "86f1ed8b-7d8d-493e-93fb-8cc5d5944cad"
+  ],
+  "val": [
+    "98a71b75-5be5-418b-a73b-96e225190e37",
+    "6cfa3ae8-cee1-43c9-9c5b-a2d7ad1965ef",
+    "607d1600-3df4-476f-bfef-731b9b52ba97",
+    "ef238d06-d75b-46d9-9180-46cf19f93c74",
+    "a86f03a1-7472-4be7-a383-b23bc9f8217e",
+    "623bcd1e-9555-4c57-ab50-4b44fd321c35"
+  ],
+  "test": [
+    "5bb85300-e862-4cab-b98f-fcbbf4cb58c0",
+    "038b27bd-06f5-4f62-a76a-f69c8c48c821",
+    "3d3ff0bd-47c9-4391-9f86-7596de669134",
+    "971bdf22-192f-467c-aaf6-f8bb60531461",
+    "7ce97923-cd9e-4bd6-a0bc-bb953ba8feb2",
+    "ae0a3f1f-2d24-4211-b1fa-ec6d726db910"
+  ],
+  "seed": null,
+  "split_level": "recording",
+  "timestamp": "2026-03-26 15:20:34"
+}

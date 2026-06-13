@@ -196,33 +196,38 @@ def parse_physionet_hypnogram(hypno_file_path: str, epoch_duration: float = 30.0
         f.close()
 
 
-def find_patient_files(data_dir: str) -> List[Tuple[str, str]]:
+def find_patient_files(data_dir: str, dataset_type: str = "ST") -> List[Tuple[str, str]]:
     """
-    Veri klasöründeki PSG ve Hypnogram dosya çiftlerini bul
+    Veri klasöründeki PSG ve Hypnogram dosya çiftlerini bul.
     
     Args:
-        data_dir: Sleep telemetry klasörü
+        data_dir: Veri klasörü (sleep-telemetry veya sleep-cassette)
+        dataset_type: "ST" (Sleep Telemetry) veya "SC" (Sleep Cassette)
     
     Returns:
         [(psg_path, hypno_path), ...]
     """
     print(f"\n{'='*70}")
-    print(f"HASTA DOSYALARI TARANIYOR")
+    print(f"HASTA DOSYALARI TARANIYOR ({dataset_type})")
     print(f"{'='*70}")
     print(f"Klasör: {data_dir}\n")
     
-    # Tüm PSG dosyalarını bul
-    psg_files = sorted([f for f in os.listdir(data_dir) if f.endswith('-PSG.edf')])
+    # Tüm PSG dosyalarını bul (dataset tipine göre filtrele)
+    prefix = dataset_type  # "ST" veya "SC"
+    psg_files = sorted([f for f in os.listdir(data_dir) 
+                        if f.startswith(prefix) and f.endswith('-PSG.edf')])
     
     patient_pairs = []
     
     for psg_file in psg_files:
-        # Patient ID'yi çıkar (ST7011J0-PSG.edf → ST7011)
-        # Son 2 karakteri (J0) çıkar, sadece sayı kısmını al
-        patient_base = psg_file.split('J')[0]  # ST7011J0-PSG.edf → ST7011
+        if dataset_type == "SC":
+            # SC4001E0-PSG.edf → SC4001 (ilk 6 karakter)
+            patient_base = psg_file[:6]
+        else:
+            # ST7011J0-PSG.edf → ST7011
+            patient_base = psg_file.split('J')[0]
         
         # Karşılık gelen Hypnogram dosyasını bul
-        # Hypnogram dosyaları ST7011J* formatında (JP, JM, JO, JA, JR, JE, etc.)
         hypno_files = [f for f in os.listdir(data_dir) 
                       if f.startswith(patient_base) and 'Hypnogram.edf' in f]
         
@@ -241,13 +246,91 @@ def find_patient_files(data_dir: str) -> List[Tuple[str, str]]:
     return patient_pairs
 
 
+def trim_wake_epochs(sleep_stages: List[Dict]) -> List[Dict]:
+    """
+    SC kayıtlarındaki baş ve sondaki aşırı Wake bölgelerini kırp.
+    
+    SC dosyalarında tipik olarak başta ~7-8 saat ve sonda ~6-7 saat
+    sadece Wake epoch'u bulunur. Bu fonksiyon:
+    - İlk non-Wake epoch'tan başlar
+    - Son non-Wake epoch'ta biter
+    - İçerideki WASO (Wake After Sleep Onset) epoch'larını KORUR
+    
+    Args:
+        sleep_stages: parse_physionet_hypnogram() çıktısı
+                      [{'epoch': 0, 'stage': 'W', 'start_time': 0.0, 'duration': 30.0}, ...]
+    
+    Returns:
+        Kırpılmış ve yeniden numaralandırılmış epoch listesi
+    """
+    if not sleep_stages:
+        return []
+    
+    # İlk ve son non-Wake epoch'ları bul
+    first_sleep_idx = None
+    last_sleep_idx = None
+    
+    for i, stage in enumerate(sleep_stages):
+        if stage['stage'] != 'W':
+            if first_sleep_idx is None:
+                first_sleep_idx = i
+            last_sleep_idx = i
+    
+    if first_sleep_idx is None:
+        print(f"  ⚠ Trimming: Hiç uyku epoch'u bulunamadı, boş döndürülüyor")
+        return []
+    
+    # Trim
+    trimmed = sleep_stages[first_sleep_idx:last_sleep_idx + 1]
+    
+    n_before = first_sleep_idx
+    n_after = len(sleep_stages) - last_sleep_idx - 1
+    
+    print(f"  ✂ Wake trimming: baş={n_before} epoch ({n_before*0.5:.0f}dk), "
+          f"son={n_after} epoch ({n_after*0.5:.0f}dk) kırpıldı")
+    print(f"    Orijinal: {len(sleep_stages)} epoch → Trimmed: {len(trimmed)} epoch")
+    
+    # Epoch index'leri yeniden numaralandır (0'dan başla)
+    # start_time'lar orijinal kalır (sinyal verisi ile hizalama için)
+    for i, stage in enumerate(trimmed):
+        stage['epoch'] = i
+    
+    return trimmed
+
+
+def get_sc_subject_id(patient_id: str) -> str:
+    """
+    SC patient ID'den subject ID çıkar (data leakage önlemi için).
+    Aynı subject'in 2 gecesi aynı train/val/test split'inde olmalı.
+    
+    SC4001E0 → "00" (subject 00, night 1)
+    SC4002E0 → "00" (subject 00, night 2)
+    SC4011E0 → "01" (subject 01, night 1)
+    SC4012E0 → "01" (subject 01, night 2)
+    
+    Args:
+        patient_id: SC4XXNE0 formatında hasta ID
+    
+    Returns:
+        Subject ID string (ör: "00", "01", ..., "78")
+    """
+    # SC4XX1 veya SC4XX2 → XX kısmı subject (index 3-4)
+    return patient_id[3:5]
+
+
 # Test fonksiyonu
 if __name__ == "__main__":
-    # Test için örnek dosyalar
-    data_dir = "/media/mehmet-ercan/1e3f69e1-d33e-4f85-814c-6075e302e896/Downloads/sleep-edf-database-expanded-1.0.0/sleep-telemetry"
+    import sys
+    
+    dataset_type = sys.argv[1] if len(sys.argv) > 1 else "ST"
+    
+    if dataset_type == "SC":
+        data_dir = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-cassette"
+    else:
+        data_dir = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-telemetry"
     
     # Hasta dosyalarını bul
-    patient_pairs = find_patient_files(data_dir)
+    patient_pairs = find_patient_files(data_dir, dataset_type=dataset_type)
     
     if patient_pairs:
         # İlk hastayı test et

@@ -1,20 +1,29 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import pyedflib
 import numpy as np
-import gridfs
-from pymongo import MongoClient
-from datetime import datetime
-import io
-import xml.etree.ElementTree as ET
 import os
-import glob
 import config
-from scipy.signal import butter, filtfilt, iirnotch
 
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+# Offline modda MongoDB gerekmez
+try:
+    import pyedflib
+    from pymongo import MongoClient
+    import gridfs
+    HAS_PYMONGO = True
+except ImportError:
+    HAS_PYMONGO = False
+
+try:
+    from datetime import datetime
+    import io
+    import xml.etree.ElementTree as ET
+    import glob
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as mpatches
+    from scipy.signal import butter, filtfilt, iirnotch
+except ImportError:
+    pass  # Bazıları offline modda gerekmeyebilir
 
 
 # ============================================================================
@@ -38,42 +47,29 @@ DIFFERENTIAL_CHANNELS = {
 # ============================================================================
 # Signal-Specific Filter Settings (AASM Standard)
 # ============================================================================
-# Reference: AASM Manual for Scoring Sleep v3
-# - EEG/EOG: 0.3-35 Hz (captures sleep spindles 11-16 Hz, slow waves 0.5-2 Hz)
-# - EMG: 10-100 Hz (high-pass removes slow drift, captures muscle activity)
-
 FILTER_SETTINGS = {
     'EEG': {'lowcut': 0.3, 'highcut': 35.0, 'order': 5, 'notch': 50.0},
     'EOG': {'lowcut': 0.3, 'highcut': 35.0, 'order': 5, 'notch': 50.0},
     'EMG': {'lowcut': 10.0, 'highcut': 100.0, 'order': 5, 'notch': 50.0},
 }
 
-# ============================================================================
-# Amplitude Clipping Settings (Artifact Removal)
-# ============================================================================
-# PSG clinical data has high kurtosis (~2000) due to movement/electrode artifacts
-# Clipping at p1-p99 reduces kurtosis to ~2 while preserving 98% of signal values
-# This removes extreme spikes that corrupt model training
-
-USE_AMPLITUDE_CLIPPING = True
-CLIP_PERCENTILE_LOW = 1    # Lower percentile (p1)
-CLIP_PERCENTILE_HIGH = 99  # Upper percentile (p99)
+# Amplitude clipping DEVRE DIŞI - sinyal dinamik aralığını bozuyor (özellikle EMG)
+# Z-score normalizasyonu uç değerleri training sırasında halleder
+USE_AMPLITUDE_CLIPPING = False
 
 # Channel name to signal type mapping
 CHANNEL_SIGNAL_TYPE = {
-    # EEG channels (central, frontal, occipital)
     'C3-M2': 'EEG', 'C4-M1': 'EEG',
     'F3-M2': 'EEG', 'F4-M1': 'EEG',
     'O1-M2': 'EEG', 'O2-M1': 'EEG',
-    # EOG channels
     'E1-M2': 'EOG', 'E2-M1': 'EOG',
-    # EMG channels
     'CHIN1-CHIN2': 'EMG',
 }
 
+
 def get_signal_type(channel_name):
     """Get signal type (EEG, EOG, EMG) for a channel name."""
-    return CHANNEL_SIGNAL_TYPE.get(channel_name, 'EEG')  # Default to EEG
+    return CHANNEL_SIGNAL_TYPE.get(channel_name, 'EEG')
 
 
 # ============================================================================
@@ -84,7 +80,7 @@ def apply_notch_filter(signal_data, notch_freq=50.0, quality=30.0, fs=256):
     nyq = fs / 2.0
     w0 = notch_freq / nyq
     if not (0 < w0 < 1):
-        return signal_data  # Skip if invalid
+        return signal_data
     b, a = iirnotch(w0, quality)
     return filtfilt(b, a, signal_data)
 
@@ -93,7 +89,7 @@ def apply_bandpass_filter(signal_data, lowcut=0.3, highcut=35.0, fs=256, order=5
     """Butterworth bandpass filter."""
     nyq = 0.5 * fs
     low = lowcut / nyq
-    high = min(highcut / nyq, 0.99)  # Ensure < 1
+    high = min(highcut / nyq, 0.99)
     if low >= high:
         return signal_data
     b, a = butter(order, [low, high], btype='band')
@@ -102,45 +98,28 @@ def apply_bandpass_filter(signal_data, lowcut=0.3, highcut=35.0, fs=256, order=5
 
 def apply_all_filters(signal_data, fs=256, channel_name=None):
     """
-    Apply notch + bandpass filters with signal-specific settings (AASM standard).
-    
-    Filter settings per signal type:
-    - EEG: 0.3-35 Hz (sleep spindles, K-complexes, slow waves)
-    - EOG: 0.3-35 Hz (eye movements)
-    - EMG: 10-100 Hz (muscle activity, high-pass removes slow drift)
-    
-    Args:
-        signal_data: Raw signal array
-        fs: Sampling frequency (Hz)
-        channel_name: Channel name for signal-type detection (e.g., 'CHIN1-CHIN2')
-    
-    Returns:
-        tuple: (filtered_signal, filter_params_dict)
+    Notch + bandpass filtreleri uygula (AASM standard).
+    EEG/EOG: 0.3-35 Hz, EMG: 10-100 Hz
     """
-    # Get signal type and filter settings
     signal_type = get_signal_type(channel_name) if channel_name else 'EEG'
     settings = FILTER_SETTINGS.get(signal_type, FILTER_SETTINGS['EEG'])
-    
+
     lowcut = settings['lowcut']
     highcut = settings['highcut']
     order = settings['order']
     notch_freq = settings['notch']
-    
-    # Nyquist check for highcut
+
     nyq = fs / 2.0
     if highcut >= nyq:
-        highcut = nyq * 0.95  # Keep below Nyquist
-    
-    # 1. Notch filter (50 Hz) - only if fs is high enough
+        highcut = nyq * 0.95
+
     if notch_freq < nyq:
         signal_filtered = apply_notch_filter(signal_data, notch_freq=notch_freq, fs=fs)
     else:
         signal_filtered = signal_data
-    
-    # 2. Bandpass filter
+
     signal_filtered = apply_bandpass_filter(signal_filtered, lowcut=lowcut, highcut=highcut, fs=fs, order=order)
-    
-    # Return signal and the actual filter params used
+
     filter_params = {
         'signal_type': signal_type,
         'lowcut': lowcut,
@@ -149,31 +128,15 @@ def apply_all_filters(signal_data, fs=256, channel_name=None):
         'notch_freq': notch_freq,
         'applied_at_fs': fs
     }
-    
+
     return signal_filtered, filter_params
 
 
-def apply_amplitude_clipping(signal_data, low_pct=CLIP_PERCENTILE_LOW, high_pct=CLIP_PERCENTILE_HIGH):
-    """
-    Apply amplitude clipping to remove extreme artifacts.
-    
-    Clips signal values to percentile range (e.g., p1-p99).
-    This significantly reduces kurtosis (2000 → 2) by removing extreme spikes
-    from movement/electrode artifacts while preserving 98% of signal values.
-    
-    Args:
-        signal_data: 1D numpy array of signal values
-        low_pct: Lower percentile for clipping (default: 1)
-        high_pct: Upper percentile for clipping (default: 99)
-    
-    Returns:
-        tuple: (clipped_signal, clip_params_dict)
-    """
+def apply_amplitude_clipping(signal_data, low_pct=1, high_pct=99):
+    """Amplitude clipping (percentile tabanlı)."""
     low_val = np.percentile(signal_data, low_pct)
     high_val = np.percentile(signal_data, high_pct)
-    
     clipped_signal = np.clip(signal_data, low_val, high_val)
-    
     clip_params = {
         'low_percentile': low_pct,
         'high_percentile': high_pct,
@@ -181,37 +144,208 @@ def apply_amplitude_clipping(signal_data, low_pct=CLIP_PERCENTILE_LOW, high_pct=
         'high_value': float(high_val),
         'clipped_samples_pct': float(np.sum((signal_data < low_val) | (signal_data > high_val)) / len(signal_data) * 100)
     }
-    
     return clipped_signal, clip_params
 
 
 def create_differential_channel(signal_active, signal_reference):
-    """Create differential channel: Active - Reference."""
+    """Differential kanal oluştur: Active - Reference."""
     min_len = min(len(signal_active), len(signal_reference))
     return signal_active[:min_len] - signal_reference[:min_len]
 
 
 # GLOBAL CACHE - Tüm program boyunca geçerli
 _STAGES_CACHE = {}
+_SIGNALS_CACHE = {}  # Offline mod: {(patient_id, channel_safe): ndarray(n_epochs, samples)}
+_EPOCH_INDICES_CACHE = {}  # Offline mod: {patient_id: ndarray(epoch_indices)}
 
 
 def clear_stages_cache():
     """
     Cache'i temizle (ihtiyaç olursa)
     """
-    global _STAGES_CACHE
+    global _STAGES_CACHE, _SIGNALS_CACHE, _EPOCH_INDICES_CACHE
     _STAGES_CACHE.clear()
+    _SIGNALS_CACHE.clear()
+    _EPOCH_INDICES_CACHE.clear()
     print("✓ Stage cache temizlendi")
 
 
-def get_cached_stages(patient_id, mongo_uri, db_name):
+# ============================================================================
+# Offline Data Functions (.npz dosyalarından yükleme)
+# ============================================================================
+
+def get_offline_patient_ids():
     """
-    Hastanın stage verilerini cache'den getir, yoksa MongoDB'den yükle.
+    Offline data dizininden hasta listesini al.
+    
+    Returns:
+        list: Sıralı hasta ID listesi
+    """
+    import json
+    info_path = os.path.join(config.OFFLINE_DATA_DIR, 'dataset_info.json')
+    
+    if os.path.exists(info_path):
+        with open(info_path, 'r') as f:
+            info = json.load(f)
+        return sorted(info['patient_ids'])
+    
+    # dataset_info.json yoksa dosya isimlerinden çıkar
+    patient_ids = []
+    for fname in os.listdir(config.OFFLINE_DATA_DIR):
+        if fname.startswith('patient_') and fname.endswith('.npz'):
+            pid = fname[len('patient_'):-len('.npz')]
+            patient_ids.append(pid)
+    
+    return sorted(patient_ids)
+
+
+def _load_offline_patient(patient_id, load_signals=True):
+    """
+    Bir hastanın .npz dosyasını yükle ve cache'lere ekle.
+    
+    Args:
+        patient_id: Hasta ID
+        load_signals: True ise sinyal verilerini de yükle (büyük bellek kullanımı).
+                      False ise sadece stages ve epoch_indices yükle (düşük bellek).
+    
+    Returns:
+        bool: Başarılı ise True
+    """
+    global _STAGES_CACHE, _SIGNALS_CACHE, _EPOCH_INDICES_CACHE
+    import json
+    
+    npz_path = os.path.join(config.OFFLINE_DATA_DIR, f'patient_{patient_id}.npz')
+    
+    if not os.path.exists(npz_path):
+        print(f"⚠ Offline veri bulunamadı: {npz_path}")
+        return False
+    
+    data = np.load(npz_path, allow_pickle=True)
+    
+    # Stages
+    if patient_id not in _STAGES_CACHE:
+        stages_bytes = bytes(data['stages_json'])
+        stages_data = json.loads(stages_bytes.decode('utf-8'))
+        _STAGES_CACHE[patient_id] = stages_data
+    
+    # Epoch indices
+    if patient_id not in _EPOCH_INDICES_CACHE:
+        _EPOCH_INDICES_CACHE[patient_id] = data['epoch_indices']
+    
+    # Sinyal verileri (isteğe bağlı - bellek tasarrufu için atlanabilir)
+    if load_signals:
+        for key in data.files:
+            if key.startswith('signal_'):
+                channel_safe = key[len('signal_'):]
+                cache_key = (patient_id, channel_safe)
+                if cache_key not in _SIGNALS_CACHE:
+                    _SIGNALS_CACHE[cache_key] = data[key]
+    
+    return True
+
+
+def preload_offline_patients(patient_ids=None, load_signals=True):
+    """
+    Offline modda tüm hastaların verilerini cache'e yükle.
+    
+    Args:
+        patient_ids: Hasta listesi (None ise tüm hastalar)
+        load_signals: True ise sinyal verilerini de yükle (büyük bellek).
+                      False ise sadece stages/epoch_indices yükle (düşük bellek).
+                      Sinyaller dataset _preload_all_signals() tarafından
+                      hasta bazında yüklenip serbest bırakılacak.
+    """
+    if patient_ids is None:
+        patient_ids = get_offline_patient_ids()
+    
+    import time as _time
+    mode_str = "STAGES + SİNYALLER" if load_signals else "SADECE STAGES (düşük bellek modu)"
+    
+    print(f"\n{'='*70}", flush=True)
+    print(f"OFFLINE VERİLER CACHE'E YÜKLENİYOR (.npz)", flush=True)
+    print(f"{'='*70}", flush=True)
+    print(f"Kaynak: {config.OFFLINE_DATA_DIR}", flush=True)
+    print(f"Hasta sayısı: {len(patient_ids)}", flush=True)
+    print(f"Yükleme modu: {mode_str}", flush=True)
+    print(f"{'-'*70}", flush=True)
+    
+    loaded = 0
+    t_start = _time.time()
+    for idx, pid in enumerate(patient_ids, 1):
+        t0 = _time.time()
+        if _load_offline_patient(pid, load_signals=load_signals):
+            n_epochs = len(_STAGES_CACHE.get(pid, []))
+            elapsed = _time.time() - t0
+            print(f"[{idx}/{len(patient_ids)}] {pid}: {n_epochs} epoch ✓ ({elapsed:.1f}s)", flush=True)
+            loaded += 1
+        else:
+            print(f"[{idx}/{len(patient_ids)}] {pid}: Bulunamadı ✗", flush=True)
+    
+    # Bellek kullanımı
+    signal_bytes = sum(arr.nbytes for arr in _SIGNALS_CACHE.values())
+    signal_gb = signal_bytes / (1024**3)
+    stage_bytes = sum(len(str(s).encode()) for s in _STAGES_CACHE.values())
+    stage_mb = stage_bytes / (1024**2)
+    
+    total_time = _time.time() - t_start
+    print(f"\n{'='*70}", flush=True)
+    print(f"OFFLINE CACHE HAZIR!", flush=True)
+    print(f"  Yüklenen hasta: {loaded}/{len(patient_ids)} ({total_time:.1f}s)", flush=True)
+    print(f"  Stage cache: {len(_STAGES_CACHE)} hasta (~{stage_mb:.1f} MB)", flush=True)
+    print(f"  Sinyal cache: {len(_SIGNALS_CACHE)} (patient, channel) çifti", flush=True)
+    print(f"  Sinyal bellek: {signal_gb:.2f} GB", flush=True)
+    print(f"{'='*70}\n", flush=True)
+
+
+def get_offline_signal(patient_id, channel_name, epoch_idx):
+    """
+    Offline cache'den bir epoch'un sinyalini al.
+    
+    Args:
+        patient_id: Hasta ID
+        channel_name: Kanal adı (orijinal, ör: 'EEG Fpz-Cz')
+        epoch_idx: Epoch indeksi
+    
+    Returns:
+        np.ndarray: Sinyal dizisi (samples_per_epoch,) veya None
+    """
+    channel_safe = channel_name.replace(' ', '_').replace('/', '-')
+    cache_key = (patient_id, channel_safe)
+    
+    # Cache'de yoksa yüklemeyi dene
+    if cache_key not in _SIGNALS_CACHE:
+        _load_offline_patient(patient_id)
+    
+    if cache_key not in _SIGNALS_CACHE:
+        return None
+    
+    signals = _SIGNALS_CACHE[cache_key]
+    epoch_indices = _EPOCH_INDICES_CACHE.get(patient_id)
+    
+    if epoch_indices is None:
+        return None
+    
+    # epoch_idx'in dizideki pozisyonunu bul
+    positions = np.where(epoch_indices == epoch_idx)[0]
+    if len(positions) == 0:
+        return None
+    
+    pos = positions[0]
+    if pos >= len(signals):
+        return None
+    
+    return signals[pos].copy()
+
+
+def get_cached_stages(patient_id, mongo_uri=None, db_name=None):
+    """
+    Hastanın stage verilerini cache'den getir, yoksa kaynaktan yükle.
+    Offline modda .npz dosyalarından, normal modda MongoDB'den yükler.
     
     Args:
         patient_id: Hasta ID'si
-        mongo_uri: MongoDB bağlantı URI'si
-        db_name: Veritabanı adı
+        mongo_uri: MongoDB bağlantı URI'si (offline modda kullanılmaz)
+        db_name: Veritabanı adı (offline modda kullanılmaz)
     
     Returns:
         list: Stage verileri veya None
@@ -222,7 +356,17 @@ def get_cached_stages(patient_id, mongo_uri, db_name):
     if patient_id in _STAGES_CACHE:
         return _STAGES_CACHE[patient_id]
     
-    # Yoksa MongoDB'den yükle
+    # Offline mod: .npz dosyasından yükle
+    if config.USE_OFFLINE_DATA:
+        _load_offline_patient(patient_id)
+        return _STAGES_CACHE.get(patient_id)
+    
+    # Normal mod: MongoDB'den yükle
+    if mongo_uri is None:
+        mongo_uri = config.MONGO_URI
+    if db_name is None:
+        db_name = config.DB_NAME
+    
     client = MongoClient(mongo_uri)
     db = client[db_name]
     fs = gridfs.GridFS(db)
@@ -247,20 +391,38 @@ def get_cached_stages(patient_id, mongo_uri, db_name):
 
 
 def preload_all_stages(patient_ids=None, mongo_uri=config.MONGO_URI,
-                       db_name=config.DB_NAME):
+                       db_name=config.DB_NAME, load_signals=False):
     """
     Tüm hastaların stage verilerini önceden cache'e yükle.
+    Offline modda .npz dosyalarından, normal modda MongoDB'den yükler.
     
     Args:
         patient_ids: Hasta ID listesi (None ise tüm hastalar)
-        mongo_uri: MongoDB bağlantı URI'si
-        db_name: Veritabanı adı
+        mongo_uri: MongoDB bağlantı URI'si (offline modda kullanılmaz)
+        db_name: Veritabanı adı (offline modda kullanılmaz)
+        load_signals: Offline modda sinyalleri de yükle (default: False).
+                      False ise sadece stages yüklenir, sinyaller dataset
+                      tarafından hasta bazında yüklenir (bellek tasarrufu).
     
     Returns:
         dict: Yükleme özeti
     """
     global _STAGES_CACHE
     
+    # Offline mod: .npz dosyalarından yükle
+    if config.USE_OFFLINE_DATA:
+        if patient_ids is None:
+            patient_ids = get_offline_patient_ids()
+        preload_offline_patients(patient_ids, load_signals=load_signals)
+        return {
+            'loaded': len(_STAGES_CACHE),
+            'total_patients': len(patient_ids),
+            'total_epochs': sum(len(s) for s in _STAGES_CACHE.values()),
+            'total_size_mb': 0,
+            'cache_size': len(_STAGES_CACHE)
+        }
+    
+    # Normal mod: MongoDB'den yükle
     print(f"\n{'='*70}")
     print(f"TÜM STAGE VERİLERİ CACHE'E YÜKLENİYOR")
     print(f"{'='*70}")
@@ -339,57 +501,28 @@ def preload_all_stages(patient_ids=None, mongo_uri=config.MONGO_URI,
 
 
 def delete_patient_data(patient_id, mongo_uri=config.MONGO_URI, 
-                        db_name=None, db_name_filtered=None, 
-                        confirm=True):
+                        db_name=config.DB_NAME, confirm=True):
     """
-    Hastanın TÜM verilerini HER İKİ veritabanından siler (psg_data + psg_data_filtered).
+    Hastanın TÜM verilerini MongoDB'den siler (kanallar + uyku evreleri).
     
     Args:
         patient_id: Hasta ID'si
         mongo_uri: MongoDB bağlantı URI'si
-        db_name: Raw data veritabanı adı (default: config.DB_NAME_RAW)
-        db_name_filtered: Filtered data veritabanı adı (default: config.DB_NAME_FILTERED)
+        db_name: Veritabanı adı
         confirm: True ise kullanıcıdan onay ister
     
     Returns:
         dict: Silme işlemi özeti
     """
-    # Config'den default değerleri al
-    if db_name is None:
-        db_name = config.DB_NAME_RAW
-    if db_name_filtered is None:
-        db_name_filtered = config.DB_NAME_FILTERED
-    
     client = MongoClient(mongo_uri)
+    db = client[db_name]
+    fs = gridfs.GridFS(db)
     
-    # Her iki veritabanını kontrol et
-    databases = [
-        (f'{db_name} (raw)', db_name),
-        (f'{db_name_filtered} (filtered)', db_name_filtered)
-    ]
+    # Hastaya ait tüm dosyaları bul
+    patient_files = list(fs.find({"metadata.patient_id": patient_id}))
     
-    total_files_all_dbs = []
-    db_summaries = []
-    
-    for db_label, db_n in databases:
-        db = client[db_n]
-        fs = gridfs.GridFS(db)
-        patient_files = list(fs.find({"metadata.patient_id": patient_id}))
-        
-        if patient_files:
-            channel_files = [f for f in patient_files if f.metadata.get('data_type') == 'raw_signal']
-            stages_files = [f for f in patient_files if f.metadata.get('data_type') == 'sleep_stages']
-            total_files_all_dbs.extend([(db_n, f) for f in patient_files])
-            db_summaries.append({
-                'label': db_label,
-                'db_name': db_n,
-                'channels': len(channel_files),
-                'stages': len(stages_files),
-                'total': len(patient_files)
-            })
-    
-    if not total_files_all_dbs:
-        print(f"✗ Hasta hiçbir veritabanında bulunamadı: {patient_id}")
+    if not patient_files:
+        print(f"✗ Hasta bulunamadı: {patient_id}")
         client.close()
         return {
             'patient_id': patient_id,
@@ -397,25 +530,28 @@ def delete_patient_data(patient_id, mongo_uri=config.MONGO_URI,
             'deleted_files': 0
         }
     
-    # Özet göster
+    # Dosya sayılarını hesapla
+    channel_files = [f for f in patient_files if f.metadata.get('data_type') == 'raw_signal']
+    stages_files = [f for f in patient_files if f.metadata.get('data_type') == 'sleep_stages']
+    
     print(f"\n{'='*70}")
     print(f"Hasta ID: {patient_id}")
     print(f"{'='*70}")
+    print(f"Kanal dosyaları: {len(channel_files)}")
+    print(f"Uyku evresi dosyaları: {len(stages_files)}")
+    print(f"Toplam silinecek dosya: {len(patient_files)}")
     
-    for summary in db_summaries:
-        print(f"\n📁 {summary['label']}:")
-        print(f"   Kanal dosyaları: {summary['channels']}")
-        print(f"   Uyku evresi dosyaları: {summary['stages']}")
-        print(f"   Toplam: {summary['total']}")
-    
-    print(f"\n{'='*70}")
-    print(f"TOPLAM SİLİNECEK DOSYA: {len(total_files_all_dbs)}")
-    print(f"{'='*70}")
+    # Kanal detaylarını göster
+    if channel_files:
+        print(f"\nKanallar:")
+        for ch_file in channel_files:
+            ch_meta = ch_file.metadata
+            size_mb = ch_file.length / (1024 * 1024)
+            print(f"  - {ch_meta['channel_name']} ({ch_meta['sample_frequency']} Hz, {size_mb:.2f} MB)")
     
     # Onay iste
     if confirm:
         print(f"\n⚠ UYARI: Bu işlem geri alınamaz!")
-        print(f"⚠ Her iki veritabanından ({db_name} + {db_name_filtered}) silinecek!")
         response = input(f"\n'{patient_id}' hastasının TÜM verilerini silmek istediğinize emin misiniz? (evet/hayır): ")
         
         if response.lower() not in ['evet', 'yes', 'e', 'y']:
@@ -427,95 +563,50 @@ def delete_patient_data(patient_id, mongo_uri=config.MONGO_URI,
                 'deleted_files': 0
             }
     
-    # Her iki veritabanından sil
+    # Tüm dosyaları sil
     print(f"\nDosyalar siliniyor...")
     deleted_count = 0
     
-    for db_n, file in total_files_all_dbs:
+    for file in patient_files:
         try:
-            db = client[db_n]
-            fs = gridfs.GridFS(db)
             fs.delete(file._id)
             deleted_count += 1
-            print(f"  ✓ [{db_n}] Silindi: {file.filename}")
+            print(f"  ✓ Silindi: {file.filename}")
         except Exception as e:
-            print(f"  ✗ [{db_n}] Silinemedi: {file.filename} - {str(e)}")
+            print(f"  ✗ Silinemedi: {file.filename} - {str(e)}")
     
     client.close()
     
     print(f"\n{'='*70}")
     print(f"✓ İşlem tamamlandı")
-    print(f"Silinen dosya sayısı: {deleted_count}/{len(total_files_all_dbs)}")
+    print(f"Silinen dosya sayısı: {deleted_count}/{len(patient_files)}")
     print(f"{'='*70}")
     
     return {
         'patient_id': patient_id,
         'status': 'deleted',
         'deleted_files': deleted_count,
-        'total_files': len(total_files_all_dbs)
+        'total_files': len(patient_files)
     }
 
 
 def delete_patient_datas(patient_ids, mongo_uri=config.MONGO_URI, 
-                        db_name=None, db_name_filtered=None,
-                        confirm=True):
+                        db_name=config.DB_NAME, confirm=True):
     """
-    Birden fazla hastanın TÜM verilerini HER İKİ veritabanından siler.
+    Hastaların TÜM verilerini MongoDB'den siler (kanallar + uyku evreleri).
     
     Args:
-        patient_ids: Hasta ID'leri listesi
+        patient_ids: Hasta ID'leri
         mongo_uri: MongoDB bağlantı URI'si
-        db_name: Raw data veritabanı adı (default: config.DB_NAME_RAW)
-        db_name_filtered: Filtered data veritabanı adı (default: config.DB_NAME_FILTERED)
+        db_name: Veritabanı adı
         confirm: True ise kullanıcıdan onay ister
     
     Returns:
         dict: Silme işlemleri özeti
     """
-    # Config'den default değerleri al
-    if db_name is None:
-        db_name = config.DB_NAME_RAW
-    if db_name_filtered is None:
-        db_name_filtered = config.DB_NAME_FILTERED
-    
-    results = {
-        'total': len(patient_ids),
-        'deleted': 0,
-        'not_found': 0,
-        'cancelled': 0,
-        'details': []
-    }
-    
-    print(f"\n{'='*70}")
-    print(f"TOPLU SİLME İŞLEMİ")
-    print(f"{'='*70}")
-    print(f"Silinecek hasta sayısı: {len(patient_ids)}")
-    print(f"Hedef veritabanları: {db_name}, {db_name_filtered}")
-    print(f"{'='*70}\n")
 
-    for idx, patient_id in enumerate(patient_ids, 1):
-        print(f"\n[{idx}/{len(patient_ids)}] İşleniyor: {patient_id}")
-        result = delete_patient_data(patient_id, mongo_uri, db_name, db_name_filtered, confirm)
-        results['details'].append(result)
-        
-        if result['status'] == 'deleted':
-            results['deleted'] += 1
-        elif result['status'] == 'not_found':
-            results['not_found'] += 1
-        elif result['status'] == 'cancelled':
-            results['cancelled'] += 1
-    
-    # Özet rapor
-    print(f"\n{'='*70}")
-    print(f"TOPLU SİLME ÖZETİ")
-    print(f"{'='*70}")
-    print(f"Toplam hasta: {results['total']}")
-    print(f"Silinen: {results['deleted']} ✓")
-    print(f"Bulunamayan: {results['not_found']} ⊘")
-    print(f"İptal edilen: {results['cancelled']} ✗")
-    print(f"{'='*70}\n")
-    
-    return results
+    for patient_id in patient_ids:
+        delete_patient_data(patient_id, mongo_uri, db_name, confirm)
 
 
 def patient_exists_in_mongodb(patient_id, mongo_uri=config.MONGO_URI, 
@@ -548,24 +639,23 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
     """
     Raw veritabanından filtered veritabanını yeniden oluşturur.
     EDF dosyasını tekrar okumadan, sadece raw sinyalleri kullanır.
-    
+    Differential montaj + notch + bandpass uygular (amplitude clipping KAPALI).
+
     Args:
         patient_id: Hasta ID'si
         mongo_uri: MongoDB bağlantı URI'si
         db_name_raw: Raw data veritabanı adı
         db_name_filtered: Filtered data veritabanı adı
-    
+
     Returns:
         bool: Başarılı ise True
     """
-    from datetime import datetime
-    
     client = MongoClient(mongo_uri)
     db_raw = client[db_name_raw]
     db_filtered = client[db_name_filtered]
     fs_raw = gridfs.GridFS(db_raw)
     fs_filtered = gridfs.GridFS(db_filtered)
-    
+
     try:
         # Raw kanalları oku
         raw_signals = {}
@@ -578,18 +668,18 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
                         signal = np.load(io.BytesIO(data))
                     else:
                         signal = np.frombuffer(data, dtype=np.float64)
-                    
+
                     raw_signals[ch_name] = {
                         'signal': signal,
                         'sample_freq': f.metadata.get('sample_frequency', 256),
                         'metadata': f.metadata
                     }
-        
+
         if not raw_signals:
             print(f"  ✗ Raw sinyal bulunamadı: {patient_id}")
             client.close()
             return False
-        
+
         # Sleep stages'i kopyala
         stages_data = None
         stages_metadata = None
@@ -598,7 +688,7 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
                 stages_data = f.read()
                 stages_metadata = dict(f.metadata)
                 break
-        
+
         if stages_data:
             stages_metadata['source_db'] = db_name_raw
             stages_buffer = io.BytesIO(stages_data)
@@ -611,7 +701,7 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
         else:
             stages_id = None
             print(f"  ⚠ Sleep stages bulunamadı")
-        
+
         # Differential kanalları oluştur
         diff_count = 0
         for diff_name, (active_ch, ref_ch) in DIFFERENTIAL_CHANNELS.items():
@@ -619,24 +709,25 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
                 signal_active = raw_signals[active_ch]['signal']
                 signal_ref = raw_signals[ref_ch]['signal']
                 fs_hz = raw_signals[active_ch]['sample_freq']
-                
+
                 if raw_signals[ref_ch]['sample_freq'] != fs_hz:
                     continue
-                
+
                 # Differential sinyal oluştur
                 diff_signal = create_differential_channel(signal_active, signal_ref)
-                
-                # Filtreleme uygula
-                filtered_signal, filter_params = apply_all_filters(diff_signal, fs=fs_hz, channel_name=diff_name)
-                
-                # Amplitude clipping uygula
+
+                # Notch + bandpass filtrele
+                filtered_signal, filter_params = apply_all_filters(
+                    diff_signal, fs=fs_hz, channel_name=diff_name)
+
+                # Amplitude clipping (varsayılan: KAPALI)
                 clip_params = None
                 if USE_AMPLITUDE_CLIPPING:
                     filtered_signal, clip_params = apply_amplitude_clipping(filtered_signal)
-                
-                # Metadata hazırla
+
+                # Metadata
                 orig_metadata = raw_signals[active_ch].get('metadata', {})
-                
+
                 diff_metadata = {
                     "patient_id": patient_id,
                     "channel_name": diff_name,
@@ -666,55 +757,49 @@ def regenerate_filtered_from_raw(patient_id, mongo_uri=config.MONGO_URI,
                     "stages_id": stages_id,
                     "has_sleep_stages": stages_id is not None
                 }
-                
+
                 # Trim bilgisi varsa ekle
-                if 'trim_start_time' in orig_metadata:
-                    diff_metadata['trim_start_time'] = orig_metadata['trim_start_time']
-                if 'trim_end_time' in orig_metadata:
-                    diff_metadata['trim_end_time'] = orig_metadata['trim_end_time']
-                
-                # GridFS'e kaydet
+                if hasattr(orig_metadata, 'get'):
+                    if orig_metadata.get('trim_start_time') is not None:
+                        diff_metadata['trim_start_time'] = orig_metadata['trim_start_time']
+                    if orig_metadata.get('trim_end_time') is not None:
+                        diff_metadata['trim_end_time'] = orig_metadata['trim_end_time']
+
                 buffer = io.BytesIO()
                 np.save(buffer, filtered_signal)
                 buffer.seek(0)
-                
+
                 file_id = fs_filtered.put(
                     buffer,
                     filename=f"{patient_id}_{diff_name}_filtered.npy",
                     metadata=diff_metadata,
                     chunk_size=255*1024
                 )
-                
+
                 diff_count += 1
-                clipped_pct = clip_params.get('clipped_samples_pct', 0) if clip_params else 0
-                print(f"  ✓ {diff_name} → clipped {clipped_pct:.2f}%")
-        
+                print(f"  ✓ {diff_name} → kayıt edildi")
+
         client.close()
         print(f"  ✓ {diff_count} differential kanal oluşturuldu")
         return diff_count > 0
-        
+
     except Exception as e:
         print(f"  ✗ Hata: {e}")
         client.close()
         return False
 
 
-def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI, 
+def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI,
                             db_name=None, db_name_filtered=None,
-                            skip_existing=True, save_filtered=True):
+                            skip_existing=True, save_filtered=True,
+                            save_raw=True):
     """
     Klasörleri dolaşarak her hastanın verilerini MongoDB'ye aktarır.
-    
-    Klasör Yapısı:
-        root_folder/
-            patient_id_1/
-                *.edf
-                *.xml
-            patient_id_2/
-                *.edf
-                *.xml
-            ...
-    
+
+    Her hasta için iki veritabanına kayıt yapar:
+    1. psg_data (raw): Tüm kanallar (filtresiz)
+    2. psg_data_filtered: Differential kanallar + notch + bandpass filtreli
+
     Args:
         root_folder: Ana klasör yolu
         mongo_uri: MongoDB bağlantı URI'si
@@ -722,22 +807,22 @@ def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI,
         db_name_filtered: Filtered data veritabanı adı (default: config.DB_NAME_FILTERED)
         skip_existing: True ise daha önce aktarılmış hastaları atlar
         save_filtered: True ise differential+filtered verileri de kaydet
-    
+
     Returns:
         dict: İşlem özeti
     """
-    # Config'den default değerleri al
     if db_name is None:
         db_name = config.DB_NAME_RAW
     if db_name_filtered is None:
         db_name_filtered = config.DB_NAME_FILTERED
-    
+
     print(f"\n{'='*80}")
     print(f"TOPLU HASTA VERİSİ AKTARIMI")
     print(f"{'='*80}")
     print(f"Ana klasör: {root_folder}")
-    print(f"Raw DB: {db_name}")
-    print(f"Filtered DB: {db_name_filtered}")
+    print(f"Raw veritabanı: {db_name}")
+    print(f"Filtered veritabanı: {db_name_filtered}")
+    print(f"Amplitude clipping: {'AÇIK' if USE_AMPLITUDE_CLIPPING else 'KAPALI'}")
     print(f"Mevcut hastaları atla: {skip_existing}")
     print(f"{'='*80}\n")
     
@@ -751,7 +836,6 @@ def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI,
         'total': len(patient_folders),
         'processed': 0,
         'skipped': 0,
-        'excluded': 0,
         'failed': 0,
         'details': []
     }
@@ -763,45 +847,16 @@ def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI,
         print(f"[{idx}/{len(patient_folders)}] Hasta: {patient_id}")
         print(f"{'='*80}")
         
-        # Raw ve Filtered DB'lerde hasta var mı kontrol et
-        raw_exists = patient_exists_in_mongodb(patient_id, mongo_uri, db_name)
-        filtered_exists = patient_exists_in_mongodb(patient_id, mongo_uri, db_name_filtered) if save_filtered else True
-        
-        # Her ikisi de varsa atla
-        if skip_existing and raw_exists and filtered_exists:
-            print(f"⊘ ATLANDI - Bu hasta zaten her iki DB'de mevcut")
+        # Hasta daha önce işlendi mi kontrol et (filtered DB'ye bakılır)
+        check_db = db_name_filtered if db_name_filtered else db_name
+        if skip_existing and patient_exists_in_mongodb(patient_id, mongo_uri, check_db):
+            print(f"⊘ ATLANDI - Bu hasta zaten MongoDB'de mevcut ({check_db})")
             results['skipped'] += 1
             results['details'].append({
                 'patient_id': patient_id,
                 'status': 'skipped',
                 'reason': 'already_exists'
             })
-            continue
-        
-        # Sadece filtered eksikse, raw'dan oluştur
-        if skip_existing and raw_exists and not filtered_exists:
-            print(f"⚡ FILTERED YENİDEN OLUŞTURULUYOR - Raw mevcut, filtered eksik")
-            # Raw veriden filtered oluştur (EDF tekrar okumadan)
-            success = regenerate_filtered_from_raw(
-                patient_id=patient_id,
-                mongo_uri=mongo_uri,
-                db_name_raw=db_name,
-                db_name_filtered=db_name_filtered
-            )
-            if success:
-                results['processed'] += 1
-                results['details'].append({
-                    'patient_id': patient_id,
-                    'status': 'regenerated_filtered',
-                    'reason': 'filtered_only'
-                })
-            else:
-                results['failed'] += 1
-                results['details'].append({
-                    'patient_id': patient_id,
-                    'status': 'failed',
-                    'reason': 'filtered_regeneration_failed'
-                })
             continue
         
         # EDF dosyasını bul
@@ -854,7 +909,8 @@ def process_patient_folders(root_folder, mongo_uri=config.MONGO_URI,
                 db_name=db_name,
                 db_name_filtered=db_name_filtered,
                 patient_id=patient_id,
-                save_filtered=save_filtered
+                save_filtered=save_filtered,
+                save_raw=save_raw
             )
             
             results['processed'] += 1
@@ -1089,19 +1145,157 @@ def parse_sleep_stages_edf(edf_path, annotation_channel=None):
         return []
 
 
+def _update_dataset_info(patient_id):
+    """
+    dataset_info.json dosyasını güncelle veya oluştur.
+    Her yeni hasta eklendiğinde hasta listesine eklenir.
+    Offline modda get_offline_patient_ids() bu dosyayı okur.
+    """
+    import json
+    import time
+    
+    info_path = os.path.join(config.OFFLINE_DATA_DIR, 'dataset_info.json')
+    
+    # Mevcut dosya varsa oku, yoksa boş oluştur
+    if os.path.exists(info_path):
+        with open(info_path, 'r') as f:
+            info = json.load(f)
+    else:
+        info = {
+            'db_name': config.DB_NAME,
+            'use_physionet': config.USE_PHYSIONET,
+            'channels': config.SELECTED_CHANNELS,
+            'n_channels': config.N_CHANNELS,
+            'sample_rate': config.SAMPLE_RATE,
+            'epoch_duration': config.EPOCH_DURATION,
+            'samples_per_epoch': config.SAMPLES_PER_EPOCH,
+            'class_names': config.CLASS_NAMES,
+            'class_to_idx': config.CLASS_TO_IDX,
+            'patient_ids': [],
+            'n_patients': 0,
+        }
+    
+    # Hasta listesine ekle (tekrar eklenmesini önle)
+    if patient_id not in info['patient_ids']:
+        info['patient_ids'].append(patient_id)
+        info['patient_ids'] = sorted(info['patient_ids'])
+    
+    info['n_patients'] = len(info['patient_ids'])
+    info['last_updated'] = time.strftime('%Y-%m-%d %H:%M:%S')
+    
+    with open(info_path, 'w') as f:
+        json.dump(info, f, indent=2)
+
+
+def _export_patient_npz(patient_id, sleep_stages, raw_signals):
+    """
+    Bir hastanın verisini .npz dosyasına export eder.
+    save_all_channels_to_mongodb() ve physionet_import.py tarafından çağrılır.
+    Hasta NPZ zaten mevcutsa atlar (hasta bazlı skip).
+    
+    NPZ içeriği:
+        - stages_json: Stage verilerinin JSON string'i (bytes)
+        - epoch_indices: Geçerli epoch indeks dizisi (int32)
+        - signal_{channel_safe}: Her kanal için (n_epochs, samples_per_epoch) float32 array
+    
+    Args:
+        patient_id: Hasta ID
+        sleep_stages: parse_sleep_stages_xml/edf çıktısı (list of dicts)
+        raw_signals: {channel_label: (signal_data_array, sample_freq)} — EDF'den okunan ham sinyaller
+    """
+    import json
+    
+    # Hasta NPZ dosyası zaten varsa atla
+    os.makedirs(config.OFFLINE_DATA_DIR, exist_ok=True)
+    output_path = os.path.join(config.OFFLINE_DATA_DIR, f'patient_{patient_id}.npz')
+    if os.path.exists(output_path):
+        print(f"  ⊘ NPZ export: {patient_id} zaten mevcut, atlanıyor")
+        # dataset_info.json'da da kayıtlı olduğundan emin ol
+        _update_dataset_info(patient_id)
+        return
+    
+    # Geçerli epoch'ları filtrele
+    valid_epochs = []
+    for epoch_data in sleep_stages:
+        if epoch_data['stage'] in config.CLASS_TO_IDX:
+            valid_epochs.append(epoch_data)
+    
+    if len(valid_epochs) == 0:
+        print(f"  ⚠ NPZ export: {patient_id} için geçerli epoch yok, atlanıyor")
+        return
+    
+    n_epochs = len(valid_epochs)
+    epoch_indices = np.array([e['epoch'] for e in valid_epochs], dtype=np.int32)
+    
+    # Seçili kanallar için sinyal verilerini epoch'lara böl
+    channel_data = {}
+    missing_channels = []
+    
+    for channel_name in config.SELECTED_CHANNELS:
+        if channel_name not in raw_signals:
+            missing_channels.append(channel_name)
+            continue
+        
+        signal_data, sample_freq = raw_signals[channel_name]
+        samples_per_epoch = int(sample_freq * config.EPOCH_DURATION)
+        
+        signals = np.zeros((n_epochs, config.SAMPLES_PER_EPOCH), dtype=np.float32)
+        
+        for i, epoch_data in enumerate(valid_epochs):
+            start_time = epoch_data['start_time']
+            start_sample = int(start_time * sample_freq)
+            end_sample = start_sample + samples_per_epoch
+            
+            if end_sample <= len(signal_data):
+                epoch_signal = signal_data[start_sample:end_sample].astype(np.float32)
+                # sample_freq != config.SAMPLE_RATE durumu genelde olmaz ama güvenlik
+                if len(epoch_signal) >= config.SAMPLES_PER_EPOCH:
+                    signals[i] = epoch_signal[:config.SAMPLES_PER_EPOCH]
+                else:
+                    signals[i, :len(epoch_signal)] = epoch_signal
+        
+        channel_safe = channel_name.replace(' ', '_').replace('/', '-')
+        channel_data[f'signal_{channel_safe}'] = signals
+    
+    if missing_channels:
+        print(f"  ⚠ NPZ export: Seçili kanallar EDF'de bulunamadı: {missing_channels}")
+    
+    if not channel_data:
+        print(f"  ⚠ NPZ export: Hiçbir seçili kanal bulunamadı, .npz oluşturulmadı")
+        return
+    
+    # NPZ dosyasına kaydet
+    save_data = {
+        'stages_json': np.void(json.dumps(sleep_stages).encode('utf-8')),
+        'epoch_indices': epoch_indices,
+        **channel_data
+    }
+    
+    np.savez_compressed(output_path, **save_data)
+    
+    file_size_mb = os.path.getsize(output_path) / (1024 * 1024)
+    print(f"  ✓ NPZ export: {output_path} ({n_epochs} epoch, {len(channel_data)} kanal, {file_size_mb:.1f} MB)")
+    
+    # dataset_info.json güncelle (hasta listesi + metadata)
+    _update_dataset_info(patient_id)
+
+
 def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
-                                  mongo_uri=config.MONGO_URI, 
+                                  mongo_uri=config.MONGO_URI,
                                   db_name=None,
                                   db_name_filtered=None,
                                   patient_id=None,
-                                  save_filtered=True):
+                                  save_filtered=True,
+                                  save_raw=True):
     """
     EDF dosyasındaki TÜM kanalları ve uyku evresi etiketlerini GridFS'e kaydeder.
-    
+
     İki veritabanına kayıt yapar:
-    1. psg_data: Raw kanallar (filtresiz)
+    1. psg_data (raw): Tüm kanallar (filtresiz)
     2. psg_data_filtered: Differential kanallar (C3-M2, F4-M1, vb.) + Notch + Bandpass filtreli
-    
+
+    Aynı zamanda offline kullanım için .npz dosyası da oluşturur.
+
     Args:
         edf_path: EDF dosyasının yolu
         stages_path: Uyku evresi etiketleri dosyasının yolu (XML veya EDF)
@@ -1111,15 +1305,12 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         db_name_filtered: Filtered data veritabanı adı (default: config.DB_NAME_FILTERED)
         patient_id: Hasta ID'si (opsiyonel, dosya isimlerini gruplamak için)
         save_filtered: True ise differential+filtered verileri de kaydet
-    
+
     Returns:
         dict: {
             'patient_id': str,
-            'stages_id': ObjectId,  # Uyku evreleri dosya ID'si
-            'channels': [
-                {'channel_idx': int, 'channel_name': str, 'file_id': ObjectId, 'sample_freq': float},
-                ...
-            ]
+            'stages_id': ObjectId,
+            'channels': [...]
         }
     """
     # Config'den default değerleri al
@@ -1127,32 +1318,31 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         db_name = config.DB_NAME_RAW
     if db_name_filtered is None:
         db_name_filtered = config.DB_NAME_FILTERED
-    
+
     # Hasta ID'si yoksa dosya isminden oluştur
     if patient_id is None:
         patient_id = edf_path.split('/')[-1].split('.')[0]
-    
+
     print(f"{'='*70}")
     print(f"Hasta ID: {patient_id}")
     print(f"{'='*70}")
-    
+
     # ================================================================
     # EPOCH TRIMMING AYARLARINI AL
     # ================================================================
     trim_start = getattr(config, 'TRIM_EPOCHS_START', 0)
     trim_end = getattr(config, 'TRIM_EPOCHS_END', 0)
-    
+
     # ================================================================
     # SİNYAL SÜRESİNİ BELİRLE (EDF'den)
     # ================================================================
     print("\n[0/4] Sinyal süresi kontrol ediliyor...")
     f_check = pyedflib.EdfReader(edf_path)
-    # En kısa kanalın süresini al (tüm kanallar aynı sürede olmalı)
-    signal_duration = min(f_check.getNSamples()[i] / f_check.getSampleFrequency(i) 
+    signal_duration = min(f_check.getNSamples()[i] / f_check.getSampleFrequency(i)
                          for i in range(f_check.signals_in_file))
     f_check.close()
     print(f"  Sinyal süresi: {signal_duration:.1f}s ({signal_duration/3600:.2f} saat)")
-    
+
     # Uyku evrelerini parse et
     print("\n[1/4] Uyku evreleri parse ediliyor...")
     if stages_format.lower() == 'xml':
@@ -1161,33 +1351,30 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         sleep_stages = parse_sleep_stages_edf(stages_path)
     else:
         raise ValueError(f"Desteklenmeyen format: {stages_format}. 'xml' veya 'edf' olmalı.")
-    
+
     original_stage_count = len(sleep_stages)
     print(f"  Orijinal epoch sayısı: {original_stage_count}")
-    
+
     # ================================================================
     # STAGE'LERİ SİNYAL SÜRESİNE GÖRE FİLTRELE VE KIRP
     # ================================================================
-    # 1. Sinyal süresi dışındaki stage'leri çıkar
-    valid_stages = [s for s in sleep_stages 
+    valid_stages = [s for s in sleep_stages
                     if s['start_time'] + s['duration'] <= signal_duration]
-    
+
     if len(valid_stages) < original_stage_count:
         removed = original_stage_count - len(valid_stages)
         print(f"  ⚠ Sinyal sınırı dışı epoch çıkarıldı: {removed}")
-    
-    # 2. Baştan ve sondan kırp
+
     if len(valid_stages) > trim_start + trim_end:
         if trim_end > 0:
             trimmed_stages = valid_stages[trim_start:-trim_end]
         else:
             trimmed_stages = valid_stages[trim_start:]
-        
-        # Kırpılmış zaman aralığını hesapla
+
         trim_start_time = trimmed_stages[0]['start_time']
         trim_end_time = trimmed_stages[-1]['start_time'] + trimmed_stages[-1]['duration']
-        
-        print(f"  ✓ Epoch kırpma uygulandı: baştan {trim_start}, sondan {trim_end}")
+
+        print(f"  ✓ Epoch kırpma: baştan {trim_start}, sondan {trim_end}")
         print(f"    Zaman aralığı: {trim_start_time:.1f}s - {trim_end_time:.1f}s")
         print(f"    Epoch sayısı: {original_stage_count} → {len(trimmed_stages)}")
     else:
@@ -1195,36 +1382,36 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         trim_start_time = 0
         trim_end_time = signal_duration
         print(f"  ⚠ Yeterli epoch yok, kırpma atlandı")
-    
+
     # Stage start_time'larını sıfırdan başlayacak şekilde güncelle
     sleep_stages = []
     for i, stage in enumerate(trimmed_stages):
         sleep_stages.append({
-            'epoch': i,  # Epoch numarası (0, 1, 2, ...)
+            'epoch': i,
             'stage': stage['stage'],
-            'start_time': float(i * 30),  # 0, 30, 60, 90, ...
+            'start_time': float(i * 30),
             'duration': 30.0
         })
-    
+
     # Uyku evresi istatistikleri
     stage_counts = {}
     for stage_info in sleep_stages:
         stage = stage_info['stage']
         stage_counts[stage] = stage_counts.get(stage, 0) + 1
-    
+
     print(f"\nUyku evresi istatistikleri (kırpma sonrası):")
     print(f"  Toplam epoch sayısı: {len(sleep_stages)}")
     for stage, count in sorted(stage_counts.items()):
         percentage = (count / len(sleep_stages)) * 100
         print(f"  {stage}: {count} epoch ({percentage:.1f}%)")
-    
+
     # MongoDB'ye bağlan
     print(f"\n[2/4] MongoDB'ye bağlanılıyor...")
-    client = MongoClient(mongo_uri)
-    db = client[db_name]
-    fs = gridfs.GridFS(db)
-    
-    # Önce uyku evrelerini ayrı bir dosya olarak kaydet
+    import json
+    stages_json = json.dumps(sleep_stages, indent=2)
+    stages_id = None
+
+    # stages_metadata her durumda lazım (filtered DB de kullanıyor)
     stages_metadata = {
         "patient_id": patient_id,
         "data_type": "sleep_stages",
@@ -1235,34 +1422,38 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         "stage_counts": stage_counts,
         "upload_date": datetime.now()
     }
-    
-    # Uyku evrelerini JSON olarak kaydet
-    stages_buffer = io.BytesIO()
-    import json
-    stages_json = json.dumps(sleep_stages, indent=2)
-    stages_buffer.write(stages_json.encode('utf-8'))
-    stages_buffer.seek(0)
-    
-    stages_id = fs.put(
-        stages_buffer,
-        filename=f"{patient_id}_sleep_stages.json",
-        metadata=stages_metadata
-    )
-    
-    print(f"✓ Uyku evreleri kaydedildi (ID: {stages_id})")
-    
+
+    if save_raw:
+        client = MongoClient(mongo_uri)
+        db = client[db_name]
+        fs = gridfs.GridFS(db)
+
+        stages_buffer = io.BytesIO()
+        stages_buffer.write(stages_json.encode('utf-8'))
+        stages_buffer.seek(0)
+
+        stages_id = fs.put(
+            stages_buffer,
+            filename=f"{patient_id}_sleep_stages.json",
+            metadata=stages_metadata
+        )
+
+        print(f"✓ Uyku evreleri kaydedildi (ID: {stages_id})")
+    else:
+        print(f"⊘ Raw DB yazma atlandı (save_raw=False)")
+
     # EDF dosyasını aç
-    print(f"\n[3/3] EDF kanalları okunuyor ve kaydediliyor...")
+    print(f"\n[3/4] EDF kanalları okunuyor ve kaydediliyor...")
     f = pyedflib.EdfReader(edf_path)
-    
+
     channel_results = []
-    
+    raw_signals = {}  # NPZ export + filtered DB için
+
     try:
         n_channels = f.signals_in_file
         print(f"\nToplam kanal sayısı: {n_channels}")
         print(f"{'-'*70}")
-        
-        # Her kanalı oku ve kaydet
+
         for channel_idx in range(n_channels):
             signal_label = f.getLabel(channel_idx)
             sample_freq = f.getSampleFrequency(channel_idx)
@@ -1271,65 +1462,65 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
             physical_max = f.getPhysicalMaximum(channel_idx)
             digital_min = f.getDigitalMinimum(channel_idx)
             digital_max = f.getDigitalMaximum(channel_idx)
-            
+
             print(f"\nKanal {channel_idx + 1}/{n_channels}: {signal_label}")
             print(f"  Frekans: {sample_freq} Hz")
             print(f"  Orijinal örnek sayısı: {n_samples_original:,}")
-            
+
             # Sinyali oku (tam)
             signal_data_full = f.readSignal(channel_idx)
-            
-            # ================================================================
-            # SİNYALİ KIRPILMIŞ EPOCH ARALIĞINA KES
-            # ================================================================
+
+            # Sinyali kırpılmış epoch aralığına kes
             start_sample = int(trim_start_time * sample_freq)
             end_sample = int(trim_end_time * sample_freq)
             signal_data = signal_data_full[start_sample:end_sample]
             n_samples = len(signal_data)
-            
+
             data_size_mb = signal_data.nbytes / (1024 * 1024)
             print(f"  Kırpılmış örnek sayısı: {n_samples:,}")
             print(f"  Boyut: {data_size_mb:.2f} MB")
-            
-            # Metadata hazırla - n_samples burada!
-            channel_metadata = {
-                "patient_id": patient_id,
-                "channel_name": signal_label,
-                "channel_index": int(channel_idx),
-                "sample_frequency": float(sample_freq),
-                "n_samples": int(n_samples),  # PARTIAL READ İÇİN GEREKLİ!
-                "n_samples_original": int(n_samples_original),  # Orijinal uzunluk
-                "trim_start_time": float(trim_start_time),
-                "trim_end_time": float(trim_end_time),
-                "duration_hours": float(n_samples/sample_freq/3600),
-                "physical_min": float(physical_min),
-                "physical_max": float(physical_max),
-                "digital_min": float(digital_min),
-                "digital_max": float(digital_max),
-                "data_type": "raw_signal",
-                "dtype": str(signal_data.dtype),
-                "source_file": edf_path,
-                "upload_date": datetime.now(),
-                # Uyku evreleri referansı
-                "stages_id": stages_id,
-                "has_sleep_stages": True
-            }
-            
-            # NumPy array'i bytes'a çevir
-            buffer = io.BytesIO()
-            np.save(buffer, signal_data)
-            buffer.seek(0)
-            
-            # GridFS'e kaydet
-            file_id = fs.put(
-                buffer,
-                filename=f"{patient_id}_ch{channel_idx}_{signal_label}.npy",
-                metadata=channel_metadata,
-                chunk_size=255*1024
-            )
-            
-            print(f"  ✓ Kaydedildi (ID: {file_id})")
-            
+
+            # Filtered DB ve NPZ export için memory'de tut
+            raw_signals[signal_label] = (signal_data, sample_freq)
+
+            file_id = None
+            if save_raw:
+                # Metadata hazırla
+                channel_metadata = {
+                    "patient_id": patient_id,
+                    "channel_name": signal_label,
+                    "channel_index": int(channel_idx),
+                    "sample_frequency": float(sample_freq),
+                    "n_samples": int(n_samples),
+                    "n_samples_original": int(n_samples_original),
+                    "trim_start_time": float(trim_start_time),
+                    "trim_end_time": float(trim_end_time),
+                    "duration_hours": float(n_samples/sample_freq/3600),
+                    "physical_min": float(physical_min),
+                    "physical_max": float(physical_max),
+                    "digital_min": float(digital_min),
+                    "digital_max": float(digital_max),
+                    "data_type": "raw_signal",
+                    "dtype": str(signal_data.dtype),
+                    "source_file": edf_path,
+                    "upload_date": datetime.now(),
+                    "stages_id": stages_id,
+                    "has_sleep_stages": True
+                }
+
+                buffer = io.BytesIO()
+                np.save(buffer, signal_data)
+                buffer.seek(0)
+
+                file_id = fs.put(
+                    buffer,
+                    filename=f"{patient_id}_ch{channel_idx}_{signal_label}.npy",
+                    metadata=channel_metadata,
+                    chunk_size=255*1024
+                )
+
+                print(f"  ✓ Kaydedildi (ID: {file_id})")
+
             channel_results.append({
                 'channel_idx': channel_idx,
                 'channel_name': signal_label,
@@ -1337,15 +1528,18 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
                 'sample_freq': sample_freq,
                 'n_samples': n_samples,
                 'data_size_mb': data_size_mb,
-                'signal_data': signal_data  # Memory'de tut (psg_data_filtered için)
+                'signal_data': signal_data
             })
-        
-        # EDF dosyasını kapat
+
         f.close()
-        
-        # Bağlantıyı kapat
-        client.close()
-        
+        if save_raw:
+            client.close()
+
+        # ============================================================
+        # NPZ Export: Offline mod için .npz oluştur (mevcutsa atlar)
+        # ============================================================
+        _export_patient_npz(patient_id, sleep_stages, raw_signals)
+
         # Özet
         print(f"\n{'='*70}")
         print(f"✓ RAW VERİLER BAŞARIYLA KAYDEDİLDİ!")
@@ -1356,69 +1550,59 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
         total_size = sum(ch['data_size_mb'] for ch in channel_results)
         print(f"Toplam veri boyutu: {total_size:.2f} MB")
         print(f"Veritabanı: {db_name}")
-        
+
         # ================================================================
-        # STEP 4: Save filtered differential channels to psg_data_filtered
+        # STEP 4: Differential + Filtered verileri psg_data_filtered'a kaydet
         # ================================================================
         if save_filtered:
             print(f"\n{'='*70}")
             print(f"[4/4] DIFFERENTIAL + FILTERED VERİLER KAYDEDİLİYOR")
             print(f"{'='*70}")
             print(f"Hedef veritabanı: {db_name_filtered}")
-            
-            # Connect to filtered database
+
             client_filtered = MongoClient(mongo_uri)
             db_filtered = client_filtered[db_name_filtered]
             fs_filtered = gridfs.GridFS(db_filtered)
-            
-            # Build raw channels dict from already-trimmed data in memory
-            # (psg_data'ya kaydedilen kırpılmış veriyi kullan - tekrar EDF okumaya gerek yok)
-            raw_signals = {}
-            for ch_result in channel_results:
-                ch_name = ch_result['channel_name']
-                ch_fs = ch_result['sample_freq']
-                signal_data = ch_result['signal_data']  # Memory'den al
-                raw_signals[ch_name] = (signal_data, ch_fs)
-            
-            # First, save sleep stages to filtered DB
+
+            # Sleep stages'i filtered DB'ye de kaydet
             stages_metadata_filtered = stages_metadata.copy()
             stages_metadata_filtered['source_db'] = db_name
-            
+
             stages_buffer2 = io.BytesIO()
             stages_buffer2.write(stages_json.encode('utf-8'))
             stages_buffer2.seek(0)
-            
+
             stages_id_filtered = fs_filtered.put(
                 stages_buffer2,
                 filename=f"{patient_id}_sleep_stages.json",
                 metadata=stages_metadata_filtered
             )
             print(f"✓ Sleep stages kopyalandı (ID: {stages_id_filtered})")
-            
-            # Create and save differential channels
+
+            # Differential kanalları oluştur ve kaydet
             diff_count = 0
             for diff_name, (active_ch, ref_ch) in DIFFERENTIAL_CHANNELS.items():
                 if active_ch in raw_signals and ref_ch in raw_signals:
                     signal_active, fs_active = raw_signals[active_ch]
                     signal_ref, fs_ref = raw_signals[ref_ch]
-                    
-                    # Check same sampling rate
+
                     if fs_active != fs_ref:
-                        print(f"  ⚠ Skipping {diff_name}: Different sample rates")
+                        print(f"  ⚠ {diff_name}: Farklı örnekleme hızları, atlandı")
                         continue
-                    
-                    # Create differential signal
+
+                    # Differential sinyal oluştur
                     diff_signal = create_differential_channel(signal_active, signal_ref)
-                    
-                    # Apply signal-specific filters (AASM standard)
-                    filtered_signal, filter_params = apply_all_filters(diff_signal, fs=fs_active, channel_name=diff_name)
-                    
-                    # Apply amplitude clipping (artifact removal)
+
+                    # Notch + bandpass filtrele (AASM standard)
+                    filtered_signal, filter_params = apply_all_filters(
+                        diff_signal, fs=fs_active, channel_name=diff_name)
+
+                    # Amplitude clipping (varsayılan: KAPALI)
                     clip_params = None
                     if USE_AMPLITUDE_CLIPPING:
                         filtered_signal, clip_params = apply_amplitude_clipping(filtered_signal)
-                    
-                    # Prepare metadata with actual filter params used
+
+                    # Metadata
                     diff_metadata = {
                         "patient_id": patient_id,
                         "channel_name": diff_name,
@@ -1450,19 +1634,18 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
                         "stages_id": stages_id_filtered,
                         "has_sleep_stages": True
                     }
-                    
-                    # Save to GridFS
+
                     buffer = io.BytesIO()
                     np.save(buffer, filtered_signal)
                     buffer.seek(0)
-                    
+
                     file_id = fs_filtered.put(
                         buffer,
                         filename=f"{patient_id}_{diff_name}_filtered.npy",
                         metadata=diff_metadata,
                         chunk_size=255*1024
                     )
-                    
+
                     diff_count += 1
                     print(f"  ✓ {diff_name} ({fs_active} Hz) → ID: {file_id}")
                 else:
@@ -1471,22 +1654,22 @@ def save_all_channels_to_mongodb(edf_path, stages_path, stages_format='xml',
                         missing.append(active_ch)
                     if ref_ch not in raw_signals:
                         missing.append(ref_ch)
-                    print(f"  ✗ {diff_name}: Missing {', '.join(missing)}")
-            
+                    print(f"  ✗ {diff_name}: Eksik kanal: {', '.join(missing)}")
+
             client_filtered.close()
-            
+
             print(f"\n{'='*70}")
             print(f"✓ FILTERED VERİLER KAYDEDİLDİ!")
             print(f"{'='*70}")
             print(f"Differential kanal sayısı: {diff_count}")
             print(f"Veritabanı: {db_name_filtered}")
-        
+
         return {
             'patient_id': patient_id,
             'stages_id': stages_id,
             'channels': channel_results
         }
-        
+
     except Exception as e:
         f.close()
         client.close()
@@ -1626,54 +1809,6 @@ def list_all_patients(mongo_uri=config.MONGO_URI,
     client.close()
 
 
-def _parse_differential_channel(channel_name):
-    """
-    Parse differential channel name to get component channels.
-    
-    Examples:
-        'F4-M1' -> ('F4', 'M1')
-        'C3-M2' -> ('C3', 'M2')
-        'E1-M2' -> ('E1', 'M2')
-        'CHIN1-CHIN2' -> ('CHIN1', 'CHIN2')
-        'F4' -> None (not differential)
-    
-    Returns:
-        tuple (channel1, channel2) if differential, None otherwise
-    """
-    if '-' in channel_name:
-        parts = channel_name.split('-')
-        if len(parts) == 2 and len(parts[0]) > 0 and len(parts[1]) > 0:
-            ch1, ch2 = parts[0].strip(), parts[1].strip()
-            # Check that both parts look like channel names (not pure numbers)
-            if not ch1.replace('.', '').replace('-', '').isdigit():
-                return (ch1, ch2)
-    return None
-
-
-def _read_signal_partial(file_obj, start_byte, end_byte, chunk_size, db):
-    """Read partial signal from GridFS using chunk-based reading."""
-    file_id = file_obj._id
-    chunks_collection = db['fs.chunks']
-    
-    start_chunk_n = start_byte // chunk_size
-    end_chunk_n = (end_byte - 1) // chunk_size
-    
-    chunks = chunks_collection.find({
-        'files_id': file_id,
-        'n': {'$gte': start_chunk_n, '$lte': end_chunk_n}
-    }).sort('n', 1)
-    
-    combined_data = b''
-    for chunk in chunks:
-        combined_data += chunk['data']
-    
-    offset_in_first_chunk = start_byte % chunk_size
-    bytes_to_read = end_byte - start_byte
-    relevant_data = combined_data[offset_in_first_chunk:offset_in_first_chunk + bytes_to_read]
-    
-    return np.frombuffer(relevant_data, dtype=np.float64)
-
-
 def extract_epoch_range_data_v2(patient_id, channel_name, start_epoch, end_epoch,
                              mongo_uri=config.MONGO_URI,
                              db_name=config.DB_NAME,
@@ -1687,16 +1822,14 @@ def extract_epoch_range_data_v2(patient_id, channel_name, start_epoch, end_epoch
     - Signal verisi: Partial read (GridFS chunks)
     - Stage verisi: Session cache (ilk yüklemeden sonra bellekte)
     
-    Tüm veriler tek veritabanından (db_name) alınır.
-    Varsayılan: psg_data_filtered (differential kanallar + stages)
     
     Args:
         patient_id: Hasta ID'si
-        channel_name: Kanal adı (örn: "C3-M2", "F4-M1")
+        channel_name: Kanal adı (örn: "E1", "C3-A2")
         start_epoch: Başlangıç epoch numarası (dahil)
         end_epoch: Bitiş epoch numarası (dahil)
         mongo_uri: MongoDB bağlantı URI'si
-        db_name: Veritabanı adı (tüm veriler için)
+        db_name: Veritabanı adı
         save_to_file: True ise dosyaya kaydeder
         output_file: Çıktı dosyasının yolu (None ise otomatik oluşturulur)
         output_format: Dosya formatı ('npy', 'csv', 'txt')
@@ -1724,7 +1857,7 @@ def extract_epoch_range_data_v2(patient_id, channel_name, start_epoch, end_epoch
 
     try:
         # 1. Uyku evrelerini cache'den al
-        print(f"\n[1/4] Uyku evreleri okunuyor... (DB: {db_name})")
+        print(f"\n[1/4] Uyku evreleri okunuyor...")
         
         all_stages = get_cached_stages(patient_id, mongo_uri, db_name)
         
@@ -1760,8 +1893,7 @@ def extract_epoch_range_data_v2(patient_id, channel_name, start_epoch, end_epoch
         
         print(f"  Zaman aralığı: {start_time:.2f}s - {end_time:.2f}s (süre: {duration:.2f}s)")
         
-        # 2. First, try to find the channel directly in the database
-        #    This works for both raw channels AND pre-computed differential channels
+        # 2. Kanal dosyasını bul (metadata'yı al)
         print(f"\n[2/4] Kanal metadata'sı alınıyor...")
         channel_file = fs.find_one({
             "metadata.patient_id": patient_id,
@@ -1769,192 +1901,163 @@ def extract_epoch_range_data_v2(patient_id, channel_name, start_epoch, end_epoch
             "metadata.data_type": "raw_signal"
         })
         
-        # If channel exists directly, use it (handles both raw and pre-computed differential)
-        if channel_file:
-            is_precomputed_diff = channel_file.metadata.get('differential_channel', False)
-            if is_precomputed_diff:
-                print(f"✓ Kanal bulundu (önceden hesaplanmış differential)")
+        if not channel_file:
+            print(f"✗ Kanal '{channel_name}' bulunamadı")
+            
+            # Mevcut kanalları göster
+            available_channels = []
+            for ch_file in fs.find({
+                "metadata.patient_id": patient_id,
+                "metadata.data_type": "raw_signal"
+            }):
+                available_channels.append(ch_file.metadata['channel_name'])
+            
+            if available_channels:
+                print(f"\nMevcut kanallar:")
+                for ch in sorted(available_channels):
+                    print(f"  - {ch}")
+            
+            client.close()
+            return None
+        
+        # Kanal metadata'sını al
+        ch_metadata = channel_file.metadata
+        sample_freq = ch_metadata['sample_frequency']
+        n_samples = ch_metadata.get('n_samples', 0)
+        
+        print(f"✓ Kanal bulundu")
+        print(f"  Örnekleme frekansı: {sample_freq} Hz")
+        print(f"  Toplam örnek sayısı: {n_samples:,}")
+        
+        # 3. Okunacak byte aralığını hesapla
+        print(f"\n[3/4] Okunacak veri aralığı hesaplanıyor...")
+        
+        # Zaman bilgisini örnek indeksine çevir
+        start_sample = int(start_time * sample_freq)
+        end_sample = int(end_time * sample_freq)
+        
+        # Sınırları kontrol et
+        start_sample = max(0, start_sample)
+        end_sample = min(n_samples, end_sample)
+        
+        # NumPy array float64 = 8 byte per sample
+        bytes_per_sample = 8
+        
+        # NPY dosya formatı: 128 byte header + veri
+        npy_header_size = 128
+        
+        # Okunacak byte pozisyonları
+        start_byte = npy_header_size + (start_sample * bytes_per_sample)
+        end_byte = npy_header_size + (end_sample * bytes_per_sample)
+        bytes_to_read = end_byte - start_byte
+        
+        print(f"✓ Hesaplama tamamlandı")
+        print(f"  Örnek aralığı: {start_sample:,} - {end_sample:,}")
+        print(f"  Byte aralığı: {start_byte:,} - {end_byte:,}")
+        print(f"  Okunacak veri: {bytes_to_read / (1024*1024):.2f} MB")
+        
+        # 4. GridFS'den sadece gerekli bölümü oku (PARTIAL READ)
+        print(f"\n[4/4] Veri kısmi okuma ile çekiliyor...")
+        
+        # GridFS'den sadece belirtilen byte aralığını oku
+        file_id = channel_file._id
+        chunks_collection = db['fs.chunks']
+        
+        # Chunk boyutunu al (varsayılan 255KB)
+        chunk_size = channel_file.chunk_size
+        
+        # Hangi chunk'ları okuyacağımızı hesapla
+        start_chunk_n = start_byte // chunk_size
+        end_chunk_n = (end_byte - 1) // chunk_size
+        
+        print(f"  Chunk boyutu: {chunk_size / 1024:.0f} KB")
+        print(f"  Okunacak chunk'lar: {start_chunk_n} - {end_chunk_n} (toplam {end_chunk_n - start_chunk_n + 1} chunk)")
+        
+        # İlgili chunk'ları çek
+        chunks = chunks_collection.find({
+            'files_id': file_id,
+            'n': {'$gte': start_chunk_n, '$lte': end_chunk_n}
+        }).sort('n', 1)
+        
+        # Chunk'ları birleştir
+        combined_data = b''
+        for chunk in chunks:
+            combined_data += chunk['data']
+        
+        # Chunk içindeki offset'i hesapla
+        offset_in_first_chunk = start_byte % chunk_size
+        offset_in_last_chunk = end_byte % chunk_size
+        
+        # Gereksiz baş ve son kısımları çıkar
+        if start_chunk_n == end_chunk_n:
+            # Aynı chunk içindeyse
+            combined_data = combined_data[offset_in_first_chunk:offset_in_first_chunk + bytes_to_read]
+        else:
+            # Farklı chunk'lardaysa
+            combined_data = combined_data[offset_in_first_chunk:]
+            if offset_in_last_chunk > 0:
+                total_length = len(combined_data)
+                excess = total_length - bytes_to_read
+                if excess > 0:
+                    combined_data = combined_data[:-excess]
+        
+        # Byte array'i numpy array'e çevir
+        extracted_signal = np.frombuffer(combined_data, dtype=np.float64)
+        
+        print(f"✓ Veri çıkarıldı")
+        print(f"  Çıkarılan örnek sayısı: {len(extracted_signal):,}")
+        print(f"  Veri boyutu: {extracted_signal.nbytes / (1024*1024):.2f} MB")
+        print(f"  Bellek tasarrufu: %{(1 - bytes_to_read / (n_samples * bytes_per_sample)) * 100:.1f}")
+        
+        # Sonuç dictionary'si
+        result = {
+            'patient_id': patient_id,
+            'channel_name': channel_name,
+            'start_epoch': start_epoch,
+            'end_epoch': end_epoch,
+            'epoch_count': end_epoch - start_epoch + 1,
+            'signal_data': extracted_signal,
+            'sample_frequency': sample_freq,
+            'start_time': start_time,
+            'end_time': end_time,
+            'duration': duration,
+            'start_sample': start_sample,
+            'end_sample': end_sample
+        }
+        
+        # 5. Dosyaya kaydet (istenirse)
+        if save_to_file:
+            print(f"\n[5/5] Dosyaya kaydediliyor...")
+            
+            # Dosya adı oluştur
+            if output_file is None:
+                output_file = f"{patient_id}_{channel_name}_epoch{start_epoch}-{end_epoch}.{output_format}"
+            
+            if output_format == 'npy':
+                np.save(output_file, extracted_signal)
+                print(f"✓ NumPy formatında kaydedildi: {output_file}")
+            
+            elif output_format == 'csv':
+                np.savetxt(output_file, extracted_signal, delimiter=',', fmt='%.6f')
+                print(f"✓ CSV formatında kaydedildi: {output_file}")
+            
+            elif output_format == 'txt':
+                np.savetxt(output_file, extracted_signal, fmt='%.6f')
+                print(f"✓ TXT formatında kaydedildi: {output_file}")
+            
             else:
-                print(f"✓ Kanal bulundu")
+                print(f"✗ Desteklenmeyen format: {output_format}")
+                output_file = None
             
-            # Get metadata
-            ch_metadata = channel_file.metadata
-            sample_freq = ch_metadata['sample_frequency']
-            n_samples = ch_metadata.get('n_samples', 0)
-            
-            print(f"  Örnekleme frekansı: {sample_freq} Hz")
-            print(f"  Toplam örnek sayısı: {n_samples:,}")
-            
-            # Calculate byte ranges
-            start_sample = int(start_time * sample_freq)
-            end_sample = int(end_time * sample_freq)
-            start_sample = max(0, start_sample)
-            end_sample = min(n_samples, end_sample)
-            
-            bytes_per_sample = 8
-            npy_header_size = 128
-            start_byte = npy_header_size + (start_sample * bytes_per_sample)
-            end_byte = npy_header_size + (end_sample * bytes_per_sample)
-            bytes_to_read = end_byte - start_byte
-            
-            print(f"\n[3/4] Veri kısmi okuma ile çekiliyor...")
-            print(f"  Örnek aralığı: {start_sample:,} - {end_sample:,}")
-            print(f"  Okunacak veri: {bytes_to_read / (1024*1024):.2f} MB")
-            
-            chunk_size = channel_file.chunk_size
-            extracted_signal = _read_signal_partial(channel_file, start_byte, end_byte, chunk_size, db)
-            
-            print(f"\n[4/4] Veri çekildi")
-            print(f"  Sinyal: mean={extracted_signal.mean():.2f}, std={extracted_signal.std():.2f}")
-            
-            # Build result
-            result = {
-                'patient_id': patient_id,
-                'channel_name': channel_name,
-                'differential_channel': is_precomputed_diff,
-                'start_epoch': start_epoch,
-                'end_epoch': end_epoch,
-                'sample_frequency': sample_freq,
-                'start_time': start_time,
-                'end_time': end_time,
-                'signal_data': extracted_signal,
-                'n_samples': len(extracted_signal),
-                'stages': stages_data
-            }
-            
-            # Add differential metadata if present
-            if is_precomputed_diff:
-                result['active_electrode'] = ch_metadata.get('active_electrode')
-                result['reference_electrode'] = ch_metadata.get('reference_electrode')
-            
-            client.close()
-            if not verbose:
-                sys.stdout = original_stdout
-            
-            return result
-        
-        # 2b. Channel not found directly - check if it's a differential channel request
-        #     that needs runtime computation (fallback for psg_data which has raw channels only)
-        diff_components = _parse_differential_channel(channel_name)
-        
-        if diff_components:
-            # DIFFERENTIAL CHANNEL: Fetch both components and compute difference
-            active_ch, ref_ch = diff_components
-            print(f"  Differential kanal tespit edildi: {channel_name}")
-            print(f"  Active: {active_ch}, Reference: {ref_ch}")
-            print(f"  (Not: Runtime hesaplama yapılacak)")
-            
-            # Find both channels
-            active_file = fs.find_one({
-                "metadata.patient_id": patient_id,
-                "metadata.channel_name": active_ch,
-                "metadata.data_type": "raw_signal"
-            })
-            
-            ref_file = fs.find_one({
-                "metadata.patient_id": patient_id,
-                "metadata.channel_name": ref_ch,
-                "metadata.data_type": "raw_signal"
-            })
-            
-            if not active_file or not ref_file:
-                missing = []
-                if not active_file:
-                    missing.append(active_ch)
-                if not ref_file:
-                    missing.append(ref_ch)
-                print(f"✗ Differential için gerekli kanallar bulunamadı: {missing}")
-                client.close()
-                if not verbose:
-                    sys.stdout = original_stdout
-                return None
-            
-            # Get metadata
-            ch_metadata = active_file.metadata
-            sample_freq = ch_metadata['sample_frequency']
-            n_samples = ch_metadata.get('n_samples', 0)
-            
-            # Check sample rates match
-            ref_freq = ref_file.metadata['sample_frequency']
-            if sample_freq != ref_freq:
-                print(f"✗ Sample rate uyumsuz: {active_ch}={sample_freq}Hz, {ref_ch}={ref_freq}Hz")
-                client.close()
-                if not verbose:
-                    sys.stdout = original_stdout
-                return None
-            
-            print(f"✓ Her iki kanal bulundu ({sample_freq} Hz)")
-            
-            # Calculate byte ranges
-            start_sample = int(start_time * sample_freq)
-            end_sample = int(end_time * sample_freq)
-            start_sample = max(0, start_sample)
-            end_sample = min(n_samples, end_sample)
-            
-            bytes_per_sample = 8
-            npy_header_size = 128
-            start_byte = npy_header_size + (start_sample * bytes_per_sample)
-            end_byte = npy_header_size + (end_sample * bytes_per_sample)
-            
-            print(f"\n[3/4] Veri okunuyor...")
-            
-            chunk_size = active_file.chunk_size
-            
-            active_signal = _read_signal_partial(active_file, start_byte, end_byte, chunk_size, db)
-            ref_signal = _read_signal_partial(ref_file, start_byte, end_byte, chunk_size, db)
-            
-            # Compute differential: Active - Reference
-            min_len = min(len(active_signal), len(ref_signal))
-            extracted_signal = active_signal[:min_len] - ref_signal[:min_len]
-            
-            print(f"\n[4/4] Differential hesaplandı")
-            print(f"  {active_ch} mean: {active_signal.mean():.2f}, std: {active_signal.std():.2f}")
-            print(f"  {ref_ch} mean: {ref_signal.mean():.2f}, std: {ref_signal.std():.2f}")
-            print(f"  {channel_name} mean: {extracted_signal.mean():.2f}, std: {extracted_signal.std():.2f}")
-            
-            # Build result
-            result = {
-                'patient_id': patient_id,
-                'channel_name': channel_name,
-                'differential_channel': True,
-                'active_electrode': active_ch,
-                'reference_electrode': ref_ch,
-                'start_epoch': start_epoch,
-                'end_epoch': end_epoch,
-                'sample_frequency': sample_freq,
-                'start_time': start_time,
-                'end_time': end_time,
-                'signal_data': extracted_signal,
-                'n_samples': len(extracted_signal),
-                'stages': stages_data
-            }
-            
-            client.close()
-            if not verbose:
-                sys.stdout = original_stdout
-            
-            return result
-        
-        # FALLBACK: Channel not found - show available channels
-        print(f"✗ Kanal '{channel_name}' bulunamadı")
-        
-        # Mevcut kanalları göster
-        available_channels = []
-        for ch_file in fs.find({
-            "metadata.patient_id": patient_id,
-            "metadata.data_type": "raw_signal"
-        }):
-            available_channels.append(ch_file.metadata['channel_name'])
-        
-        if available_channels:
-            print(f"\nMevcut kanallar:")
-            for ch in sorted(available_channels):
-                print(f"  - {ch}")
+            result['output_file'] = output_file
         
         client.close()
-        if not verbose:
-            sys.stdout = original_stdout
-        return None
+        
+        print(f"\n{'='*70}")
+        print(f"✓ İŞLEM TAMAMLANDI")
+        print(f"{'='*70}\n")
+        
+        return result
         
     except Exception as e:
         print(f"\n✗ Hata oluştu: {str(e)}")
@@ -2528,16 +2631,16 @@ if __name__ == "__main__":
     # ====================================================================
     # TOPLU AKTARIM - USE_PHYSIONET flag'ine göre doğru import yapılır
     # ====================================================================
-
-    # Orijinal format: EDF + XML labels
-    # root_folder = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/psg_data"
-
+    
     if config.USE_PHYSIONET:
         # PhysioNet format: PSG.edf + Hypnogram.edf
         from tool.physionet_import import import_all_physionet_patients
         
-        # root_folder = "/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-telemetry"
-        root_folder = "/media/mehmet/40BC0D26BC0D17D41/sleep-staging-data/physionet_data/sleep-telemetry-edited"
+        # root_folder = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-telemetry"
+        # Not: sleep-telemetry-raw klasöründe 7 Hypnogram EDF bozuk (EDF+ Recordingfield hatası)
+        #      sleep-telemetry-edited klasöründe düzeltilmiş versiyonları var
+        #root_folder = "/media/mehmet/40BC0D26BC0D17D41/sleep-staging-data/physionet_data/sleep-telemetry-edited"
+        root_folder = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-telemetry"
         
         print(f"\n{'='*70}")
         print(f"PHYSIONET IMPORT MODU")
@@ -2553,37 +2656,34 @@ if __name__ == "__main__":
         )
     else:
         # Orijinal format: EDF + XML labels
-        # root_folder = "/media/mehmet/40BC0D26BC0D17D41/sleep-staging-data/psg_data_phase_3/selected"
         root_folder = "/mnt/ssd2/2.SLEEP STAGING/1.DATA/psg_data_phase3/data/raw_data"
-        
+
         results = process_patient_folders(
             root_folder=root_folder,
             mongo_uri=config.MONGO_URI,
-            db_name=config.DB_NAME_RAW,       # Raw data veritabanı
-            db_name_filtered=config.DB_NAME_FILTERED,  # Filtered data veritabanı
-            skip_existing=True,  # Var olanları atla
-            save_filtered=True   # Differential+Filtered kaydet
+            db_name=config.DB_NAME_RAW,           # psg_data (raw)
+            db_name_filtered=config.DB_NAME_FILTERED,  # psg_data_filtered
+            skip_existing=True,  # filtered DB'de olan hastaları atla
+            save_raw=False       # psg_data (raw) zaten mevcut, tekrar yazma
         )
 
     # Stage verilerini cache'e yükle
     
-    """ preload_all_stages(
+    preload_all_stages(
         mongo_uri=config.MONGO_URI,
         db_name=config.DB_NAME
-    ) """
-
+    )
 
     # Cache'i temizler (gerekirse)
     """ clear_stages_cache() """
 
         # Örnek 1: Tek bir hasta için hipnogram oluştur
-
-    """
+    """ 
     create_hypnogram(
-        patient_id="a86f03a1-7472-4be7-a383-b23bc9f8217e",
+        patient_id="patient_001",
         output_folder="hypnograms"
-    ) """
-   
+    )
+    """
     
     # Örnek 2: Tüm hastalar için hipnogram oluştur
     
@@ -2615,23 +2715,24 @@ if __name__ == "__main__":
         show_channels_info=True
     )
 
-    # Belirli hastanın verilerini sil (her iki DB'den: psg_data + psg_data_filtered)
+    # Belirli hastanın/hastaların verilerini sil
     """ delete_patient_data(
         patient_id="53ab11aa-3f94-41c1-9d1e-48767cce3c26",
         mongo_uri=config.MONGO_URI,
-        # db_name=config.DB_NAME_RAW,  # default
-        # db_name_filtered=config.DB_NAME_FILTERED,  # default
-        confirm=True
+        db_name=config.DB_NAME
     ) """
 
-    # Birden fazla hastayı sil (her iki DB'den)
+    # %15 den fazla uyanıklığı olan hastalar çıkarıldı
     """ delete_patient_datas(
-        patient_ids=["a82f0ab0-d849-42b7-b3d9-6051343f5ce0",
-                    "dc6e9bd1-4332-4fa7-a2bb-eae7368ab07a",
+        patient_ids=["6b19b899-e4b2-4465-93d7-ab2c329b092d",
+                    "255fc64b-7e43-4525-b6f7-109e6c7a0f0b",
+                    "596ce269-a11b-4dce-859e-9b4f25428033",
+                    "66d496f0-3092-48db-801e-ae81fb623131",
+                    "1319073d-138e-44da-8536-1c3c35752347",
+                    "f94c4f40-d9e5-4624-b4f9-b02d35285646"
                     ],
         mongo_uri=config.MONGO_URI,
-        # db_name=config.DB_NAME_RAW,  # default
-        # db_name_filtered=config.DB_NAME_FILTERED,  # default
+        db_name=config.DB_NAME,
         confirm=False
     ) """
 

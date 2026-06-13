@@ -1,9 +1,9 @@
 # ANACONDA
 
-- conda create -n tensorgpu python=3.10 -y
-- conda activate tensorgpu
+- conda create -n torchgpu python=3.10 -y
+- conda activate torchgpu
 - conda deactivate
-- conda env remove -n tensorgpu
+- conda env remove -n torchgpu
 - conda env list
  
 - python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121

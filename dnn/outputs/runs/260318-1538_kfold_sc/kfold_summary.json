@@ -1,0 +1,21 @@
+{
+  "status": "in_progress",
+  "completed_folds": 1,
+  "n_folds": 5,
+  "n_test_patients": 15,
+  "n_cv_patients": 138,
+  "n_cv_subjects": 70,
+  "mean_val_acc": 76.67361835245048,
+  "std_val_acc": 0.0,
+  "mean_val_loss": 0.6255227263471979,
+  "std_val_loss": 0.0,
+  "fold_results": [
+    {
+      "fold": 0,
+      "best_val_loss": 0.6255227263471979,
+      "best_val_acc": 76.67361835245048,
+      "final_train_acc": 83.8542944785276,
+      "final_val_acc": 75.6725755995829
+    }
+  ]
+}

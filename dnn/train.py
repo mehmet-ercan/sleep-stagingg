@@ -6,8 +6,7 @@ Model eğitimi, validation, checkpoint kaydetme
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
-from torch.cuda.amp import autocast, GradScaler  # Mixed Precision
+from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR, CosineAnnealingWarmRestarts
 import numpy as np
 import time
 import os
@@ -16,14 +15,16 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')  # Backend for non-GUI environments
 
+import torch.nn.functional as F
 import config
-from dataset import split_patients, create_dataloaders, SleepEpochDataset
-from dataset import SleepSequenceDataset, create_sequence_dataloaders  # For DeepSleepNet
+from dataset import (split_patients, create_dataloaders, SleepEpochDataset,
+                     SleepSequenceDataset)
 from models.cnn1d import get_model
-from edf_to_mongo import preload_all_stages, _STAGES_CACHE
+from edf_to_mongo import preload_all_stages, _STAGES_CACHE, get_offline_patient_ids
 from sklearn.model_selection import KFold
 from torch.utils.data import DataLoader
 import json
+import shutil
 
 
 def export_model_for_netron(model, save_path, input_shape):
@@ -153,7 +154,8 @@ def plot_training_history(history, save_path=None):
             print(f"\n  ⚠️  OVERFITTING TESPİT EDİLDİ!")
             print(f"  Öneriler:")
             print(f"    - Daha fazla veri ekleyin")
-            print(f"    - Dropout oranını artırın (şu an: {config.CNN1D_CONFIG['dropout']})")
+            active_cfg = getattr(config, f'CNN1D_V3_CONFIG', config.CNN1D_CONFIG) if config.MODEL_TYPE == 'cnn1d_v3' else config.CNN1D_CONFIG
+            print(f"    - Dropout oranını artırın (şu an: {active_cfg['dropout']})")
             print(f"    - Weight decay artırın (şu an: {config.WEIGHT_DECAY})")
             print(f"    - Data augmentation kullanın")
             print(f"    - Early stopping patience azaltın")
@@ -163,45 +165,146 @@ def plot_training_history(history, save_path=None):
         print(f"{'='*70}\n")
 
 
+class FocalLoss(nn.Module):
+    """
+    Focal Loss — dengesiz sınıflar için.
+    Kolay örneklerin (model zaten emin) gradient katkısını azaltır,
+    zor örneklere (N1 gibi) odaklanmayı artırır.
+    FL(pt) = -(1 - pt)^gamma * log(pt)
+    """
+    def __init__(self, gamma=2.0, weight=None):
+        super().__init__()
+        self.gamma = gamma
+        self.weight = weight  # class weights (opsiyonel)
+
+    def forward(self, logits, targets):
+        # log-softmax + nll ile numerik stabilite
+        log_prob = F.log_softmax(logits, dim=1)                  # [B, C]
+        prob = torch.exp(log_prob)                               # [B, C]
+        # Hedef sınıfın olasılığı
+        pt = prob.gather(1, targets.unsqueeze(1)).squeeze(1)     # [B]
+        log_pt = log_prob.gather(1, targets.unsqueeze(1)).squeeze(1)  # [B]
+        focal_weight = (1.0 - pt) ** self.gamma                 # [B]
+        loss = -focal_weight * log_pt                            # [B]
+        # Class weight uygula (opsiyonel)
+        if self.weight is not None:
+            w = self.weight[targets]
+            loss = loss * w
+        return loss.mean()
+
+
+class WarmupScheduler:
+    """
+    Linear warmup scheduler wrapper.
+    İlk warmup_epochs epoch boyunca LR'yi warmup_start_lr'den
+    base_lr'ye lineer olarak artırır, sonra ana scheduler'a geçer.
+    """
+    def __init__(self, optimizer, warmup_epochs, warmup_start_lr, base_lr, main_scheduler=None):
+        self.optimizer = optimizer
+        self.warmup_epochs = warmup_epochs
+        self.warmup_start_lr = warmup_start_lr
+        self.base_lr = base_lr
+        self.main_scheduler = main_scheduler
+        self.current_epoch = 0
+
+    def step(self, *args, **kwargs):
+        self.current_epoch += 1
+        if self.current_epoch <= self.warmup_epochs:
+            # Linear warmup
+            progress = self.current_epoch / self.warmup_epochs
+            lr = self.warmup_start_lr + progress * (self.base_lr - self.warmup_start_lr)
+            for param_group in self.optimizer.param_groups:
+                param_group['lr'] = lr
+        elif self.main_scheduler is not None:
+            self.main_scheduler.step(*args, **kwargs)
+
+    def state_dict(self):
+        state = {
+            'current_epoch': self.current_epoch,
+            'warmup_epochs': self.warmup_epochs,
+            'warmup_start_lr': self.warmup_start_lr,
+            'base_lr': self.base_lr,
+        }
+        if self.main_scheduler is not None:
+            state['main_scheduler'] = self.main_scheduler.state_dict()
+        return state
+
+    def load_state_dict(self, state_dict):
+        self.current_epoch = state_dict['current_epoch']
+        if self.main_scheduler is not None and 'main_scheduler' in state_dict:
+            self.main_scheduler.load_state_dict(state_dict['main_scheduler'])
+
+
+def create_scheduler(optimizer, scheduler_type=None):
+    """
+    Config'e göre LR scheduler oluştur.
+    Warmup aktifse WarmupScheduler ile wrap eder.
+
+    Returns:
+        scheduler veya None
+    """
+    if not config.USE_LR_SCHEDULER:
+        return None
+
+    if scheduler_type is None:
+        scheduler_type = config.LR_SCHEDULER_TYPE
+
+    # Ana scheduler'ı oluştur
+    if scheduler_type == 'ReduceLROnPlateau':
+        main_scheduler = ReduceLROnPlateau(
+            optimizer,
+            mode='min',
+            factor=config.LR_SCHEDULER_FACTOR,
+            patience=config.LR_SCHEDULER_PATIENCE
+        )
+    elif scheduler_type == 'StepLR':
+        main_scheduler = StepLR(optimizer, step_size=10, gamma=0.5)
+    elif scheduler_type == 'CosineAnnealingWarmRestarts':
+        main_scheduler = CosineAnnealingWarmRestarts(
+            optimizer,
+            T_0=config.COSINE_T_0,
+            T_mult=config.COSINE_T_MULT,
+            eta_min=config.COSINE_ETA_MIN
+        )
+    else:
+        print(f"⚠ Bilinmeyen scheduler: {scheduler_type}, scheduler oluşturulmadı")
+        return None
+
+    # Warmup wrapper
+    use_warmup = getattr(config, 'USE_WARMUP', False)
+    if use_warmup:
+        warmup_epochs = getattr(config, 'WARMUP_EPOCHS', 5)
+        warmup_start_lr = getattr(config, 'WARMUP_START_LR', 1e-6)
+        base_lr = config.LEARNING_RATE
+        scheduler = WarmupScheduler(
+            optimizer, warmup_epochs, warmup_start_lr, base_lr, main_scheduler
+        )
+        print(f"  📈 Scheduler: Warmup({warmup_epochs} epoch, {warmup_start_lr}→{base_lr}) + {scheduler_type}")
+    else:
+        scheduler = main_scheduler
+        print(f"  📈 Scheduler: {scheduler_type}")
+
+    return scheduler
+
+
 class Trainer:
     """
-    Model eğitim sınıfı.
-    
-    MODEL_TYPE'a göre farklı training stratejileri:
-    - cnn1d, cnn1d_paper: Standard DataLoader training
-    - deepsleepnet: Stateful LSTM training (hasta-bazlı iterate)
+    Model eğitim sınıfı
     """
     
     def __init__(self, model, train_loader, val_loader, 
-                 criterion, optimizer, scheduler=None, device=config.DEVICE, run_dir=None,
-                 model_type='cnn1d', use_mixed_precision=False, gradient_accumulation_steps=1,
-                 use_gradient_clipping=False, gradient_clip_value=1.0,
-                 train_dataset=None, val_dataset=None):
+                 criterion, optimizer, scheduler=None, device=config.DEVICE, 
+                 run_dir=None, sequence_mode=False):
         
         self.model = model
         self.train_loader = train_loader
         self.val_loader = val_loader
-        self.train_dataset = train_dataset  # Stateful training için (deepsleepnet)
-        self.val_dataset = val_dataset      # Stateful validation için (deepsleepnet)
         self.criterion = criterion
         self.optimizer = optimizer
         self.scheduler = scheduler
         self.device = device
         self.run_dir = run_dir if run_dir else config.CHECKPOINT_DIR
-        
-        # Model type: 'cnn1d', 'cnn1d_paper', 'deepsleepnet'
-        self.model_type = model_type
-        
-        # Mixed precision (for 4GB VRAM)
-        self.use_mixed_precision = use_mixed_precision
-        self.scaler = GradScaler() if use_mixed_precision else None
-        
-        # Gradient accumulation (effective batch size = batch_size * gradient_accumulation_steps)
-        self.gradient_accumulation_steps = gradient_accumulation_steps
-        
-        # Gradient clipping (important for LSTM to prevent exploding gradients)
-        self.use_gradient_clipping = use_gradient_clipping
-        self.gradient_clip_value = gradient_clip_value
+        self.sequence_mode = sequence_mode  # Transformer/DeepSleepNet sequence output
         
         # Training history
         self.history = {
@@ -220,28 +323,9 @@ class Trainer:
         # Timing
         self.start_time = None
         
-        # Print training mode info
-        print(f"\n{'='*70}")
-        print(f"TRAINER INITIALIZED")
-        print(f"{'='*70}")
-        print(f"  Model type: {model_type}")
-        print(f"  Training mode: {'Stateful LSTM (patient-wise)' if model_type == 'deepsleepnet' else 'Standard DataLoader'}")
-        print(f"  Mixed precision (FP16): {use_mixed_precision}")
-        print(f"  Gradient accumulation: {gradient_accumulation_steps} steps")
-        print(f"  Gradient clipping: {use_gradient_clipping} (max_norm={gradient_clip_value})")
-        print(f"  Effective batch size: {config.BATCH_SIZE * gradient_accumulation_steps}")
-        print(f"{'='*70}\n")
-        
     def train_epoch(self, epoch):
         """
-        Bir epoch eğitim.
-        
-        Sequence mode (DeepSleepNet + BiLSTM):
-        - Her hasta sıralı işlenir, LSTM state hasta boyunca taşınır
-        - Yeni hastada state reset edilir
-        
-        Standard mode (CNN):
-        - Normal DataLoader ile batch training
+        Bir epoch eğitim
         """
         self.model.train()
         
@@ -249,143 +333,60 @@ class Trainer:
         correct = 0
         total = 0
         
-        # ============================================================
-        # CNN MODELS (cnn1d, cnn1d_paper) - Standard DataLoader training
-        # ============================================================
-        if self.model_type in ['cnn1d', 'cnn1d_paper']:
-            for batch_idx, (signals, labels) in enumerate(self.train_loader):
-                signals = signals.to(self.device)
-                labels = labels.to(self.device)
-                
-                # Forward pass
-                self.optimizer.zero_grad()
-                
-                if self.use_mixed_precision:
-                    with autocast():
-                        outputs = self.model(signals)
-                        loss = self.criterion(outputs, labels)
-                    
-                    self.scaler.scale(loss).backward()
-                    
-                    if self.use_gradient_clipping:
-                        self.scaler.unscale_(self.optimizer)
-                        torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_value)
-                    
-                    self.scaler.step(self.optimizer)
-                    self.scaler.update()
-                else:
-                    outputs = self.model(signals)
-                    loss = self.criterion(outputs, labels)
-                    
-                    loss.backward()
-                    
-                    if self.use_gradient_clipping:
-                        torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_value)
-                    
-                    self.optimizer.step()
-                
-                # Statistics
-                running_loss += loss.item()
-                _, predicted = torch.max(outputs.data, 1)
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
-                
-                # Log
-                if (batch_idx + 1) % config.LOG_INTERVAL == 0:
-                    batch_loss = running_loss / (batch_idx + 1)
-                    batch_acc = 100. * correct / total
-                    print(f"  Batch [{batch_idx+1}/{len(self.train_loader)}] | "
-                          f"Loss: {batch_loss:.4f} | Acc: {batch_acc:.2f}%")
+        for batch_idx, (signals, labels) in enumerate(self.train_loader):
+            # Device'a taşı
+            signals = signals.to(self.device)
+            labels = labels.to(self.device)
             
-            # Epoch istatistikleri
-            epoch_loss = running_loss / len(self.train_loader) if len(self.train_loader) > 0 else 0
-            epoch_acc = 100. * correct / total if total > 0 else 0
+            # Forward pass
+            self.optimizer.zero_grad()
+            outputs = self.model(signals)
             
-            return epoch_loss, epoch_acc
+            # Sequence mode: outputs [B, seq_len, C], labels [B, seq_len]
+            # → Flatten to [B*seq_len, C] and [B*seq_len] for loss/accuracy
+            if self.sequence_mode and outputs.dim() == 3:
+                B, S, C = outputs.shape
+                outputs_flat = outputs.reshape(B * S, C)
+                labels_flat = labels.reshape(B * S)
+                loss = self.criterion(outputs_flat, labels_flat)
+            else:
+                outputs_flat = outputs
+                labels_flat = labels
+                loss = self.criterion(outputs, labels)
+            
+            # Backward pass
+            loss.backward()
+            
+            # Gradient clipping (transformer için önemli)
+            if hasattr(config, 'GRADIENT_CLIP_VALUE') and config.GRADIENT_CLIP_VALUE > 0:
+                torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), config.GRADIENT_CLIP_VALUE
+                )
+            
+            self.optimizer.step()
+            
+            # Statistics
+            running_loss += loss.item()
+            _, predicted = torch.max(outputs_flat.data, 1)
+            total += labels_flat.size(0)
+            correct += (predicted == labels_flat).sum().item()
+            
+            # Log
+            if (batch_idx + 1) % config.LOG_INTERVAL == 0:
+                batch_loss = running_loss / (batch_idx + 1)
+                batch_acc = 100. * correct / total
+                print(f"  Batch [{batch_idx + 1}/{len(self.train_loader)}] "
+                      f"Loss: {batch_loss:.4f} | Acc: {batch_acc:.2f}%")
         
-        # ============================================================
-        # DEEPSLEEPNET - Stateful LSTM training (patient-wise iterate)
-        # ============================================================
-        elif self.model_type == 'deepsleepnet':
-            n_sequences = 0
-            current_patient = None
-            
-            # Dataset'ten hasta-bazlı iterate et
-            if self.train_dataset is None:
-                raise ValueError("train_dataset must be provided for stateful training")
-            
-            for batch_data in self.train_dataset.iterate_by_patient():
-                patient_id = batch_data['patient_id']
-                is_new_patient = batch_data['is_new_patient']
-                signals = batch_data['signals'].to(self.device)  # [1, seq_len, n_ch, samples]
-                labels = batch_data['labels'].to(self.device)     # [1, seq_len]
-                
-                # Yeni hasta - LSTM state reset
-                if is_new_patient:
-                    self.model.bilstm.reset_state(batch_size=1, device=self.device)
-                    if current_patient is not None:
-                        pass  # Progress log için kullanılabilir
-                    current_patient = patient_id
-                
-                # Flatten labels for loss
-                labels_flat = labels.view(-1)  # [seq_len]
-                
-                # Forward pass
-                self.optimizer.zero_grad()
-                
-                if self.use_mixed_precision:
-                    with autocast():
-                        outputs = self.model(signals)  # [1, seq_len, n_classes]
-                        outputs_flat = outputs.view(-1, outputs.size(-1))  # [seq_len, n_classes]
-                        loss = self.criterion(outputs_flat, labels_flat)
-                    
-                    self.scaler.scale(loss).backward()
-                    self.scaler.unscale_(self.optimizer)
-                    
-                    if self.use_gradient_clipping:
-                        torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_value)
-                    
-                    self.scaler.step(self.optimizer)
-                    self.scaler.update()
-                else:
-                    outputs = self.model(signals)
-                    outputs_flat = outputs.view(-1, outputs.size(-1))
-                    loss = self.criterion(outputs_flat, labels_flat)
-                    
-                    loss.backward()
-                    
-                    if self.use_gradient_clipping:
-                        torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_value)
-                    
-                    self.optimizer.step()
-                
-                # Statistics
-                running_loss += loss.item()
-                n_sequences += 1
-                
-                _, predicted = torch.max(outputs_flat.data, 1)
-                total += labels_flat.size(0)
-                correct += (predicted == labels_flat).sum().item()
-                
-                # Log
-                if n_sequences % config.LOG_INTERVAL == 0:
-                    batch_loss = running_loss / n_sequences
-                    batch_acc = 100. * correct / total
-                    print(f"  Seq [{n_sequences}] Patient: {patient_id} | "
-                          f"Loss: {batch_loss:.4f} | Acc: {batch_acc:.2f}%")
-            
-            # Epoch istatistikleri
-            epoch_loss = running_loss / n_sequences if n_sequences > 0 else 0
-            epoch_acc = 100. * correct / total if total > 0 else 0
-            
-            return epoch_loss, epoch_acc
+        # Epoch istatistikleri
+        epoch_loss = running_loss / len(self.train_loader)
+        epoch_acc = 100. * correct / total
         
-        else:
-            raise ValueError(f"Unknown model_type: {self.model_type}")
+        return epoch_loss, epoch_acc
     
     def validate(self):
         """
-        Validation - model tipine göre farklı loop.
+        Validation
         """
         self.model.eval()
         
@@ -393,78 +394,37 @@ class Trainer:
         correct = 0
         total = 0
         
-        # ============================================================
-        # CNN MODELS (cnn1d, cnn1d_paper) - Standard DataLoader validation
-        # ============================================================
-        if self.model_type in ['cnn1d', 'cnn1d_paper']:
-            with torch.no_grad():
-                for signals, labels in self.val_loader:
-                    signals = signals.to(self.device)
-                    labels = labels.to(self.device)
-                    
-                    if self.use_mixed_precision:
-                        with autocast():
-                            outputs = self.model(signals)
-                            loss = self.criterion(outputs, labels)
-                    else:
-                        outputs = self.model(signals)
-                        loss = self.criterion(outputs, labels)
-                    
-                    running_loss += loss.item()
-                    _, predicted = torch.max(outputs.data, 1)
-                    total += labels.size(0)
-                    correct += (predicted == labels).sum().item()
-            
-            val_loss = running_loss / len(self.val_loader) if len(self.val_loader) > 0 else 0
-            val_acc = 100. * correct / total if total > 0 else 0
-            
-            return val_loss, val_acc
+        with torch.no_grad():
+            for signals, labels in self.val_loader:
+                # Device'a taşı
+                signals = signals.to(self.device)
+                labels = labels.to(self.device)
+                
+                # Forward pass
+                outputs = self.model(signals)
+                
+                # Sequence mode: flatten for loss/accuracy
+                if self.sequence_mode and outputs.dim() == 3:
+                    B, S, C = outputs.shape
+                    outputs_flat = outputs.reshape(B * S, C)
+                    labels_flat = labels.reshape(B * S)
+                    loss = self.criterion(outputs_flat, labels_flat)
+                else:
+                    outputs_flat = outputs
+                    labels_flat = labels
+                    loss = self.criterion(outputs, labels)
+                
+                # Statistics
+                running_loss += loss.item()
+                _, predicted = torch.max(outputs_flat.data, 1)
+                total += labels_flat.size(0)
+                correct += (predicted == labels_flat).sum().item()
         
-        # ============================================================
-        # DEEPSLEEPNET - Stateful LSTM validation (patient-wise iterate)
-        # ============================================================
-        elif self.model_type == 'deepsleepnet':
-            n_sequences = 0
-            
-            if self.val_dataset is None:
-                raise ValueError("val_dataset must be provided for stateful validation")
-            
-            with torch.no_grad():
-                for batch_data in self.val_dataset.iterate_by_patient():
-                    is_new_patient = batch_data['is_new_patient']
-                    signals = batch_data['signals'].to(self.device)
-                    labels = batch_data['labels'].to(self.device)
-                    
-                    # Yeni hasta - LSTM state reset
-                    if is_new_patient:
-                        self.model.bilstm.reset_state(batch_size=1, device=self.device)
-                    
-                    labels_flat = labels.view(-1)
-                    
-                    if self.use_mixed_precision:
-                        with autocast():
-                            outputs = self.model(signals)
-                            outputs_flat = outputs.view(-1, outputs.size(-1))
-                            loss = self.criterion(outputs_flat, labels_flat)
-                    else:
-                        outputs = self.model(signals)
-                        outputs_flat = outputs.view(-1, outputs.size(-1))
-                        loss = self.criterion(outputs_flat, labels_flat)
-                    
-                    running_loss += loss.item()
-                    n_sequences += 1
-                    
-                    _, predicted = torch.max(outputs_flat.data, 1)
-                    total += labels_flat.size(0)
-                    correct += (predicted == labels_flat).sum().item()
-            
-            val_loss = running_loss / n_sequences if n_sequences > 0 else 0
-            val_acc = 100. * correct / total if total > 0 else 0
-            
-            return val_loss, val_acc
+        # Validation istatistikleri
+        val_loss = running_loss / len(self.val_loader)
+        val_acc = 100. * correct / total
         
-        else:
-            raise ValueError(f"Unknown model_type: {self.model_type}")
+        return val_loss, val_acc
     
     def train(self, n_epochs):
         """
@@ -476,8 +436,6 @@ class Trainer:
         print(f"Epochs: {n_epochs}")
         print(f"Batch size: {config.BATCH_SIZE}")
         print(f"Learning rate: {config.LEARNING_RATE}")
-        if config.USE_WARMUP:
-            print(f"Warmup: {config.WARMUP_EPOCHS} epochs (LR: {config.WARMUP_START_LR:.1e} → {config.LEARNING_RATE:.1e})")
         print(f"Device: {self.device}")
         print(f"{'='*70}\n")
         
@@ -486,16 +444,23 @@ class Trainer:
         for epoch in range(1, n_epochs + 1):
             epoch_start = time.time()
             
-            # === WARMUP: İlk N epoch'ta LR'yi kademeli artır ===
-            if config.USE_WARMUP and epoch <= config.WARMUP_EPOCHS:
-                # Linear warmup: start_lr → target_lr
-                warmup_progress = epoch / config.WARMUP_EPOCHS
-                warmup_lr = config.WARMUP_START_LR + (config.LEARNING_RATE - config.WARMUP_START_LR) * warmup_progress
-                
-                for param_group in self.optimizer.param_groups:
-                    param_group['lr'] = warmup_lr
-                
-                print(f"\n🔥 Warmup [{epoch}/{config.WARMUP_EPOCHS}] - LR: {warmup_lr:.6f}")
+            # Transformer: CNN freeze/unfreeze epoch kontrolü
+            if config.MODEL_TYPE == 'transformer':
+                freeze_epochs = config.TRANSFORMER_CONFIG.get('freeze_cnn_epochs', 0)
+                if freeze_epochs > 0 and hasattr(self.model, 'cnn_encoder'):
+                    if epoch <= freeze_epochs:
+                        # CNN'i dondur
+                        for param in self.model.cnn_encoder.parameters():
+                            param.requires_grad = False
+                        if epoch == 1:
+                            n_frozen = sum(1 for p in self.model.cnn_encoder.parameters() if not p.requires_grad)
+                            print(f"🔒 CNN FROZEN: İlk {freeze_epochs} epoch CNN eğitilmeyecek ({n_frozen} param)")
+                    elif epoch == freeze_epochs + 1:
+                        # CNN'i çöz
+                        for param in self.model.cnn_encoder.parameters():
+                            param.requires_grad = True
+                        n_unfrozen = sum(1 for p in self.model.cnn_encoder.parameters() if p.requires_grad)
+                        print(f"🔓 CNN UNFROZEN: Epoch {epoch}'den itibaren CNN fine-tune ediliyor ({n_unfrozen} param)")
             
             print(f"\nEpoch [{epoch}/{n_epochs}]")
             print(f"-" * 70)
@@ -527,16 +492,12 @@ class Trainer:
             print(f"  Learning Rate: {current_lr:.6f}")
             print(f"  Time: {epoch_time:.1f}s")
             
-            # Learning rate scheduler (warmup bittikten sonra aktif)
+            # Learning rate scheduler
             if self.scheduler is not None:
-                # Warmup döneminde scheduler'ı çalıştırma
-                if config.USE_WARMUP and epoch <= config.WARMUP_EPOCHS:
-                    pass  # Warmup döneminde scheduler pasif
+                if config.LR_SCHEDULER_TYPE == 'ReduceLROnPlateau':
+                    self.scheduler.step(val_loss)
                 else:
-                    if config.LR_SCHEDULER_TYPE == 'ReduceLROnPlateau':
-                        self.scheduler.step(val_loss)
-                    else:
-                        self.scheduler.step()
+                    self.scheduler.step()
             
             
             # Best metrics'leri her zaman güncelle (hangi metrik kullanılırsa kullanılsın)
@@ -579,7 +540,7 @@ class Trainer:
         print(f"\n{'='*70}")
         print(f"TRAINING TAMAMLANDI!")
         print(f"{'='*70}")
-        print(f"Toplam süre: {total_time/60:.1f} dakika")
+        print(f"Toplam süre: {total_time/60:.1f} dakika  ← sadece GPU training")
         print(f"Best val loss: {self.best_val_loss:.4f}")
         print(f"Best val acc: {self.best_val_acc:.2f}%")
         print(f"{'='*70}\n")
@@ -659,29 +620,31 @@ def run_normal_training():
     config.create_directories()
     config.print_config()
     
-    # MongoDB'den hasta listesini al
-    from pymongo import MongoClient
-    import gridfs
-    
-    print("MongoDB'den hasta listesi alınıyor...")
-    client = MongoClient(config.MONGO_URI)
-    db = client[config.DB_NAME]
-    fs = gridfs.GridFS(db)
-    
-    all_patient_ids = set()
-    for file in fs.find({"metadata.data_type": "sleep_stages"}):
-        all_patient_ids.add(file.metadata['patient_id'])
-    
-    all_patient_ids = sorted(all_patient_ids)
-    client.close()
+    # Hasta listesini al (offline veya MongoDB'den)
+    if config.USE_OFFLINE_DATA:
+        print("Offline modda hasta listesi alınıyor...")
+        all_patient_ids = get_offline_patient_ids()
+    else:
+        from pymongo import MongoClient
+        import gridfs
+        print("MongoDB'den hasta listesi alınıyor...")
+        client = MongoClient(config.MONGO_URI)
+        db = client[config.DB_NAME]
+        fs = gridfs.GridFS(db)
+        all_patient_ids = set()
+        for file in fs.find({"metadata.data_type": "sleep_stages"}):
+            all_patient_ids.add(file.metadata['patient_id'])
+        all_patient_ids = sorted(all_patient_ids)
+        client.close()
     
     print(f"✓ Toplam {len(all_patient_ids)} hasta bulundu\n")
     
     # Stage verilerini cache'e yükle (performans için)
     print("Stage verileri cache'e yükleniyor...")
+    _t0 = time.time()
     preload_all_stages(all_patient_ids, config.MONGO_URI, config.DB_NAME)
-    print(f"✓ {len(_STAGES_CACHE)} hasta cache'de\n")
-    
+    print(f"✓ {len(_STAGES_CACHE)} hasta cache'de ({time.time()-_t0:.1f}s)\n")
+
     # Patient split (run-specific)
     train_ids, val_ids, test_ids = split_patients(
         all_patient_ids,
@@ -690,73 +653,122 @@ def run_normal_training():
         config.N_TEST_PATIENTS,
         run_dir=run_dir
     )
+
+    # DataLoader'lar (RAM'e sinyal verisi yüklenir)
+    # Transformer ve DeepSleepNet sequence mode gerektirir
+    sequence_models = ['transformer', 'deepsleepnet']
+    sequence_mode = config.MODEL_TYPE in sequence_models
     
-    # DataLoader'lar - Model tipine göre seç
-    use_sequence_mode = (config.MODEL_TYPE == 'deepsleepnet' and 
-                         hasattr(config, 'USE_SEQUENCE_TRAINING') and 
-                         config.USE_SEQUENCE_TRAINING)
+    print("Sinyal verileri RAM'e yükleniyor...")
+    _t0 = time.time()
     
-    if use_sequence_mode:
-        print(f"\n{'='*70}")
-        print(f"SEQUENCE MODE AKTİF (DeepSleepNet + BiLSTM)")
-        print(f"{'='*70}")
-        print(f"Sequence length: {config.SEQUENCE_LENGTH}")
-        print(f"{'='*70}\n")
+    if sequence_mode:
+        # Sequence mode: [B, seq_len, n_channels, samples]
+        print(f"  Mode: SEQUENCE (seq_len={config.SEQUENCE_LENGTH}, stride={config.SEQUENCE_STRIDE})")
         
-        train_loader, val_loader, test_loader = create_sequence_dataloaders(
-            train_ids, val_ids, test_ids, 
+        train_dataset = SleepSequenceDataset(
+            patient_ids=train_ids,
             sequence_length=config.SEQUENCE_LENGTH,
-            preload=True
+            stride=config.SEQUENCE_STRIDE,
+            preload=True,
+            augment=config.USE_AUGMENTATION
         )
+        val_dataset = SleepSequenceDataset(
+            patient_ids=val_ids,
+            sequence_length=config.SEQUENCE_LENGTH,
+            stride=config.SEQUENCE_STRIDE,
+            preload=True,
+            augment=False
+        )
+        test_dataset = SleepSequenceDataset(
+            patient_ids=test_ids,
+            sequence_length=config.SEQUENCE_LENGTH,
+            stride=config.SEQUENCE_STRIDE,
+            preload=True,
+            augment=False
+        )
+        
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=config.BATCH_SIZE,
+            shuffle=True,
+            num_workers=0,
+            pin_memory=False,
+            drop_last=True
+        )
+        val_loader = DataLoader(
+            val_dataset,
+            batch_size=config.BATCH_SIZE,
+            shuffle=False,
+            num_workers=0,
+            pin_memory=False
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            batch_size=config.BATCH_SIZE,
+            shuffle=False,
+            num_workers=0,
+            pin_memory=False
+        )
+        
+        print(f"  Train: {len(train_loader)} batch ({len(train_dataset)} sequence)")
+        print(f"  Val:   {len(val_loader)} batch ({len(val_dataset)} sequence)")
+        print(f"  Test:  {len(test_loader)} batch ({len(test_dataset)} sequence)")
+        print(f"  Batch shape: [{config.BATCH_SIZE}, {config.SEQUENCE_LENGTH}, n_ch, {config.SAMPLES_PER_EPOCH}]")
     else:
-        # Standard single-epoch training
+        # Single epoch mode: [B, n_channels, samples]
+        print(f"  Mode: SINGLE EPOCH")
         train_loader, val_loader, test_loader = create_dataloaders(
             train_ids, val_ids, test_ids, preload=True  # RAM Cache aktif
         )
+    
+    print(f"✓ RAM yükleme tamamlandı ({time.time()-_t0:.1f}s)\n")
     
     # Model
     model = get_model(config.MODEL_TYPE)
     
     # Model'i Netron için export et (opsiyonel)
-    # Not: DeepSleepNet için sequence input gerekli
     if config.EXPORT_TO_ONNX:
         onnx_path = os.path.join(run_dir, 'model_architecture.onnx')
-        if use_sequence_mode:
-            # Sequence mode: [batch, seq_len, channels, samples]
-            n_channels = config.N_CHANNELS_ACTIVE if hasattr(config, 'N_CHANNELS_ACTIVE') else config.N_CHANNELS
-            input_shape = (1, config.SEQUENCE_LENGTH, n_channels, config.SAMPLES_PER_EPOCH)
-        else:
-            input_shape = (1, config.N_CHANNELS, config.SAMPLES_PER_EPOCH)
-        
         export_model_for_netron(
             model=model,
             save_path=onnx_path,
-            input_shape=input_shape
+            input_shape=(1, config.N_CHANNELS, config.SAMPLES_PER_EPOCH)
         )
     
     # Loss function
+    loss_fn = getattr(config, 'LOSS_FUNCTION', 'CrossEntropyLoss')
+    gamma    = getattr(config, 'FOCAL_LOSS_GAMMA', 2.0)
+
     if config.USE_CLASS_WEIGHTS:
-        # Class weights kullan (dengesiz veri için)
         print("\n" + "="*70)
         print("CLASS WEIGHTS HESAPLANIYOR")
         print("="*70)
-        
+        weight_mode = getattr(config, 'CLASS_WEIGHT_MODE', 'inverse')
+        print(f"Mode: {weight_mode}")
         train_dataset = train_loader.dataset
         class_weights = train_dataset.get_class_weights().to(config.DEVICE)
-        
         print("Class weights:")
         for i, class_name in enumerate(config.CLASS_NAMES):
             print(f"  {class_name}: {class_weights[i]:.4f}")
         print("="*70 + "\n")
-        
-        criterion = nn.CrossEntropyLoss(weight=class_weights)
+        if loss_fn == 'FocalLoss':
+            print(f"Loss: FocalLoss (gamma={gamma}) + class weights")
+            criterion = FocalLoss(gamma=gamma, weight=class_weights)
+        else:
+            ls = getattr(config, 'LABEL_SMOOTHING', 0)
+            print(f"Loss: CrossEntropyLoss + class weights (label_smoothing={ls})")
+            criterion = nn.CrossEntropyLoss(weight=class_weights, label_smoothing=ls)
     else:
-        # Balanced dataset kullanıldığında class weights'e gerek yok
         print("\n" + "="*70)
         print("BALANCED DATASET KULLANILIYOR - CLASS WEIGHTS YOK")
         print("="*70 + "\n")
-        
-        criterion = nn.CrossEntropyLoss()
+        if loss_fn == 'FocalLoss':
+            print(f"Loss: FocalLoss (gamma={gamma})")
+            criterion = FocalLoss(gamma=gamma)
+        else:
+            ls = getattr(config, 'LABEL_SMOOTHING', 0)
+            criterion = nn.CrossEntropyLoss(label_smoothing=ls)
     
     # Optimizer
     if config.OPTIMIZER == 'Adam':
@@ -776,29 +788,7 @@ def run_normal_training():
         raise ValueError(f"Desteklenmeyen optimizer: {config.OPTIMIZER}")
     
     # Learning rate scheduler
-    scheduler = None
-    if config.USE_LR_SCHEDULER:
-        if config.LR_SCHEDULER_TYPE == 'ReduceLROnPlateau':
-            scheduler = ReduceLROnPlateau(
-                optimizer,
-                mode='min',
-                factor=config.LR_SCHEDULER_FACTOR,
-                patience=config.LR_SCHEDULER_PATIENCE
-            )
-        elif config.LR_SCHEDULER_TYPE == 'StepLR':
-            scheduler = StepLR(optimizer, step_size=10, gamma=0.5)
-    
-    # Mixed precision and gradient accumulation settings
-    use_mixed_precision = hasattr(config, 'USE_MIXED_PRECISION') and config.USE_MIXED_PRECISION
-    gradient_accumulation_steps = getattr(config, 'GRADIENT_ACCUMULATION_STEPS', 1)
-    
-    # Gradient clipping settings (important for LSTM)
-    use_gradient_clipping = getattr(config, 'USE_GRADIENT_CLIPPING', False)
-    gradient_clip_value = getattr(config, 'GRADIENT_CLIP_VALUE', 1.0)
-    
-    # Dataset referanslarını al (stateful training için)
-    train_dataset = train_loader.dataset
-    val_dataset = val_loader.dataset
+    scheduler = create_scheduler(optimizer)
     
     # Trainer
     trainer = Trainer(
@@ -810,13 +800,7 @@ def run_normal_training():
         scheduler=scheduler,
         device=config.DEVICE,
         run_dir=run_dir,
-        model_type=config.MODEL_TYPE,
-        use_mixed_precision=use_mixed_precision,
-        gradient_accumulation_steps=gradient_accumulation_steps,
-        use_gradient_clipping=use_gradient_clipping,
-        gradient_clip_value=gradient_clip_value,
-        train_dataset=train_dataset,
-        val_dataset=val_dataset
+        sequence_mode=sequence_mode
     )
     
     # Training başlat
@@ -843,119 +827,285 @@ def run_normal_training():
     print(f"✓ Training history kaydedildi: {history_path}")
 
 
-def run_kfold_training():
+def run_kfold_training(resume_run_id=None):
     """
     K-Fold Cross Validation training modu.
     5 hasta test için ayrılır, kalan hastalar üzerinde K-Fold CV yapılır.
+
+    Args:
+        resume_run_id: Devam edilecek kfold run ID (örnek: '260314-2125_kfold').
+                       None ise sıfırdan yeni eğitim başlatır.
     """
     from datetime import datetime
-    from pymongo import MongoClient
-    import gridfs
-    
-    # Timestamped run directory oluştur
-    timestamp = datetime.now().strftime("%y%m%d-%H%M")
-    run_dir = os.path.join(config.OUTPUT_DIR, 'runs', f'{timestamp}_kfold')
-    os.makedirs(run_dir, exist_ok=True)
-    
-    print(f"\n{'='*70}")
-    print(f"K-FOLD CROSS VALIDATION BAŞLIYOR")
-    print(f"{'='*70}")
-    print(f"Run ID: kfold_{timestamp}")
-    print(f"Directory: {run_dir}")
-    print(f"Fold sayısı: {config.N_FOLDS}")
-    print(f"Test hasta sayısı: {config.N_TEST_PATIENTS_KFOLD}")
-    print(f"{'='*70}\n")
-    
+
+    # --- Resume modu: mevcut dizini kullan, aksi halde yeni oluştur ---
+    completed_folds = 0
+    fold_results = []
+
+    if resume_run_id:
+        run_dir = os.path.join(config.OUTPUT_DIR, 'runs', resume_run_id)
+
+        if not os.path.exists(run_dir):
+            print(f"HATA: Run dizini bulunamadı: {run_dir}")
+            return
+
+        # kfold_summary.json oku
+        summary_path = os.path.join(run_dir, 'kfold_summary.json')
+        if not os.path.exists(summary_path):
+            print(f"HATA: kfold_summary.json bulunamadı: {summary_path}")
+            return
+
+        with open(summary_path, 'r') as f:
+            prev_summary = json.load(f)
+
+        completed_folds = prev_summary.get('completed_folds', 0)
+
+        # Ek doğrulama: training_history.json ile teyit et
+        for i in range(completed_folds):
+            history_path = os.path.join(run_dir, f'fold_{i}', 'training_history.json')
+            if not os.path.exists(history_path):
+                print(f"UYARI: Fold {i} için training_history.json bulunamadı, bu fold'dan başlanacak")
+                completed_folds = i
+                break
+
+        # Önceki fold sonuçlarını koru
+        fold_results = prev_summary.get('fold_results', [])[:completed_folds]
+
+        n_folds = prev_summary.get('n_folds', config.N_FOLDS)
+
+        if completed_folds >= n_folds:
+            print(f"Tüm {n_folds} fold zaten tamamlanmış! Resume'a gerek yok.")
+            return
+
+        print(f"\n{'='*70}")
+        print(f"K-FOLD RESUME - DEVAM EDİLİYOR")
+        print(f"{'='*70}")
+        print(f"Run ID: {resume_run_id}")
+        print(f"Directory: {run_dir}")
+        print(f"Tamamlanan fold: {completed_folds}/{n_folds}")
+        print(f"Devam edilecek fold: {completed_folds} → {n_folds - 1}")
+        print(f"{'='*70}\n")
+    else:
+        # Yeni eğitim: timestamped run directory oluştur
+        timestamp = datetime.now().strftime("%y%m%d-%H%M")
+        run_dir = os.path.join(config.OUTPUT_DIR, 'runs', f'{timestamp}_kfold')
+        os.makedirs(run_dir, exist_ok=True)
+
+        print(f"\n{'='*70}")
+        print(f"K-FOLD CROSS VALIDATION BAŞLIYOR")
+        print(f"{'='*70}")
+        print(f"Run ID: kfold_{timestamp}")
+        print(f"Directory: {run_dir}")
+        print(f"Fold sayısı: {config.N_FOLDS}")
+        print(f"Test hasta sayısı: {config.N_TEST_PATIENTS_KFOLD}")
+        print(f"{'='*70}\n")
+
     # Config
     config.set_seed()
     config.create_directories()
     config.print_config()
-    
-    # MongoDB'den hasta listesini al
-    print("MongoDB'den hasta listesi alınıyor...")
-    client = MongoClient(config.MONGO_URI)
-    db = client[config.DB_NAME]
-    fs = gridfs.GridFS(db)
-    
-    all_patient_ids = set()
-    for file in fs.find({"metadata.data_type": "sleep_stages"}):
-        all_patient_ids.add(file.metadata['patient_id'])
-    
-    all_patient_ids = sorted(all_patient_ids)
-    client.close()
-    
-    print(f"✓ Toplam {len(all_patient_ids)} hasta bulundu\n")
-    
+
+    # --- Hasta listesi ve split ---
+    test_patients_file = os.path.join(run_dir, 'test_patients.json')
+
+    if resume_run_id and os.path.exists(test_patients_file):
+        # Resume: test_patients.json'dan oku (orijinal split'i koru)
+        print("Resume modu: test_patients.json'dan hasta bilgisi okunuyor...")
+        with open(test_patients_file, 'r') as f:
+            saved_split = json.load(f)
+
+        test_patients = saved_split['test_patients']
+        cv_patients_recordings = saved_split['cv_patients']
+        split_level = saved_split.get('split_level', 'recording')
+        use_subject_split = (split_level == 'subject')
+
+        if use_subject_split:
+            cv_subjects = saved_split.get('cv_subjects', cv_patients_recordings)
+            test_subjects = saved_split.get('test_subjects', test_patients)
+            # Subject map'i yeniden oluştur
+            from dataset import group_by_subject, subjects_to_recordings
+            all_patient_ids_for_map = test_patients + cv_patients_recordings
+            subject_map = group_by_subject(all_patient_ids_for_map)
+        else:
+            cv_subjects = cv_patients_recordings
+            test_subjects = test_patients
+            subject_map = None
+
+        # Tüm hasta ID'leri (cache yükleme için)
+        all_patient_ids = test_patients + cv_patients_recordings
+
+        print(f"✓ {len(all_patient_ids)} hasta yüklendi (test: {len(test_patients)}, CV: {len(cv_patients_recordings)})")
+    else:
+        # Yeni eğitim: hasta listesini al
+        if config.USE_OFFLINE_DATA:
+            print("Offline modda hasta listesi alınıyor...")
+            all_patient_ids = get_offline_patient_ids()
+        else:
+            from pymongo import MongoClient
+            import gridfs
+            print("MongoDB'den hasta listesi alınıyor...")
+            client = MongoClient(config.MONGO_URI)
+            db = client[config.DB_NAME]
+            fs = gridfs.GridFS(db)
+            all_patient_ids = set()
+            for file in fs.find({"metadata.data_type": "sleep_stages"}):
+                all_patient_ids.add(file.metadata['patient_id'])
+            all_patient_ids = sorted(all_patient_ids)
+            client.close()
+
+        print(f"✓ Toplam {len(all_patient_ids)} hasta bulundu\n")
+
+        # Subject-level mi recording-level mi?
+        from dataset import get_subject_id, group_by_subject, subjects_to_recordings
+        import random
+        random.seed(config.RANDOM_SEED)
+
+        use_subject_split = config.USE_PHYSIONET and config.PHYSIONET_DATASET == "SC"
+
+        if use_subject_split:
+            subject_map = group_by_subject(all_patient_ids)
+            subject_list = list(subject_map.keys())
+            random.shuffle(subject_list)
+
+            n_test_subjects = config.N_TEST_PATIENTS_KFOLD
+            test_subjects = subject_list[:n_test_subjects]
+            cv_subjects = subject_list[n_test_subjects:]
+
+            test_patients = subjects_to_recordings(test_subjects, subject_map)
+            cv_patients_recordings = subjects_to_recordings(cv_subjects, subject_map)
+
+            print(f"\n{'='*70}")
+            print(f"HASTA AYIRIMI (SUBJECT-LEVEL)")
+            print(f"{'='*70}")
+            print(f"Toplam: {len(subject_list)} subject, {len(all_patient_ids)} recording")
+            print(f"Test:  {len(test_subjects)} subject → {len(test_patients)} recording")
+            print(f"  Test subjects: {sorted(test_subjects)}")
+            print(f"CV:    {len(cv_subjects)} subject → {len(cv_patients_recordings)} recording")
+            print(f"{'='*70}\n")
+
+            test_subj_set = set(test_subjects)
+            cv_subj_set = set(cv_subjects)
+            assert len(test_subj_set & cv_subj_set) == 0, "Test-CV subject leakage!"
+            print("✓ Test-CV subject-level leakage kontrolü: PASSED\n")
+
+        else:
+            shuffled_patients = list(all_patient_ids)
+            random.shuffle(shuffled_patients)
+
+            test_patients = shuffled_patients[:config.N_TEST_PATIENTS_KFOLD]
+            cv_subjects = shuffled_patients[config.N_TEST_PATIENTS_KFOLD:]
+            cv_patients_recordings = cv_subjects
+            subject_map = None
+            test_subjects = test_patients
+
+        # Test hastalarını kaydet
+        test_save_data = {
+            'test_patients': test_patients,
+            'cv_patients': cv_patients_recordings,
+            'split_level': 'subject' if use_subject_split else 'recording'
+        }
+        if use_subject_split:
+            test_save_data['test_subjects'] = sorted(test_subjects)
+            # cv_subjects sırası KFold split determinizmi için kritik, sorted YAPMA
+            test_save_data['cv_subjects'] = list(cv_subjects)
+        with open(test_patients_file, 'w') as f:
+            json.dump(test_save_data, f, indent=2)
+
+        if not use_subject_split:
+            print(f"\n{'='*70}")
+            print(f"HASTA AYIRIMI (RECORDING-LEVEL)")
+            print(f"{'='*70}")
+            print(f"Test hastalar ({len(test_patients)}): {test_patients}")
+            print(f"CV hastalar ({len(cv_patients_recordings)}): {len(cv_patients_recordings)} hasta")
+            print(f"{'='*70}\n")
+
     # Stage verilerini cache'e yükle
     print("Stage verileri cache'e yükleniyor...")
+    _t0 = time.time()
     preload_all_stages(all_patient_ids, config.MONGO_URI, config.DB_NAME)
-    print(f"✓ {len(_STAGES_CACHE)} hasta cache'de\n")
-    
-    # Test hastalarını ayır (sabit)
-    import random
-    random.seed(config.RANDOM_SEED)
-    shuffled_patients = list(all_patient_ids)
-    random.shuffle(shuffled_patients)
-    
-    test_patients = shuffled_patients[:config.N_TEST_PATIENTS_KFOLD]
-    cv_patients = shuffled_patients[config.N_TEST_PATIENTS_KFOLD:]
-    
-    # Test hastalarını kaydet
-    test_patients_file = os.path.join(run_dir, 'test_patients.json')
-    with open(test_patients_file, 'w') as f:
-        json.dump({'test_patients': test_patients, 'cv_patients': cv_patients}, f, indent=2)
-    
-    print(f"\n{'='*70}")
-    print(f"HASTA AYIRIMI")
-    print(f"{'='*70}")
-    print(f"Test hastalar ({len(test_patients)}): {test_patients}")
-    print(f"CV hastalar ({len(cv_patients)}): {len(cv_patients)} hasta")
-    print(f"{'='*70}\n")
-    
-    # K-Fold split
+    print(f"✓ {len(_STAGES_CACHE)} hasta cache'de ({time.time()-_t0:.1f}s)\n")
+
+    # K-Fold split (subject seviyesinde)
     kf = KFold(n_splits=config.N_FOLDS, shuffle=True, random_state=config.RANDOM_SEED)
-    
-    # Fold sonuçlarını sakla
-    fold_results = []
-    
-    for fold_idx, (train_idx, val_idx) in enumerate(kf.split(cv_patients)):
+
+    # KFold subject listesi üzerinde çalışır
+    cv_units = cv_subjects  # subject-level ise subject list, recording-level ise recording list
+
+    for fold_idx, (train_idx, val_idx) in enumerate(kf.split(cv_units)):
+        # Resume: tamamlanan fold'ları atla
+        if fold_idx < completed_folds:
+            print(f"\n  Fold {fold_idx}/{config.N_FOLDS - 1} zaten tamamlanmış, atlanıyor...")
+            continue
+
         print(f"\n{'#'*70}")
-        print(f"# FOLD {fold_idx + 1}/{config.N_FOLDS}")
+        print(f"# FOLD {fold_idx}/{config.N_FOLDS - 1}")
+        if resume_run_id and fold_idx == completed_folds:
+            print(f"# (Resume - bu fold'dan devam ediliyor)")
         print(f"{'#'*70}\n")
-        
-        # Fold directory
+
+        # Tamamlanmamış fold'un klasörünü temizle (varsa)
         fold_dir = os.path.join(run_dir, f'fold_{fold_idx}')
+        if os.path.exists(fold_dir) and fold_idx >= completed_folds:
+            print(f"  Tamamlanmamış fold_{fold_idx} klasörü temizleniyor...")
+            shutil.rmtree(fold_dir)
         os.makedirs(fold_dir, exist_ok=True)
         os.makedirs(os.path.join(fold_dir, 'checkpoints'), exist_ok=True)
         
-        # Train/Val hastaları
-        train_patients = [cv_patients[i] for i in train_idx]
-        val_patients = [cv_patients[i] for i in val_idx]
-        
-        print(f"Train hastalar: {len(train_patients)}")
-        print(f"Val hastalar: {len(val_patients)}")
+        if use_subject_split:
+            # Subject → Recording dönüşümü
+            train_subjs = [cv_subjects[i] for i in train_idx]
+            val_subjs = [cv_subjects[i] for i in val_idx]
+            
+            train_patients = subjects_to_recordings(train_subjs, subject_map)
+            val_patients = subjects_to_recordings(val_subjs, subject_map)
+            
+            # Fold leakage kontrolü
+            train_s = set(train_subjs)
+            val_s = set(val_subjs)
+            test_s = set(test_subjects)
+            assert len(train_s & val_s) == 0, f"Fold {fold_idx}: Train-Val subject leakage!"
+            assert len(train_s & test_s) == 0, f"Fold {fold_idx}: Train-Test subject leakage!"
+            assert len(val_s & test_s) == 0, f"Fold {fold_idx}: Val-Test subject leakage!"
+            
+            print(f"Train: {len(train_subjs)} subject → {len(train_patients)} recording")
+            print(f"Val:   {len(val_subjs)} subject → {len(val_patients)} recording")
+            print(f"Test:  {len(test_subjects)} subject → {len(test_patients)} recording (sabit)")
+            print(f"✓ Subject-level leakage kontrolü: PASSED")
+        else:
+            train_patients = [cv_units[i] for i in train_idx]
+            val_patients = [cv_units[i] for i in val_idx]
+            train_subjs = val_subjs = None
+            
+            print(f"Train hastalar: {len(train_patients)}")
+            print(f"Val hastalar: {len(val_patients)}")
         
         # Split'i kaydet (evaulate.py uyumluluğu için test de ekliyoruz)
         split_data = {
             'fold': fold_idx,
             'train': train_patients,
             'val': val_patients,
-            'test': test_patients,  # Ana test hastalarını da ekle
+            'test': test_patients,
             'train_patients': train_patients,
-            'val_patients': val_patients
+            'val_patients': val_patients,
+            'split_level': 'subject' if use_subject_split else 'recording'
         }
+        if use_subject_split:
+            split_data['train_subjects'] = sorted(train_subjs)
+            split_data['val_subjects'] = sorted(val_subjs)
+            split_data['test_subjects'] = sorted(test_subjects)
         with open(os.path.join(fold_dir, 'patient_split.json'), 'w') as f:
             json.dump(split_data, f, indent=2)
         
-        # Dataset'leri oluştur
-        print("\nDataset'ler oluşturuluyor...")
+        # Dataset'leri oluştur (RAM'e sinyal verisi yüklenir)
+        print(f"\nSinyal verileri RAM'e yükleniyor (Fold {fold_idx})...")
+        _t0 = time.time()
         train_dataset = SleepEpochDataset(
             patient_ids=train_patients,
             normalize=config.NORMALIZATION,
             augment=config.USE_AUGMENTATION,
             preload=True
         )
-        
+
         val_dataset = SleepEpochDataset(
             patient_ids=val_patients,
             normalize=config.NORMALIZATION,
@@ -963,12 +1113,14 @@ def run_kfold_training():
             preload=True,
             balance_strategy='none'
         )
-        
+        print(f"✓ RAM yükleme tamamlandı ({time.time()-_t0:.1f}s)\n")
+
         # DataLoader'lar
         train_loader = DataLoader(
             train_dataset,
             batch_size=config.BATCH_SIZE,
             shuffle=True,
+            drop_last=True,  # Son eksik batch'i atla (özellikle küçük son batch kaynaklı sorunları önler)
             num_workers=0,
             pin_memory=False
         )
@@ -986,8 +1138,29 @@ def run_kfold_training():
         # Model (her fold için yeni model)
         model = get_model(config.MODEL_TYPE)
         
-        # Loss function
-        criterion = nn.CrossEntropyLoss()
+        # Loss function (class weights desteği)
+        loss_fn = getattr(config, 'LOSS_FUNCTION', 'CrossEntropyLoss')
+        gamma    = getattr(config, 'FOCAL_LOSS_GAMMA', 2.0)
+        if config.USE_CLASS_WEIGHTS:
+            class_weights = train_dataset.get_class_weights().to(config.DEVICE)
+            weight_mode = getattr(config, 'CLASS_WEIGHT_MODE', 'inverse')
+            print(f"\n  Class weights (Fold {fold_idx}, mode={weight_mode}):")
+            for i, cn in enumerate(config.CLASS_NAMES):
+                print(f"    {cn}: {class_weights[i]:.4f}")
+            if loss_fn == 'FocalLoss':
+                print(f"  Loss: FocalLoss (gamma={gamma}) + class weights")
+                criterion = FocalLoss(gamma=gamma, weight=class_weights)
+            else:
+                ls = getattr(config, 'LABEL_SMOOTHING', 0)
+                print(f"  Loss: CrossEntropyLoss + class weights (label_smoothing={ls})")
+                criterion = nn.CrossEntropyLoss(weight=class_weights, label_smoothing=ls)
+        else:
+            if loss_fn == 'FocalLoss':
+                print(f"  Loss: FocalLoss (gamma={gamma})")
+                criterion = FocalLoss(gamma=gamma)
+            else:
+                ls = getattr(config, 'LABEL_SMOOTHING', 0)
+                criterion = nn.CrossEntropyLoss(label_smoothing=ls)
         
         # Optimizer
         if config.OPTIMIZER == 'Adam':
@@ -1005,17 +1178,7 @@ def run_kfold_training():
                                  weight_decay=config.WEIGHT_DECAY)
         
         # Scheduler
-        scheduler = None
-        if config.USE_LR_SCHEDULER:
-            if config.LR_SCHEDULER_TYPE == 'ReduceLROnPlateau':
-                scheduler = ReduceLROnPlateau(
-                    optimizer,
-                    mode='min',
-                    factor=config.LR_SCHEDULER_FACTOR,
-                    patience=config.LR_SCHEDULER_PATIENCE
-                )
-            elif config.LR_SCHEDULER_TYPE == 'StepLR':
-                scheduler = StepLR(optimizer, step_size=10, gamma=0.5)
+        scheduler = create_scheduler(optimizer)
         
         # Trainer
         trainer = Trainer(
@@ -1057,7 +1220,7 @@ def run_kfold_training():
         del model, trainer, train_loader, val_loader
         torch.cuda.empty_cache() if torch.cuda.is_available() else None
         
-        print(f"\n✓ Fold {fold_idx + 1} tamamlandı!")
+        print(f"\n✓ Fold {fold_idx} tamamlandı!")
         print(f"  Best Val Acc: {fold_result['best_val_acc']:.2f}%")
         print(f"  Best Val Loss: {fold_result['best_val_loss']:.4f}")
         
@@ -1070,7 +1233,8 @@ def run_kfold_training():
             'completed_folds': fold_idx + 1,
             'n_folds': config.N_FOLDS,
             'n_test_patients': len(test_patients),
-            'n_cv_patients': len(cv_patients),
+            'n_cv_patients': len(cv_patients_recordings),
+            'n_cv_subjects': len(cv_subjects) if use_subject_split else len(cv_patients_recordings),
             'mean_val_acc': float(np.mean(val_accs)),
             'std_val_acc': float(np.std(val_accs)) if len(val_accs) > 1 else 0.0,
             'mean_val_loss': float(np.mean(val_losses)),
@@ -1082,7 +1246,7 @@ def run_kfold_training():
         with open(summary_path, 'w') as f:
             json.dump(interim_summary, f, indent=2)
         
-        print(f"  ✓ kfold_summary.json güncellendi ({fold_idx + 1}/{config.N_FOLDS} fold)")
+        print(f"  ✓ kfold_summary.json güncellendi (fold {fold_idx}/{config.N_FOLDS - 1})")
     
     # K-Fold özet
     print(f"\n{'='*70}")
@@ -1103,15 +1267,18 @@ def run_kfold_training():
     print(f"  Validation Loss: {mean_loss:.4f} ± {std_loss:.4f}")
     print(f"\nFold detayları:")
     for r in fold_results:
-        print(f"  Fold {r['fold']}: Val Acc = {r['best_val_acc']:.2f}%, Val Loss = {r['best_val_loss']:.4f}")
+        print(f"  Fold {r['fold']}/{config.N_FOLDS - 1}: Val Acc = {r['best_val_acc']:.2f}%, Val Loss = {r['best_val_loss']:.4f}")
     
     print(f"{'='*70}\n")
     
     # Özet kaydet
     summary = {
+        'status': 'completed',
+        'completed_folds': config.N_FOLDS,
         'n_folds': config.N_FOLDS,
         'n_test_patients': len(test_patients),
-        'n_cv_patients': len(cv_patients),
+        'n_cv_patients': len(cv_patients_recordings),
+        'n_cv_subjects': len(cv_subjects) if use_subject_split else len(cv_patients_recordings),
         'mean_val_acc': mean_acc,
         'std_val_acc': std_acc,
         'mean_val_loss': mean_loss,
@@ -1128,9 +1295,19 @@ def run_kfold_training():
 
 def main():
     """
-    Ana training fonksiyonu - USE_KFOLD flag'ına göre mod seç
+    Ana training fonksiyonu - USE_KFOLD flag'ına göre mod seç.
+    --resume parametresi ile yarım kalan kfold eğitimine devam edilebilir.
     """
-    if config.USE_KFOLD:
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Sleep Stage Classification - Training')
+    parser.add_argument('--resume', type=str, default=None,
+                        help='Devam edilecek kfold run ID (örnek: 260314-2125_kfold)')
+    args = parser.parse_args()
+
+    if args.resume:
+        run_kfold_training(resume_run_id=args.resume)
+    elif config.USE_KFOLD:
         run_kfold_training()
     else:
         run_normal_training()
