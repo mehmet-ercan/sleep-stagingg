@@ -1,0 +1,1265 @@
+
+======================================================================
+EVALUATION - RUN: 260407-1230_kfold
+======================================================================
+Run directory: outputs/runs/260407-1230_kfold
+======================================================================
+
+
+======================================================================
+SLEEP STAGE CLASSIFICATION - CONFIGURATION
+======================================================================
+
+📊 DATA:
+  Channels: ['EEG Fpz-Cz', 'EOG horizontal']
+  Sample rate: 100 Hz
+  Samples per epoch: 3000
+  Classes: ['W', 'N1', 'N2', 'N3', 'REM']
+
+🔀 SPLIT:
+  Train: 34 patients
+  Val: 5 patients
+  Test: 5 patients
+
+🏗️  MODEL:
+  Type: cnn1d_v3
+  Architecture: 1D-CNN
+
+⚙️  TRAINING:
+  Database: physionet_sleep
+  Batch size: 32
+  Learning rate: 0.001
+  Epochs: 50
+  Optimizer: Adam
+  Weight decay: 0.0001
+  Dropout: 0.3
+  Loss function: CrossEntropyLoss
+  Balance strategy: none
+  Early stopping: True
+
+🔧 PREPROCESSING:
+  Normalization: z-score
+  Filtering: False
+  Augmentation: False
+
+💻 DEVICE:
+  CUDA available: True
+  Device: cuda
+
+📁 OUTPUT:
+  Directory: outputs
+
+======================================================================
+
+Offline modda hasta listesi alınıyor...
+✓ Toplam 44 hasta bulundu
+
+Stage verileri cache'e yükleniyor...
+
+======================================================================
+OFFLINE VERİLER CACHE'E YÜKLENİYOR (.npz)
+======================================================================
+Kaynak: /mnt/ssd2/2.SLEEP STAGING/1.DATA/physionet_sleep/sleep-edf-database-expanded-1.0.0/sleep-telemetry/offline_data/physionet_sleep
+Hasta sayısı: 44
+Yükleme modu: SADECE STAGES (düşük bellek modu)
+----------------------------------------------------------------------
+[1/44] ST7011J0: 1092 epoch ✓ (0.0s)
+[2/44] ST7012J0: 1040 epoch ✓ (0.0s)
+[3/44] ST7021J0: 920 epoch ✓ (0.0s)
+[4/44] ST7022J0: 944 epoch ✓ (0.0s)
+[5/44] ST7041J0: 1007 epoch ✓ (0.0s)
+[6/44] ST7042J0: 1130 epoch ✓ (0.0s)
+[7/44] ST7051J0: 1018 epoch ✓ (0.0s)
+[8/44] ST7052J0: 1034 epoch ✓ (0.0s)
+[9/44] ST7061J0: 1008 epoch ✓ (0.0s)
+[10/44] ST7062J0: 952 epoch ✓ (0.0s)
+[11/44] ST7071J0: 821 epoch ✓ (0.0s)
+[12/44] ST7072J0: 915 epoch ✓ (0.0s)
+[13/44] ST7081J0: 967 epoch ✓ (0.0s)
+[14/44] ST7082J0: 931 epoch ✓ (0.0s)
+[15/44] ST7091J0: 943 epoch ✓ (0.0s)
+[16/44] ST7092J0: 923 epoch ✓ (0.0s)
+[17/44] ST7101J0: 1042 epoch ✓ (0.0s)
+[18/44] ST7102J0: 980 epoch ✓ (0.0s)
+[19/44] ST7111J0: 1017 epoch ✓ (0.0s)
+[20/44] ST7112J0: 978 epoch ✓ (0.0s)
+[21/44] ST7121J0: 1026 epoch ✓ (0.0s)
+[22/44] ST7122J0: 945 epoch ✓ (0.0s)
+[23/44] ST7131J0: 859 epoch ✓ (0.0s)
+[24/44] ST7132J0: 852 epoch ✓ (0.0s)
+[25/44] ST7141J0: 858 epoch ✓ (0.0s)
+[26/44] ST7142J0: 873 epoch ✓ (0.0s)
+[27/44] ST7151J0: 897 epoch ✓ (0.0s)
+[28/44] ST7152J0: 1045 epoch ✓ (0.0s)
+[29/44] ST7161J0: 1057 epoch ✓ (0.0s)
+[30/44] ST7162J0: 988 epoch ✓ (0.0s)
+[31/44] ST7171J0: 965 epoch ✓ (0.0s)
+[32/44] ST7172J0: 1006 epoch ✓ (0.0s)
+[33/44] ST7181J0: 959 epoch ✓ (0.0s)
+[34/44] ST7182J0: 967 epoch ✓ (0.0s)
+[35/44] ST7191J0: 955 epoch ✓ (0.0s)
+[36/44] ST7192J0: 931 epoch ✓ (0.0s)
+[37/44] ST7201J0: 922 epoch ✓ (0.0s)
+[38/44] ST7202J0: 898 epoch ✓ (0.0s)
+[39/44] ST7211J0: 1077 epoch ✓ (0.0s)
+[40/44] ST7212J0: 1010 epoch ✓ (0.0s)
+[41/44] ST7221J0: 1033 epoch ✓ (0.0s)
+[42/44] ST7222J0: 951 epoch ✓ (0.0s)
+[43/44] ST7241J0: 1021 epoch ✓ (0.0s)
+[44/44] ST7242J0: 939 epoch ✓ (0.0s)
+
+======================================================================
+OFFLINE CACHE HAZIR!
+  Yüklenen hasta: 44/44 (0.2s)
+  Stage cache: 44 hasta (~2.9 MB)
+  Sinyal cache: 0 (patient, channel) çifti
+  Sinyal bellek: 0.00 GB
+======================================================================
+
+✓ 44 hasta cache'de
+
+
+======================================================================
+K-FOLD EVALUATION MODU (5 fold)
+======================================================================
+
+
+======================================================================
+TÜM FOLD'LAR İÇİN SİNYAL VERİLERİ TEK SEFERDE YÜKLENİYOR
+Toplam benzersiz test hastası: 8
+======================================================================
+
+
+======================================================================
+TÜM SİNYAL VERİLERİ YÜKLENIYOR (SHARED CACHE)
+======================================================================
+Toplam hasta: 8
+Kanallar: ['EEG Fpz-Cz', 'EOG horizontal']
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7022J0: 944 epoch eklendi
+  ST7062J0: 952 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+
+======================================================================
+RAM CACHE OLUŞTURULUYOR - BELLEK-VERİMLİ MOD
+Kaynak: Offline (.npz dosyaları)
+Strateji: Hasta bazında yükle → kopyala → serbest bırak
+======================================================================
+Toplam epoch: 7614
+Kanal sayısı: 2
+Tahmini boyut: ~0.17 GB
+======================================================================
+
+Veri yükleniyor:   0%|          | 0/15228 [00:00<?, ?epoch-kanal/s]Veri yükleniyor:   0%|          | 1/15228 [00:00<1:32:34,  2.74epoch-kanal/s]Veri yükleniyor:  12%|█▏        | 1889/15228 [00:00<00:04, 3263.32epoch-kanal/s]Veri yükleniyor:  25%|██▍       | 3793/15228 [00:00<00:02, 4597.53epoch-kanal/s]Veri yükleniyor:  36%|███▌      | 5435/15228 [00:01<00:01, 4909.65epoch-kanal/s]Veri yükleniyor:  49%|████▉     | 7469/15228 [00:01<00:01, 5756.50epoch-kanal/s]Veri yükleniyor:  61%|██████    | 9263/15228 [00:01<00:01, 5680.35epoch-kanal/s]Veri yükleniyor:  74%|███████▍  | 11275/15228 [00:02<00:00, 6258.22epoch-kanal/s]Veri yükleniyor:  87%|████████▋ | 13209/15228 [00:02<00:00, 6200.68epoch-kanal/s]Veri yükleniyor: 100%|██████████| 15228/15228 [00:02<00:00, 6133.90epoch-kanal/s]
+
+======================================================================
+✓ RAM CACHE HAZIR!
+======================================================================
+Cache'deki veri sayısı: 15,228
+Toplam bellek kullanımı: 0.17 GB
+======================================================================
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+
+======================================================================
+✓ SHARED CACHE HAZIR!
+  Toplam sinyal: 15,228
+  Bellek kullanımı: 0.17 GB
+======================================================================
+
+
+######################################################################
+# FOLD 0/4 EVALUATION
+######################################################################
+
+
+======================================================================
+SPLIT YÜKLENDI (RUN DIRECTORY'DEN)
+======================================================================
+Train: 28 hasta (sadece bilgi - yüklenmeyecek)
+Val:   8 hasta (sadece bilgi - yüklenmeyecek)
+Test:  8 hasta (değerlendirme için yüklenecek)
+======================================================================
+
+
+======================================================================
+TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)
+======================================================================
+Test hastaları: 8
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7062J0: 952 epoch eklendi
+  ST7022J0: 944 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+✓ Test DataLoader hazır (shared cache)!
+  Test: 238 batch (7614 epoch)
+======================================================================
+
+
+======================================================================
+MODEL YÜKLENİYOR
+======================================================================
+
+
+======================================================================
+CNN1D V3 MODEL (Multi-Scale + Residual + SE + GAP)
+======================================================================
+Architecture:
+  Input: [2, 3000]
+  Stem: 3x Conv1D(16) k=[15, 51, 125] → concat 48ch
+  ResBlock1: 48→96, k=7
+  ResBlock2: 96→128, k=5
+  SE: 128ch, reduction=16
+  GAP → 128
+  FC1: 64 units + LayerNorm
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 276,189
+  Trainable: 276,189
+  Reduction vs CNN1D: 6.1x fewer params
+======================================================================
+
+✓ Checkpoint yüklendi: outputs/runs/260407-1230_kfold/fold_0/checkpoints/best_model.pth
+  Epoch: 16
+  Best val loss: 0.4493
+  Best val acc: 84.08%
+
+======================================================================
+TEST SET DEĞERLENDİRMESİ
+======================================================================
+
+  Batch [10/238] işlendi
+  Batch [20/238] işlendi
+  Batch [30/238] işlendi
+  Batch [40/238] işlendi
+  Batch [50/238] işlendi
+  Batch [60/238] işlendi
+  Batch [70/238] işlendi
+  Batch [80/238] işlendi
+  Batch [90/238] işlendi
+  Batch [100/238] işlendi
+  Batch [110/238] işlendi
+  Batch [120/238] işlendi
+  Batch [130/238] işlendi
+  Batch [140/238] işlendi
+  Batch [150/238] işlendi
+  Batch [160/238] işlendi
+  Batch [170/238] işlendi
+  Batch [180/238] işlendi
+  Batch [190/238] işlendi
+  Batch [200/238] işlendi
+  Batch [210/238] işlendi
+  Batch [220/238] işlendi
+  Batch [230/238] işlendi
+
+======================================================================
+GENEL SONUÇLAR
+======================================================================
+Toplam test epoch'u: 7614
+Doğru tahmin: 6286
+Overall Accuracy: 82.56%
+======================================================================
+
+
+======================================================================
+DETAYLI METRİKLER
+======================================================================
+
+Overall Accuracy: 82.56%
+Cohen's Kappa: 0.7618
+
+======================================================================
+PER-CLASS METRİKLER
+======================================================================
+Class      Precision    Recall       F1-Score     Support   
+----------------------------------------------------------------------
+W          0.8937       0.8946       0.8942       949       
+N1         0.5809       0.6157       0.5978       700       
+N2         0.8250       0.8761       0.8498       3132      
+N3         0.8819       0.7476       0.8092       1359      
+REM        0.8629       0.8453       0.8540       1474      
+----------------------------------------------------------------------
+Macro Avg  0.8089       0.7959       0.8010       7614      
+======================================================================
+
+
+Scikit-learn Classification Report:
+======================================================================
+              precision    recall  f1-score   support
+
+           W     0.8937    0.8946    0.8942       949
+          N1     0.5809    0.6157    0.5978       700
+          N2     0.8250    0.8761    0.8498      3132
+          N3     0.8819    0.7476    0.8092      1359
+         REM     0.8629    0.8453    0.8540      1474
+
+    accuracy                         0.8256      7614
+   macro avg     0.8089    0.7959    0.8010      7614
+weighted avg     0.8286    0.8256    0.8257      7614
+
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_0/confusion_matrix.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       849        91         3         0         6
+        N1        89       431        89         1        90
+        N2         5       146      2744       135       102
+        N3         2         2       339      1016         0
+       REM         5        72       151         0      1246
+======================================================================
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_0/confusion_matrix_raw.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       849        91         3         0         6
+        N1        89       431        89         1        90
+        N2         5       146      2744       135       102
+        N3         2         2       339      1016         0
+       REM         5        72       151         0      1246
+======================================================================
+
+======================================================================
+PER-CLASS METRİK GRAFİĞİ OLUŞTURULUYOR
+======================================================================
+
+✓ Per-class metrics grafiği kaydedildi: outputs/runs/260407-1230_kfold/fold_0/per_class_metrics.png
+
+======================================================================
+HİPNOGRAMLAR OLUŞTURULUYOR (TEST HASTALARI)
+======================================================================
+
+  ST7062J0: 952 epoch (7.9 saat)
+  ✓ ST7062J0 hipnogram kaydedildi: 16x8 inch
+  ST7022J0: 944 epoch (7.9 saat)
+  ✓ ST7022J0 hipnogram kaydedildi: 16x8 inch
+  ST7071J0: 821 epoch (6.8 saat)
+  ✓ ST7071J0 hipnogram kaydedildi: 16x8 inch
+  ST7182J0: 967 epoch (8.1 saat)
+  ✓ ST7182J0 hipnogram kaydedildi: 16.116666666666667x8 inch
+  ST7212J0: 1010 epoch (8.4 saat)
+  ✓ ST7212J0 hipnogram kaydedildi: 16.833333333333332x8 inch
+  ST7111J0: 1017 epoch (8.5 saat)
+  ✓ ST7111J0 hipnogram kaydedildi: 16.95x8 inch
+  ST7172J0: 1006 epoch (8.4 saat)
+  ✓ ST7172J0 hipnogram kaydedildi: 16.766666666666666x8 inch
+  ST7151J0: 897 epoch (7.5 saat)
+  ✓ ST7151J0 hipnogram kaydedildi: 16x8 inch
+
+✓ Test sonuçları kaydedildi: outputs/runs/260407-1230_kfold/fold_0/test_results.json
+
+✓ Fold 0 Test Accuracy: 82.56%
+
+######################################################################
+# FOLD 1/4 EVALUATION
+######################################################################
+
+
+======================================================================
+SPLIT YÜKLENDI (RUN DIRECTORY'DEN)
+======================================================================
+Train: 29 hasta (sadece bilgi - yüklenmeyecek)
+Val:   7 hasta (sadece bilgi - yüklenmeyecek)
+Test:  8 hasta (değerlendirme için yüklenecek)
+======================================================================
+
+
+======================================================================
+TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)
+======================================================================
+Test hastaları: 8
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7062J0: 952 epoch eklendi
+  ST7022J0: 944 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+✓ Test DataLoader hazır (shared cache)!
+  Test: 238 batch (7614 epoch)
+======================================================================
+
+
+======================================================================
+MODEL YÜKLENİYOR
+======================================================================
+
+
+======================================================================
+CNN1D V3 MODEL (Multi-Scale + Residual + SE + GAP)
+======================================================================
+Architecture:
+  Input: [2, 3000]
+  Stem: 3x Conv1D(16) k=[15, 51, 125] → concat 48ch
+  ResBlock1: 48→96, k=7
+  ResBlock2: 96→128, k=5
+  SE: 128ch, reduction=16
+  GAP → 128
+  FC1: 64 units + LayerNorm
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 276,189
+  Trainable: 276,189
+  Reduction vs CNN1D: 6.1x fewer params
+======================================================================
+
+✓ Checkpoint yüklendi: outputs/runs/260407-1230_kfold/fold_1/checkpoints/best_model.pth
+  Epoch: 10
+  Best val loss: 0.5328
+  Best val acc: 79.73%
+
+======================================================================
+TEST SET DEĞERLENDİRMESİ
+======================================================================
+
+  Batch [10/238] işlendi
+  Batch [20/238] işlendi
+  Batch [30/238] işlendi
+  Batch [40/238] işlendi
+  Batch [50/238] işlendi
+  Batch [60/238] işlendi
+  Batch [70/238] işlendi
+  Batch [80/238] işlendi
+  Batch [90/238] işlendi
+  Batch [100/238] işlendi
+  Batch [110/238] işlendi
+  Batch [120/238] işlendi
+  Batch [130/238] işlendi
+  Batch [140/238] işlendi
+  Batch [150/238] işlendi
+  Batch [160/238] işlendi
+  Batch [170/238] işlendi
+  Batch [180/238] işlendi
+  Batch [190/238] işlendi
+  Batch [200/238] işlendi
+  Batch [210/238] işlendi
+  Batch [220/238] işlendi
+  Batch [230/238] işlendi
+
+======================================================================
+GENEL SONUÇLAR
+======================================================================
+Toplam test epoch'u: 7614
+Doğru tahmin: 6151
+Overall Accuracy: 80.79%
+======================================================================
+
+
+======================================================================
+DETAYLI METRİKLER
+======================================================================
+
+Overall Accuracy: 80.79%
+Cohen's Kappa: 0.7366
+
+======================================================================
+PER-CLASS METRİKLER
+======================================================================
+Class      Precision    Recall       F1-Score     Support   
+----------------------------------------------------------------------
+W          0.8994       0.8483       0.8731       949       
+N1         0.5598       0.6086       0.5832       700       
+N2         0.8078       0.8761       0.8406       3132      
+N3         0.8936       0.6858       0.7760       1359      
+REM        0.8195       0.8440       0.8316       1474      
+----------------------------------------------------------------------
+Macro Avg  0.7960       0.7725       0.7809       7614      
+======================================================================
+
+
+Scikit-learn Classification Report:
+======================================================================
+              precision    recall  f1-score   support
+
+           W     0.8994    0.8483    0.8731       949
+          N1     0.5598    0.6086    0.5832       700
+          N2     0.8078    0.8761    0.8406      3132
+          N3     0.8936    0.6858    0.7760      1359
+         REM     0.8195    0.8440    0.8316      1474
+
+    accuracy                         0.8079      7614
+   macro avg     0.7960    0.7725    0.7809      7614
+weighted avg     0.8140    0.8079    0.8077      7614
+
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_1/confusion_matrix.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       805       137         2         0         5
+        N1        68       426        90         0       116
+        N2        10       115      2744       111       152
+        N3         0         2       424       932         1
+       REM        12        81       137         0      1244
+======================================================================
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_1/confusion_matrix_raw.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       805       137         2         0         5
+        N1        68       426        90         0       116
+        N2        10       115      2744       111       152
+        N3         0         2       424       932         1
+       REM        12        81       137         0      1244
+======================================================================
+
+======================================================================
+PER-CLASS METRİK GRAFİĞİ OLUŞTURULUYOR
+======================================================================
+
+✓ Per-class metrics grafiği kaydedildi: outputs/runs/260407-1230_kfold/fold_1/per_class_metrics.png
+
+======================================================================
+HİPNOGRAMLAR OLUŞTURULUYOR (TEST HASTALARI)
+======================================================================
+
+  ST7062J0: 952 epoch (7.9 saat)
+  ✓ ST7062J0 hipnogram kaydedildi: 16x8 inch
+  ST7022J0: 944 epoch (7.9 saat)
+  ✓ ST7022J0 hipnogram kaydedildi: 16x8 inch
+  ST7071J0: 821 epoch (6.8 saat)
+  ✓ ST7071J0 hipnogram kaydedildi: 16x8 inch
+  ST7182J0: 967 epoch (8.1 saat)
+  ✓ ST7182J0 hipnogram kaydedildi: 16.116666666666667x8 inch
+  ST7212J0: 1010 epoch (8.4 saat)
+  ✓ ST7212J0 hipnogram kaydedildi: 16.833333333333332x8 inch
+  ST7111J0: 1017 epoch (8.5 saat)
+  ✓ ST7111J0 hipnogram kaydedildi: 16.95x8 inch
+  ST7172J0: 1006 epoch (8.4 saat)
+  ✓ ST7172J0 hipnogram kaydedildi: 16.766666666666666x8 inch
+  ST7151J0: 897 epoch (7.5 saat)
+  ✓ ST7151J0 hipnogram kaydedildi: 16x8 inch
+
+✓ Test sonuçları kaydedildi: outputs/runs/260407-1230_kfold/fold_1/test_results.json
+
+✓ Fold 1 Test Accuracy: 80.79%
+
+######################################################################
+# FOLD 2/4 EVALUATION
+######################################################################
+
+
+======================================================================
+SPLIT YÜKLENDI (RUN DIRECTORY'DEN)
+======================================================================
+Train: 29 hasta (sadece bilgi - yüklenmeyecek)
+Val:   7 hasta (sadece bilgi - yüklenmeyecek)
+Test:  8 hasta (değerlendirme için yüklenecek)
+======================================================================
+
+
+======================================================================
+TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)
+======================================================================
+Test hastaları: 8
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7062J0: 952 epoch eklendi
+  ST7022J0: 944 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+✓ Test DataLoader hazır (shared cache)!
+  Test: 238 batch (7614 epoch)
+======================================================================
+
+
+======================================================================
+MODEL YÜKLENİYOR
+======================================================================
+
+
+======================================================================
+CNN1D V3 MODEL (Multi-Scale + Residual + SE + GAP)
+======================================================================
+Architecture:
+  Input: [2, 3000]
+  Stem: 3x Conv1D(16) k=[15, 51, 125] → concat 48ch
+  ResBlock1: 48→96, k=7
+  ResBlock2: 96→128, k=5
+  SE: 128ch, reduction=16
+  GAP → 128
+  FC1: 64 units + LayerNorm
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 276,189
+  Trainable: 276,189
+  Reduction vs CNN1D: 6.1x fewer params
+======================================================================
+
+✓ Checkpoint yüklendi: outputs/runs/260407-1230_kfold/fold_2/checkpoints/best_model.pth
+  Epoch: 8
+  Best val loss: 0.5684
+  Best val acc: 78.94%
+
+======================================================================
+TEST SET DEĞERLENDİRMESİ
+======================================================================
+
+  Batch [10/238] işlendi
+  Batch [20/238] işlendi
+  Batch [30/238] işlendi
+  Batch [40/238] işlendi
+  Batch [50/238] işlendi
+  Batch [60/238] işlendi
+  Batch [70/238] işlendi
+  Batch [80/238] işlendi
+  Batch [90/238] işlendi
+  Batch [100/238] işlendi
+  Batch [110/238] işlendi
+  Batch [120/238] işlendi
+  Batch [130/238] işlendi
+  Batch [140/238] işlendi
+  Batch [150/238] işlendi
+  Batch [160/238] işlendi
+  Batch [170/238] işlendi
+  Batch [180/238] işlendi
+  Batch [190/238] işlendi
+  Batch [200/238] işlendi
+  Batch [210/238] işlendi
+  Batch [220/238] işlendi
+  Batch [230/238] işlendi
+
+======================================================================
+GENEL SONUÇLAR
+======================================================================
+Toplam test epoch'u: 7614
+Doğru tahmin: 6245
+Overall Accuracy: 82.02%
+======================================================================
+
+
+======================================================================
+DETAYLI METRİKLER
+======================================================================
+
+Overall Accuracy: 82.02%
+Cohen's Kappa: 0.7534
+
+======================================================================
+PER-CLASS METRİKLER
+======================================================================
+Class      Precision    Recall       F1-Score     Support   
+----------------------------------------------------------------------
+W          0.8966       0.8862       0.8914       949       
+N1         0.5750       0.5914       0.5831       700       
+N2         0.8144       0.8883       0.8497       3132      
+N3         0.8800       0.7336       0.8002       1359      
+REM        0.8607       0.8216       0.8407       1474      
+----------------------------------------------------------------------
+Macro Avg  0.8053       0.7842       0.7930       7614      
+======================================================================
+
+
+Scikit-learn Classification Report:
+======================================================================
+              precision    recall  f1-score   support
+
+           W     0.8966    0.8862    0.8914       949
+          N1     0.5750    0.5914    0.5831       700
+          N2     0.8144    0.8883    0.8497      3132
+          N3     0.8800    0.7336    0.8002      1359
+         REM     0.8607    0.8216    0.8407      1474
+
+    accuracy                         0.8202      7614
+   macro avg     0.8053    0.7842    0.7930      7614
+weighted avg     0.8233    0.8202    0.8198      7614
+
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_2/confusion_matrix.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       841        99         3         0         6
+        N1        82       414       101         1       102
+        N2         3       125      2782       135        87
+        N3         0         0       361       997         1
+       REM        12        82       169         0      1211
+======================================================================
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_2/confusion_matrix_raw.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       841        99         3         0         6
+        N1        82       414       101         1       102
+        N2         3       125      2782       135        87
+        N3         0         0       361       997         1
+       REM        12        82       169         0      1211
+======================================================================
+
+======================================================================
+PER-CLASS METRİK GRAFİĞİ OLUŞTURULUYOR
+======================================================================
+
+✓ Per-class metrics grafiği kaydedildi: outputs/runs/260407-1230_kfold/fold_2/per_class_metrics.png
+
+======================================================================
+HİPNOGRAMLAR OLUŞTURULUYOR (TEST HASTALARI)
+======================================================================
+
+  ST7062J0: 952 epoch (7.9 saat)
+  ✓ ST7062J0 hipnogram kaydedildi: 16x8 inch
+  ST7022J0: 944 epoch (7.9 saat)
+  ✓ ST7022J0 hipnogram kaydedildi: 16x8 inch
+  ST7071J0: 821 epoch (6.8 saat)
+  ✓ ST7071J0 hipnogram kaydedildi: 16x8 inch
+  ST7182J0: 967 epoch (8.1 saat)
+  ✓ ST7182J0 hipnogram kaydedildi: 16.116666666666667x8 inch
+  ST7212J0: 1010 epoch (8.4 saat)
+  ✓ ST7212J0 hipnogram kaydedildi: 16.833333333333332x8 inch
+  ST7111J0: 1017 epoch (8.5 saat)
+  ✓ ST7111J0 hipnogram kaydedildi: 16.95x8 inch
+  ST7172J0: 1006 epoch (8.4 saat)
+  ✓ ST7172J0 hipnogram kaydedildi: 16.766666666666666x8 inch
+  ST7151J0: 897 epoch (7.5 saat)
+  ✓ ST7151J0 hipnogram kaydedildi: 16x8 inch
+
+✓ Test sonuçları kaydedildi: outputs/runs/260407-1230_kfold/fold_2/test_results.json
+
+✓ Fold 2 Test Accuracy: 82.02%
+
+######################################################################
+# FOLD 3/4 EVALUATION
+######################################################################
+
+
+======================================================================
+SPLIT YÜKLENDI (RUN DIRECTORY'DEN)
+======================================================================
+Train: 29 hasta (sadece bilgi - yüklenmeyecek)
+Val:   7 hasta (sadece bilgi - yüklenmeyecek)
+Test:  8 hasta (değerlendirme için yüklenecek)
+======================================================================
+
+
+======================================================================
+TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)
+======================================================================
+Test hastaları: 8
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7062J0: 952 epoch eklendi
+  ST7022J0: 944 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+✓ Test DataLoader hazır (shared cache)!
+  Test: 238 batch (7614 epoch)
+======================================================================
+
+
+======================================================================
+MODEL YÜKLENİYOR
+======================================================================
+
+
+======================================================================
+CNN1D V3 MODEL (Multi-Scale + Residual + SE + GAP)
+======================================================================
+Architecture:
+  Input: [2, 3000]
+  Stem: 3x Conv1D(16) k=[15, 51, 125] → concat 48ch
+  ResBlock1: 48→96, k=7
+  ResBlock2: 96→128, k=5
+  SE: 128ch, reduction=16
+  GAP → 128
+  FC1: 64 units + LayerNorm
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 276,189
+  Trainable: 276,189
+  Reduction vs CNN1D: 6.1x fewer params
+======================================================================
+
+✓ Checkpoint yüklendi: outputs/runs/260407-1230_kfold/fold_3/checkpoints/best_model.pth
+  Epoch: 15
+  Best val loss: 0.4889
+  Best val acc: 83.81%
+
+======================================================================
+TEST SET DEĞERLENDİRMESİ
+======================================================================
+
+  Batch [10/238] işlendi
+  Batch [20/238] işlendi
+  Batch [30/238] işlendi
+  Batch [40/238] işlendi
+  Batch [50/238] işlendi
+  Batch [60/238] işlendi
+  Batch [70/238] işlendi
+  Batch [80/238] işlendi
+  Batch [90/238] işlendi
+  Batch [100/238] işlendi
+  Batch [110/238] işlendi
+  Batch [120/238] işlendi
+  Batch [130/238] işlendi
+  Batch [140/238] işlendi
+  Batch [150/238] işlendi
+  Batch [160/238] işlendi
+  Batch [170/238] işlendi
+  Batch [180/238] işlendi
+  Batch [190/238] işlendi
+  Batch [200/238] işlendi
+  Batch [210/238] işlendi
+  Batch [220/238] işlendi
+  Batch [230/238] işlendi
+
+======================================================================
+GENEL SONUÇLAR
+======================================================================
+Toplam test epoch'u: 7614
+Doğru tahmin: 6222
+Overall Accuracy: 81.72%
+======================================================================
+
+
+======================================================================
+DETAYLI METRİKLER
+======================================================================
+
+Overall Accuracy: 81.72%
+Cohen's Kappa: 0.7496
+
+======================================================================
+PER-CLASS METRİKLER
+======================================================================
+Class      Precision    Recall       F1-Score     Support   
+----------------------------------------------------------------------
+W          0.8630       0.8894       0.8760       949       
+N1         0.6177       0.4086       0.4918       700       
+N2         0.8263       0.8688       0.8470       3132      
+N3         0.7976       0.8727       0.8335       1359      
+REM        0.8507       0.8039       0.8266       1474      
+----------------------------------------------------------------------
+Macro Avg  0.7911       0.7687       0.7750       7614      
+======================================================================
+
+
+Scikit-learn Classification Report:
+======================================================================
+              precision    recall  f1-score   support
+
+           W     0.8630    0.8894    0.8760       949
+          N1     0.6177    0.4086    0.4918       700
+          N2     0.8263    0.8688    0.8470      3132
+          N3     0.7976    0.8727    0.8335      1359
+         REM     0.8507    0.8039    0.8266      1474
+
+    accuracy                         0.8172      7614
+   macro avg     0.7911    0.7687    0.7750      7614
+weighted avg     0.8113    0.8172    0.8116      7614
+
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_3/confusion_matrix.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       844        73         5         1        26
+        N1       117       286       168         7       122
+        N2         7        53      2721       291        60
+        N3         0         1       172      1186         0
+       REM        10        50       227         2      1185
+======================================================================
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_3/confusion_matrix_raw.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       844        73         5         1        26
+        N1       117       286       168         7       122
+        N2         7        53      2721       291        60
+        N3         0         1       172      1186         0
+       REM        10        50       227         2      1185
+======================================================================
+
+======================================================================
+PER-CLASS METRİK GRAFİĞİ OLUŞTURULUYOR
+======================================================================
+
+✓ Per-class metrics grafiği kaydedildi: outputs/runs/260407-1230_kfold/fold_3/per_class_metrics.png
+
+======================================================================
+HİPNOGRAMLAR OLUŞTURULUYOR (TEST HASTALARI)
+======================================================================
+
+  ST7062J0: 952 epoch (7.9 saat)
+  ✓ ST7062J0 hipnogram kaydedildi: 16x8 inch
+  ST7022J0: 944 epoch (7.9 saat)
+  ✓ ST7022J0 hipnogram kaydedildi: 16x8 inch
+  ST7071J0: 821 epoch (6.8 saat)
+  ✓ ST7071J0 hipnogram kaydedildi: 16x8 inch
+  ST7182J0: 967 epoch (8.1 saat)
+  ✓ ST7182J0 hipnogram kaydedildi: 16.116666666666667x8 inch
+  ST7212J0: 1010 epoch (8.4 saat)
+  ✓ ST7212J0 hipnogram kaydedildi: 16.833333333333332x8 inch
+  ST7111J0: 1017 epoch (8.5 saat)
+  ✓ ST7111J0 hipnogram kaydedildi: 16.95x8 inch
+  ST7172J0: 1006 epoch (8.4 saat)
+  ✓ ST7172J0 hipnogram kaydedildi: 16.766666666666666x8 inch
+  ST7151J0: 897 epoch (7.5 saat)
+  ✓ ST7151J0 hipnogram kaydedildi: 16x8 inch
+
+✓ Test sonuçları kaydedildi: outputs/runs/260407-1230_kfold/fold_3/test_results.json
+
+✓ Fold 3 Test Accuracy: 81.72%
+
+######################################################################
+# FOLD 4/4 EVALUATION
+######################################################################
+
+
+======================================================================
+SPLIT YÜKLENDI (RUN DIRECTORY'DEN)
+======================================================================
+Train: 29 hasta (sadece bilgi - yüklenmeyecek)
+Val:   7 hasta (sadece bilgi - yüklenmeyecek)
+Test:  8 hasta (değerlendirme için yüklenecek)
+======================================================================
+
+
+======================================================================
+TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)
+======================================================================
+Test hastaları: 8
+
+
+======================================================================
+EPOCH METADATA OLUŞTURULUYOR
+======================================================================
+  ST7062J0: 952 epoch eklendi
+  ST7022J0: 944 epoch eklendi
+  ST7071J0: 821 epoch eklendi
+  ST7182J0: 967 epoch eklendi
+  ST7212J0: 1010 epoch eklendi
+  ST7111J0: 1017 epoch eklendi
+  ST7172J0: 1006 epoch eklendi
+  ST7151J0: 897 epoch eklendi
+
+======================================================================
+TOPLAM: 7614 epoch
+
+Sınıf dağılımı:
+  W: 949 epoch (12.5%)
+  N1: 700 epoch (9.2%)
+  N2: 3132 epoch (41.1%)
+  N3: 1359 epoch (17.8%)
+  REM: 1474 epoch (19.4%)
+======================================================================
+
+
+⚠️ Balanced sampling kapalı - orijinal dağılım kullanılıyor
+
+✓ Dataset oluşturuldu: 7614 epoch, 8 hasta
+✓ Test DataLoader hazır (shared cache)!
+  Test: 238 batch (7614 epoch)
+======================================================================
+
+
+======================================================================
+MODEL YÜKLENİYOR
+======================================================================
+
+
+======================================================================
+CNN1D V3 MODEL (Multi-Scale + Residual + SE + GAP)
+======================================================================
+Architecture:
+  Input: [2, 3000]
+  Stem: 3x Conv1D(16) k=[15, 51, 125] → concat 48ch
+  ResBlock1: 48→96, k=7
+  ResBlock2: 96→128, k=5
+  SE: 128ch, reduction=16
+  GAP → 128
+  FC1: 64 units + LayerNorm
+  FC2 (output): 5 classes
+
+Parameters:
+  Total: 276,189
+  Trainable: 276,189
+  Reduction vs CNN1D: 6.1x fewer params
+======================================================================
+
+✓ Checkpoint yüklendi: outputs/runs/260407-1230_kfold/fold_4/checkpoints/best_model.pth
+  Epoch: 11
+  Best val loss: 0.4648
+  Best val acc: 84.28%
+
+======================================================================
+TEST SET DEĞERLENDİRMESİ
+======================================================================
+
+  Batch [10/238] işlendi
+  Batch [20/238] işlendi
+  Batch [30/238] işlendi
+  Batch [40/238] işlendi
+  Batch [50/238] işlendi
+  Batch [60/238] işlendi
+  Batch [70/238] işlendi
+  Batch [80/238] işlendi
+  Batch [90/238] işlendi
+  Batch [100/238] işlendi
+  Batch [110/238] işlendi
+  Batch [120/238] işlendi
+  Batch [130/238] işlendi
+  Batch [140/238] işlendi
+  Batch [150/238] işlendi
+  Batch [160/238] işlendi
+  Batch [170/238] işlendi
+  Batch [180/238] işlendi
+  Batch [190/238] işlendi
+  Batch [200/238] işlendi
+  Batch [210/238] işlendi
+  Batch [220/238] işlendi
+  Batch [230/238] işlendi
+
+======================================================================
+GENEL SONUÇLAR
+======================================================================
+Toplam test epoch'u: 7614
+Doğru tahmin: 6219
+Overall Accuracy: 81.68%
+======================================================================
+
+
+======================================================================
+DETAYLI METRİKLER
+======================================================================
+
+Overall Accuracy: 81.68%
+Cohen's Kappa: 0.7485
+
+======================================================================
+PER-CLASS METRİKLER
+======================================================================
+Class      Precision    Recall       F1-Score     Support   
+----------------------------------------------------------------------
+W          0.8778       0.9009       0.8892       949       
+N1         0.6156       0.5286       0.5688       700       
+N2         0.8147       0.8828       0.8474       3132      
+N3         0.8774       0.7373       0.8013       1359      
+REM        0.8164       0.8324       0.8243       1474      
+----------------------------------------------------------------------
+Macro Avg  0.8004       0.7764       0.7862       7614      
+======================================================================
+
+
+Scikit-learn Classification Report:
+======================================================================
+              precision    recall  f1-score   support
+
+           W     0.8778    0.9009    0.8892       949
+          N1     0.6156    0.5286    0.5688       700
+          N2     0.8147    0.8828    0.8474      3132
+          N3     0.8774    0.7373    0.8013      1359
+         REM     0.8164    0.8324    0.8243      1474
+
+    accuracy                         0.8168      7614
+   macro avg     0.8004    0.7764    0.7862      7614
+weighted avg     0.8158    0.8168    0.8143      7614
+
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_4/confusion_matrix.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       855        76         3         0        15
+        N1        94       370       108         1       127
+        N2        12        82      2765       139       134
+        N3         1         0       356      1002         0
+       REM        12        73       162         0      1227
+======================================================================
+
+======================================================================
+CONFUSION MATRIX OLUŞTURULUYOR
+======================================================================
+
+✓ Confusion matrix kaydedildi: outputs/runs/260407-1230_kfold/fold_4/confusion_matrix_raw.png
+
+Raw Confusion Matrix:
+======================================================================
+                   W        N1        N2        N3       REM
+----------------------------------------------------------------------
+         W       855        76         3         0        15
+        N1        94       370       108         1       127
+        N2        12        82      2765       139       134
+        N3         1         0       356      1002         0
+       REM        12        73       162         0      1227
+======================================================================
+
+======================================================================
+PER-CL

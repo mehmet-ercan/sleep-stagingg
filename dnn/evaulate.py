@@ -6,6 +6,8 @@ Test set değerlendirme, confusion matrix, hipnogram karşılaştırma
 import torch
 import torch.nn.functional as F
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Non-interactive backend (tkinter crash önlemi)
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import (confusion_matrix, classification_report, 
@@ -16,8 +18,12 @@ from collections import defaultdict
 
 import config
 from models.cnn1d import get_model
-from dataset import split_patients, create_dataloaders
-from edf_to_mongo import preload_all_stages, _STAGES_CACHE
+from dataset import (split_patients, create_dataloaders, 
+                     create_test_dataloader, create_test_dataloader_from_cache,
+                     preload_all_signals_to_cache,
+                     SleepSequenceDataset, SleepEpochDataset)
+from edf_to_mongo import preload_all_stages, _STAGES_CACHE, get_offline_patient_ids
+from torch.utils.data import DataLoader
 
 
 class Evaluator:
@@ -25,11 +31,13 @@ class Evaluator:
     Model değerlendirme sınıfı
     """
     
-    def __init__(self, model, test_loader, device=config.DEVICE, run_dir=None):
+    def __init__(self, model, test_loader, device=config.DEVICE, run_dir=None, 
+                 sequence_mode=False):
         self.model = model
         self.test_loader = test_loader
         self.device = device
         self.run_dir = run_dir
+        self.sequence_mode = sequence_mode
         
         # Sonuçları sakla
         self.all_predictions = []
@@ -42,10 +50,15 @@ class Evaluator:
     
     def evaluate(self):
         """
-        Test set üzerinde değerlendirme yap
+        Test set üzerinde değerlendirme yap.
+        Sequence mode destekler: 3D output'u flatten eder.
         """
         print(f"\n{'='*70}")
         print(f"TEST SET DEĞERLENDİRMESİ")
+        if self.sequence_mode:
+            print(f"Mode: SEQUENCE (seq_len={config.SEQUENCE_LENGTH})")
+        else:
+            print(f"Mode: SINGLE EPOCH")
         print(f"{'='*70}\n")
         
         self.model.eval()
@@ -61,16 +74,26 @@ class Evaluator:
                 
                 # Forward pass
                 outputs = self.model(signals)
-                probs = F.softmax(outputs, dim=1)
-                _, predicted = torch.max(outputs, 1)
+                
+                # Sequence mode: outputs [B, seq_len, C], labels [B, seq_len]
+                if self.sequence_mode and outputs.dim() == 3:
+                    B, S, C = outputs.shape
+                    outputs_flat = outputs.reshape(B * S, C)
+                    labels_flat = labels.reshape(B * S)
+                else:
+                    outputs_flat = outputs
+                    labels_flat = labels
+                
+                probs = F.softmax(outputs_flat, dim=1)
+                _, predicted = torch.max(outputs_flat, 1)
                 
                 # İstatistikler
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
+                total += labels_flat.size(0)
+                correct += (predicted == labels_flat).sum().item()
                 
                 # Sonuçları sakla
                 self.all_predictions.extend(predicted.cpu().numpy())
-                self.all_labels.extend(labels.cpu().numpy())
+                self.all_labels.extend(labels_flat.cpu().numpy())
                 self.all_probs.extend(probs.cpu().numpy())
                 
                 # Progress
@@ -111,7 +134,8 @@ class Evaluator:
         
         # Per-class metrics
         precision, recall, f1, support = precision_recall_fscore_support(
-            y_true, y_pred, average=None, labels=range(config.N_CLASSES)
+            y_true, y_pred, average=None, labels=range(config.N_CLASSES),
+            zero_division=0  # Tahmin edilmeyen sınıflar için 0 döndür (warning bastır)
         )
         
         print(f"\n{'='*70}")
@@ -140,7 +164,8 @@ class Evaluator:
         report = classification_report(
             y_true, y_pred, 
             target_names=config.CLASS_NAMES,
-            digits=4
+            digits=4,
+            zero_division=0  # Tahmin edilmeyen sınıflar için 0 döndür
         )
         print(report)
         
@@ -295,30 +320,58 @@ class Evaluator:
     
     def generate_hypnograms_for_test_patients(self):
         """
-        Test set'teki her hasta için hipnogram oluştur (predicted vs ground truth)
+        Test set'teki her hasta için hipnogram oluştur (predicted vs ground truth).
+        Hem single-epoch hem sequence mode destekler.
         """
         print(f"\n{'='*70}")
         print(f"HİPNOGRAMLAR OLUŞTURULUYOR (TEST HASTALARI)")
         print(f"{'='*70}\n")
         
-        # Test dataset'ten hasta ID'lerini al
         test_dataset = self.test_loader.dataset
         
         # Her hasta için epoch'ları grupla
         patient_epochs = defaultdict(lambda: {'predictions': [], 'labels': [], 'epoch_indices': []})
         
-        for idx in range(len(test_dataset)):
-            meta = test_dataset.epoch_metadata[idx]
-            patient_id = meta['patient_id']
-            epoch_idx = meta['epoch_idx']
-            
-            # Bu epoch'un tahminini ve gerçek değerini bul
-            pred = self.all_predictions[idx]
-            label = self.all_labels[idx]
-            
-            patient_epochs[patient_id]['predictions'].append(pred)
-            patient_epochs[patient_id]['labels'].append(label)
-            patient_epochs[patient_id]['epoch_indices'].append(epoch_idx)
+        if self.sequence_mode:
+            # Sequence mode: tahminler zaten flatten edildiş (evaluate()'da)
+            # Sequence metadata'dan hasta ve epoch bilgilerini çıkar
+            pred_idx = 0
+            for seq_idx in range(len(test_dataset)):
+                meta = test_dataset.sequence_metadata[seq_idx]
+                patient_id = meta['patient_id']
+                start_idx = meta['start_idx']
+                seq_len = meta.get('length', config.SEQUENCE_LENGTH)
+                
+                for offset in range(seq_len):
+                    if pred_idx >= len(self.all_predictions):
+                        break
+                    epoch_idx = start_idx + offset
+                    pred = self.all_predictions[pred_idx]
+                    label = self.all_labels[pred_idx]
+                    
+                    # Aynı epoch'un tekrar eklenmesini önle
+                    # (overlapping sequences'da aynı epoch birden fazla kez tahmin edilebilir)
+                    key = (patient_id, epoch_idx)
+                    existing_indices = patient_epochs[patient_id]['epoch_indices']
+                    if epoch_idx not in existing_indices:
+                        patient_epochs[patient_id]['predictions'].append(pred)
+                        patient_epochs[patient_id]['labels'].append(label)
+                        patient_epochs[patient_id]['epoch_indices'].append(epoch_idx)
+                    
+                    pred_idx += 1
+        else:
+            # Single epoch mode: epoch_metadata'dan direkt oku
+            for idx in range(len(test_dataset)):
+                meta = test_dataset.epoch_metadata[idx]
+                patient_id = meta['patient_id']
+                epoch_idx = meta['epoch_idx']
+                
+                pred = self.all_predictions[idx]
+                label = self.all_labels[idx]
+                
+                patient_epochs[patient_id]['predictions'].append(pred)
+                patient_epochs[patient_id]['labels'].append(label)
+                patient_epochs[patient_id]['epoch_indices'].append(epoch_idx)
         
         # Her hasta için hipnogram çiz
         for patient_id, data in patient_epochs.items():
@@ -467,9 +520,143 @@ class Evaluator:
         print(f"\n✓ Test sonuçları kaydedildi: {save_path}")
 
 
+def evaluate_single_run(run_dir, all_patient_ids, shared_signal_cache=None):
+    """
+    Tek bir run (veya fold) için evaluation yap.
+    Transformer/DeepSleepNet sequence mode otomatik desteklenir.
+    
+    Args:
+        run_dir: Run veya fold dizini
+        all_patient_ids: Tüm hasta ID'leri
+        shared_signal_cache: K-Fold modunda paylaşılan sinyal cache'i.
+                            None ise sadece test verisi yüklenir.
+    """
+    # Sequence mode kontrolü
+    sequence_models = ['transformer', 'deepsleepnet']
+    sequence_mode = config.MODEL_TYPE in sequence_models
+    
+    # Patient split (run directory'den yükle)
+    split_file = os.path.join(run_dir, 'patient_split.json')
+    
+    if not os.path.exists(split_file):
+        print(f"✗ Split dosyası bulunamadı: {split_file}")
+        print(f"Lütfen doğru run directory'yi belirtin.")
+        return None
+    
+    import json
+    with open(split_file, 'r') as f:
+        split_data = json.load(f)
+    
+    train_ids = split_data['train']
+    val_ids = split_data['val']
+    test_ids = split_data['test']
+    
+    print(f"\n{'='*70}")
+    print(f"SPLIT YÜKLENDİ (RUN DIRECTORY'DEN)")
+    print(f"{'='*70}")
+    print(f"Train: {len(train_ids)} hasta (sadece bilgi - yüklenmeyecek)")
+    print(f"Val:   {len(val_ids)} hasta (sadece bilgi - yüklenmeyecek)")
+    print(f"Test:  {len(test_ids)} hasta (değerlendirme için yüklenecek)")
+    print(f"Mode:  {'SEQUENCE' if sequence_mode else 'SINGLE EPOCH'}")
+    print(f"{'='*70}\n")
+    
+    # Test DataLoader oluştur
+    if sequence_mode:
+        # Sequence mode: SleepSequenceDataset kullan
+        print(f"  Sequence DataLoader oluşturuluyor (seq_len={config.SEQUENCE_LENGTH})...")
+        test_dataset = SleepSequenceDataset(
+            patient_ids=test_ids,
+            sequence_length=config.SEQUENCE_LENGTH,
+            stride=config.SEQUENCE_LENGTH,  # Test'te non-overlapping (her epoch 1 kez)
+            preload=True,
+            augment=False
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            batch_size=config.BATCH_SIZE,
+            shuffle=False,
+            num_workers=0,
+            pin_memory=False
+        )
+        print(f"  ✓ Test: {len(test_loader)} batch ({len(test_dataset)} sequence)")
+    elif shared_signal_cache is not None:
+        # K-Fold: Shared cache'den test DataLoader oluştur
+        test_loader = create_test_dataloader_from_cache(
+            test_ids, shared_signal_cache, preload=True
+        )
+    else:
+        # Normal run: Sadece test verisi yükle
+        test_loader = create_test_dataloader(test_ids, preload=True)
+    
+    # Model yükle
+    print(f"\n{'='*70}")
+    print(f"MODEL YÜKLENİYOR")
+    print(f"{'='*70}\n")
+    
+    model = get_model(config.MODEL_TYPE)
+    
+    # Best checkpoint'i yükle (run directory'den)
+    checkpoint_path = os.path.join(run_dir, 'checkpoints', 'best_model.pth')
+    
+    if not os.path.exists(checkpoint_path):
+        print(f"✗ Checkpoint bulunamadı: {checkpoint_path}")
+        print("Önce train.py çalıştırın!")
+        return None
+    
+    checkpoint = torch.load(checkpoint_path, map_location=config.DEVICE, weights_only=False)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    
+    print(f"✓ Checkpoint yüklendi: {checkpoint_path}")
+    print(f"  Epoch: {checkpoint['epoch']}")
+    print(f"  Best val loss: {checkpoint['best_val_loss']:.4f}")
+    print(f"  Best val acc: {checkpoint['best_val_acc']:.2f}%")
+    
+    
+    # Evaluator (run_dir ile, sequence mode destekli)
+    evaluator = Evaluator(model, test_loader, config.DEVICE, 
+                          run_dir=run_dir, sequence_mode=sequence_mode)
+    
+    # 1. Temel değerlendirme
+    accuracy = evaluator.evaluate()
+    
+    # 2. Detaylı metrikler
+    metrics = evaluator.calculate_metrics()
+    
+    # 3. Confusion matrix (run directory'ye kaydet)
+    cm_path = os.path.join(run_dir, 'confusion_matrix.png')
+    cm_raw_path = os.path.join(run_dir, 'confusion_matrix_raw.png')
+    evaluator.plot_confusion_matrix(normalize=True, save_path=cm_path)
+    evaluator.plot_confusion_matrix(normalize=False, save_path=cm_raw_path)
+    
+    # 4. Per-class metrics grafiği (run directory'ye kaydet)
+    metrics_plot_path = os.path.join(run_dir, 'per_class_metrics.png')
+    evaluator.plot_per_class_metrics(metrics, save_path=metrics_plot_path)
+    
+    # 5. Hipnogramlar
+    evaluator.generate_hypnograms_for_test_patients()
+    
+    # 6. Sonuçları kaydet (run directory'ye)
+    results_path = os.path.join(run_dir, 'test_results.json')
+    evaluator.save_results(metrics, save_path=results_path)
+    
+    # Tüm figürleri kapat (fold'lar arası bellek sızıntısı önlemi)
+    plt.close('all')
+    
+    # RAM temizle
+    del evaluator, model, test_loader
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache() if torch.cuda.is_available() else None
+    
+    return {
+        'accuracy': accuracy,
+        'metrics': metrics
+    }
+
+
 def main():
     """
-    Ana evaluation fonksiyonu
+    Ana evaluation fonksiyonu - normal run ve kfold run destekler.
     """
     import argparse
     
@@ -497,21 +684,22 @@ def main():
     config.set_seed()
     config.print_config()
     
-    # MongoDB'den hasta listesini al
-    from pymongo import MongoClient
-    import gridfs
-    
-    print("MongoDB'den hasta listesi alınıyor...")
-    client = MongoClient(config.MONGO_URI)
-    db = client[config.DB_NAME]
-    fs = gridfs.GridFS(db)
-    
-    all_patient_ids = set()
-    for file in fs.find({"metadata.data_type": "sleep_stages"}):
-        all_patient_ids.add(file.metadata['patient_id'])
-    
-    all_patient_ids = sorted(all_patient_ids)
-    client.close()
+    # Hasta listesini al (offline veya MongoDB'den)
+    if config.USE_OFFLINE_DATA:
+        print("Offline modda hasta listesi alınıyor...")
+        all_patient_ids = get_offline_patient_ids()
+    else:
+        from pymongo import MongoClient
+        import gridfs
+        print("MongoDB'den hasta listesi alınıyor...")
+        client = MongoClient(config.MONGO_URI)
+        db = client[config.DB_NAME]
+        fs = gridfs.GridFS(db)
+        all_patient_ids = set()
+        for file in fs.find({"metadata.data_type": "sleep_stages"}):
+            all_patient_ids.add(file.metadata['patient_id'])
+        all_patient_ids = sorted(all_patient_ids)
+        client.close()
     
     print(f"✓ Toplam {len(all_patient_ids)} hasta bulundu\n")
     
@@ -520,90 +708,105 @@ def main():
     preload_all_stages(all_patient_ids, config.MONGO_URI, config.DB_NAME)
     print(f"✓ {len(_STAGES_CACHE)} hasta cache'de\n")
     
-    # Patient split (run directory'den yükle)
-    split_file = os.path.join(run_dir, 'patient_split.json')
+    # K-Fold mu normal run mı kontrol et
+    kfold_summary = os.path.join(run_dir, 'kfold_summary.json')
+    is_kfold = os.path.exists(kfold_summary)
     
-    if not os.path.exists(split_file):
-        print(f"✗ Split dosyası bulunamadı: {split_file}")
-        print(f"Lütfen doğru run directory'yi belirtin.")
-        return
+    if is_kfold:
+        # ============================================================
+        # K-FOLD EVALUATION
+        # ============================================================
+        import json
+        with open(kfold_summary, 'r') as f:
+            summary = json.load(f)
+        
+        n_folds = summary['n_folds']
+        print(f"\n{'='*70}")
+        print(f"K-FOLD EVALUATION MODU ({n_folds} fold)")
+        print(f"{'='*70}\n")
+        
+        # Tüm fold'larda kullanılacak hastaları belirle
+        all_fold_test_ids = set()
+        for fold_idx in range(n_folds):
+            fold_dir = os.path.join(run_dir, f'fold_{fold_idx}')
+            split_file = os.path.join(fold_dir, 'patient_split.json')
+            if os.path.exists(split_file):
+                with open(split_file, 'r') as f:
+                    split_data = json.load(f)
+                all_fold_test_ids.update(split_data.get('test', []))
+        
+        # Tüm sinyal verilerini bir kere yükle (tüm fold'lar paylaşacak)
+        print(f"\n{'='*70}")
+        print(f"TÜM FOLD'LAR İÇİN SİNYAL VERİLERİ TEK SEFERDE YÜKLENİYOR")
+        print(f"Toplam benzersiz test hastası: {len(all_fold_test_ids)}")
+        print(f"{'='*70}\n")
+        
+        shared_signal_cache = preload_all_signals_to_cache(sorted(all_fold_test_ids))
+        
+        fold_accuracies = []
+        
+        # Her fold için ayrı evaluation (veri tekrar yüklenmez!)
+        for fold_idx in range(n_folds):
+            fold_dir = os.path.join(run_dir, f'fold_{fold_idx}')
+            
+            if not os.path.exists(fold_dir):
+                print(f"⚠ Fold {fold_idx} dizini bulunamadı, atlanıyor...")
+                continue
+            
+            print(f"\n{'#'*70}")
+            print(f"# FOLD {fold_idx}/{n_folds - 1} EVALUATION")
+            print(f"{'#'*70}\n")
+            
+            result = evaluate_single_run(fold_dir, all_patient_ids, 
+                                         shared_signal_cache=shared_signal_cache)
+            
+            if result:
+                fold_accuracies.append(result['accuracy'])
+                print(f"\n✓ Fold {fold_idx} Test Accuracy: {result['accuracy']:.2f}%")
+        
+        # K-Fold özet
+        if fold_accuracies:
+            import numpy as np
+            mean_acc = np.mean(fold_accuracies)
+            std_acc = np.std(fold_accuracies)
+            
+            print(f"\n{'='*70}")
+            print(f"K-FOLD EVALUATION TAMAMLANDI!")
+            print(f"{'='*70}")
+            print(f"\n📊 TEST SONUÇLARI ({len(fold_accuracies)} fold):")
+            for i, acc in enumerate(fold_accuracies):
+                print(f"  Fold {i}: Test Acc = {acc:.2f}%")
+            print(f"\n  Ortalama Test Acc: {mean_acc:.2f}% ± {std_acc:.2f}%")
+            print(f"{'='*70}\n")
+            
+            # Özet güncelle
+            summary['test_mean_acc'] = float(mean_acc)
+            summary['test_std_acc'] = float(std_acc)
+            summary['test_fold_accuracies'] = fold_accuracies
+            
+            with open(kfold_summary, 'w') as f:
+                json.dump(summary, f, indent=2)
+            print(f"✓ kfold_summary.json güncellendi (test sonuçları eklendi)")
+        
+        # Shared cache'i temizle (bellek boşalt)
+        del shared_signal_cache
+        import gc
+        gc.collect()
+        torch.cuda.empty_cache() if torch.cuda.is_available() else None
+        print("✓ Shared signal cache temizlendi")
     
-    import json
-    with open(split_file, 'r') as f:
-        split_data = json.load(f)
-    
-    train_ids = split_data['train']
-    val_ids = split_data['val']
-    test_ids = split_data['test']
-    
-    print(f"\n{'='*70}")
-    print(f"SPLIT YÜKLENDI (RUN DIRECTORY'DEN)")
-    print(f"{'='*70}")
-    print(f"Train: {len(train_ids)} hasta")
-    print(f"Val:   {len(val_ids)} hasta")
-    print(f"Test:  {len(test_ids)} hasta")
-    print(f"{'='*70}\n")
-    
-    # Sadece test DataLoader
-    _, _, test_loader = create_dataloaders(
-        train_ids, val_ids, test_ids, preload=True
-    )
-    
-    # Model yükle
-    print(f"\n{'='*70}")
-    print(f"MODEL YÜKLENİYOR")
-    print(f"{'='*70}\n")
-    
-    model = get_model(config.MODEL_TYPE)
-    
-    # Best checkpoint'i yükle (run directory'den)
-    checkpoint_path = os.path.join(run_dir, 'checkpoints', 'best_model.pth')
-    
-    if not os.path.exists(checkpoint_path):
-        print(f"✗ Checkpoint bulunamadı: {checkpoint_path}")
-        print("Önce train.py çalıştırın!")
-        return
-    
-    checkpoint = torch.load(checkpoint_path, map_location=config.DEVICE)
-    model.load_state_dict(checkpoint['model_state_dict'])
-    
-    print(f"✓ Checkpoint yüklendi: {checkpoint_path}")
-    print(f"  Epoch: {checkpoint['epoch']}")
-    print(f"  Best val loss: {checkpoint['best_val_loss']:.4f}")
-    print(f"  Best val acc: {checkpoint['best_val_acc']:.2f}%")
-    
-    
-    # Evaluator (run_dir ile)
-    evaluator = Evaluator(model, test_loader, config.DEVICE, run_dir=run_dir)
-    
-    # 1. Temel değerlendirme
-    accuracy = evaluator.evaluate()
-    
-    # 2. Detaylı metrikler
-    metrics = evaluator.calculate_metrics()
-    
-    # 3. Confusion matrix (run directory'ye kaydet)
-    cm_path = os.path.join(run_dir, 'confusion_matrix.png')
-    cm_raw_path = os.path.join(run_dir, 'confusion_matrix_raw.png')
-    evaluator.plot_confusion_matrix(normalize=True, save_path=cm_path)
-    evaluator.plot_confusion_matrix(normalize=False, save_path=cm_raw_path)
-    
-    # 4. Per-class metrics grafiği (run directory'ye kaydet)
-    metrics_plot_path = os.path.join(run_dir, 'per_class_metrics.png')
-    evaluator.plot_per_class_metrics(metrics, save_path=metrics_plot_path)
-    
-    # 5. Hipnogramlar
-    evaluator.generate_hypnograms_for_test_patients()
-    
-    # 6. Sonuçları kaydet (run directory'ye)
-    results_path = os.path.join(run_dir, 'test_results.json')
-    evaluator.save_results(metrics, save_path=results_path)
-    
-    print(f"\n{'='*70}")
-    print(f"DEĞERLENDİRME TAMAMLANDI!")
-    print(f"{'='*70}")
-    print(f"Tüm sonuçlar '{run_dir}' klasöründe")
-    print(f"{'='*70}\n")
+    else:
+        # ============================================================
+        # NORMAL EVALUATION
+        # ============================================================
+        result = evaluate_single_run(run_dir, all_patient_ids)
+        
+        if result:
+            print(f"\n{'='*70}")
+            print(f"DEĞERLENDİRME TAMAMLANDI!")
+            print(f"{'='*70}")
+            print(f"Tüm sonuçlar '{run_dir}' klasöründe")
+            print(f"{'='*70}\n")
 
 
 if __name__ == "__main__":

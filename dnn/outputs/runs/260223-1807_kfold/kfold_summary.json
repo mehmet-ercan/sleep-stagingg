@@ -1,0 +1,50 @@
+{
+  "status": "in_progress",
+  "completed_folds": 4,
+  "n_folds": 5,
+  "n_test_patients": 5,
+  "n_cv_patients": 39,
+  "mean_val_acc": 81.768134486041,
+  "std_val_acc": 1.984805852328665,
+  "mean_val_loss": 0.5338522549734497,
+  "std_val_loss": 0.04840839938969607,
+  "fold_results": [
+    {
+      "fold": 0,
+      "best_val_loss": 0.493679841057952,
+      "best_val_acc": 84.43983402489627,
+      "final_train_acc": 87.824364476725,
+      "final_val_acc": 83.49325726141079
+    },
+    {
+      "fold": 1,
+      "best_val_loss": 0.48003386422216954,
+      "best_val_acc": 82.86579744501515,
+      "final_train_acc": 86.75721003650236,
+      "final_val_acc": 81.18003424206506
+    },
+    {
+      "fold": 2,
+      "best_val_loss": 0.5957827639699925,
+      "best_val_acc": 79.48916408668731,
+      "final_train_acc": 84.45619834710743,
+      "final_val_acc": 76.14809081527348
+    },
+    {
+      "fold": 3,
+      "best_val_loss": 0.5659125506436846,
+      "best_val_acc": 80.2777423875653,
+      "final_train_acc": 84.21384273538288,
+      "final_val_acc": 77.04166135813479
+    }
+  ],
+  "test_mean_acc": 79.51427354069025,
+  "test_std_acc": 2.092010687362184,
+  "test_fold_accuracies": [
+    81.6148274392842,
+    80.89049850873455,
+    75.6071580741372,
+    79.3992330634853,
+    80.05965061780996
+  ]
+}

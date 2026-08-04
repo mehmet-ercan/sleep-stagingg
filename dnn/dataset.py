@@ -6,16 +6,25 @@ Tüm veriyi başlangıçta RAM'e yükler, sonra oradan okur.
 import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
-from pymongo import MongoClient
-import gridfs
 import random
 import sys
 import os
 from tqdm import tqdm
+from scipy.signal import butter, filtfilt
+
+# MongoDB import'ları offline modda opsiyonel
+try:
+    from pymongo import MongoClient
+    import gridfs
+    HAS_PYMONGO = True
+except ImportError:
+    HAS_PYMONGO = False
 
 # Kendi modüllerimizi import et
 import config
-from edf_to_mongo import get_cached_stages, _STAGES_CACHE, extract_epoch_range_data_v2
+from edf_to_mongo import (get_cached_stages, _STAGES_CACHE, extract_epoch_range_data_v2,
+                           get_offline_signal, _load_offline_patient, _SIGNALS_CACHE,
+                           clear_stages_cache)
 
 
 class SleepEpochDataset(Dataset):
@@ -253,21 +262,108 @@ class SleepEpochDataset(Dataset):
     
     def _preload_all_signals(self):
         """
-        Tüm epoch'ları MongoDB'den çekip RAM'e yükle.
+        Tüm epoch'ları RAM'e yükle.
+        Offline modda .npz dosyalarından, normal modda MongoDB'den yükler.
+        
+        Bellek-verimli mod (offline): Hasta bazında yükle → kopyala → serbest bırak.
+        Bu sayede global _SIGNALS_CACHE'de tüm hastalar aynı anda tutulmaz.
+        Peak bellek: ~1 hasta NPZ (~15 MB) + birikmiş self.signal_cache
+        
         Cache format: {(patient_id, epoch_idx, channel_name): signal_array}
         """
-        print(f"\n{'='*70}")
-        print(f"RAM CACHE OLUŞTURULUYOR - TÜM VERİLER YÜKLENİYOR")
-        print(f"{'='*70}")
-        print(f"Toplam epoch: {len(self.epoch_metadata)}")
-        print(f"Kanal sayısı: {len(self.channels)}")
-        print(f"Tahmini boyut: ~{len(self.epoch_metadata) * len(self.channels) * 7680 * 4 / (1024**3):.2f} GB")
-        print(f"{'='*70}\n")
+        estimated_gb = len(self.epoch_metadata) * len(self.channels) * config.SAMPLES_PER_EPOCH * 4 / (1024**3)
         
-        # STDOUT'u kapat (print bastırma)
+        print(f"\n{'='*70}", flush=True)
+        print(f"RAM CACHE OLUŞTURULUYOR - BELLEK-VERİMLİ MOD", flush=True)
+        if config.USE_OFFLINE_DATA:
+            print(f"Kaynak: Offline (.npz dosyaları)", flush=True)
+            print(f"Strateji: Hasta bazında yükle → kopyala → serbest bırak", flush=True)
+        else:
+            print(f"Kaynak: MongoDB", flush=True)
+        print(f"{'='*70}", flush=True)
+        print(f"Toplam epoch: {len(self.epoch_metadata)}", flush=True)
+        print(f"Kanal sayısı: {len(self.channels)}", flush=True)
+        print(f"Tahmini boyut: ~{estimated_gb:.2f} GB", flush=True)
+        print(f"{'='*70}\n", flush=True)
+        
+        if config.USE_OFFLINE_DATA:
+            self._preload_offline_memory_efficient()
+        else:
+            self._preload_from_mongodb()
+        
+        # Bellek kullanımını hesapla
+        total_bytes = sum(sig.nbytes for sig in self.signal_cache.values())
+        total_gb = total_bytes / (1024**3)
+        
+        print(f"\n{'='*70}", flush=True)
+        print(f"✓ RAM CACHE HAZIR!", flush=True)
+        print(f"{'='*70}", flush=True)
+        print(f"Cache'deki veri sayısı: {len(self.signal_cache):,}", flush=True)
+        print(f"Toplam bellek kullanımı: {total_gb:.2f} GB", flush=True)
+        print(f"{'='*70}\n", flush=True)
+    
+    def _preload_offline_memory_efficient(self):
+        """
+        Offline NPZ'den bellek-verimli yükleme.
+        Hasta bazında: NPZ yükle → epoch'ları kopyala → global cache'den sil.
+        Peak bellek: sadece 1 hastanın sinyalleri + birikmiş self.signal_cache.
+        """
+        from collections import defaultdict
+        
+        # Epoch'ları hasta bazında grupla
+        patient_epochs = defaultdict(list)
+        for meta in self.epoch_metadata:
+            patient_epochs[meta['patient_id']].append(meta)
+        
+        total_loads = len(self.epoch_metadata) * len(self.channels)
+        
+        with tqdm(total=total_loads, desc="Veri yükleniyor", unit="epoch-kanal") as pbar:
+            for patient_idx, (patient_id, metas) in enumerate(patient_epochs.items(), 1):
+                # Bu hastayı global cache'e yükle (sinyaller dahil)
+                _load_offline_patient(patient_id, load_signals=True)
+                
+                # Tüm epoch'ları self.signal_cache'e kopyala
+                for meta in metas:
+                    epoch_idx = meta['epoch_idx']
+                    for channel_name in self.channels:
+                        cache_key = (patient_id, epoch_idx, channel_name)
+                        
+                        if cache_key in self.signal_cache:
+                            pbar.update(1)
+                            continue
+                        
+                        try:
+                            signal = get_offline_signal(patient_id, channel_name, epoch_idx)
+                            if signal is None:
+                                signal = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+                            else:
+                                signal = signal.astype(np.float32)
+                                if len(signal) != config.SAMPLES_PER_EPOCH:
+                                    if len(signal) < config.SAMPLES_PER_EPOCH:
+                                        signal = np.pad(signal,
+                                                       (0, config.SAMPLES_PER_EPOCH - len(signal)),
+                                                       mode='constant')
+                                    else:
+                                        signal = signal[:config.SAMPLES_PER_EPOCH]
+                            
+                            self.signal_cache[cache_key] = signal
+                            
+                        except Exception as e:
+                            print(f"\n⚠ Hata: {patient_id}, epoch {epoch_idx}, {channel_name}: {str(e)}")
+                            self.signal_cache[cache_key] = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+                        
+                        pbar.update(1)
+                
+                # Bu hastanın sinyallerini global cache'den sil (bellek tasarrufu)
+                for channel_name in self.channels:
+                    channel_safe = channel_name.replace(' ', '_').replace('/', '-')
+                    _SIGNALS_CACHE.pop((patient_id, channel_safe), None)
+    
+    def _preload_from_mongodb(self):
+        """
+        MongoDB'den sinyal yükleme (eski yöntem, değişmedi).
+        """
         original_stdout = sys.stdout
-        
-        # Progress bar ile yükleme
         total_loads = len(self.epoch_metadata) * len(self.channels)
         
         with tqdm(total=total_loads, desc="Veri yükleniyor", unit="epoch-kanal") as pbar:
@@ -278,16 +374,12 @@ class SleepEpochDataset(Dataset):
                 for channel_name in self.channels:
                     cache_key = (patient_id, epoch_idx, channel_name)
                     
-                    # Zaten yüklenmişse atla
                     if cache_key in self.signal_cache:
                         pbar.update(1)
                         continue
                     
-                    # Print'leri bastır
-                    sys.stdout = open(os.devnull, 'w')
-                    
                     try:
-                        # MongoDB'den çek
+                        sys.stdout = open(os.devnull, 'w')
                         result = extract_epoch_range_data_v2(
                             patient_id=patient_id,
                             channel_name=channel_name,
@@ -297,16 +389,20 @@ class SleepEpochDataset(Dataset):
                             db_name=self.db_name,
                             save_to_file=False
                         )
-                        
-                        # Stdout'u geri yükle
                         sys.stdout = original_stdout
-                        
+
                         if result is None:
+                            if not hasattr(self, '_missing_channel_warned'):
+                                self._missing_channel_warned = set()
+                            warn_key = (patient_id, channel_name)
+                            if warn_key not in self._missing_channel_warned:
+                                self._missing_channel_warned.add(warn_key)
+                                print(f"\n⚠️ UYARI: Kanal '{channel_name}' bulunamadı! "
+                                      f"(hasta={patient_id[:8]}..., db={self.db_name}). "
+                                      f"SIFIR sinyal kullanılıyor!")
                             signal = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
                         else:
                             signal = result['signal_data'].astype(np.float32)
-                            
-                            # Boyut kontrolü
                             if len(signal) != config.SAMPLES_PER_EPOCH:
                                 if len(signal) < config.SAMPLES_PER_EPOCH:
                                     signal = np.pad(signal, 
@@ -315,28 +411,14 @@ class SleepEpochDataset(Dataset):
                                 else:
                                     signal = signal[:config.SAMPLES_PER_EPOCH]
                         
-                        # Cache'e ekle
                         self.signal_cache[cache_key] = signal
                         
                     except Exception as e:
-                        # Hata durumunda stdout'u geri yükle
                         sys.stdout = original_stdout
                         print(f"\n⚠ Hata: {patient_id}, epoch {epoch_idx}, {channel_name}: {str(e)}")
-                        # Sıfırlarla doldur
                         self.signal_cache[cache_key] = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
                     
                     pbar.update(1)
-        
-        # Bellek kullanımını hesapla
-        total_bytes = sum(sig.nbytes for sig in self.signal_cache.values())
-        total_gb = total_bytes / (1024**3)
-        
-        print(f"\n{'='*70}")
-        print(f"✓ RAM CACHE HAZIR!")
-        print(f"{'='*70}")
-        print(f"Cache'deki veri sayısı: {len(self.signal_cache):,}")
-        print(f"Toplam bellek kullanımı: {total_gb:.2f} GB")
-        print(f"{'='*70}\n")
     
     def __len__(self):
         """
@@ -405,9 +487,25 @@ class SleepEpochDataset(Dataset):
     
     def _load_signal_on_the_fly(self, patient_id, epoch_idx, channel_name):
         """
-        Cache kapalıysa MongoDB'den direkt yükle
+        Cache kapalıysa kaynaktan direkt yükle.
+        Offline modda .npz'den, normal modda MongoDB'den okur.
         """
-        # Print'leri bastır
+        # Offline mod
+        if config.USE_OFFLINE_DATA:
+            signal = get_offline_signal(patient_id, channel_name, epoch_idx)
+            if signal is None:
+                return np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+            signal = signal.astype(np.float32)
+            if len(signal) != config.SAMPLES_PER_EPOCH:
+                if len(signal) < config.SAMPLES_PER_EPOCH:
+                    signal = np.pad(signal,
+                                   (0, config.SAMPLES_PER_EPOCH - len(signal)),
+                                   mode='constant')
+                else:
+                    signal = signal[:config.SAMPLES_PER_EPOCH]
+            return signal
+        
+        # Normal mod: MongoDB'den yükle
         original_stdout = sys.stdout
         sys.stdout = open(os.devnull, 'w')
         
@@ -564,6 +662,10 @@ class SleepEpochDataset(Dataset):
     def get_class_weights(self):
         """
         Dengesiz sınıflar için class weight'leri hesapla.
+        Mode: config.CLASS_WEIGHT_MODE
+          'inverse' : total / (N * count)         → agresif (N3 ~5.4x)
+          'sqrt'    : sqrt(total / (N * count))   → yumuşak (N3 ~2.3x)
+          'log'     : log(total / (N * count)) + 1 → daha yumuşak
         
         Returns:
             torch.Tensor: [n_classes] boyutunda weight'ler
@@ -574,9 +676,18 @@ class SleepEpochDataset(Dataset):
             label = meta['label']
             class_counts[label] += 1
         
-        # Inverse frequency
+        # Inverse frequency (base)
         total = len(self.epoch_metadata)
-        class_weights = total / (config.N_CLASSES * class_counts + 1e-6)
+        raw_weights = total / (config.N_CLASSES * class_counts + 1e-6)
+        
+        # Mode seçimi
+        mode = getattr(config, 'CLASS_WEIGHT_MODE', 'inverse')
+        if mode == 'sqrt':
+            class_weights = np.sqrt(raw_weights)
+        elif mode == 'log':
+            class_weights = np.log(raw_weights) + 1.0
+        else:  # 'inverse'
+            class_weights = raw_weights
         
         return torch.from_numpy(class_weights).float()
     
@@ -587,70 +698,174 @@ class SleepEpochDataset(Dataset):
         self.signal_cache.clear()
         print("✓ RAM cache temizlendi")
 
-def split_patients(all_patient_ids, n_train, n_val, n_test, seed=None, run_dir=None):
+def get_subject_id(patient_id):
     """
-    Hastaları train/val/test setlerine böl (RANDOM - her run için farklı)
+    Recording ID'den subject ID'yi çıkar.
+    SC format: SC4XXYZO → subject = "XX" (patient_id[3:5])
+    ST format: ST7XXYZO → subject = "XX" (patient_id[3:5])
+    PSG format: Diğer → patient_id kendisi subject
+    
+    Returns:
+        str: Subject ID
+    """
+    if patient_id.startswith(('SC4', 'ST7')):
+        return patient_id[3:5]
+    return patient_id
+
+
+def group_by_subject(patient_ids):
+    """
+    Recording ID'leri subject bazında grupla.
     
     Args:
-        all_patient_ids: Tüm hasta ID'leri
-        n_train: Train set hasta sayısı
-        n_val: Validation set hasta sayısı
-        n_test: Test set hasta sayısı
+        patient_ids: Recording ID listesi (ör: ['SC4001E0', 'SC4002E0', ...])
+    
+    Returns:
+        dict: {subject_id: [recording_id, ...]}
+              Sıralı (her subject'in recording'leri de sıralı)
+    """
+    from collections import defaultdict
+    subject_map = defaultdict(list)
+    for pid in patient_ids:
+        subj = get_subject_id(pid)
+        subject_map[subj].append(pid)
+    # Sırala
+    return {s: sorted(recs) for s, recs in sorted(subject_map.items())}
+
+
+def subjects_to_recordings(subject_ids, subject_map):
+    """
+    Subject ID listesinden recording ID listesine çevir.
+    
+    Args:
+        subject_ids: Subject ID listesi (ör: ['00', '01', ...])
+        subject_map: {subject_id: [recording_id, ...]}
+    
+    Returns:
+        list: Recording ID'ler (sıralı)
+    """
+    recordings = []
+    for subj in subject_ids:
+        recordings.extend(subject_map.get(subj, []))
+    return sorted(recordings)
+
+
+def split_patients(all_patient_ids, n_train, n_val, n_test, seed=None, run_dir=None):
+    """
+    Hastaları train/val/test setlerine böl.
+    SC/ST modunda SUBJECT-LEVEL split yapar (aynı kişinin tüm geceleri aynı set'te).
+    
+    Args:
+        all_patient_ids: Tüm recording ID'leri
+        n_train: Train set subject/hasta sayısı
+        n_val: Validation set subject/hasta sayısı
+        n_test: Test set subject/hasta sayısı
         seed: Random seed (None ise her run'da farklı split)
         run_dir: Split'in kaydedileceği run directory
     
     Returns:
-        train_ids, val_ids, test_ids
+        train_ids, val_ids, test_ids (recording ID listesi)
     """
     import random
     import json
     import os
+    import time as _time
     
-    # Random seed ayarla (None ise timestamp-based random)
+    # Random seed ayarla
     if seed is not None:
         random.seed(seed)
     else:
-        # Her run için farklı seed (timestamp-based)
-        import time
-        random.seed(int(time.time() * 1000) % (2**32))
+        random.seed(int(_time.time() * 1000) % (2**32))
     
-    # Hasta listesini karıştır
-    patient_list = list(all_patient_ids)
-    random.shuffle(patient_list)
+    # Subject-level split gerekli mi?
+    use_subject_split = config.USE_PHYSIONET and config.PHYSIONET_DATASET == "SC"
     
-    # Toplam hasta sayısını kontrol et
-    total_needed = n_train + n_val + n_test
-    if len(patient_list) < total_needed:
-        raise ValueError(
-            f"Yetersiz hasta sayısı! "
-            f"Gerekli: {total_needed} (train:{n_train} + val:{n_val} + test:{n_test}), "
-            f"Mevcut: {len(patient_list)}"
-        )
+    if use_subject_split:
+        # Subject bazlı gruplama
+        subject_map = group_by_subject(all_patient_ids)
+        subject_list = list(subject_map.keys())
+        random.shuffle(subject_list)
+        
+        total_needed = n_train + n_val + n_test
+        if len(subject_list) < total_needed:
+            raise ValueError(
+                f"Yetersiz subject sayısı! "
+                f"Gerekli: {total_needed} (train:{n_train} + val:{n_val} + test:{n_test}), "
+                f"Mevcut: {len(subject_list)} subject"
+            )
+        
+        # Subject bazında split
+        train_subjects = subject_list[:n_train]
+        val_subjects = subject_list[n_train:n_train + n_val]
+        test_subjects = subject_list[n_train + n_val:n_train + n_val + n_test]
+        
+        # Subject → Recording dönüşümü
+        train_ids = subjects_to_recordings(train_subjects, subject_map)
+        val_ids = subjects_to_recordings(val_subjects, subject_map)
+        test_ids = subjects_to_recordings(test_subjects, subject_map)
+        
+        print(f"\n{'='*70}")
+        print(f"PATIENT SPLIT (SUBJECT-LEVEL)")
+        print(f"{'='*70}")
+        print(f"Toplam: {len(subject_list)} subject, {len(all_patient_ids)} recording")
+        print(f"Train: {len(train_subjects)} subject → {len(train_ids)} recording")
+        print(f"Val:   {len(val_subjects)} subject → {len(val_ids)} recording")
+        print(f"Test:  {len(test_subjects)} subject → {len(test_ids)} recording")
+        print(f"Seed:  {'Random (timestamp-based)' if seed is None else seed}")
+        print(f"{'='*70}\n")
+        
+        # Leakage kontrolü
+        train_subj_set = set(train_subjects)
+        val_subj_set = set(val_subjects)
+        test_subj_set = set(test_subjects)
+        assert len(train_subj_set & val_subj_set) == 0, "Train-Val subject leakage!"
+        assert len(train_subj_set & test_subj_set) == 0, "Train-Test subject leakage!"
+        assert len(val_subj_set & test_subj_set) == 0, "Val-Test subject leakage!"
+        print("✓ Subject-level leakage kontrolü: PASSED\n")
+        
+    else:
+        # Eski yöntem: recording bazlı split (PSG / ST)
+        patient_list = list(all_patient_ids)
+        random.shuffle(patient_list)
+        
+        total_needed = n_train + n_val + n_test
+        if len(patient_list) < total_needed:
+            raise ValueError(
+                f"Yetersiz hasta sayısı! "
+                f"Gerekli: {total_needed} (train:{n_train} + val:{n_val} + test:{n_test}), "
+                f"Mevcut: {len(patient_list)}"
+            )
+        
+        train_ids = patient_list[:n_train]
+        val_ids = patient_list[n_train:n_train + n_val]
+        test_ids = patient_list[n_train + n_val:n_train + n_val + n_test]
+        
+        train_subjects = val_subjects = test_subjects = None
+        
+        print(f"\n{'='*70}")
+        print(f"PATIENT SPLIT (RECORDING-LEVEL)")
+        print(f"{'='*70}")
+        print(f"Toplam hasta: {len(patient_list)}")
+        print(f"Train: {len(train_ids)} hasta")
+        print(f"Val:   {len(val_ids)} hasta")
+        print(f"Test:  {len(test_ids)} hasta")
+        print(f"Seed:  {'Random (timestamp-based)' if seed is None else seed}")
+        print(f"{'='*70}\n")
     
-    # Split yap
-    train_ids = patient_list[:n_train]
-    val_ids = patient_list[n_train:n_train + n_val]
-    test_ids = patient_list[n_train + n_val:n_train + n_val + n_test]
-    
-    print(f"\n{'='*70}")
-    print(f"PATIENT SPLIT (RANDOM)")
-    print(f"{'='*70}")
-    print(f"Toplam hasta: {len(patient_list)}")
-    print(f"Train: {len(train_ids)} hasta")
-    print(f"Val:   {len(val_ids)} hasta")
-    print(f"Test:  {len(test_ids)} hasta")
-    print(f"Seed:  {'Random (timestamp-based)' if seed is None else seed}")
-    print(f"{'='*70}\n")
-    
-    # Split'i kaydet (run directory'ye)
+    # Split'i kaydet
     if run_dir:
         split_data = {
             'train': train_ids,
             'val': val_ids,
             'test': test_ids,
             'seed': seed,
-            'timestamp': time.strftime('%Y-%m-%d %H:%M:%S')
+            'split_level': 'subject' if use_subject_split else 'recording',
+            'timestamp': _time.strftime('%Y-%m-%d %H:%M:%S')
         }
+        if use_subject_split:
+            split_data['train_subjects'] = sorted(train_subjects)
+            split_data['val_subjects'] = sorted(val_subjects)
+            split_data['test_subjects'] = sorted(test_subjects)
         
         split_file = os.path.join(run_dir, 'patient_split.json')
         with open(split_file, 'w') as f:
@@ -719,6 +934,7 @@ def create_dataloaders(train_ids, val_ids, test_ids, preload=True):
         train_dataset,
         batch_size=config.BATCH_SIZE,
         shuffle=True,
+        drop_last=True,  # BatchNorm için son eksik batch'i atla (örn: batch_size=1)
         num_workers=num_workers,
         pin_memory=config.PIN_MEMORY if not preload else False,
         persistent_workers=False
@@ -757,15 +973,152 @@ def create_dataloaders(train_ids, val_ids, test_ids, preload=True):
     return train_loader, val_loader, test_loader
 
 
+def create_test_dataloader(test_ids, preload=True):
+    """
+    Sadece Test DataLoader oluştur (evaluation için).
+    Train ve Val verilerini yüklemez, RAM tasarrufu sağlar.
+    
+    Args:
+        test_ids: Test hasta ID'leri
+        preload: True ise RAM cache kullan
+    
+    Returns:
+        test_loader: Test DataLoader
+    """
+    print(f"\n{'='*70}")
+    print(f"SADECE TEST DATALOADER OLUŞTURULUYOR")
+    print(f"{'='*70}")
+    print(f"RAM Cache: {'Aktif ✓' if preload else 'Pasif'}")
+    print(f"Test hastaları: {len(test_ids)}\n")
+    
+    test_dataset = SleepEpochDataset(
+        patient_ids=test_ids,
+        normalize=config.NORMALIZATION,
+        augment=False,
+        preload=preload,
+        balance_strategy='none'  # Test set için oversampling kapalı (gerçek dağılım)
+    )
+    
+    num_workers = 0 if preload else config.NUM_WORKERS
+    
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=config.BATCH_SIZE,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=config.PIN_MEMORY if not preload else False,
+        persistent_workers=False
+    )
+    
+    print(f"✓ Test DataLoader hazır!")
+    print(f"  Test: {len(test_loader)} batch ({len(test_dataset)} epoch)")
+    print(f"{'='*70}\n")
+    
+    return test_loader
+
+
+def create_test_dataloader_from_cache(test_ids, shared_signal_cache, preload=True):
+    """
+    Önceden yüklenmiş sinyal cache'ini kullanarak Test DataLoader oluştur.
+    K-Fold evaluation'da her fold için veriyi tekrar yüklememek için kullanılır.
+    
+    Args:
+        test_ids: Test hasta ID'leri
+        shared_signal_cache: Paylaşılan sinyal cache dict'i {(patient_id, epoch_idx, channel): signal}
+        preload: True ise cache kullan
+    
+    Returns:
+        test_loader: Test DataLoader
+    """
+    print(f"\n{'='*70}")
+    print(f"TEST DATALOADER OLUŞTURULUYOR (SHARED CACHE)")
+    print(f"{'='*70}")
+    print(f"Test hastaları: {len(test_ids)}\n")
+    
+    test_dataset = SleepEpochDataset(
+        patient_ids=test_ids,
+        normalize=config.NORMALIZATION,
+        augment=False,
+        preload=False,  # Kendi preload'ını yapmasın
+        balance_strategy='none'
+    )
+    
+    # Shared cache'den bu test hastalarının sinyallerini al
+    test_dataset.preload = True  # getitem'da cache'den okuması için
+    test_dataset.signal_cache = shared_signal_cache  # Shared cache'i bağla
+    
+    num_workers = 0
+    
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=config.BATCH_SIZE,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=False,
+        persistent_workers=False
+    )
+    
+    print(f"✓ Test DataLoader hazır (shared cache)!")
+    print(f"  Test: {len(test_loader)} batch ({len(test_dataset)} epoch)")
+    print(f"{'='*70}\n")
+    
+    return test_loader
+
+
+def preload_all_signals_to_cache(patient_ids):
+    """
+    Tüm hastaların sinyal verilerini tek seferde RAM'e yükle.
+    K-Fold evaluation'da tüm fold'lar bu cache'i paylaşır.
+    
+    Args:
+        patient_ids: Tüm hasta ID'leri
+    
+    Returns:
+        signal_cache: {(patient_id, epoch_idx, channel_name): signal_array}
+    """
+    print(f"\n{'='*70}")
+    print(f"TÜM SİNYAL VERİLERİ YÜKLENIYOR (SHARED CACHE)")
+    print(f"{'='*70}")
+    print(f"Toplam hasta: {len(patient_ids)}")
+    print(f"Kanallar: {config.SELECTED_CHANNELS}\n")
+    
+    # Geçici bir dataset oluştur (tüm hastalar, preload=True)
+    temp_dataset = SleepEpochDataset(
+        patient_ids=patient_ids,
+        normalize=config.NORMALIZATION,
+        augment=False,
+        preload=True,
+        balance_strategy='none'
+    )
+    
+    # Cache'i al ve dataset'i sil (metadata'yı serbest bırak)
+    signal_cache = temp_dataset.signal_cache
+    
+    total_bytes = sum(sig.nbytes for sig in signal_cache.values())
+    total_gb = total_bytes / (1024**3)
+    
+    print(f"\n{'='*70}")
+    print(f"✓ SHARED CACHE HAZIR!")
+    print(f"  Toplam sinyal: {len(signal_cache):,}")
+    print(f"  Bellek kullanımı: {total_gb:.2f} GB")
+    print(f"{'='*70}\n")
+    
+    return signal_cache
+
+
 # ============================================================================
-# Sequence Dataset for DeepSleepNet (BiLSTM)
+# Sequence Dataset for Temporal Models (Transformer, DeepSleepNet, etc.)
 # ============================================================================
 class SleepSequenceDataset(Dataset):
     """
-    Sequence-based dataset for DeepSleepNet with BiLSTM.
+    Sequence-based dataset for temporal sleep stage models.
     Returns consecutive epochs for temporal learning.
     
-    BiLSTM sayesinde model şu geçişleri öğrenir:
+    Desteklenen modeller:
+    - SleepTransformer (Self-Attention ile temporal context)
+    - DeepSleepNet (BiLSTM ile temporal context)
+    
+    Temporal context sayesinde model şu geçişleri öğrenir:
     - Wake → N1 → N2 (uykuya dalış)
     - N2 → N1 → REM (REM döngüsü)
     - N3 → N2 → N1 (uyanma)
@@ -893,18 +1246,20 @@ class SleepSequenceDataset(Dataset):
             
             print(f"  {patient_id}: {n_sequences} sequence")
         
-        # STATEFUL LSTM: Shuffle YOK - hastalar sıralı işlenir
-        # Hastalar zaten train başında random seçildi
-        # random.shuffle(self.sequence_metadata)  # KALDIRILDI
+        # Not: Sequence'lar burada sıralı oluşturulur.
+        # DataLoader(shuffle=True) ile training sırasında karıştırılır.
         
         print(f"\nToplam: {len(self.sequence_metadata)} sequence")
-        print(f"(Stateful LSTM: Shuffle kapalı - hastalar sıralı işlenecek)")
         print(f"{'='*70}\n")
     
     def _preload_all_signals(self):
         """Tüm epoch sinyallerini RAM'e yükle."""
         print(f"\n{'='*70}")
         print(f"RAM CACHE OLUŞTURULUYOR (SEQUENCE MODE)")
+        if config.USE_OFFLINE_DATA:
+            print(f"Kaynak: Offline (.npz dosyaları)")
+        else:
+            print(f"Kaynak: MongoDB")
         print(f"{'='*70}")
         
         # Tüm unique (patient_id, epoch_idx, channel) kombinasyonlarını bul
@@ -930,32 +1285,42 @@ class SleepSequenceDataset(Dataset):
                     pbar.update(1)
                     continue
                 
-                sys.stdout = open(os.devnull, 'w')
-                
                 try:
-                    result = extract_epoch_range_data_v2(
-                        patient_id=patient_id,
-                        channel_name=channel,
-                        start_epoch=epoch_idx,
-                        end_epoch=epoch_idx,
-                        mongo_uri=self.mongo_uri,
-                        db_name=self.db_name,
-                        save_to_file=False
-                    )
-                    
-                    sys.stdout = original_stdout
-                    
-                    if result is None:
-                        signal = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+                    if config.USE_OFFLINE_DATA:
+                        # Offline mod: .npz cache'den oku
+                        signal = get_offline_signal(patient_id, channel, epoch_idx)
+                        if signal is None:
+                            signal = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+                        else:
+                            signal = signal.astype(np.float32)
+                            if len(signal) != config.SAMPLES_PER_EPOCH:
+                                if len(signal) < config.SAMPLES_PER_EPOCH:
+                                    signal = np.pad(signal, (0, config.SAMPLES_PER_EPOCH - len(signal)))
+                                else:
+                                    signal = signal[:config.SAMPLES_PER_EPOCH]
                     else:
-                        signal = result['signal_data'].astype(np.float32)
+                        # Normal mod: MongoDB'den çek
+                        sys.stdout = open(os.devnull, 'w')
+                        result = extract_epoch_range_data_v2(
+                            patient_id=patient_id,
+                            channel_name=channel,
+                            start_epoch=epoch_idx,
+                            end_epoch=epoch_idx,
+                            mongo_uri=self.mongo_uri,
+                            db_name=self.db_name,
+                            save_to_file=False
+                        )
+                        sys.stdout = original_stdout
                         
-                        # Boyut kontrolü ve düzeltme
-                        if len(signal) != config.SAMPLES_PER_EPOCH:
-                            if len(signal) < config.SAMPLES_PER_EPOCH:
-                                signal = np.pad(signal, (0, config.SAMPLES_PER_EPOCH - len(signal)))
-                            else:
-                                signal = signal[:config.SAMPLES_PER_EPOCH]
+                        if result is None:
+                            signal = np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+                        else:
+                            signal = result['signal_data'].astype(np.float32)
+                            if len(signal) != config.SAMPLES_PER_EPOCH:
+                                if len(signal) < config.SAMPLES_PER_EPOCH:
+                                    signal = np.pad(signal, (0, config.SAMPLES_PER_EPOCH - len(signal)))
+                                else:
+                                    signal = signal[:config.SAMPLES_PER_EPOCH]
                     
                     self.signal_cache[cache_key] = signal
                     
@@ -1026,7 +1391,21 @@ class SleepSequenceDataset(Dataset):
         return torch.from_numpy(signals).float(), torch.from_numpy(labels).long()
     
     def _load_signal_on_the_fly(self, patient_id, epoch_idx, channel_name):
-        """Cache kapalıysa MongoDB'den direkt yükle."""
+        """Cache kapalıysa kaynaktan direkt yükle."""
+        # Offline mod
+        if config.USE_OFFLINE_DATA:
+            signal = get_offline_signal(patient_id, channel_name, epoch_idx)
+            if signal is None:
+                return np.zeros(config.SAMPLES_PER_EPOCH, dtype=np.float32)
+            signal = signal.astype(np.float32)
+            if len(signal) != config.SAMPLES_PER_EPOCH:
+                if len(signal) < config.SAMPLES_PER_EPOCH:
+                    signal = np.pad(signal, (0, config.SAMPLES_PER_EPOCH - len(signal)))
+                else:
+                    signal = signal[:config.SAMPLES_PER_EPOCH]
+            return signal
+        
+        # Normal mod: MongoDB'den yükle
         original_stdout = sys.stdout
         sys.stdout = open(os.devnull, 'w')
         
@@ -1094,7 +1473,7 @@ class SleepSequenceDataset(Dataset):
     def get_class_weights(self):
         """
         Class imbalance için ağırlıklar hesapla.
-        Inverse frequency weighting kullanır.
+        Mode: config.CLASS_WEIGHT_MODE ('inverse', 'sqrt', 'log')
         
         Returns:
             torch.Tensor: [n_classes] boyutunda class weights
@@ -1110,9 +1489,17 @@ class SleepSequenceDataset(Dataset):
         # Total samples
         total = sum(class_counts)
         
-        # Inverse frequency weighting: weight = total / (n_classes * count)
-        # Adds epsilon to prevent division by zero
-        class_weights = total / (config.N_CLASSES * class_counts + 1e-6)
+        # Inverse frequency weighting (base)
+        raw_weights = total / (config.N_CLASSES * class_counts + 1e-6)
+        
+        # Mode seçimi
+        mode = getattr(config, 'CLASS_WEIGHT_MODE', 'inverse')
+        if mode == 'sqrt':
+            class_weights = np.sqrt(raw_weights)
+        elif mode == 'log':
+            class_weights = np.log(raw_weights) + 1.0
+        else:  # 'inverse'
+            class_weights = raw_weights
         
         return torch.from_numpy(class_weights).float()
     
